@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/font/montserrat/Montserrat-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'MontserratMedium';
+    src: url('../assets/font/montserrat/Montserrat-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../assets/font/Poppins/Poppins-Regular.ttf') format('truetype');
+}

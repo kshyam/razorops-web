@@ -1,5 +1,11 @@
-import React from "react";
+import React from 'react';
+import Navbar from '../components/navbar';
 
 export default function Container({ children }) {
-  return <div className="container mx-auto px-5">{children}</div>
+    return (
+        <div>
+            <Navbar />
+            {children}
+        </div>
+    );
 }
