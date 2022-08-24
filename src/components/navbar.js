@@ -4,6 +4,7 @@ import { Button, CssBaseline, Grid, IconButton, Toolbar, AppBar } from '@mui/mat
 import logo from '../assets/images/logo.svg';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styled from '@emotion/styled';
 import {
     color1,
@@ -14,6 +15,18 @@ import {
     lineHeight27
 } from '../assets/globalStyles';
 import { Drawer } from '@mui/material';
+import Dropdown from './common/dropdown';
+import ios from '../assets/images/dropdown/ios-logo-razorops.png';
+import kubernetes from '../assets/images/dropdown/docker&kubernetes-razorops.png';
+import android from '../assets/images/dropdown/android-logo-razorops.png';
+import monorepos from '../assets/images/dropdown/monorepos-razorops.png';
+import report from '../assets/images/dropdown/test-report-razorops.png';
+import hosted from '../assets/images/dropdown/self-hosted-razorops.png';
+import github from '../assets/images/dropdown/github.svg';
+import slack from '../assets/images/dropdown/slack.webp';
+import aws from '../assets/images/dropdown/aws.png';
+import bucket from '../assets/images/dropdown/bitbucket-blue-logo.png';
+import gitlab from '../assets/images/dropdown/gitlab.webp';
 
 const NavBar = styled(AppBar)`
     background: white;
@@ -34,7 +47,7 @@ const NavBar = styled(AppBar)`
 `;
 
 const Text = styled('span')`
-    padding: 10px;
+    padding: 5px;
     ${font2};
     font-size: ${fontSize18};
     line-height: ${lineHeight27};
@@ -113,17 +126,31 @@ const DrawerComponent = styled('div')`
     justify-content: center;
 `;
 
-const ToolbarComponent = styled(Toolbar)`
-    display: flex;
-    justify-content: space-between;
-`;
-
 const DrawerItem = styled(Grid)`
     padding: 10px;
 `;
 
 export default function Navbar() {
     const [showDrawer, setShowDrawer] = useState(false);
+    const [anchorElProduct, setAnchorElProduct] = useState(null);
+    const [anchorElResources, setAnchorElResources] = useState(null);
+    const [anchorElCompany, setAnchorElCompany] = useState(null);
+
+    const openProduct = Boolean(anchorElProduct);
+    const openResources = Boolean(anchorElResources);
+    const openCompany = Boolean(anchorElCompany);
+
+    const handleOpenProduct = (event) => {
+        setAnchorElProduct(event.currentTarget);
+    };
+
+    const handleOpenResources = (event) => {
+        setAnchorElResources(event.currentTarget);
+    };
+
+    const handleOpenCompany = (event) => {
+        setAnchorElCompany(event.currentTarget);
+    };
 
     const handleDrawerToggle = () => {
         setShowDrawer(!showDrawer);
@@ -132,7 +159,7 @@ export default function Navbar() {
         <>
             <NavBar position="fixed">
                 <CssBaseline />
-                <ToolbarComponent>
+                <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <MenuIconButton onClick={handleDrawerToggle} aria-label="menu">
                         <MenuIcon />
                     </MenuIconButton>
@@ -141,7 +168,7 @@ export default function Navbar() {
                     </LogoButton>
                     <Grid item />
                     <NavSection
-                        spacing={1}
+                        spacing={2}
                         container
                         alignItems={'center'}
                         justifyContent={'center'}>
@@ -150,22 +177,195 @@ export default function Navbar() {
                                 <Text>Blog</Text>
                             </NavLink>
                         </Grid>
-
                         <Grid item>
-                            <NavLink>
-                                <Text>Use-cases</Text>
+                            <NavLink style={{ display: 'flex', alignItems: 'center' }}>
+                                <Text>Product</Text>
+                                <ExpandMoreIcon
+                                    style={{ color: 'black' }}
+                                    onMouseOver={handleOpenProduct}
+                                />
+                                <Dropdown
+                                    open={openProduct}
+                                    anchorEl={anchorElProduct}
+                                    setAnchorEl={setAnchorElProduct}
+                                    column1={{
+                                        heading: 'Overview',
+                                        sub: 'Product Overview',
+                                        desc: 'Learn about Razorops - an industry-leading performance CI/CD tool'
+                                    }}
+                                    column2={{
+                                        heading: 'User Cases',
+                                        list: [
+                                            {
+                                                img: ios,
+                                                text: 'IOS'
+                                            },
+                                            {
+                                                img: kubernetes,
+                                                text: 'Docker & Kubernetes'
+                                            },
+                                            {
+                                                img: android,
+                                                text: 'Android'
+                                            }
+                                        ]
+                                    }}
+                                    column3={{
+                                        heading: 'Top Features',
+                                        list: [
+                                            {
+                                                img: report,
+                                                text: 'Test Reports'
+                                            },
+                                            {
+                                                img: monorepos,
+                                                text: 'Monorepos'
+                                            },
+                                            {
+                                                img: hosted,
+                                                text: 'Self-hosted agents'
+                                            }
+                                        ]
+                                    }}
+                                    column4={{
+                                        heading: 'Tools',
+                                        sub: 'Integrated Tools',
+                                        desc: 'Drag and drop actions & create\ndelivery pipelines like a devops\nexpert in a fully visualized user\ninterface.',
+                                        logos: [github, gitlab, aws, slack, bucket, aws]
+                                    }}
+                                />
                             </NavLink>
                         </Grid>
-
                         <Grid item>
-                            <NavLink>
+                            <NavLink style={{ display: 'flex', alignItems: 'center' }}>
                                 <Text>Resources</Text>
+                                <ExpandMoreIcon
+                                    style={{ color: 'black' }}
+                                    onMouseOver={handleOpenResources}
+                                />
+                                <Dropdown
+                                    open={openResources}
+                                    anchorEl={anchorElResources}
+                                    setAnchorEl={setAnchorElResources}
+                                    column1={{
+                                        heading: 'Overview',
+                                        sub: 'Resources Overview',
+                                        desc: 'Learn about Razorops - an industry-leading performance CI/CD tool'
+                                    }}
+                                    column2={{
+                                        heading: 'Documentation',
+                                        list: [
+                                            {
+                                                img: ios,
+                                                text: 'Documents'
+                                            },
+                                            {
+                                                img: kubernetes,
+                                                text: 'Get Started'
+                                            },
+                                            {
+                                                img: android,
+                                                text: 'Case Studies'
+                                            },
+                                            {
+                                                img: android,
+                                                text: 'Write For Us'
+                                            }
+                                        ]
+                                    }}
+                                    column3={{
+                                        heading: 'Media & Publications',
+                                        list: [
+                                            {
+                                                img: report,
+                                                text: 'Webinars'
+                                            },
+                                            {
+                                                img: monorepos,
+                                                text: 'Newsletter'
+                                            },
+                                            {
+                                                img: hosted,
+                                                text: 'Blog'
+                                            },
+                                            {
+                                                img: hosted,
+                                                text: 'Videos'
+                                            },
+                                            {
+                                                img: hosted,
+                                                text: 'Community'
+                                            }
+                                        ]
+                                    }}
+                                    column4={{
+                                        heading: 'Tools',
+                                        sub: 'Integrated Tools',
+                                        desc: 'Drag and drop actions & create\ndelivery pipelines like a devops\nexpert in a fully visualized user\ninterface.',
+                                        logos: [github, gitlab, aws, slack, bucket, aws]
+                                    }}
+                                />
                             </NavLink>
                         </Grid>
-
                         <Grid item>
-                            <NavLink>
-                                <Text>Customers</Text>
+                            <NavLink style={{ display: 'flex', alignItems: 'center' }}>
+                                <Text>Company</Text>
+                                <ExpandMoreIcon
+                                    style={{ color: 'black' }}
+                                    onMouseOver={handleOpenCompany}
+                                />
+                                <Dropdown
+                                    open={openCompany}
+                                    anchorEl={anchorElCompany}
+                                    setAnchorEl={setAnchorElCompany}
+                                    column1={{
+                                        heading: 'Overview',
+                                        sub: 'Company Overview',
+                                        desc: 'Learn about Razorops - an industry-leading performance CI/CD tool'
+                                    }}
+                                    column2={{
+                                        heading: 'Overview',
+                                        list: [
+                                            {
+                                                img: ios,
+                                                text: 'About Us'
+                                            },
+                                            {
+                                                img: kubernetes,
+                                                text: 'Customers'
+                                            },
+                                            {
+                                                img: android,
+                                                text: 'Open Source'
+                                            }
+                                        ]
+                                    }}
+                                    column3={{
+                                        heading: 'Learn & Connect',
+                                        list: [
+                                            {
+                                                img: report,
+                                                text: 'Partner with Razorops'
+                                            },
+                                            {
+                                                img: monorepos,
+                                                text: 'Refer & Earn'
+                                            },
+                                            {
+                                                img: hosted,
+                                                text: 'Career'
+                                            },
+                                            {
+                                                img: hosted,
+                                                text: 'Contact Us'
+                                            }
+                                        ]
+                                    }}
+                                    column4={{
+                                        heading: 'Socials',
+                                        logos: [github, gitlab, aws, slack, bucket, aws]
+                                    }}
+                                />
                             </NavLink>
                         </Grid>
                     </NavSection>
@@ -190,7 +390,7 @@ export default function Navbar() {
                             </DemoButton>
                         </Grid>
                     </NavSection>
-                </ToolbarComponent>
+                </Toolbar>
             </NavBar>
             <Drawer
                 anchor={'left'}
