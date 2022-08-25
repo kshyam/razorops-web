@@ -18,15 +18,11 @@ import { Button } from '@mui/material';
 import { Link } from 'gatsby';
 
 const Bg = styled('div')`
-    margin-top: 100px;
-    height: 100vh;
-    background-size: contain;
+    margin-top: 110px;
     background-image: url(${banner});
     background-repeat: no-repeat;
-
-    @media (max-width: 899px) {
-        background-size: cover;
-    }
+    background-size: cover;
+    background-position: center;
 `;
 
 const Heading = styled('div')`

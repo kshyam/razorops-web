@@ -2,11 +2,15 @@ import React from 'react';
 import TopSection from '../components/top-section';
 import Container from '../components/container';
 import { graphql } from 'gatsby';
+import TrustedBy from '../components/trusted-by';
+import About from '../components/about';
 
 export default function Index({ data: { allPosts, site, blog } }) {
     return (
         <Container>
             <TopSection />
+            <TrustedBy />
+            <About />
         </Container>
     );
 }

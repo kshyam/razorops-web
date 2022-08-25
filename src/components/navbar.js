@@ -32,8 +32,7 @@ const NavBar = styled(AppBar)`
     background: white;
     display: flex;
     justify-content: center;
-    height: 80px;
-    background: transparent;
+    height: 90px;
     box-shadow: none;
     &:hover {
         background: #ffffff;
@@ -142,14 +141,20 @@ export default function Navbar() {
 
     const handleOpenProduct = (event) => {
         setAnchorElProduct(event.currentTarget);
+        setAnchorElResources(null);
+        setAnchorElCompany(null);
     };
 
     const handleOpenResources = (event) => {
         setAnchorElResources(event.currentTarget);
+        setAnchorElProduct(null);
+        setAnchorElCompany(null);
     };
 
     const handleOpenCompany = (event) => {
         setAnchorElCompany(event.currentTarget);
+        setAnchorElProduct(null);
+        setAnchorElResources(null);
     };
 
     const handleDrawerToggle = () => {
@@ -182,7 +187,7 @@ export default function Navbar() {
                                 <Text>Product</Text>
                                 <ExpandMoreIcon
                                     style={{ color: 'black' }}
-                                    onMouseOver={handleOpenProduct}
+                                    onMouseEnter={handleOpenProduct}
                                 />
                                 <Dropdown
                                     open={openProduct}
@@ -241,7 +246,7 @@ export default function Navbar() {
                                 <Text>Resources</Text>
                                 <ExpandMoreIcon
                                     style={{ color: 'black' }}
-                                    onMouseOver={handleOpenResources}
+                                    onMouseEnter={handleOpenResources}
                                 />
                                 <Dropdown
                                     open={openResources}
@@ -312,7 +317,7 @@ export default function Navbar() {
                                 <Text>Company</Text>
                                 <ExpandMoreIcon
                                     style={{ color: 'black' }}
-                                    onMouseOver={handleOpenCompany}
+                                    onMouseEnter={handleOpenCompany}
                                 />
                                 <Dropdown
                                     open={openCompany}

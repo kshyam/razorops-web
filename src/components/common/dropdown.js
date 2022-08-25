@@ -16,6 +16,7 @@ const GridContainer = styled(Grid)`
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    background: #ffffff;
 `;
 
 const Title = styled('span')`
@@ -117,11 +118,17 @@ export default function Dropdown({
         <Menu
             open={open}
             anchorEl={anchorEl}
+            placement={'bottom'}
+            sx={{
+                pointerEvents: 'none'
+            }}
             PaperProps={{
                 onMouseLeave: handleClose,
-                sx: {
-                    pointerEvents: 'auto'
-                }
+                style: { transform: 'translateY(30px)' }
+            }}
+            elevation={1}
+            MenuListProps={{
+                style: { pointerEvents: 'auto' }
             }}
             onClose={handleClose}>
             <GridContainer container>
