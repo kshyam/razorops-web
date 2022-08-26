@@ -88,22 +88,22 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 100px calc((100% - 852px) / 2) 10px calc((100% - 852px) / 2);
+        padding: 100px calc((100% - 852px) / 2) 100px calc((100% - 852px) / 2);
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 100px calc((100% - 552px) / 2) 10px calc((100% - 552px) / 2);
+        padding: 100px calc((100% - 552px) / 2) 100px calc((100% - 552px) / 2);
     }
 
     @media (min-width: 1535px) {
-        padding: 200px 100px 10px 100px;
+        padding: 200px 180px 200px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 120px calc((100% - 1152px) / 2) 10px calc((100% - 1152px) / 2);
+        padding: 120px calc((100% - 1152px) / 2) 100px calc((100% - 1152px) / 2);
     }
     @media (max-width: 600px) {
-        padding: 20px calc((100% - 335px) / 2) 10px calc((100% - 335px) / 2);
+        padding: 20px calc((100% - 335px) / 2) 100px calc((100% - 335px) / 2);
     }
 `;
 

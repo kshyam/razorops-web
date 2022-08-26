@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid } from '@mui/material';
 import styled from '@emotion/styled';
-import { font6, fontSize22, lineHeight29 } from '../assets/globalStyles';
+import { font6, lineHeight29 } from '../assets/globalStyles';
 import dossier from '../assets/images/clients/1dossier.png';
 import auzmor from '../assets/images/clients/auzmor.png';
 import azure from '../assets/images/clients/azure.png';
@@ -28,7 +28,7 @@ const BG = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 20px 100px 10px 100px;
+        padding: 20px 180px 10px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -42,10 +42,14 @@ const BG = styled(Grid)`
 const Title = styled('div')`
     padding: 100px 0px 0px 0px;
     ${font6};
-    font-size: ${fontSize22};
+    font-size: 22px;
     line-height: ${lineHeight29};
     text-align: center;
     color: #5b5b5b;
+
+    @media (max-width: 600px) {
+        padding: 30px 0px 0px 0px;
+    }
 `;
 
 const TopGrid = styled(Grid)`
@@ -53,8 +57,13 @@ const TopGrid = styled(Grid)`
     justify-content: space-evenly;
     align-items: center;
 
+    @media (min-width: 900px) and (max-width: 1099px) {
+        min-width: 1100px;
+        justify-content: flex-start;
+    }
+
     @media (max-width: 899px) {
-        min-width: 1000px;
+        min-width: 950px;
         justify-content: flex-start;
     }
 `;

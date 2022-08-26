@@ -4,6 +4,7 @@ import Container from '../components/container';
 import { graphql } from 'gatsby';
 import TrustedBy from '../components/trusted-by';
 import About from '../components/about';
+import FeaturesContainer from '../components/features-container';
 
 export default function Index({ data: { allPosts, site, blog } }) {
     return (
@@ -11,6 +12,7 @@ export default function Index({ data: { allPosts, site, blog } }) {
             <TopSection />
             <TrustedBy />
             <About />
+            <FeaturesContainer />
         </Container>
     );
 }

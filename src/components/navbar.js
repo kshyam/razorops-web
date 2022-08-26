@@ -29,7 +29,8 @@ import bucket from '../assets/images/dropdown/bitbucket-blue-logo.png';
 import gitlab from '../assets/images/dropdown/gitlab.webp';
 
 const NavBar = styled(AppBar)`
-    background: white;
+    padding: 0px 10px;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     height: 90px;

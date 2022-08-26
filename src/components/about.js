@@ -35,7 +35,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 200px 100px 10px 100px;
+        padding: 200px 180px 10px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -190,7 +190,7 @@ const About = () => {
                     </Grid>
                 </RightContainer>
             </TopSectionContainer>
-            <Grid container>
+            <Grid container display={'flex'} justifyContent={'center'}>
                 <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
                     <img alt="" src={bottomImg} />
                 </Grid>
