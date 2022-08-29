@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { Button, CssBaseline, Grid, IconButton, Toolbar, AppBar } from '@mui/material';
 import logo from '../assets/images/logo.svg';
 import CloseIcon from '@mui/icons-material/Close';
@@ -169,7 +169,7 @@ export default function Navbar() {
                     <MenuIconButton onClick={handleDrawerToggle} aria-label="menu">
                         <MenuIcon />
                     </MenuIconButton>
-                    <LogoButton color="inherit" aria-label="menu">
+                    <LogoButton onClick={() => navigate('/')} color="inherit" aria-label="menu">
                         <img src={logo} alt="" />
                     </LogoButton>
                     <Grid item />

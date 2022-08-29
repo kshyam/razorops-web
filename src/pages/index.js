@@ -5,6 +5,8 @@ import { graphql } from 'gatsby';
 import TrustedBy from '../components/trusted-by';
 import About from '../components/about';
 import FeaturesContainer from '../components/features-container';
+import ToolIntegration from '../components/tool-integration';
+import RazoropsPipeline from '../components/razorops-pipeline';
 
 export default function Index({ data: { allPosts, site, blog } }) {
     return (
@@ -13,6 +15,8 @@ export default function Index({ data: { allPosts, site, blog } }) {
             <TrustedBy />
             <About />
             <FeaturesContainer />
+            <ToolIntegration />
+            <RazoropsPipeline />
         </Container>
     );
 }

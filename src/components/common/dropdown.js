@@ -124,7 +124,10 @@ export default function Dropdown({
             }}
             PaperProps={{
                 onMouseLeave: handleClose,
-                style: { transform: 'translateY(30px)' }
+                style: {
+                    transform: 'translateY(30px)',
+                    width: '100%'
+                }
             }}
             elevation={1}
             MenuListProps={{
