@@ -9,27 +9,28 @@ const Container = styled(Grid)`
     display: flex;
     flex-direction: ${(props) => props.direction};
     justify-content: space-between;
+
     @media (max-width: 899px) {
         align-items: center;
     }
-
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 50px calc((100% - 852px) / 2) 100px calc((100% - 852px) / 2);
+        padding: 70px 80px 70px 80px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 50px calc((100% - 552px) / 2) 100px calc((100% - 552px) / 2);
+        padding: 70px 50px 70px 50px;
     }
 
     @media (min-width: 1535px) {
-        padding: 100px 180px 100px 180px;
+        padding: 70px 180px 70px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 50px calc((100% - 1152px) / 2) 100px calc((100% - 1152px) / 2);
+        padding: 70px 100px 70px 100px;
     }
+
     @media (max-width: 600px) {
-        padding: 50px calc((100% - 335px) / 2) 100px calc((100% - 335px) / 2);
+        padding: 70px 20px 70px 20px;
         flex-direction: column-reverse;
     }
 `;

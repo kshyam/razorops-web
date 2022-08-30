@@ -18,24 +18,25 @@ import { color1, color2, font3, font6, fontSize18, lineHeight29 } from '../asset
 
 const BG = styled('div')`
     background: white;
+
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 40px calc((100% - 852px) / 2) 40px calc((100% - 852px) / 2);
+        padding: 70px 80px 70px 80px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 40px calc((100% - 552px) / 2) 40px calc((100% - 552px) / 2);
+        padding: 70px 50px 70px 50px;
     }
 
     @media (min-width: 1535px) {
-        padding: 40px calc((100% - 1152px) / 2) 40px calc((100% - 1152px) / 2);
+        padding: 70px 180px 70px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 40px calc((100% - 1152px) / 2) 40px calc((100% - 1152px) / 2);
+        padding: 70px 100px 70px 100px;
     }
 
-    @media (max-width: 599px) {
-        padding: 40px 20px 40px 20px;
+    @media (max-width: 600px) {
+        padding: 70px 20px 70px 20px;
     }
 `;
 

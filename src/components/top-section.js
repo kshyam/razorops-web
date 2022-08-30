@@ -83,27 +83,29 @@ const SubContainer = styled(Grid)`
 const TopSectionContainer = styled(Grid)`
     display: flex;
     justify-content: space-between;
+
     @media (max-width: 899px) {
         align-items: center;
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 100px calc((100% - 852px) / 2) 100px calc((100% - 852px) / 2);
+        padding: 100px 80px 100px 80px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 100px calc((100% - 552px) / 2) 100px calc((100% - 552px) / 2);
+        padding: 100px 50px 100px 50px;
     }
 
     @media (min-width: 1535px) {
-        padding: 200px 180px 200px 180px;
+        padding: 200px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 120px calc((100% - 1152px) / 2) 100px calc((100% - 1152px) / 2);
+        padding: 200px 100px 200px 100px;
     }
+
     @media (max-width: 600px) {
-        padding: 20px calc((100% - 335px) / 2) 100px calc((100% - 335px) / 2);
+        padding: 100px 20px 100px 20px;
     }
 `;
 

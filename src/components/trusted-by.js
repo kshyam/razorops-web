@@ -20,22 +20,23 @@ const BG = styled(Grid)`
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 20px calc((100% - 852px) / 2) 10px calc((100% - 852px) / 2);
+        padding: 50px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 20px calc((100% - 552px) / 2) 10px calc((100% - 552px) / 2);
+        padding: 50px;
     }
 
     @media (min-width: 1535px) {
-        padding: 20px 180px 10px 180px;
+        padding: 50px 180px 50px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 20px calc((100% - 1152px) / 2) 10px calc((100% - 1152px) / 2);
+        padding: 50px 180px 50px 180px;
     }
+
     @media (max-width: 600px) {
-        padding: 20px calc((100% - 335px) / 2) 10px calc((100% - 335px) / 2);
+        padding: 50px;
     }
 `;
 

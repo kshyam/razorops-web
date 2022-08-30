@@ -26,23 +26,25 @@ const BG = styled('div')`
         rgba(255, 255, 255, 0.8) -2.41%,
         rgba(240, 238, 255, 0.8) 42.23%
     );
+
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 60px calc((100% - 852px) / 2) 10px calc((100% - 852px) / 2);
+        padding: 70px 80px 70px 80px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 20px calc((100% - 552px) / 2) 10px calc((100% - 552px) / 2);
+        padding: 70px 50px 70px 50px;
     }
 
     @media (min-width: 1535px) {
-        padding: 200px 180px 10px 180px;
+        padding: 70px 180px 70px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 20px calc((100% - 1152px) / 2) 10px calc((100% - 1152px) / 2);
+        padding: 70px 100px 70px 100px;
     }
+
     @media (max-width: 600px) {
-        padding: 20px calc((100% - 335px) / 2) 10px calc((100% - 335px) / 2);
+        padding: 70px 20px 70px 20px;
     }
 `;
 
