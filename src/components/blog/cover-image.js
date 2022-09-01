@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 export default function CoverImage({ title, fluid, slug }) {
     const image = (
         <GatsbyImage
+            style={{ display: 'block' }}
             image={fluid}
             alt={`Cover Image for ${title}`}
             className={cn('shadow-small', {

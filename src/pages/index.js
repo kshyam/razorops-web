@@ -8,6 +8,7 @@ import FeaturesContainer from '../components/features-container';
 import ToolIntegration from '../components/tool-integration';
 import RazoropsPipeline from '../components/razorops-pipeline';
 import Support from '../components/support';
+import TalkOfTheTown from '../components/talk-of-the-town';
 
 export default function Index({ data: { allPosts, site, blog } }) {
     return (
@@ -19,6 +20,7 @@ export default function Index({ data: { allPosts, site, blog } }) {
             <ToolIntegration />
             <RazoropsPipeline />
             <Support />
+            <TalkOfTheTown />
         </Container>
     );
 }
