@@ -9,6 +9,8 @@ import ToolIntegration from '../components/tool-integration';
 import RazoropsPipeline from '../components/razorops-pipeline';
 import Support from '../components/support';
 import TalkOfTheTown from '../components/talk-of-the-town';
+import GetStarted from '../components/get-started';
+import SignUp from '../components/sign-up';
 
 export default function Index({ data: { allPosts, site, blog } }) {
     return (
@@ -21,6 +23,8 @@ export default function Index({ data: { allPosts, site, blog } }) {
             <RazoropsPipeline />
             <Support />
             <TalkOfTheTown />
+            <GetStarted />
+            <SignUp />
         </Container>
     );
 }

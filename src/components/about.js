@@ -36,7 +36,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 180px 70px 180px;
+        padding: 70px 100px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -44,7 +44,7 @@ const BG = styled('div')`
     }
 
     @media (max-width: 600px) {
-        padding: 70px 20px 70px 20px;
+        padding: 40px 0px 70px 0px;
     }
 `;
 
@@ -55,8 +55,8 @@ const Razorops = styled('span')`
     color: ${color4};
 
     @media (max-width: 600px) {
-        font-size: 24px;
-        line-height: 27px;
+        font-size: 27px;
+        line-height: 45px;
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
@@ -77,8 +77,8 @@ const Desc = styled('span')`
     color: ${color1};
 
     @media (max-width: 600px) {
-        font-size: 24px;
-        line-height: 27px;
+        font-size: 27px;
+        line-height: 45px;
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
@@ -106,6 +106,11 @@ const LeftContainer = styled(Grid)`
         margin: 20px;
         text-align: center;
     }
+
+    @media (max-width: 599px) {
+        margin: 0px;
+        text-align: left;
+    }
 `;
 
 const RightContainer = styled(Grid)`
@@ -120,6 +125,10 @@ const SubContainer = styled(Grid)`
         text-align: center;
         justify-content: center;
     }
+
+    @media (max-width: 599px) {
+        text-align: left;
+    }
 `;
 
 const TopSectionContainer = styled(Grid)`
@@ -127,7 +136,6 @@ const TopSectionContainer = styled(Grid)`
     justify-content: space-between;
 
     @media (max-width: 899px) {
-        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
     }
@@ -139,6 +147,11 @@ const RightSectionImg = styled('img')`
 
 const ImageGrid = styled(Grid)`
     padding: 0px 30px 0px 0px;
+
+    @media (max-width: 899px) {
+        display: flex;
+        justify-content: center;
+    }
 `;
 
 const Img = styled('img')`

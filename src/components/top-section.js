@@ -14,6 +14,7 @@ import {
     font5
 } from '../assets/globalStyles';
 import banner from '../assets/images/bannerImg.png';
+import btnIcon from '../assets/images/btnIcon.svg';
 import { Button } from '@mui/material';
 import { Link } from 'gatsby';
 
@@ -70,14 +71,14 @@ const SubText = styled('span')`
     }
 
     @media (max-width: 599px) {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 26px;
     }
 `;
 
-const SubContainer = styled(Grid)`
+const TextContainer = styled(Grid)`
     display: flex;
-    text-align: left;
+    flex-direction: column;
 `;
 
 const TopSectionContainer = styled(Grid)`
@@ -97,7 +98,7 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 200px;
+        padding: 200px 100px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -105,7 +106,8 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 100px 20px 100px 20px;
+        padding: 60px 40px 100px 40px;
+        justify-content: center;
     }
 `;
 
@@ -126,8 +128,7 @@ const SignUpText = styled('span')`
 `;
 
 const SignUpButton = styled(Button)`
-    width: 231px;
-    height: 50px;
+    padding: 10px 30px;
     background: ${color4};
     border-radius: 15px;
 
@@ -145,8 +146,7 @@ const Demo = styled('span')`
 `;
 
 const DemoButton = styled(Button)`
-    width: 231px;
-    height: 50px;
+    padding: 10px 30px;
     background: #dde5ff;
     border-radius: 15px;
 
@@ -160,21 +160,38 @@ const Explore = styled('span')`
     font-size: ${fontSize18};
     line-height: ${lineHeight29};
     color: #18204c;
+
+    @media (max-width: 600px) {
+        font-size: 16px;
+        line-height: ${lineHeight29};
+        text-align: left;
+    }
 `;
 
 const NavLink = styled(Link)`
     text-decoration: none;
 `;
 
+const ButtonGrid = styled(Grid)`
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: 600px) {
+        justify-content: center;
+    }
+`;
+
 const TopSection = () => {
     return (
         <Bg>
             <TopSectionContainer spacing={2} container>
-                <Grid item>
-                    <Cicd>{'CI/CD'}</Cicd>
-                    <Heading>{'Let’s get your\ncode tested!'}</Heading>
-                </Grid>
-                <SubContainer container style={{ marginTop: '10px' }} item>
+                <TextContainer container item spacing={2}>
+                    <Grid item>
+                        <Cicd>{'CI/CD'}</Cicd>
+                    </Grid>
+                    <Grid item>
+                        <Heading>{'Let’s get your\ncode tested!'}</Heading>
+                    </Grid>
                     <Grid item>
                         <SubText>
                             {
@@ -182,8 +199,8 @@ const TopSection = () => {
                             }
                         </SubText>
                     </Grid>
-                </SubContainer>
-                <Grid container item spacing={2} display={'flex'} flexDirection={'row'}>
+                </TextContainer>
+                <ButtonGrid container item spacing={2}>
                     <Grid item>
                         <SignUpButton variant="outlined">
                             <SignUpText>Sign up for free trial</SignUpText>
@@ -191,10 +208,11 @@ const TopSection = () => {
                     </Grid>
                     <Grid item>
                         <DemoButton variant="contained">
+                            <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
                             <Demo>Watch a demo</Demo>
                         </DemoButton>
                     </Grid>
-                </Grid>
+                </ButtonGrid>
                 <Grid item>
                     <NavLink>
                         <Explore>Explore Doc</Explore>

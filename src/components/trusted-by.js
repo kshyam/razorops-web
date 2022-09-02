@@ -28,7 +28,7 @@ const BG = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 50px 180px 50px 180px;
+        padding: 70px 200px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -81,7 +81,6 @@ const ImageGrid = styled(Grid)`
 
 const Img = styled('img')`
     width: 150px;
-    filter: gray;
     -webkit-filter: grayscale(1);
     -webkit-transition: all 0.8s ease-in-out;
     &:hover {

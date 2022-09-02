@@ -37,7 +37,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 180px 70px 180px;
+        padding: 70px 100px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -127,6 +127,12 @@ const Sub = styled('span')`
     font-size: ${fontSize20};
     line-height: ${lineHeight24};
     color: #9c9494;
+
+    @media (max-width: 1199px) {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
     @media (min-width: 600px) and (max-width: 899px) {
         font-size: 18px;
         line-height: 26px;
@@ -158,21 +164,31 @@ const TopSectionContainer = styled(Grid)`
     justify-content: space-between;
 
     @media (max-width: 899px) {
-        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
     }
 `;
 
 const BottomSectionContainer = styled(Grid)`
-    padding: 100px 0px;
+    padding: 140px 20px 80px 20px;
     display: flex;
     justify-content: center;
+
+    @media (max-width: 1199px) {
+        min-width: 2000px;
+        padding: 140px 0px 80px 0px;
+    }
+`;
+
+const BottomDiv = styled('div')`
+    @media (max-width: 1199px) {
+        overflow-x: auto;
+    }
 `;
 
 const CardContainer = styled(Card)`
-    padding: 10px 20px;
-    margin: 20px;
+    padding: 30px 20px;
+    margin: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,6 +196,10 @@ const CardContainer = styled(Card)`
     opacity: 0.8;
     box-shadow: 0px 4px 60px 6px rgba(0, 0, 0, 0.03);
     border-radius: 20px;
+
+    @media (max-width: 1199px) {
+        margin: 10px;
+    }
 `;
 
 const CardText = styled('span')`
@@ -266,8 +286,8 @@ const Support = () => {
                             }
                         </Desc>
                     </Grid>
-                    <Grid container item spacing={2}>
-                        <Grid item display={'flex'} flexDirection={'column'} xs={4} sm={4} md={4}>
+                    <Grid container item spacing={5}>
+                        <Grid item display={'flex'} flexDirection={'column'} xs={12} sm={4} md={4}>
                             <Grid item>
                                 <Title>24/7</Title>
                             </Grid>
@@ -275,7 +295,7 @@ const Support = () => {
                                 <Sub>The state art anti spoofing techniques</Sub>
                             </Grid>
                         </Grid>
-                        <Grid item display={'flex'} flexDirection={'column'} xs={4} sm={4} md={4}>
+                        <Grid item display={'flex'} flexDirection={'column'} xs={12} sm={4} md={4}>
                             <Grid item>
                                 <Title>24/7</Title>
                             </Grid>
@@ -283,7 +303,7 @@ const Support = () => {
                                 <Sub>The state art anti spoofing techniques</Sub>
                             </Grid>
                         </Grid>
-                        <Grid item display={'flex'} flexDirection={'column'} xs={4} sm={4} md={4}>
+                        <Grid item display={'flex'} flexDirection={'column'} xs={12} sm={4} md={4}>
                             <Grid item>
                                 <Title>24/7</Title>
                             </Grid>
@@ -294,32 +314,34 @@ const Support = () => {
                     </Grid>
                 </RightContainer>
             </TopSectionContainer>
-            <BottomSectionContainer container>
-                {data.map((i) => (
-                    <Grid key={i.id} item xs={12} sm={12} md={8} lg={6}>
-                        <CardContainer>
-                            <CardImg alt="" src={i.img} />
-                            <Grid container item spacing={1}>
-                                <Grid item display={'flex'} flexDirection={'column'}>
-                                    <CardText>{i.text}</CardText>
-                                    <Rating
-                                        name="read-only"
-                                        value={i.rating}
-                                        precision={0.5}
-                                        readOnly
-                                    />
+            <BottomDiv>
+                <BottomSectionContainer container>
+                    {data.map((i) => (
+                        <Grid key={i.id} item xs={3} sm={3} md={3} lg={6}>
+                            <CardContainer>
+                                <CardImg alt="" src={i.img} />
+                                <Grid container item spacing={1}>
+                                    <Grid item display={'flex'} flexDirection={'column'}>
+                                        <CardText>{i.text}</CardText>
+                                        <Rating
+                                            name="read-only"
+                                            value={i.rating}
+                                            precision={0.5}
+                                            readOnly
+                                        />
+                                    </Grid>
+                                    <Grid item>
+                                        <CardSubText>{i.sub}</CardSubText>
+                                    </Grid>
+                                    <Grid item>
+                                        <CardDescText>{i.desc}</CardDescText>
+                                    </Grid>
                                 </Grid>
-                                <Grid item>
-                                    <CardSubText>{i.sub}</CardSubText>
-                                </Grid>
-                                <Grid item>
-                                    <CardDescText>{i.desc}</CardDescText>
-                                </Grid>
-                            </Grid>
-                        </CardContainer>
-                    </Grid>
-                ))}
-            </BottomSectionContainer>
+                            </CardContainer>
+                        </Grid>
+                    ))}
+                </BottomSectionContainer>
+            </BottomDiv>
         </BG>
     );
 };

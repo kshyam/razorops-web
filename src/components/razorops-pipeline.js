@@ -23,7 +23,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 180px 70px 180px;
+        padding: 70px 100px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -31,7 +31,7 @@ const BG = styled('div')`
     }
 
     @media (max-width: 600px) {
-        padding: 70px 20px 70px 20px;
+        padding: 70px 0px 70px 0px;
     }
 `;
 

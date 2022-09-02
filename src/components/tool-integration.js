@@ -28,7 +28,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 180px 70px 180px;
+        padding: 70px 100px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -107,10 +107,16 @@ const Text = styled('span')`
 const Container = styled('div')`
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
+    margin: 15px;
     background: #ffffff;
     box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
+
+    @media (max-width: 599px) {
+        padding: 20px;
+        margin: 0px;
+    }
 `;
 
 const Content = styled('div')`

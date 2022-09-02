@@ -22,7 +22,7 @@ const Container = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 180px 70px 180px;
+        padding: 70px 100px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -30,8 +30,7 @@ const Container = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 70px 20px 70px 20px;
-        flex-direction: column-reverse;
+        padding: 40px 0px 40px 0px;
     }
 `;
 

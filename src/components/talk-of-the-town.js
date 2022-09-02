@@ -23,7 +23,7 @@ const Bg = styled('div')`
     position: relative;
     overflow: hidden;
 
-    background: rgba(240, 238, 255, 0.8) 45.6%;
+    background: #ffffff;
 
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 70px 0px 70px 0px;
@@ -100,7 +100,6 @@ const TopSectionContainer = styled(Grid)`
     background: #ffffff;
 
     @media (max-width: 899px) {
-        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
     }
@@ -124,7 +123,7 @@ const LeftContainer = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 40px 40px 40px 180px;
+        padding: 40px 100px 40px 100px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -229,6 +228,11 @@ const ArrowForwardButton = styled(IconButton)`
     }
 `;
 
+const Img = styled('img')`
+    width: -webkit-fill-available;
+    -webkit-filter: grayscale(1);
+`;
+
 const data = [
     {
         name: 'Rakesh Arora',
@@ -279,13 +283,7 @@ const TalkOfTheTown = () => {
                         </LeftContainer>
 
                         <RightContainer item xs={10} sm={10} md={6} lg={6}>
-                            <img
-                                style={{
-                                    width: '-webkit-fill-available'
-                                }}
-                                alt=""
-                                src={i.img}
-                            />
+                            <Img alt="" src={i.img} />
                             <ArrowBackButton onClick={() => slider?.current?.slickPrev()}>
                                 <ArrowBackIcon />
                             </ArrowBackButton>
