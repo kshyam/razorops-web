@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from '@mui/material';
 import styled from '@emotion/styled';
 import ToolIntegration from "../components/tool-integration";
+import Footer from "../components/footer";
 import SignUp from "../components/sign-up";
 import docker from '../assets/images/integration-tools/docker-blue-logo.png';
 import bitbucket from '../assets/images/integration-tools/bitbucket-blue-logo.png';
@@ -305,6 +306,7 @@ export default function Integration(){
                 </Slider>
             </BlueBG>
             <SignUp />
+            <Footer />
         </Container>
     );
 };
