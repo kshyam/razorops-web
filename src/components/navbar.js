@@ -51,14 +51,14 @@ const Text = styled('span')`
     ${font2};
     font-size: ${fontSize18};
     line-height: ${lineHeight27};
-    color: ${color1};
+    text-transform: none;
+    color: ${(props) => (props.active ? '#ffffff' : color1)};
+`;
 
+const NavButton = styled(Button)`
+    background: ${(props) => (props.active ? '#345eef' : '#ffffff')};
     &:hover {
-        background: #f2f2f2;
-    }
-
-    &:active {
-        color: #345eef;
+        background: ${(props) => (props.active ? '#345eef' : '#ffffff')};
     }
 `;
 
@@ -140,6 +140,9 @@ export default function Navbar() {
     const openResources = Boolean(anchorElResources);
     const openCompany = Boolean(anchorElCompany);
 
+    const isProductOpen = window.location.href.indexOf('product') !== -1;
+    const isBlogOpen = window.location.href.indexOf('posts') !== -1;
+
     const handleOpenProduct = (event) => {
         setAnchorElProduct(event.currentTarget);
         setAnchorElResources(null);
@@ -179,15 +182,18 @@ export default function Navbar() {
                         alignItems={'center'}
                         justifyContent={'center'}>
                         <Grid item>
-                            <NavLink to="/posts">
-                                <Text>Blog</Text>
-                            </NavLink>
+                            <NavButton active={isBlogOpen} onClick={() => navigate('/posts')}>
+                                <Text active={isBlogOpen}>Blog</Text>
+                            </NavButton>
                         </Grid>
                         <Grid item>
-                            <NavLink style={{ display: 'flex', alignItems: 'center' }}>
-                                <Text>Product</Text>
+                            <NavButton
+                                onClick={() => navigate('/product')}
+                                active={isProductOpen}
+                                style={{ display: 'flex', alignItems: 'center' }}>
+                                <Text active={isProductOpen}>Product</Text>
                                 <ExpandMoreIcon
-                                    style={{ color: 'black' }}
+                                    style={{ color: isProductOpen ? 'white' : 'black' }}
                                     onMouseEnter={handleOpenProduct}
                                 />
                                 <Dropdown
@@ -240,10 +246,10 @@ export default function Navbar() {
                                         logos: [github, gitlab, aws, slack, bucket, aws]
                                     }}
                                 />
-                            </NavLink>
+                            </NavButton>
                         </Grid>
                         <Grid item>
-                            <NavLink style={{ display: 'flex', alignItems: 'center' }}>
+                            <NavButton style={{ display: 'flex', alignItems: 'center' }}>
                                 <Text>Resources</Text>
                                 <ExpandMoreIcon
                                     style={{ color: 'black' }}
@@ -311,10 +317,10 @@ export default function Navbar() {
                                         logos: [github, gitlab, aws, slack, bucket, aws]
                                     }}
                                 />
-                            </NavLink>
+                            </NavButton>
                         </Grid>
                         <Grid item>
-                            <NavLink style={{ display: 'flex', alignItems: 'center' }}>
+                            <NavButton style={{ display: 'flex', alignItems: 'center' }}>
                                 <Text>Company</Text>
                                 <ExpandMoreIcon
                                     style={{ color: 'black' }}
@@ -372,7 +378,7 @@ export default function Navbar() {
                                         logos: [github, gitlab, aws, slack, bucket, aws]
                                     }}
                                 />
-                            </NavLink>
+                            </NavButton>
                         </Grid>
                     </NavSection>
                     <NavSection

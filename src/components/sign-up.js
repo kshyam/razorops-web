@@ -9,7 +9,7 @@ import { Button } from '@mui/material';
 const BG = styled('div')`
     position: relative;
     overflow: hidden;
-    background: #253175;
+    background: #345eef;
 
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 70px 80px 70px 80px;
@@ -20,7 +20,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 100px;
+        padding: 100px 200px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {

@@ -106,6 +106,12 @@ const font7 = css({
     fontStyle: 'normal'
 });
 
+const font8 = css({
+    ...montserratFont,
+    fontWeight: fontWeight400,
+    fontStyle: 'normal'
+});
+
 export {
     primary,
     bg1,
@@ -122,6 +128,7 @@ export {
     font5,
     font6,
     font7,
+    font8,
     fontWeight600,
     fontWeight700,
     fontWeight400,
