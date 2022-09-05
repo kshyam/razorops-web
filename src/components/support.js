@@ -261,7 +261,7 @@ const data = [
 const Support = () => {
     return (
         <BG>
-            <TopSectionContainer container sm={12} xs={12} md={12} lg={12}>
+            <TopSectionContainer container>
                 <LeftContainer item xs={10} sm={10} md={6} lg={6}>
                     <Grid item>
                         <img alt="" src={img} />

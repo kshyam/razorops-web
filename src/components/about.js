@@ -169,7 +169,7 @@ const ImgContainer = styled(Grid)`
 const About = () => {
     return (
         <BG>
-            <TopSectionContainer container sm={12} xs={12} md={12} lg={12}>
+            <TopSectionContainer container>
                 <LeftContainer item direction={'column'} xs={10} sm={10} md={6} lg={6}>
                     <Grid item>
                         <Razorops>Razorops</Razorops>

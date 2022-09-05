@@ -52,13 +52,13 @@ const Text = styled('span')`
     font-size: ${fontSize18};
     line-height: ${lineHeight27};
     text-transform: none;
-    color: ${(props) => (props.active ? '#ffffff' : color1)};
+    color: ${(props) => props.color};
 `;
 
 const NavButton = styled(Button)`
-    background: ${(props) => (props.active ? '#345eef' : '#ffffff')};
+    background: ${(props) => props.bg};
     &:hover {
-        background: ${(props) => (props.active ? '#345eef' : '#ffffff')};
+        background: ${(props) => props.bg};
     }
 `;
 
@@ -140,8 +140,10 @@ export default function Navbar() {
     const openResources = Boolean(anchorElResources);
     const openCompany = Boolean(anchorElCompany);
 
-    const isProductOpen = window.location.href.indexOf('product') !== -1;
-    const isBlogOpen = window.location.href.indexOf('posts') !== -1;
+    const isProductOpen =
+        typeof window !== 'undefined' ? window.location.href.indexOf('product') !== -1 : false;
+    const isBlogOpen =
+        typeof window !== 'undefined' ? window.location.href.indexOf('posts') !== -1 : false;
 
     const handleOpenProduct = (event) => {
         setAnchorElProduct(event.currentTarget);
@@ -182,16 +184,20 @@ export default function Navbar() {
                         alignItems={'center'}
                         justifyContent={'center'}>
                         <Grid item>
-                            <NavButton active={isBlogOpen} onClick={() => navigate('/posts')}>
-                                <Text active={isBlogOpen}>Blog</Text>
+                            <NavButton
+                                bg={isBlogOpen === true ? '#345eef' : '#ffffff'}
+                                onClick={() => navigate('/posts')}>
+                                <Text color={isBlogOpen === true ? '#ffffff' : color1}>Blog</Text>
                             </NavButton>
                         </Grid>
                         <Grid item>
                             <NavButton
                                 onClick={() => navigate('/product')}
-                                active={isProductOpen}
+                                bg={isProductOpen === true ? '#345eef' : '#ffffff'}
                                 style={{ display: 'flex', alignItems: 'center' }}>
-                                <Text active={isProductOpen}>Product</Text>
+                                <Text color={isProductOpen === true ? '#ffffff' : color1}>
+                                    Product
+                                </Text>
                                 <ExpandMoreIcon
                                     style={{ color: isProductOpen ? 'white' : 'black' }}
                                     onMouseEnter={handleOpenProduct}
@@ -250,7 +256,7 @@ export default function Navbar() {
                         </Grid>
                         <Grid item>
                             <NavButton style={{ display: 'flex', alignItems: 'center' }}>
-                                <Text>Resources</Text>
+                                <Text color={color1}>Resources</Text>
                                 <ExpandMoreIcon
                                     style={{ color: 'black' }}
                                     onMouseEnter={handleOpenResources}
@@ -321,7 +327,7 @@ export default function Navbar() {
                         </Grid>
                         <Grid item>
                             <NavButton style={{ display: 'flex', alignItems: 'center' }}>
-                                <Text>Company</Text>
+                                <Text color={color1}>Company</Text>
                                 <ExpandMoreIcon
                                     style={{ color: 'black' }}
                                     onMouseEnter={handleOpenCompany}
