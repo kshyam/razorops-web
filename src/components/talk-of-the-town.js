@@ -34,7 +34,7 @@ const Bg = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 0px 70px 0px;
+        padding: 100px 0px 100px 0px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -123,7 +123,7 @@ const LeftContainer = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 40px 100px 40px 100px;
+        padding: 40px 100px 40px 200px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {

@@ -11,6 +11,7 @@ import Support from '../components/support';
 import TalkOfTheTown from '../components/talk-of-the-town';
 import GetStarted from '../components/get-started';
 import SignUp from '../components/sign-up';
+import Footer from '../components/footer';
 
 export default function Index({ data: { allPosts, site, blog } }) {
     return (
@@ -25,6 +26,7 @@ export default function Index({ data: { allPosts, site, blog } }) {
             <TalkOfTheTown />
             <GetStarted />
             <SignUp />
+            <Footer />
         </Container>
     );
 }

@@ -6,6 +6,7 @@ import { color2, font1, fontSize20, lineHeight26, lineHeight29 } from '../assets
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import path from '../assets/images/dottedPath.png';
 import line from '../assets/images/line.png';
+import verticalLine from '../assets/images/vertical-line.png';
 
 import { color1, font3, font6, fontSize18 } from '../assets/globalStyles';
 
@@ -23,7 +24,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 100px;
+        padding: 100px 200px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -31,7 +32,7 @@ const BG = styled('div')`
     }
 
     @media (max-width: 600px) {
-        padding: 70px 0px 70px 0px;
+        padding: 70px 0px 30px 0px;
     }
 `;
 
@@ -44,6 +45,7 @@ const MainContainer = styled(Grid)`
     @media (max-width: 599px) {
         margin-top: 30px;
         justify-content: center;
+        flex-direction: column;
     }
 `;
 
@@ -138,6 +140,45 @@ const Container = styled(Grid)`
         background: rgba(255, 255, 255, 0.05);
         box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.06);
         border-radius: 20px;
+
+        @media (max-width: 599px) {
+            background: none;
+            box-shadow: none;
+            border-radius: none;
+        }
+    }
+
+    @media (max-width: 599px) {
+        padding: 0px;
+    }
+`;
+
+const TitleText = styled('span')`
+    ${font6};
+    font-size: 24px;
+    line-height: 29px;
+    color: ${color1};
+    margin: 20px 0px 0px 0px;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 16px;
+        line-height: 27px;
+    }
+
+    @media (max-width: 599px) {
+        font-size: 16px;
+        line-height: 27px;
+        margin: 0px 0px 0px 10px;
     }
 `;
 
@@ -147,8 +188,13 @@ const Line1 = styled('img')`
     left: 100px;
     width: 80%;
     height: 1px;
+
     @media (max-width: 899px) {
         display: none;
+    }
+
+    @media (min-width: 1535px) {
+        width: 85%;
     }
 `;
 
@@ -158,8 +204,26 @@ const Line2 = styled('img')`
     left: 100px;
     width: 80%;
     height: 1px;
+
     @media (max-width: 899px) {
         display: none;
+    }
+
+    @media (min-width: 1535px) {
+        width: 85%;
+    }
+`;
+
+const Line3 = styled('img')`
+    display: none;
+
+    @media (max-width: 599px) {
+        display: flex;
+        position: absolute;
+        top: 100px;
+        left: 140px;
+        width: 1px;
+        height: 90%;
     }
 `;
 
@@ -169,6 +233,12 @@ const Path = styled('img')`
     right: -110px;
     top: 130px;
     @media (max-width: 899px) {
+        display: none;
+    }
+`;
+
+const GetStartedGrid = styled(Grid)`
+    @media (max-width: 599px) {
         display: none;
     }
 `;
@@ -188,6 +258,43 @@ const ButtonText = styled('span')`
     font-size: ${fontSize18};
     line-height: ${lineHeight26};
     color: #ffffff;
+`;
+
+const IconGrid = styled(Grid)`
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 599px) {
+        flex-direction: row;
+        margin: 0px 0px 0px -42px;
+    }
+`;
+
+const GridContainer = styled(Grid)`
+    height: 400px;
+
+    @media (max-width: 599px) {
+        height: 100%;
+    }
+`;
+
+const GetStartedButton = styled(Button)`
+    display: none;
+
+    @media (max-width: 599px) {
+        display: flex;
+        width: 313px;
+        height: 50px;
+        padding: 10px;
+        margin: 50px 0px 0px 50px;
+        background: #345eef;
+        border-radius: 15px;
+        text-transform: capitalize;
+
+        &:hover {
+            background: #345eef;
+        }
+    }
 `;
 
 const data = [
@@ -241,15 +348,17 @@ export default function RazoropsPipeline() {
                 <Line1 src={line} />
                 <Line2 src={line} />
                 <Path src={path} />
+                <Line3 src={verticalLine} />
+
                 {data.map((i) => (
-                    <Grid style={{ height: '400px' }} key={i.id} item xs={8} sm={6} md={4} lg={4}>
+                    <GridContainer key={i.id} item xs={8} sm={6} md={4} lg={4}>
                         <Container
                             onMouseEnter={() => setShowButton(i.id)}
                             onMouseLeave={() => setShowButton(0)}
                             container
                             item
                             spacing={2}>
-                            <Grid item>
+                            <IconGrid item>
                                 <CheckCircleIcon
                                     fontSize={'large'}
                                     sx={{
@@ -258,23 +367,24 @@ export default function RazoropsPipeline() {
                                         background: '#fff'
                                     }}
                                 />
-                            </Grid>
-                            <Grid item>
-                                <Text>{i.text}</Text>
-                            </Grid>
+                                <TitleText>{i.text}</TitleText>
+                            </IconGrid>
                             <Grid item>
                                 <SubText>{i.subText}</SubText>
                             </Grid>
                             {showButton === i.id && (
-                                <Grid item>
+                                <GetStartedGrid item>
                                     <GetStarted>
                                         <ButtonText>Get Started</ButtonText>
                                     </GetStarted>
-                                </Grid>
+                                </GetStartedGrid>
                             )}
                         </Container>
-                    </Grid>
+                    </GridContainer>
                 ))}
+                <GetStartedButton>
+                    <ButtonText>Get Started</ButtonText>
+                </GetStartedButton>
             </MainContainer>
         </BG>
     );

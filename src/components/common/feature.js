@@ -5,7 +5,6 @@ import { font3, color1, color4, font6, color3, font1 } from '../../assets/global
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 const Container = styled(Grid)`
-    background: #ffffff;
     display: flex;
     flex-direction: ${(props) => props.direction};
     justify-content: space-between;
@@ -22,7 +21,7 @@ const Container = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 100px;
+        padding: 70px 200px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
