@@ -288,7 +288,7 @@ const TopSection = () => {
                         </Grid>
                     </ButtonGrid>
                 </LeftContainer>
-                <RightContainer container xs={12} sm={12} md={5} lg={5}>
+                <RightContainer container item xs={12} sm={12} md={5} lg={5}>
                     {data.map((i) => (
                         <Grid key={i.id} item xs={12} sm={8} md={12} lg={12}>
                             <CardContainer>

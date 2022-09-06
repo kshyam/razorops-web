@@ -16,3 +16,7 @@
     font-family: 'Poppins';
     src: url('../assets/font/Poppins/Poppins-Regular.ttf') format('truetype');
 }
+
+.MuiTabs-root .Mui-selected {
+    background: rgba(52, 94, 239, 0.1);
+}
