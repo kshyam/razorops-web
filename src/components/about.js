@@ -9,7 +9,9 @@ import {
     fontSize18,
     lineHeight27,
     color1,
-    font3
+    font3,
+    font2,
+    lineHeight26
 } from '../assets/globalStyles';
 
 import img from '../assets/images/about/sideImg.svg';
@@ -17,6 +19,7 @@ import bottomImg from '../assets/images/about/bottomImg.svg';
 import github from '../assets/images/about/github-black.svg';
 import gitlab from '../assets/images/about/gitlab.svg';
 import bitbucket from '../assets/images/about/bitbucket.svg';
+import { Button } from '@mui/material';
 
 const BG = styled('div')`
     position: relative;
@@ -36,7 +39,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 200px;
+        padding: 0px 180px 40px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -44,7 +47,7 @@ const BG = styled('div')`
     }
 
     @media (max-width: 600px) {
-        padding: 40px 0px 70px 0px;
+        padding: 40px 0px;
     }
 `;
 
@@ -54,19 +57,24 @@ const Razorops = styled('span')`
     line-height: 60px;
     color: ${color4};
 
-    @media (max-width: 600px) {
-        font-size: 27px;
-        line-height: 45px;
-    }
-
-    @media (min-width: 900px) and (max-width: 1199px) {
+    @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 32px;
         line-height: 40px;
     }
 
-    @media (min-width: 600px) and (max-width: 899px) {
-        font-size: 27px;
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 24px;
         line-height: 35px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 24px;
+        line-height: 35px;
+    }
+
+    @media (max-width: 599px) {
+        font-size: 24px;
+        line-height: 36px;
     }
 `;
 
@@ -75,20 +83,29 @@ const Desc = styled('span')`
     font-size: 40px;
     line-height: 60px;
     color: ${color1};
+    white-space: pre-wrap;
 
-    @media (max-width: 600px) {
-        font-size: 27px;
-        line-height: 45px;
-    }
-
-    @media (min-width: 900px) and (max-width: 1199px) {
+    @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 32px;
         line-height: 40px;
     }
 
-    @media (min-width: 600px) and (max-width: 899px) {
-        font-size: 27px;
+    @media (min-width: 900px) and (max-width: 1199px) {
+        white-space: inherit;
+        font-size: 24px;
         line-height: 35px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        white-space: inherit;
+        font-size: 24px;
+        line-height: 35px;
+    }
+
+    @media (max-width: 599px) {
+        white-space: inherit;
+        font-size: 24px;
+        line-height: 36px;
     }
 `;
 
@@ -97,14 +114,19 @@ const SubText = styled('span')`
     font-size: ${fontSize18};
     line-height: ${lineHeight27};
     color: ${color2};
+
+    @media (max-width: 599px) {
+        font-size: ${fontSize18};
+        line-height: 29px;
+    }
 `;
 
 const LeftContainer = styled(Grid)`
     display: flex;
-    justify-content: center;
-    @media (max-width: 899px) {
-        margin: 20px;
-        text-align: center;
+    justify-content: flex-start;
+    padding: 80px 0px 0px 0px;
+    @media (max-width: 1199px) {
+        padding: 40px 0px 0px 0px;
     }
 
     @media (max-width: 599px) {
@@ -115,18 +137,18 @@ const LeftContainer = styled(Grid)`
 
 const RightContainer = styled(Grid)`
     display: flex;
+
+    @media (max-width: 599px) {
+        padding: 50px 0px 0px 0px;
+    }
 `;
 
 const SubContainer = styled(Grid)`
     display: flex;
     flex-direction: column;
     text-align: left;
-    @media (max-width: 899px) {
-        text-align: center;
-        justify-content: center;
-    }
 
-    @media (max-width: 599px) {
+    @media (max-width: 899px) {
         text-align: left;
     }
 `;
@@ -139,10 +161,6 @@ const TopSectionContainer = styled(Grid)`
         justify-content: center;
         align-items: center;
     }
-`;
-
-const RightSectionImg = styled('img')`
-    margin: 20px 0;
 `;
 
 const ImageGrid = styled(Grid)`
@@ -160,9 +178,35 @@ const Img = styled('img')`
 `;
 
 const ImgContainer = styled(Grid)`
-    @media (max-width: 899px) {
-        display: flex;
-        justify-content: center;
+    display: flex;
+    justify-content: flex-start;
+`;
+
+const DemoText = styled('span')`
+    ${font2};
+    font-size: ${fontSize18};
+    line-height: ${lineHeight26};
+    color: #ffffff;
+    text-transform: none;
+
+    @media (max-width: 600px) {
+        font-size: 12px;
+        line-height: 26px;
+    }
+`;
+
+const DemoButton = styled(Button)`
+    margin: 40px;
+    padding: 10px 30px;
+    background: ${color4};
+    border-radius: 15px;
+
+    &:hover {
+        background: ${color4};
+    }
+
+    @media (max-width: 600px) {
+        width: 220px;
     }
 `;
 
@@ -198,16 +242,24 @@ const About = () => {
                 </LeftContainer>
 
                 <RightContainer item direction={'column'} xs={10} sm={10} md={6} lg={6}>
-                    <Grid justifyContent={'center'} item>
-                        <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
-                            <RightSectionImg alt="" src={img} />
-                        </Grid>
+                    <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
+                        <img alt="" src={img} />
                     </Grid>
                 </RightContainer>
             </TopSectionContainer>
             <Grid container display={'flex'} justifyContent={'center'}>
-                <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
+                <Grid
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column'
+                    }}
+                    item>
                     <img alt="" src={bottomImg} />
+                    <DemoButton variant="outlined">
+                        <DemoText>Schedule a demo</DemoText>
+                    </DemoButton>
                 </Grid>
             </Grid>
         </BG>

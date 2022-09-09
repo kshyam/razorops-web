@@ -21,7 +21,7 @@ const Container = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 200px;
+        padding: 70px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -29,7 +29,8 @@ const Container = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 40px 0px 40px 0px;
+        padding: 0px;
+        justify-content: left;
     }
 `;
 
@@ -41,7 +42,7 @@ const Heading = styled('div')`
     white-space: pre-wrap;
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        font-size: 44px;
+        font-size: 37px;
         line-height: 53px;
     }
 
@@ -63,14 +64,20 @@ const SubText = styled('span')`
     color: ${color3};
     white-space: pre-wrap;
 
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 24px;
+        line-height: 40px;
+        white-space: inherit;
+    }
+
     @media (min-width: 900px) and (max-width: 1199px) {
-        font-size: 30px;
+        font-size: 24px;
         line-height: 40px;
         white-space: inherit;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        font-size: 29px;
+        font-size: 27px;
         line-height: 32px;
         white-space: inherit;
     }
@@ -83,11 +90,24 @@ const SubText = styled('span')`
 `;
 
 const Desc = styled('span')`
+    padding: 10px 0px;
     ${font1};
     font-size: 20px;
     line-height: 28px;
     color: ${color4};
     text-align: left;
+    white-space: pre-wrap;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 18px;
+        line-height: 27px;
+        white-space: inherit;
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 18px;
+        line-height: 26px;
+    }
 
     @media (max-width: 599px) {
         font-size: 16px;
@@ -96,8 +116,27 @@ const Desc = styled('span')`
 `;
 
 const SubContainer = styled(Grid)`
+    margin: 20px 0px 0px 0px;
     display: flex;
     text-align: left;
+
+    @media (max-width: 899px) {
+        margin: 0px;
+    }
+`;
+
+const ContentGrid = styled(Grid)`
+    margin: 50px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 899px) {
+        margin: 20px 0px 0px 0px;
+    }
+
+    @media (max-width: 599px) {
+        margin: 0px;
+    }
 `;
 
 const Number = styled('span')`
@@ -110,10 +149,6 @@ const Number = styled('span')`
 const LeftContainer = styled(Grid)`
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    @media (max-width: 899px) {
-        margin: 20px;
-    }
 `;
 
 const RightContainer = styled(Grid)`
@@ -125,25 +160,33 @@ const Feature = (props) => {
     const { content } = props;
     return (
         <Container direction={content?.direction} spacing={2} container>
-            <LeftContainer item direction={'column'} xs={10} sm={10} md={6} lg={6}>
+            <LeftContainer
+                container
+                item
+                spacing={2}
+                direction={'column'}
+                xs={12}
+                sm={12}
+                md={6}
+                lg={6}>
                 <Grid item>
                     <Number>{content?.number}</Number>
                     <Heading>{content?.title}</Heading>
                 </Grid>
-                <SubContainer container style={{ marginTop: '20px' }} item>
+                <SubContainer container item>
                     <SubText>{content?.desc}</SubText>
                 </SubContainer>
-                {content &&
-                    content.features.map((i) => (
-                        <Grid container style={{ marginTop: '20px' }}>
+                <ContentGrid container item>
+                    {content &&
+                        content.features.map((i) => (
                             <Grid item display={'flex'} flexDirection={'row'}>
-                                <ArrowRightIcon sx={{ fill: color4, margin: '4px 0px' }} />
+                                <ArrowRightIcon sx={{ fill: color4, margin: '10px 0px' }} />
                                 <Desc>{i}</Desc>
                             </Grid>
-                        </Grid>
-                    ))}
+                        ))}
+                </ContentGrid>
             </LeftContainer>
-            <RightContainer container xs={10} sm={10} md={6} lg={6}>
+            <RightContainer container xs={12} sm={12} md={6} lg={6}>
                 <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
                     <img alt="" src={content?.img} />
                 </Grid>

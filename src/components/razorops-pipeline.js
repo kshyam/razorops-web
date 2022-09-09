@@ -24,7 +24,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 100px 200px;
+        padding: 100px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -98,8 +98,9 @@ const SubText = styled('div')`
     }
 
     @media (max-width: 599px) {
-        font-size: 16px;
-        line-height: 27px;
+        font-size: 14px;
+        line-height: 22px;
+        padding: 0px 0px 0px 65px;
     }
 `;
 
@@ -176,8 +177,8 @@ const TitleText = styled('span')`
     }
 
     @media (max-width: 599px) {
-        font-size: 16px;
-        line-height: 27px;
+        font-size: 20px;
+        line-height: 30px;
         margin: 0px 0px 0px 10px;
     }
 `;
@@ -214,16 +215,16 @@ const Line2 = styled('img')`
     }
 `;
 
-const Line3 = styled('img')`
+const Line3 = styled('div')`
     display: none;
 
     @media (max-width: 599px) {
         display: flex;
         position: absolute;
-        top: 100px;
-        left: 140px;
-        width: 1px;
-        height: 90%;
+        top: 20px;
+        left: 35px;
+        height: 150px;
+        border-left: 1px dashed #345eef;
     }
 `;
 
@@ -266,7 +267,7 @@ const IconGrid = styled(Grid)`
 
     @media (max-width: 599px) {
         flex-direction: row;
-        margin: 0px 0px 0px -42px;
+        align-items: center;
     }
 `;
 
@@ -275,6 +276,7 @@ const GridContainer = styled(Grid)`
 
     @media (max-width: 599px) {
         height: 100%;
+        padding: 20px 0px 0px 70px !important;
     }
 `;
 
@@ -283,10 +285,25 @@ const GetStartedButton = styled(Button)`
 
     @media (max-width: 599px) {
         display: flex;
-        width: 313px;
+        width: 320px;
         height: 50px;
         padding: 10px;
-        margin: 50px 0px 0px 50px;
+        margin: 30px 0px 0px 0px;
+        background: #345eef;
+        border-radius: 15px;
+        text-transform: capitalize;
+
+        &:hover {
+            background: #345eef;
+        }
+    }
+
+    @media (max-width: 399px) {
+        display: flex;
+        width: 250px;
+        height: 50px;
+        padding: 10px;
+        margin: 30px 0px 0px 0px;
         background: #345eef;
         border-radius: 15px;
         text-transform: capitalize;
@@ -348,26 +365,31 @@ export default function RazoropsPipeline() {
                 <Line1 src={line} />
                 <Line2 src={line} />
                 <Path src={path} />
-                <Line3 src={verticalLine} />
 
                 {data.map((i) => (
-                    <GridContainer key={i.id} item xs={8} sm={6} md={4} lg={4}>
+                    <GridContainer key={i.id} item xs={10} sm={6} md={4} lg={4}>
                         <Container
                             onMouseEnter={() => setShowButton(i.id)}
                             onMouseLeave={() => setShowButton(0)}
                             container
                             item
                             spacing={2}>
-                            <IconGrid item>
-                                <CheckCircleIcon
-                                    fontSize={'large'}
-                                    sx={{
-                                        position: 'relative',
-                                        fill: i.iconColor,
-                                        background: '#fff'
-                                    }}
-                                />
-                                <TitleText>{i.text}</TitleText>
+                            <Line3 />
+                            <IconGrid container item spacing={2}>
+                                <Grid item>
+                                    <CheckCircleIcon
+                                        fontSize={'large'}
+                                        sx={{
+                                            position: 'relative',
+                                            fill: i.iconColor,
+                                            background: '#fff',
+                                            fontSize: '40px'
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item>
+                                    <TitleText>{i.text}</TitleText>
+                                </Grid>
                             </IconGrid>
                             <Grid item>
                                 <SubText>{i.subText}</SubText>

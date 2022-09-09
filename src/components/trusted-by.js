@@ -28,7 +28,7 @@ const BG = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 100px 200px;
+        padding: 100px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -36,7 +36,7 @@ const BG = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 50px;
+        padding: 30px;
     }
 `;
 
@@ -49,7 +49,7 @@ const Title = styled('div')`
     color: #5b5b5b;
 
     @media (max-width: 600px) {
-        padding: 30px 0px 0px 0px;
+        padding: 0px;
     }
 `;
 

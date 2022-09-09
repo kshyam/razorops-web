@@ -20,7 +20,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 100px 200px;
+        padding: 100px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -37,6 +37,11 @@ const Text = styled('span')`
     font-size: 30px;
     line-height: 49px;
     color: #ffffff;
+
+    @media (max-width: 599px) {
+        font-size: 27px;
+        line-height: 34px;
+    }
 `;
 
 const Sub = styled('span')`
@@ -46,7 +51,7 @@ const Sub = styled('span')`
     color: #ffffff;
 
     @media (max-width: 599px) {
-        font-size: 40px;
+        font-size: 37px;
         line-height: 34px;
     }
 `;
@@ -71,6 +76,10 @@ const SignUpButton = styled(Button)`
     border-radius: 20px;
     &:hover {
         background: #ffffff;
+    }
+
+    @media (max-width: 599px) {
+        padding: 20px 30px;
     }
 `;
 

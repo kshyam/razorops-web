@@ -54,8 +54,8 @@ const Title = styled('div')`
     color: ${color1};
 
     @media (max-width: 600px) {
-        font-size: 22px;
-        line-height: 27px;
+        font-size: 28px;
+        line-height: 30px;
     }
 `;
 
@@ -66,6 +66,10 @@ const Sub = styled('div')`
     line-height: ${lineHeight29};
     text-align: center;
     color: ${color2};
+
+    @media (max-width: 600px) {
+        padding: 10px 0px 20px 0px;
+    }
 `;
 
 const Desc = styled('div')`
@@ -91,6 +95,7 @@ const Desc = styled('div')`
     @media (max-width: 600px) {
         font-size: 20px;
         line-height: 29px;
+        text-align: left;
     }
 `;
 
@@ -123,7 +128,7 @@ const LeftContainer = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 40px 100px 40px 200px;
+        padding: 40px 80px 40px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -131,7 +136,7 @@ const LeftContainer = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 40px 40px 40px 20px;
+        padding: 0px 0px 20px 0px;
     }
 `;
 

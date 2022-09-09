@@ -32,7 +32,7 @@ const BG = styled('div')`
     }
 
     @media (max-width: 600px) {
-        padding: 70px 0px 70px 0px;
+        padding: 40px 0px 0px 0px;
     }
 `;
 
@@ -67,7 +67,7 @@ const Title = styled('span')`
     @media (max-width: 599px) {
         white-space: pre-wrap;
         font-size: 24px;
-        line-height: 29px;
+        line-height: 34px;
     }
 `;
 
@@ -112,8 +112,8 @@ const RightContainer = styled(Grid)`
     display: flex;
     justify-content: center;
     @media (max-width: 899px) {
-        margin: 20px;
-        text-align: center;
+        margin: 10px;
+        text-align: left;
     }
 `;
 
@@ -135,7 +135,7 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 0px 100px 0px 100px;
+        padding: 0px 80px 0px 80px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -143,7 +143,8 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 0px 40px 0px 20px;
+        padding: 0px 0px 0px 0px;
+        flex-direction: column-reverse;
     }
 `;
 
@@ -153,6 +154,7 @@ const ButtonGrid = styled(Grid)`
 
     @media (max-width: 899px) {
         justify-content: center;
+        padding: 40px 20px 0px 0px;
     }
 `;
 
@@ -161,7 +163,7 @@ const GetStartedButton = styled(Button)`
     height: 50px;
     background: ${color4};
     border-radius: 15px;
-
+    text-transform: none;
     &:hover {
         background: ${color4};
     }
@@ -178,7 +180,7 @@ const GetStarted = () => {
     return (
         <BG>
             <TopSectionContainer container>
-                <LeftContainer item xs={10} sm={10} md={5} lg={5}>
+                <LeftContainer item xs={12} sm={12} md={5} lg={5}>
                     <Grid justifyContent={'center'} item>
                         <img alt="" src={img} />
                     </Grid>

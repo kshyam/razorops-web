@@ -28,7 +28,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 100px 200px;
+        padding: 100px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -36,20 +36,26 @@ const BG = styled('div')`
     }
 
     @media (max-width: 600px) {
-        padding: 70px 20px 70px 20px;
+        padding: 0px 20px 40px 20px;
     }
 `;
 
 const MainContainer = styled(Grid)`
+    padding: 0px 100px;
     margin-top: 40px;
     display: flex;
     align-items: center;
+
+    @media (max-width: 1535px) {
+        padding: 0px;
+    }
+
     @media (max-width: 899px) {
         justify-content: center;
     }
 
     @media (max-width: 599px) {
-        margin-top: 30px;
+        margin-top: 0px;
     }
 `;
 
@@ -60,9 +66,24 @@ const Title = styled('div')`
     text-align: center;
     color: ${color1};
 
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 40px;
+        line-height: 54px;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
     @media (max-width: 600px) {
-        font-size: 22px;
-        line-height: 27px;
+        font-size: 28px;
+        line-height: 30px;
     }
 `;
 
@@ -88,8 +109,13 @@ const Text = styled('span')`
     text-align: center;
     color: #161614;
 
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 18px;
+        line-height: 32px;
+    }
+
     @media (min-width: 900px) and (max-width: 1199px) {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 32px;
     }
 
@@ -112,9 +138,14 @@ const Container = styled('div')`
     background: #ffffff;
     box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
+    width: 327px;
+
+    @media (max-width: 1199px) {
+        width: -webkit-fill-available;
+    }
 
     @media (max-width: 599px) {
-        padding: 20px;
+        padding: 20px 10px;
         margin: 0px;
     }
 `;
@@ -127,6 +158,11 @@ const Content = styled('div')`
 const LeftImg = styled('img')`
     width: 50px;
     height: 50px;
+
+    @media (max-width: 599px) {
+        width: 35px;
+        height: 35px;
+    }
 `;
 
 const data = [
@@ -151,9 +187,17 @@ export default function ToolIntegration() {
             <SubText>
                 {'Nowadays, the increasingly growing number of mobile\nand computing devices'}
             </SubText>
-            <MainContainer container spacing={5}>
+            <MainContainer container spacing={3}>
                 {data.map((i) => (
-                    <Grid key={i.id} item xs={6} sm={6} md={4} lg={3}>
+                    <Grid
+                        key={i.id}
+                        item
+                        xs={6}
+                        sm={6}
+                        md={4}
+                        lg={3}
+                        display={'flex'}
+                        justifyContent={'center'}>
                         <Container>
                             <Content>
                                 <LeftImg alt="" src={i.img} />

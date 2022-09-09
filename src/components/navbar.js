@@ -53,6 +53,11 @@ const Text = styled('span')`
     line-height: ${lineHeight27};
     text-transform: none;
     color: ${(props) => props.color};
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 15px;
+        line-height: ${lineHeight27};
+    }
 `;
 
 const NavButton = styled(Button)`
@@ -85,6 +90,11 @@ const SignUpText = styled('span')`
     line-height: ${lineHeight26};
     color: ${color4};
     text-transform: none;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 15px;
+        line-height: ${lineHeight27};
+    }
 `;
 
 const SignUpButton = styled(Button)`
@@ -101,6 +111,11 @@ const Demo = styled('span')`
     line-height: ${lineHeight26};
     color: #ffffff;
     text-transform: none;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 15px;
+        line-height: ${lineHeight27};
+    }
 `;
 
 const DemoButton = styled(Button)`
@@ -179,7 +194,7 @@ export default function Navbar() {
                     </LogoButton>
                     <Grid item />
                     <NavSection
-                        spacing={2}
+                        spacing={1}
                         container
                         alignItems={'center'}
                         justifyContent={'center'}>

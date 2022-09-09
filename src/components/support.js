@@ -37,7 +37,7 @@ const BG = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 100px 200px;
+        padding: 100px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -72,8 +72,8 @@ const Heading = styled('div')`
     }
 
     @media (max-width: 600px) {
-        font-size: 44px;
-        line-height: 53px;
+        font-size: 28px;
+        line-height: 30px;
         text-align: center;
     }
 `;
@@ -111,9 +111,14 @@ const Title = styled('span')`
     text-align: center;
     color: ${color1};
 
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 26px;
+        line-height: 50px;
+    }
+
     @media (min-width: 600px) and (max-width: 899px) {
         font-size: 26px;
-        line-height: 37px;
+        line-height: 50px;
     }
 
     @media (max-width: 599px) {
@@ -127,6 +132,11 @@ const Sub = styled('span')`
     font-size: ${fontSize20};
     line-height: ${lineHeight24};
     color: #9c9494;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 16px;
+        line-height: 22px;
+    }
 
     @media (max-width: 1199px) {
         font-size: 14px;
@@ -178,6 +188,10 @@ const BottomSectionContainer = styled(Grid)`
         min-width: 2000px;
         padding: 140px 0px 80px 0px;
     }
+
+    @media (max-width: 599px) {
+        padding: 60px 0px 40px 0px;
+    }
 `;
 
 const BottomDiv = styled('div')`
@@ -225,6 +239,15 @@ const CardDescText = styled('span')`
 
 const CardImg = styled('img')`
     padding: 0px 20px 0px 10px;
+`;
+
+const SubGrid = styled(Grid)`
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 599px) {
+        padding: 30px 0px 0px 0px;
+    }
 `;
 
 const data = [
@@ -282,35 +305,35 @@ const Support = () => {
                     <Grid item>
                         <Desc>
                             {
-                                'Nowadays, the increasingly growing number of mobile and\ncomputing devices Nowadays, the increasingly growing number\nof mobile and computing devices'
+                                'Nowadays, the increasingly growing number of mobile and\ncomputing devices.'
                             }
                         </Desc>
                     </Grid>
                     <Grid container item spacing={5}>
-                        <Grid item display={'flex'} flexDirection={'column'} xs={12} sm={4} md={4}>
+                        <SubGrid item xs={12} sm={4} md={4}>
                             <Grid item>
                                 <Title>24/7</Title>
                             </Grid>
                             <Grid item>
                                 <Sub>The state art anti spoofing techniques</Sub>
                             </Grid>
-                        </Grid>
-                        <Grid item display={'flex'} flexDirection={'column'} xs={12} sm={4} md={4}>
+                        </SubGrid>
+                        <SubGrid item xs={12} sm={4} md={4}>
                             <Grid item>
                                 <Title>24/7</Title>
                             </Grid>
                             <Grid item>
                                 <Sub>The state art anti spoofing techniques</Sub>
                             </Grid>
-                        </Grid>
-                        <Grid item display={'flex'} flexDirection={'column'} xs={12} sm={4} md={4}>
+                        </SubGrid>
+                        <SubGrid item xs={12} sm={4} md={4}>
                             <Grid item>
                                 <Title>24/7</Title>
                             </Grid>
                             <Grid item>
                                 <Sub>The state art anti spoofing techniques</Sub>
                             </Grid>
-                        </Grid>
+                        </SubGrid>
                     </Grid>
                 </RightContainer>
             </TopSectionContainer>

@@ -48,8 +48,8 @@ const Heading = styled('div')`
     }
 
     @media (max-width: 600px) {
-        font-size: 44px;
-        line-height: 53px;
+        font-size: 40px;
+        line-height: 44px;
     }
 `;
 
@@ -71,8 +71,9 @@ const SubText = styled('span')`
     }
 
     @media (max-width: 599px) {
-        font-size: 14px;
-        line-height: 26px;
+        font-size: 13px;
+        line-height: 20px;
+        white-space: inherit;
     }
 `;
 
@@ -90,23 +91,23 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 100px 80px 100px 80px;
+        padding: 100px 80px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 100px 50px 100px 50px;
+        padding: 100px 50px;
     }
 
     @media (min-width: 1535px) {
-        padding: 200px 200px;
+        padding: 200px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 200px 100px 200px 100px;
+        padding: 120px 100px;
     }
 
     @media (max-width: 600px) {
-        padding: 60px 40px 100px 40px;
+        padding: 50px 40px 100px 40px;
         justify-content: center;
     }
 `;
@@ -117,6 +118,11 @@ const Cicd = styled('span')`
     line-height: 34px;
     color: ${color4};
     border-bottom: 2px solid ${color4};
+
+    @media (max-width: 600px) {
+        font-size: 22px;
+        line-height: 34px;
+    }
 `;
 
 const SignUpText = styled('span')`
@@ -125,6 +131,11 @@ const SignUpText = styled('span')`
     line-height: ${lineHeight26};
     color: #ffffff;
     text-transform: none;
+
+    @media (max-width: 600px) {
+        font-size: 12px;
+        line-height: 26px;
+    }
 `;
 
 const SignUpButton = styled(Button)`
@@ -135,6 +146,10 @@ const SignUpButton = styled(Button)`
     &:hover {
         background: ${color4};
     }
+
+    @media (max-width: 600px) {
+        width: 220px;
+    }
 `;
 
 const Demo = styled('span')`
@@ -143,6 +158,11 @@ const Demo = styled('span')`
     line-height: ${lineHeight26};
     color: #1717d2;
     text-transform: none;
+
+    @media (max-width: 600px) {
+        font-size: 12px;
+        line-height: 26px;
+    }
 `;
 
 const DemoButton = styled(Button)`
@@ -153,6 +173,10 @@ const DemoButton = styled(Button)`
     &:hover {
         background: #dde5ff;
     }
+
+    @media (max-width: 600px) {
+        width: 220px;
+    }
 `;
 
 const Explore = styled('span')`
@@ -162,7 +186,7 @@ const Explore = styled('span')`
     color: #18204c;
 
     @media (max-width: 600px) {
-        font-size: 16px;
+        font-size: 14px;
         line-height: ${lineHeight29};
         text-align: left;
     }
@@ -172,19 +196,35 @@ const NavLink = styled(Link)`
     text-decoration: none;
 `;
 
+const SubTextGrid = styled(Grid)`
+    margin: 30px 0px 0px 0px;
+
+    @media (max-width: 600px) {
+        margin: 0px;
+    }
+`;
+
 const ButtonGrid = styled(Grid)`
     display: flex;
     flex-direction: row;
 
     @media (max-width: 600px) {
-        justify-content: center;
+        flex-direction: column;
+    }
+`;
+
+const BottomContainer = styled(Grid)`
+    display: flex;
+    @media (max-width: 600px) {
+        margin: 0px 0px 0px 10px;
+        flex-direction: column;
     }
 `;
 
 const TopSection = () => {
     return (
         <Bg>
-            <TopSectionContainer spacing={2} container>
+            <TopSectionContainer spacing={4} container>
                 <TextContainer container item spacing={2}>
                     <Grid item>
                         <Cicd>{'CI/CD'}</Cicd>
@@ -192,32 +232,34 @@ const TopSection = () => {
                     <Grid item>
                         <Heading>{'Let’s get your\ncode tested!'}</Heading>
                     </Grid>
-                    <Grid item>
+                    <SubTextGrid item>
                         <SubText>
                             {
                                 'Nowadays,  the increasingly growing number of mobile\nand computing devices'
                             }
                         </SubText>
-                    </Grid>
+                    </SubTextGrid>
                 </TextContainer>
-                <ButtonGrid container item spacing={2}>
+                <BottomContainer container item spacing={3}>
+                    <ButtonGrid container item spacing={2}>
+                        <Grid item>
+                            <SignUpButton variant="outlined">
+                                <SignUpText>Sign up for free trial</SignUpText>
+                            </SignUpButton>
+                        </Grid>
+                        <Grid item>
+                            <DemoButton variant="contained">
+                                <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
+                                <Demo>Watch a demo</Demo>
+                            </DemoButton>
+                        </Grid>
+                    </ButtonGrid>
                     <Grid item>
-                        <SignUpButton variant="outlined">
-                            <SignUpText>Sign up for free trial</SignUpText>
-                        </SignUpButton>
+                        <NavLink>
+                            <Explore>Explore Doc</Explore>
+                        </NavLink>
                     </Grid>
-                    <Grid item>
-                        <DemoButton variant="contained">
-                            <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
-                            <Demo>Watch a demo</Demo>
-                        </DemoButton>
-                    </Grid>
-                </ButtonGrid>
-                <Grid item>
-                    <NavLink>
-                        <Explore>Explore Doc</Explore>
-                    </NavLink>
-                </Grid>
+                </BottomContainer>
             </TopSectionContainer>
         </Bg>
     );
