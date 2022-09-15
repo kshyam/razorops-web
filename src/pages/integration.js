@@ -4,7 +4,9 @@ import styled from '@emotion/styled';
 // import ToolIntegration from "../components/tool-integration";
 import Footer from "../components/footer";
 import SignUp from "../components/sign-up";
-
+import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import cn from 'classnames';
 
 
 import clientdossier from '../assets/images/clients/1dossier.png';
@@ -345,7 +347,7 @@ const data7 = [
 ];
 
 
-export default function Integration({data : {allguides}}){
+export default function Integration({data : {allguides, site, guide}}){
     const heroPost = allguides.nodes[0];
     const heroPost2 = allguides.nodes;
     const morePosts = allguides.nodes.slice(1);
@@ -385,9 +387,11 @@ export default function Integration({data : {allguides}}){
 
                  <SubHeading>{'Build Tools'}</SubHeading>      
                  <MainContainer container spacing={3}>
-                    
+                 <HelmetDatoCms seo={guide.seo} favicon={site.favicon} />
+
                     {heroPost2.map((i) => (
-                        <Grid
+                        
+                            <Grid
                             key={i.id}
                             item
                             xs={6}
@@ -396,13 +400,24 @@ export default function Integration({data : {allguides}}){
                             lg={3}
                             display={'flex'}
                             justifyContent={'center'}>
-                            <BoxContainer>
-                                <Content>
-                                    <LeftImg alt="" src={i.coverImage} />
-                                    <Text>{i.title}</Text>
-                                </Content>
-                            </BoxContainer>
-                        </Grid>
+                                <BoxContainer>
+                                <Link to={`/how_to_guide/${i.slug}`} className="hover:underline">
+                                    <Content>
+                                    <GatsbyImage
+                                            style={{ width: "50px", height: "50px" }}
+                                            image={i.coverImage.small}
+                                            alt={`Cover Image for ${i.title}`}
+                                            className={cn('shadow-small', {
+                                                'hover:shadow-medium transition-shadow duration-200': i.slug
+                                            })}
+                                        />
+                                        <Text>{i.title}</Text>
+                                    </Content>
+                                </Link>    
+                                </BoxContainer>
+                            </Grid>
+                       
+                        
                     ))}
 
                     {
@@ -525,7 +540,7 @@ export default function Integration({data : {allguides}}){
                     ))}
                  </MainContainer>  
 
-                 <Container>
+                 {/* <Container>
             {heroPost && (
                 <HeroPost
                     title={heroPost.title}
@@ -537,7 +552,7 @@ export default function Integration({data : {allguides}}){
                 />
             )}
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
+        </Container> */}
                       
             </BG>
             {/* <ToolIntegration/> */}
@@ -563,7 +578,16 @@ export default function Integration({data : {allguides}}){
 
 export const query2 = graphql`
  {
-   
+    site: datoCmsSite {
+        favicon: faviconMetaTags {
+            ...GatsbyDatoCmsFaviconMetaTags
+        }
+    }   
+    guide: datoCmsHowToGuide {
+        seo: seoMetaTags {
+            ...GatsbyDatoCmsSeoMetaTags
+        }
+    } 
     allguides: allDatoCmsHowToGuide(sort: { fields: date, order: DESC }, limit: 20) {
         nodes {
             title
