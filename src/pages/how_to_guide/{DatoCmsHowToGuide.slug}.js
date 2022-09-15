@@ -6,18 +6,24 @@ import PostBody from '../../components/blog/post-body';
 import PostHeader from '../../components/blog/post-header';
 import SectionSeparator from '../../components/blog/section-separator';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import cn from 'classnames';
+import PostTitle from '../../components/blog/post-title';
 
 export default function Post({ data: { site, guide, moreguides } }) {
     return (
         <Container>
             <HelmetDatoCms seo={guide.seo} favicon={site.favicon} />
-            <article>
-                <PostHeader
-                    title={guide.title}
-                    coverImage={guide.coverImage}
-                    date={guide.date}
-                    author={guide.author}
-                />
+            <article className="mt-60">
+                <PostTitle>{`Integrate RazorOps with ${guide.title} `}</PostTitle>
+            <GatsbyImage
+                style={{ width: "50px", height: "50px" }}
+                image={guide.coverImage.small}
+                alt={`Cover Image for ${guide.title}`}
+                className={cn('shadow-small', {
+                'hover:shadow-medium transition-shadow duration-200': guide.slug
+             })}
+             />
                 <PostBody content={guide.content} />
             </article>
             <SectionSeparator />
