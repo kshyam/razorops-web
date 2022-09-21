@@ -14,7 +14,7 @@ export default function Post({ data: { site, guide, moreguides } }) {
     return (
         <Container>
             <HelmetDatoCms seo={guide.seo} favicon={site.favicon} />
-            <article className="mt-60">
+            <article className="mt-50">
                 <PostTitle>{`Integrate RazorOps with ${guide.title} `}</PostTitle>
             <GatsbyImage
                 style={{ width: "50px", height: "50px" }}
@@ -51,7 +51,7 @@ export const query = graphql`
                     __typename
                     id: originalId
                     image {
-                        gatsbyImageData(width: 700)
+                        gatsbyImageData(layout: FULL_WIDTH)
                     }
                 }
             }

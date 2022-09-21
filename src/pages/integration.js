@@ -275,6 +275,12 @@ const BoxContainer = styled('div')`
     box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
     width: 327px;
+    
+
+    &:hover{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        transition: 0.4s;
+    }
 
     @media (max-width: 1199px) {
         width: -webkit-fill-available;
@@ -285,6 +291,11 @@ const BoxContainer = styled('div')`
         margin: 0px;
     }
 `;
+
+
+const linkStyle ={
+    textDecoration: 'none'
+}
 
 const LeftImg = styled('img')`
     width: 50px;
@@ -305,10 +316,14 @@ const SubHeading = styled('h1')`
     margin-bottom: -30px;
 `;
 
+const BoxLink = styled('a')`
+
+`;
+
 const data1 = [
-    { id: 1, img: github, text: 'Github' },
-    { id: 2, img: bitbucket, text: 'Bitbucket' },
-    { id: 3, img: gitlab, text: 'Gitlab' },
+    { id: 1, img: github, text: 'Github', link: 'https://docs.razorops.com/account/create-pipeline/#when-authenticated-with-github' },
+    { id: 2, img: bitbucket, text: 'Bitbucket', link: 'https://docs.razorops.com/account/create-pipeline/#when-authenticated-with-bitbucket' },
+    { id: 3, img: gitlab, text: 'Gitlab', link: 'https://docs.razorops.com/account/create-pipeline/#when-authenticated-with-gitlab' },
     
    
 ];
@@ -347,7 +362,7 @@ const data7 = [
 ];
 
 
-export default function Integration({data : {allguides, site, guide}}){
+export default function Integration({data : {allguides, site, integrations}}){
     const heroPost = allguides.nodes[0];
     const heroPost2 = allguides.nodes;
     const morePosts = allguides.nodes.slice(1);
@@ -374,12 +389,14 @@ export default function Integration({data : {allguides, site, guide}}){
                             lg={3}
                             display={'flex'}
                             justifyContent={'center'}>
-                            <BoxContainer>
-                                <Content>
-                                    <LeftImg alt="" src={i.img} />
-                                    <Text>{i.text}</Text>
-                                </Content>
-                            </BoxContainer>
+                            <BoxLink href={i.link} target="_blank">
+                                <BoxContainer>
+                                    <Content>
+                                            <LeftImg alt="" src={i.img} />
+                                            <Text>{i.text}</Text>
+                                    </Content>
+                                </BoxContainer>
+                            </BoxLink>
                         </Grid>
                     ))}
                  </MainContainer>
@@ -387,7 +404,7 @@ export default function Integration({data : {allguides, site, guide}}){
 
                  <SubHeading>{'Build Tools'}</SubHeading>      
                  <MainContainer container spacing={3}>
-                 <HelmetDatoCms seo={guide.seo} favicon={site.favicon} />
+                 <HelmetDatoCms seo={integrations.seo} favicon={site.favicon} />
 
                     {heroPost2.map((i) => (
                         
@@ -400,8 +417,8 @@ export default function Integration({data : {allguides, site, guide}}){
                             lg={3}
                             display={'flex'}
                             justifyContent={'center'}>
-                                <BoxContainer>
-                                <Link to={`/how_to_guide/${i.slug}`} className="hover:underline">
+                                <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
+                                <BoxContainer> 
                                     <Content>
                                     <GatsbyImage
                                             style={{ width: "50px", height: "50px" }}
@@ -412,9 +429,9 @@ export default function Integration({data : {allguides, site, guide}}){
                                             })}
                                         />
                                         <Text>{i.title}</Text>
-                                    </Content>
-                                </Link>    
+                                    </Content> 
                                 </BoxContainer>
+                                </Link> 
                             </Grid>
                        
                         
@@ -583,7 +600,7 @@ export const query2 = graphql`
             ...GatsbyDatoCmsFaviconMetaTags
         }
     }   
-    guide: datoCmsHowToGuide {
+    integrations: datoCmsIntegration {
         seo: seoMetaTags {
             ...GatsbyDatoCmsSeoMetaTags
         }
