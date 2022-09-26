@@ -26,11 +26,13 @@ const gradient1 = 'linear-gradient(29.4deg, #580AFF 1.02%, #0AD3FF 95.64%)';
 // font size
 
 const fontSize12 = '12px';
+const fontSize15 = '15px';
 const fontSize14 = '14px';
 const fontSize16 = '16px';
 const fontSize18 = '18px';
 const fontSize20 = '20px';
 const fontSize24 = '24px';
+const fontSize30 = '30px';
 
 // font weight
 const fontWeight300 = 300;
@@ -38,6 +40,8 @@ const fontWeight600 = 600;
 const fontWeight700 = 700;
 const fontWeight400 = 400;
 const fontWeight500 = 500;
+const fontWeight900 = 900;
+
 
 // line height
 const lineHeight17 = '17px';
@@ -112,6 +116,13 @@ const font8 = css({
     fontStyle: 'normal'
 });
 
+const font9 = css({
+    ...montserratMedium,
+    fontWeight: fontWeight900,
+    fontStyle: 'normal',
+    fontSize: fontSize30
+});
+
 export {
     primary,
     bg1,
@@ -129,17 +140,21 @@ export {
     font6,
     font7,
     font8,
+    font9,
     fontWeight600,
     fontWeight700,
     fontWeight400,
     fontWeight500,
     fontWeight300,
+    fontWeight900,
     fontSize12,
     fontSize14,
+    fontSize15,
     fontSize16,
     fontSize18,
     fontSize20,
     fontSize24,
+    fontSize30,
     lineHeight17,
     lineHeight20,
     lineHeight22,
