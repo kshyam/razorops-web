@@ -63,6 +63,7 @@ import MoreStories from '../components/blog/more-stories';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import { graphql } from 'gatsby';
 import { Search } from "@mui/icons-material";
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 
 
@@ -435,37 +436,37 @@ export default function Integration({data : {allguides, site, integrations}}){
                 <Grid item sm={3} sx={{marginTop:"60px"}} style={{ paddingLeft: '86px',}} >
                     <NavItem container spacing={3} >
                         <Grid item >
-                            <LeftNavButton style={{ textAlign:'left' }}>
+                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#scm')}>
                                 <ButtonText>{'SCM'}</ButtonText>
                             </LeftNavButton>
                         </Grid>
                         <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }}>
+                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#build-tools')}>
                                 <ButtonText>{'Build Tools'}</ButtonText>
                             </LeftNavButton>
                         </Grid>
                         <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }}>
+                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#unit-testing-tools')}>
                                 <ButtonText>{'Unit Testing Tools'}</ButtonText>
                             </LeftNavButton>
                         </Grid>
                         <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }}>
+                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#test-coverage-report-tools')}>
                                 <ButtonText>{'Test Coverage Report Tools'}</ButtonText>
                             </LeftNavButton>
                         </Grid>
                         <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }}>
+                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#container-registries')}>
                                 <ButtonText>{'Container Registries'}</ButtonText>
                             </LeftNavButton>
                         </Grid>
                         <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }}>
+                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#development-tools')}>
                                 <ButtonText>{'Development Tools- Kubernetes'}</ButtonText>
                             </LeftNavButton>
                         </Grid>
                         <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }}>
+                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#other-tools')}>
                                 <ButtonText>{'Other Tools'}</ButtonText>
                             </LeftNavButton>
                         </Grid>
@@ -498,7 +499,7 @@ export default function Integration({data : {allguides, site, integrations}}){
                  </MainContainer>
 
 
-                 <SubHeading>{'Build Tools'}</SubHeading>      
+                 <SubHeading id='build-tools'>{'Build Tools'}</SubHeading>      
                  <MainContainer container spacing={3}>
                  <HelmetDatoCms seo={integrations.seo} favicon={site.favicon} />
 
@@ -540,7 +541,7 @@ export default function Integration({data : {allguides, site, integrations}}){
                     }
                  </MainContainer>
 
-                 <SubHeading>{'Unit Testing Tools'}</SubHeading>      
+                 <SubHeading id='unit-testing-tools'>{'Unit Testing Tools'}</SubHeading>      
                  <MainContainer container spacing={3}>
                     
                     {data1.map((i) => (
@@ -571,7 +572,7 @@ export default function Integration({data : {allguides, site, integrations}}){
                     ))}
                  </MainContainer>
 
-                 <SubHeading>{'Test Coverage Report Tools'}</SubHeading>      
+                 <SubHeading id="test-coverage-report-tools">{'Test Coverage Report Tools'}</SubHeading>      
                  <MainContainer container spacing={3}>
                     
                     {data1.map((i) => (
@@ -602,7 +603,7 @@ export default function Integration({data : {allguides, site, integrations}}){
                     ))}
                  </MainContainer>
 
-                 <SubHeading>{'Container Registries'}</SubHeading>      
+                 <SubHeading id='container-registries'>{'Container Registries'}</SubHeading>      
                  <MainContainer container spacing={3}>
                     
                  { heroPost2.map(i => {
@@ -637,7 +638,7 @@ export default function Integration({data : {allguides, site, integrations}}){
                          })}
                  </MainContainer>
 
-                 <SubHeading>{'Development Tools- Kubernetes'}</SubHeading>      
+                 <SubHeading id='development-tools'>{'Development Tools- Kubernetes'}</SubHeading>      
                  <MainContainer container spacing={3}>
                     
                     {data6.map((i) => (
@@ -668,7 +669,7 @@ export default function Integration({data : {allguides, site, integrations}}){
                     ))}
                  </MainContainer>  
 
-                  <SubHeading>{'Other Tools'}</SubHeading>      
+                  <SubHeading id='other-tools'>{'Other Tools'}</SubHeading>      
                  <MainContainer container spacing={3}>
                     
                     {data7.map((i) => (

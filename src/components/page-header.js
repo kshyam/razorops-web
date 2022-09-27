@@ -125,6 +125,14 @@ const Desc = styled('span')`
     color: #ffffff;
     white-space: pre-wrap;
 
+    @media (min-width: 1200px) and (max-width: 1344px) {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    @media (min-width: 1345px) and (max-width: 1535px) {
+        font-size: 16px;
+        line-height: 23px;
+    }
     @media (min-width: 900px) and (max-width: 1199px) {
         font-size: 16px;
         line-height: 26px;
@@ -154,6 +162,25 @@ const HeaderButton = styled('button')`
     padding: 2px ;
     border-radius: 6px;
     width: 130px;
+
+    @media (min-width: 1536px) {
+        width: 100px;
+    }
+    @media (min-width: 1200px) and (max-width: 1344px) {
+        width: 70px;
+    }
+    @media (min-width: 1345px) and (max-width: 1535px) {
+        width: 80px;
+    }
+    @media (min-width: 900px) and (max-width: 1199px) {
+        width: 80px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        width: 80px;
+    }
+
+ 
     
 `;
 
@@ -165,18 +192,22 @@ const ButtonText = styled('span')`
     color: #C4C4C4;
     white-space: pre-wrap;
 
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 12px;
+        line-height: 23px;
+    }
     @media (min-width: 900px) and (max-width: 1199px) {
-        font-size: 16px;
+        font-size: 13px;
         line-height: 26px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        font-size: 18px;
+        font-size: 12px;
         line-height: 29px;
     }
 
     @media (max-width: 599px) {
-        font-size: 14px;
+        font-size: 10px;
         line-height: 26px;
     }
 `;
