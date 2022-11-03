@@ -52,7 +52,7 @@ const LeftContainer = styled(Grid)`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background: #000f30;
+    background: linear-gradient(180deg, #345eef 0%, #1717d2 100%);
 `;
 
 const RightContainer = styled(Grid)`

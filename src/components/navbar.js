@@ -155,6 +155,8 @@ export default function Navbar() {
     const openResources = Boolean(anchorElResources);
     const openCompany = Boolean(anchorElCompany);
 
+    const isPricingOpen =
+        typeof window !== 'undefined' ? window.location.href.indexOf('pricing') !== -1 : false;
     const isProductOpen =
         typeof window !== 'undefined' ? window.location.href.indexOf('product') !== -1 : false;
     const isBlogOpen =
@@ -270,10 +272,15 @@ export default function Navbar() {
                             </NavButton>
                         </Grid>
                         <Grid item>
-                            <NavButton style={{ display: 'flex', alignItems: 'center' }}>
-                                <Text color={color1}>Resources</Text>
+                            <NavButton
+                                onClick={() => navigate('/pricing')}
+                                bg={isPricingOpen === true ? '#345eef' : '#ffffff'}
+                                style={{ display: 'flex', alignItems: 'center' }}>
+                                <Text color={isPricingOpen === true ? '#ffffff' : color1}>
+                                    Pricing
+                                </Text>
                                 <ExpandMoreIcon
-                                    style={{ color: 'black' }}
+                                    style={{ color: isPricingOpen ? 'white' : 'black' }}
                                     onMouseEnter={handleOpenResources}
                                 />
                                 <Dropdown
