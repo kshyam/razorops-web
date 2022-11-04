@@ -193,7 +193,9 @@ export default function Footer() {
                         <Sub>Blog</Sub>
                     </Grid>
                     <Grid item>
-                        <Sub>About Us</Sub>
+                        <NavLink to="/about">
+                            <Sub>About Us</Sub>
+                        </NavLink>
                     </Grid>
                     <Grid item>
                         <Sub>Customers</Sub>
