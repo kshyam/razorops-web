@@ -1,17 +1,36 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '../../components/container';
-import MoreStories from '../../components/blog/more-stories';
 import PostBody from '../../components/blog/post-body';
 import PostHeader from '../../components/blog/post-header';
-import SectionSeparator from '../../components/blog/section-separator';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
+import Footer from '../../components/footer';
+import styled from '@emotion/styled';
 
+const MainContainer = styled('div')`
+    @media (min-width: 900px) and (max-width: 1199px) {
+        padding: 80px 80px 80px 80px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        padding: 50px 50px 50px 50px;
+    }
+
+    @media (min-width: 1535px) {
+        padding: 100px 140px 100px 140px;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        padding: 100px 100px 100px 100px;
+    }
+
+    @media (max-width: 600px) {
+        padding: 40px 40px 40px 40px;
+    }
+`;
 export default function Post({ data: { site, post, morePosts } }) {
     return (
         <Container>
-            <HelmetDatoCms seo={post.seo} favicon={site.favicon} />
-            <article>
+            <MainContainer>
                 <PostHeader
                     title={post.title}
                     coverImage={post.coverImage}
@@ -19,9 +38,8 @@ export default function Post({ data: { site, post, morePosts } }) {
                     author={post.author}
                 />
                 <PostBody content={post.content} />
-            </article>
-            <SectionSeparator />
-            {morePosts.nodes.length > 0 && <MoreStories posts={morePosts.nodes} />}
+            </MainContainer>
+            <Footer />
         </Container>
     );
 }
