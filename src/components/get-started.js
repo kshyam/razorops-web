@@ -16,23 +16,23 @@ const BG = styled('div')`
     );
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 70px 0px 70px 0px;
+        padding: 50px 0px 0px 0px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 70px 0px 70px 0px;
+        padding: 50px 0px 50px 0px;
     }
 
     @media (min-width: 1535px) {
-        padding: 70px 0px;
+        padding: 50px 0px 0px 0px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 70px 0px 70px 0px;
+        padding: 50px 0px 0px 0px;
     }
 
     @media (max-width: 600px) {
-        padding: 40px 0px 0px 0px;
+        padding: 20px 0px 0px 0px;
     }
 `;
 
@@ -53,21 +53,21 @@ const Title = styled('span')`
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        font-size: 32px;
-        line-height: 39px;
+        font-size: 27px;
+        line-height: 32px;
         white-space: pre-wrap;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
         font-size: 30px;
-        line-height: 35px;
+        line-height: 32px;
         white-space: pre-wrap;
     }
 
     @media (max-width: 599px) {
         white-space: pre-wrap;
-        font-size: 24px;
-        line-height: 34px;
+        font-size: 22px;
+        line-height: 29px;
     }
 `;
 
@@ -88,19 +88,33 @@ const Sub = styled('span')`
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        font-size: 25px;
-        line-height: 32px;
+        font-size: 23px;
+        line-height: 27px;
         white-space: pre-wrap;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        font-size: 25px;
-        line-height: 29px;
+        font-size: 22px;
+        line-height: 27px;
     }
 
     @media (max-width: 599px) {
         font-size: 22px;
         line-height: 27px;
+    }
+`;
+
+const TitleGrid = styled(Grid)`
+    @media (max-width: 899px) {
+        display: flex;
+        justify-content: center;
+    }
+`;
+
+const SubGrid = styled(Grid)`
+    @media (max-width: 899px) {
+        display: flex;
+        justify-content: center;
     }
 `;
 
@@ -164,6 +178,12 @@ const GetStartedButton = styled(Button)`
     background: ${color4};
     border-radius: 15px;
     text-transform: none;
+
+    @media (max-width: 1199px) {
+        width: 200px;
+        height: 40px;
+    }
+
     &:hover {
         background: ${color4};
     }
@@ -194,12 +214,12 @@ const GetStarted = () => {
                     sm={10}
                     md={6}
                     lg={6}>
-                    <Grid item>
+                    <TitleGrid item>
                         <Title>{'25 Minutes onboarding\nand setup'}</Title>
-                    </Grid>
-                    <Grid item>
+                    </TitleGrid>
+                    <SubGrid item>
                         <Sub>{'We Have Fastest in the Market that\nsupports developers.'}</Sub>
-                    </Grid>
+                    </SubGrid>
                     <ButtonGrid container item spacing={2} display={'flex'} flexDirection={'row'}>
                         <Grid item>
                             <GetStartedButton variant="contained">

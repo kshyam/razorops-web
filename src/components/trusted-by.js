@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Grid } from '@mui/material';
 import styled from '@emotion/styled';
 import { font6, lineHeight29 } from '../assets/globalStyles';
-import dossier from '../assets/images/clients/1dossier.png';
+import dossier from '../assets/images/clients/1dossier.webp';
 import auzmor from '../assets/images/clients/auzmor.png';
 import azure from '../assets/images/clients/azure.png';
 import bitbucket from '../assets/images/clients/bitbucket.png';
@@ -57,41 +57,94 @@ const TopGrid = styled(Grid)`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
-    @media (min-width: 900px) and (max-width: 1099px) {
-        min-width: 1100px;
-        justify-content: flex-start;
-    }
-
-    @media (max-width: 899px) {
-        min-width: 950px;
-        justify-content: flex-start;
-    }
 `;
 
 const ImageGrid = styled(Grid)`
     display: flex;
     align-items: center;
-    padding: 5px;
-
-    @media (max-width: 600px) {
-        margin-right: 10px;
-    }
+    width: 200px;
 `;
 
 const Img = styled('img')`
+    height: 100px;
     width: 150px;
-    -webkit-filter: grayscale(1);
-    -webkit-transition: all 0.8s ease-in-out;
+    transition: transform 1s;
+
     &:hover {
-        filter: none;
-        -webkit-filter: grayscale(0);
-        -webkit-transform: scale(1.01);
-    }
-    @media (max-width: 899px) {
-        width: 130px;
+        transform: scale(1.5);
     }
 `;
+
+const Slider = styled('div')`
+    display: flex;
+    align-items: center;
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+    height: 140px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
+
+    &::before,
+    &::after {
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        content: '';
+        height: 100px;
+        position: absolute;
+        width: 200px;
+        z-index: 2;
+    }
+
+    &::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+    }
+`;
+
+const SlideTrack = styled('div')`
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(200px * 12);
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-200px * 6));
+        }
+    }
+
+    &:hover {
+        animation-play-state: paused;
+    }
+`;
+
+const images = [
+    { id: 1, img: dossier },
+    { id: 2, img: auzmor },
+    { id: 3, img: azure },
+    { id: 4, img: bitbucket },
+    { id: 5, img: digitalocean },
+    { id: 6, img: trice },
+    { id: 7, img: dossier },
+    { id: 8, img: auzmor },
+    { id: 9, img: azure },
+    { id: 10, img: bitbucket },
+    { id: 11, img: digitalocean },
+    { id: 12, img: trice }
+];
 
 export default function TrustedBy() {
     return (
@@ -99,24 +152,15 @@ export default function TrustedBy() {
             <Title>Trusted By</Title>
             <BG>
                 <TopGrid container>
-                    <ImageGrid item>
-                        <Img src={dossier} alt="" />
-                    </ImageGrid>
-                    <ImageGrid item>
-                        <Img src={auzmor} alt="" />
-                    </ImageGrid>
-                    <ImageGrid item>
-                        <Img src={azure} alt="" />
-                    </ImageGrid>
-                    <ImageGrid item>
-                        <Img src={bitbucket} alt="" />
-                    </ImageGrid>
-                    <ImageGrid item>
-                        <Img src={digitalocean} alt="" />
-                    </ImageGrid>
-                    <ImageGrid item>
-                        <Img src={trice} alt="" />
-                    </ImageGrid>
+                    <Slider>
+                        <SlideTrack>
+                            {images.map((i) => (
+                                <ImageGrid id={i.id} item>
+                                    <Img src={i.img} alt="" />
+                                </ImageGrid>
+                            ))}
+                        </SlideTrack>
+                    </Slider>
                 </TopGrid>
             </BG>
         </>

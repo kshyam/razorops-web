@@ -94,7 +94,7 @@ const TrustedBy = () => {
     return (
         <div>
             <Grid container>
-                <LeftContainer container item spacing={3} xs={12} sm={12} md={6} lg={6}>
+                <LeftContainer container item xs={12} sm={12} md={6} lg={6}>
                     <Grid item>
                         <Title>
                             Trusted by the growing engineering teams to build quality products
