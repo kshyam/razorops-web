@@ -2,16 +2,14 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import styled from '@emotion/styled';
 import {
-    font2,
-    font3,
-    fontSize18,
     lineHeight29,
     color1,
     color2,
-    font4,
     color4,
-    lineHeight26,
-    font5
+    font5,
+    fontSize20,
+    lineHeight20,
+    font6
 } from '../assets/globalStyles';
 import banner from '../assets/images/bannerImg.png';
 import btnIcon from '../assets/images/btnIcon.svg';
@@ -27,14 +25,15 @@ const Bg = styled('div')`
 `;
 
 const Heading = styled('div')`
-    ${font3};
-    font-size: 80px;
+    ${font5};
+    font-size: 60px;
     line-height: 90px;
     color: ${color1};
+    text-align: center;
     white-space: pre-wrap;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        font-size: 64px;
+        font-size: 60px;
         line-height: 77px;
     }
     @media (min-width: 900px) and (max-width: 1199px) {
@@ -43,21 +42,22 @@ const Heading = styled('div')`
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        font-size: 64px;
+        font-size: 40px;
         line-height: 77px;
     }
 
     @media (max-width: 600px) {
-        font-size: 40px;
+        font-size: 30px;
         line-height: 44px;
     }
 `;
 
 const SubText = styled('span')`
-    ${font2};
-    font-size: ${fontSize18};
+    ${font5};
+    font-size: ${fontSize20};
     line-height: ${lineHeight29};
     color: ${color2};
+    text-align: center;
     white-space: pre-wrap;
 
     @media (min-width: 900px) and (max-width: 1199px) {
@@ -66,8 +66,9 @@ const SubText = styled('span')`
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 29px;
+        white-space: inherit;
     }
 
     @media (max-width: 599px) {
@@ -77,53 +78,36 @@ const SubText = styled('span')`
     }
 `;
 
-const TopSectionContainer = styled(Grid)`
+const Container = styled(Grid)`
     display: flex;
-    justify-content: space-between;
-
-    @media (max-width: 899px) {
-        align-items: center;
-    }
+    justify-content: center;
+    align-items: center;
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 100px 80px;
+        padding: 130px 80px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 100px 50px;
+        padding: 130px 50px;
     }
 
     @media (min-width: 1535px) {
-        padding: 200px 180px;
+        padding: 210px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 120px 100px;
+        padding: 150px 100px;
     }
 
     @media (max-width: 600px) {
-        padding: 50px 40px 100px 40px;
-        justify-content: center;
-    }
-`;
-
-const Cicd = styled('span')`
-    ${font4};
-    font-size: 30px;
-    line-height: 34px;
-    color: ${color4};
-    border-bottom: 2px solid ${color4};
-
-    @media (max-width: 600px) {
-        font-size: 22px;
-        line-height: 34px;
+        padding: 120px 40px 120px 40px;
     }
 `;
 
 const SignUpText = styled('span')`
-    ${font2};
-    font-size: ${fontSize18};
-    line-height: ${lineHeight26};
+    ${font6};
+    font-size: ${fontSize20};
+    line-height: ${lineHeight20};
     color: #ffffff;
     text-transform: none;
 
@@ -134,9 +118,9 @@ const SignUpText = styled('span')`
 `;
 
 const SignUpButton = styled(Button)`
-    padding: 10px 30px;
+    padding: 15px 30px;
     background: ${color4};
-    border-radius: 15px;
+    border-radius: 14px;
 
     &:hover {
         background: ${color4};
@@ -148,10 +132,10 @@ const SignUpButton = styled(Button)`
 `;
 
 const Demo = styled('span')`
-    ${font2};
-    font-size: ${fontSize18};
-    line-height: ${lineHeight26};
-    color: #1717d2;
+    ${font6};
+    font-size: ${fontSize20};
+    line-height: ${lineHeight20};
+    color: #031b4e;
     text-transform: none;
 
     @media (max-width: 600px) {
@@ -161,29 +145,17 @@ const Demo = styled('span')`
 `;
 
 const DemoButton = styled(Button)`
-    padding: 10px 30px;
-    background: #dde5ff;
-    border-radius: 15px;
+    padding: 15px 30px;
+    border-radius: 14px;
+    background: transparent;
+    border: 1px solid #031b4e;
 
     &:hover {
-        background: #dde5ff;
+        background: transparent;
     }
 
     @media (max-width: 600px) {
         width: 220px;
-    }
-`;
-
-const Explore = styled('span')`
-    ${font5};
-    font-size: ${fontSize18};
-    line-height: ${lineHeight29};
-    color: #18204c;
-
-    @media (max-width: 600px) {
-        font-size: 14px;
-        line-height: ${lineHeight29};
-        text-align: left;
     }
 `;
 
@@ -192,7 +164,9 @@ const NavLink = styled(Link)`
 `;
 
 const SubTextGrid = styled(Grid)`
-    margin: 30px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 0px 0px;
 
     @media (max-width: 600px) {
         margin: 0px;
@@ -202,17 +176,9 @@ const SubTextGrid = styled(Grid)`
 const ButtonGrid = styled(Grid)`
     display: flex;
     flex-direction: row;
+    padding: 30px 0px 0px 0px;
 
     @media (max-width: 600px) {
-        flex-direction: column;
-    }
-`;
-
-const BottomContainer = styled(Grid)`
-    display: flex;
-
-    @media (max-width: 600px) {
-        margin: 0px 0px 0px 10px;
         flex-direction: column;
     }
 `;
@@ -220,49 +186,36 @@ const BottomContainer = styled(Grid)`
 const TopSection = () => {
     return (
         <Bg>
-            <TopSectionContainer spacing={4} container flexDirection={'column'}>
+            <Container spacing={3} container flexDirection={'column'}>
                 <Grid item>
-                    <Grid container spacing={2} flexDirection={'column'}>
-                        <Grid item>
-                            <Cicd>{'CI/CD'}</Cicd>
-                        </Grid>
-                        <Grid item>
-                            <Heading>{'Let’s get your\ncode tested!'}</Heading>
-                        </Grid>
-                        <SubTextGrid item>
-                            <SubText>
-                                {
-                                    'Nowadays,  the increasingly growing number of mobile\nand computing devices'
-                                }
-                            </SubText>
-                        </SubTextGrid>
-                    </Grid>
+                    <Heading>{'The Simplest Container\nNative CI/CD '}</Heading>
                 </Grid>
-                <BottomContainer item>
-                    <Grid container spacing={3} flexDirection={'column'}>
+                <SubTextGrid item>
+                    <SubText>
+                        {
+                            'Razorops is a container native continuous delivery platform to automate\nyour workflow from development to production in a few steps.'
+                        }
+                    </SubText>
+                </SubTextGrid>
+
+                <Grid item>
+                    <ButtonGrid container spacing={2}>
                         <Grid item>
-                            <ButtonGrid container spacing={2}>
-                                <Grid item>
-                                    <SignUpButton variant="outlined">
-                                        <SignUpText>Sign up for free trial</SignUpText>
-                                    </SignUpButton>
-                                </Grid>
-                                <Grid item>
-                                    <DemoButton variant="contained">
-                                        <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
-                                        <Demo>Watch a demo</Demo>
-                                    </DemoButton>
-                                </Grid>
-                            </ButtonGrid>
-                        </Grid>
-                        <Grid item>
-                            <NavLink>
-                                <Explore>Explore Doc</Explore>
+                            <NavLink to="https://dashboard.razorops.com/users/sign_up">
+                                <SignUpButton variant="outlined">
+                                    <SignUpText>Sign Up</SignUpText>
+                                </SignUpButton>
                             </NavLink>
                         </Grid>
-                    </Grid>
-                </BottomContainer>
-            </TopSectionContainer>
+                        <Grid item>
+                            <DemoButton variant="contained">
+                                <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
+                                <Demo>Watch a demo</Demo>
+                            </DemoButton>
+                        </Grid>
+                    </ButtonGrid>
+                </Grid>
+            </Container>
         </Bg>
     );
 };

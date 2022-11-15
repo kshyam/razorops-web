@@ -58,7 +58,8 @@ const NavBarGrid = styled(Grid)`
     align-items: center;
     height: ${(props) => (props.showTopBar === true ? '110px' : '100px')};
     @media (max-width: 1199px) {
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
     }
 `;
 
@@ -87,14 +88,18 @@ const LogoButton = styled(IconButton)`
     &:hover {
         background: none;
     }
+`;
 
-    @media (max-width: 899px) {
+const LogoButtonGrid = styled(Grid)`
+    @media (max-width: 1199px) {
         display: flex;
         justify-content: center;
     }
 `;
 
 const MenuIconButton = styled(IconButton)`
+    position: absolute;
+    left: 20px;
     @media (min-width: 1199px) {
         display: none;
     }
@@ -217,14 +222,14 @@ export default function Navbar() {
                             <MenuIconButton onClick={handleDrawerToggle} aria-label="menu">
                                 <MenuIcon />
                             </MenuIconButton>
-                            <Grid item md={4}>
+                            <LogoButtonGrid item md={4}>
                                 <LogoButton
                                     onClick={() => navigate('/')}
                                     color="inherit"
                                     aria-label="menu">
                                     <img src={logo} alt="" />
                                 </LogoButton>
-                            </Grid>
+                            </LogoButtonGrid>
                             <NavSection
                                 item
                                 display={'flex'}

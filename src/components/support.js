@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import styled from '@emotion/styled';
-import img from '../assets/images/support/support.svg';
+import img from '../assets/images/support/contactImg.svg';
 import img1 from '../assets/images/support/img1.svg';
 import img2 from '../assets/images/support/img2.svg';
 import img3 from '../assets/images/support/img3.svg';
@@ -23,29 +23,29 @@ const BG = styled('div')`
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0.8) -2.41%,
-        rgba(240, 238, 255, 0.8) 45.6%
+        rgba(222, 236, 255, 0.8) 42.23%
     );
     position: relative;
     overflow: hidden;
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 70px 80px 70px 80px;
+        padding: 0px 80px 70px 80px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 70px 50px 70px 50px;
+        padding: 0px 50px 70px 50px;
     }
 
     @media (min-width: 1535px) {
-        padding: 100px 180px;
+        padding: 0px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 70px 100px 70px 100px;
+        padding: 0px 100px 70px 100px;
     }
 
     @media (max-width: 600px) {
-        padding: 70px 20px 70px 20px;
+        padding: 0px 20px 70px 20px;
     }
 `;
 
@@ -167,6 +167,7 @@ const LeftContainer = styled(Grid)`
 const RightContainer = styled(Grid)`
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 const TopSectionContainer = styled(Grid)`

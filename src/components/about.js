@@ -14,7 +14,7 @@ import {
     lineHeight26
 } from '../assets/globalStyles';
 
-import img from '../assets/images/about/sideImg.svg';
+import img from '../assets/images/about/sideImg-2.svg';
 import bottomImg from '../assets/images/about/bottomImg.svg';
 import github from '../assets/images/about/github-black.svg';
 import gitlab from '../assets/images/about/gitlab.svg';
@@ -24,11 +24,7 @@ import { Button } from '@mui/material';
 const BG = styled('div')`
     position: relative;
     overflow: hidden;
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.8) -2.41%,
-        rgba(240, 238, 255, 0.8) 42.23%
-    );
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(222, 236, 255, 0.8));
 
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 70px 80px 70px 80px;
