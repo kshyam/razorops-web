@@ -54,7 +54,8 @@ const ToolBar = styled(Toolbar)`
 
 const NavBarGrid = styled(Grid)`
     display: flex;
-    padding: 0px 40px;
+    padding: 0px 80px;
+    align-items: center;
     height: ${(props) => (props.showTopBar === true ? '110px' : '100px')};
     @media (max-width: 1199px) {
         justify-content: space-between;
@@ -216,27 +217,20 @@ export default function Navbar() {
                             <MenuIconButton onClick={handleDrawerToggle} aria-label="menu">
                                 <MenuIcon />
                             </MenuIconButton>
-                            <LogoButton
-                                onClick={() => navigate('/')}
-                                color="inherit"
-                                aria-label="menu">
-                                <img src={logo} alt="" />
-                            </LogoButton>
-                            <Grid item />
+                            <Grid item md={4}>
+                                <LogoButton
+                                    onClick={() => navigate('/')}
+                                    color="inherit"
+                                    aria-label="menu">
+                                    <img src={logo} alt="" />
+                                </LogoButton>
+                            </Grid>
                             <NavSection
-                                spacing={1}
-                                container
+                                item
+                                display={'flex'}
                                 alignItems={'center'}
-                                justifyContent={'center'}>
-                                <Grid item>
-                                    <NavButton
-                                        bg={isBlogOpen === true ? '#345eef' : '#ffffff'}
-                                        onClick={() => navigate('/posts')}>
-                                        <Text color={isBlogOpen === true ? '#ffffff' : color1}>
-                                            Blog
-                                        </Text>
-                                    </NavButton>
-                                </Grid>
+                                justifyContent={'center'}
+                                md={4}>
                                 <Grid item>
                                     <NavButton
                                         onClick={() => navigate('/product')}
@@ -379,6 +373,11 @@ export default function Navbar() {
                                 </Grid>
                                 <Grid item>
                                     <NavButton style={{ display: 'flex', alignItems: 'center' }}>
+                                        <Text color={color1}>Documentation</Text>
+                                    </NavButton>
+                                </Grid>
+                                <Grid item>
+                                    <NavButton style={{ display: 'flex', alignItems: 'center' }}>
                                         <Text color={color1}>Company</Text>
                                         <ExpandMoreIcon
                                             style={{ color: 'black' }}
@@ -438,28 +437,28 @@ export default function Navbar() {
                                         />
                                     </NavButton>
                                 </Grid>
+                                <Grid item>
+                                    <NavButton
+                                        bg={isBlogOpen === true ? '#345eef' : '#ffffff'}
+                                        onClick={() => navigate('/posts')}>
+                                        <Text color={isBlogOpen === true ? '#ffffff' : color1}>
+                                            Blog
+                                        </Text>
+                                    </NavButton>
+                                </Grid>
                             </NavSection>
-                            <NavSection
-                                spacing={2}
-                                container
-                                alignItems={'center'}
-                                justifyContent={'flex-end'}>
-                                <Grid item>
-                                    <NavLink to="https://dashboard.razorops.com/users/sign_in">
-                                        <Text style={{ color: color4 }}>Login</Text>
-                                    </NavLink>
-                                </Grid>
-                                <Grid item>
-                                    <NavLink to="https://dashboard.razorops.com/users/sign_up">
-                                        <SignUpButton variant="outlined">
-                                            <SignUpText>Sign up</SignUpText>
-                                        </SignUpButton>
-                                    </NavLink>
-                                </Grid>
-                                <Grid item>
-                                    <DemoButton variant="contained">
-                                        <Demo>Schedule a demo</Demo>
-                                    </DemoButton>
+                            <NavSection item md={4}>
+                                <Grid container spacing={2} justifyContent={'flex-end'}>
+                                    <Grid item>
+                                        <NavLink to="https://dashboard.razorops.com/users/sign_up">
+                                            <Text color={color1}>Talk to Sales</Text>
+                                        </NavLink>
+                                    </Grid>
+                                    <Grid item>
+                                        <NavLink to="https://dashboard.razorops.com/users/sign_in">
+                                            <Text color={color1}>Login</Text>
+                                        </NavLink>
+                                    </Grid>
                                 </Grid>
                             </NavSection>
                         </NavBarGrid>

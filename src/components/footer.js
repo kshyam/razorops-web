@@ -114,156 +114,126 @@ export default function Footer() {
     return (
         <Bg>
             <TopGrid container spacing={2}>
-                <Grid
-                    md={12}
-                    lg={3}
-                    sm={12}
-                    xs={12}
-                    container
-                    item
-                    spacing={3}
-                    direction={'column'}>
-                    <Grid item>
-                        <Razorops>Razorops</Razorops>
-                    </Grid>
-                    <Grid item>
-                        <Sub>
-                            It is important to speak out and address a mental health issue.
-                            Therhappi is here to provide you with all the support you need. Take the
-                            right step, talk to us.
-                        </Sub>
+                <Grid md={12} lg={3} sm={12} xs={12} item>
+                    <Grid container spacing={3} direction={'column'}>
+                        <Grid item>
+                            <Razorops>Razorops</Razorops>
+                        </Grid>
+                        <Grid item>
+                            <Sub>
+                                It is important to speak out and address a mental health issue.
+                                Therhappi is here to provide you with all the support you need. Take
+                                the right step, talk to us.
+                            </Sub>
+                        </Grid>
                     </Grid>
                 </Grid>
-                <GridSection
-                    spacing={2}
-                    md={4}
-                    lg={2}
-                    sm={4}
-                    xs={6}
-                    container
-                    item
-                    direction={'column'}>
-                    <Grid item>
-                        <Title>Product</Title>
-                    </Grid>
-                    <Grid item>
-                        <NavLink>
-                            <Sub>Overview</Sub>
-                        </NavLink>
-                    </Grid>
-                    <Grid item>
-                        <NavLink>
-                            <Sub>How it works</Sub>
-                        </NavLink>
-                    </Grid>
-                    <Grid item>
-                        <NavLink>
-                            <Sub>Features</Sub>
-                        </NavLink>
-                    </Grid>
-                    <Grid item>
-                        <NavLink>
-                            <Sub>Integrations</Sub>
-                        </NavLink>
-                    </Grid>
-                    <Grid item>
-                        <NavLink>
-                            <Sub>Pricing</Sub>
-                        </NavLink>
-                    </Grid>
-                    <Grid item>
-                        <NavLink>
-                            <Sub>Schedule Demo</Sub>
-                        </NavLink>
+                <GridSection md={4} lg={2} sm={4} xs={6} item>
+                    <Grid container spacing={2} direction={'column'}>
+                        <Grid item>
+                            <Title>Product</Title>
+                        </Grid>
+                        <Grid item>
+                            <NavLink>
+                                <Sub>Overview</Sub>
+                            </NavLink>
+                        </Grid>
+                        <Grid item>
+                            <NavLink>
+                                <Sub>How it works</Sub>
+                            </NavLink>
+                        </Grid>
+                        <Grid item>
+                            <NavLink>
+                                <Sub>Features</Sub>
+                            </NavLink>
+                        </Grid>
+                        <Grid item>
+                            <NavLink>
+                                <Sub>Integrations</Sub>
+                            </NavLink>
+                        </Grid>
+                        <Grid item>
+                            <NavLink>
+                                <Sub>Pricing</Sub>
+                            </NavLink>
+                        </Grid>
+                        <Grid item>
+                            <NavLink>
+                                <Sub>Schedule Demo</Sub>
+                            </NavLink>
+                        </Grid>
                     </Grid>
                 </GridSection>
-                <GridSection
-                    spacing={2}
-                    md={4}
-                    lg={2}
-                    sm={4}
-                    xs={6}
-                    container
-                    item
-                    direction={'column'}>
-                    <Grid item>
-                        <Title>Company</Title>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Blog</Sub>
-                    </Grid>
-                    <Grid item>
-                        <NavLink to="/about">
-                            <Sub>About Us</Sub>
-                        </NavLink>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Customers</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>We are Hiring</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Contact Us</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Partners</Sub>
+                <GridSection md={4} lg={2} sm={4} xs={6} item>
+                    <Grid container spacing={2} direction={'column'}>
+                        <Grid item>
+                            <Title>Company</Title>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Blog</Sub>
+                        </Grid>
+                        <Grid item>
+                            <NavLink to="/about">
+                                <Sub>About Us</Sub>
+                            </NavLink>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Customers</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>We are Hiring</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Contact Us</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Partners</Sub>
+                        </Grid>
                     </Grid>
                 </GridSection>
-                <GridSection
-                    spacing={2}
-                    md={4}
-                    lg={2}
-                    sm={4}
-                    xs={6}
-                    container
-                    item
-                    direction={'column'}>
-                    <Grid item>
-                        <Title>Resources</Title>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Documentation</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Getting Started</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Videos</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Open Source</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Covid-19</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>CI/CD Offers</Sub>
+                <GridSection md={4} lg={2} sm={4} xs={6} item>
+                    <Grid container spacing={2} direction={'column'}>
+                        <Grid item>
+                            <Title>Resources</Title>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Documentation</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Getting Started</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Videos</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Open Source</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Covid-19</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>CI/CD Offers</Sub>
+                        </Grid>
                     </Grid>
                 </GridSection>
-                <GridSection
-                    spacing={2}
-                    md={4}
-                    lg={2}
-                    sm={4}
-                    xs={6}
-                    container
-                    item
-                    direction={'column'}>
-                    <Grid item>
-                        <Title>Support</Title>
-                    </Grid>
-                    <Grid item>
-                        <Sub>FAQ</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Terms of Service</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Privacy policy</Sub>
-                    </Grid>
-                    <Grid item>
-                        <Sub>Security</Sub>
+                <GridSection md={4} lg={2} sm={4} xs={6} item>
+                    <Grid container spacing={2} direction={'column'}>
+                        <Grid item>
+                            <Title>Support</Title>
+                        </Grid>
+                        <Grid item>
+                            <Sub>FAQ</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Terms of Service</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Privacy policy</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Security</Sub>
+                        </Grid>
                     </Grid>
                 </GridSection>
             </TopGrid>

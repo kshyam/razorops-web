@@ -223,7 +223,7 @@ const About = () => {
                             }
                         </Desc>
                     </Grid>
-                    <SubContainer spacing={2} container style={{ marginTop: '20px' }} item>
+                    <SubContainer spacing={2} container style={{ marginTop: '20px' }}>
                         <Grid item>
                             <SubText>{'Sign up with an account'}</SubText>
                         </Grid>

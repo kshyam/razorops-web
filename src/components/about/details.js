@@ -248,29 +248,33 @@ export default function Details() {
             </TextContainer>
             <Container container sm={12} xs={12} md={12} lg={12}>
                 <LeftContainer item xs={10} sm={12} md={6} lg={6}>
-                    <Grid container item spacing={2}>
-                        <Grid item>
-                            <Razorops>Razorops</Razorops>
-                            <RazoropsDesc>
-                                {
-                                    ' is a complete container native CI/CD\nsolution handling all aspects of the software\nlifecycle from the moment a commit is created\nuntil it is deployed to production.'
-                                }
-                            </RazoropsDesc>
-                        </Grid>
-                        <Grid item>
-                            <Sub>
-                                {
-                                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.\nLorem Ipsum has been the industry's standard dummy text ever since the\n1500s, when an unknown printer took a galley of type and scrambled it to make\na type specimen book."
-                                }
-                            </Sub>
+                    <Grid item>
+                        <Grid container spacing={2}>
+                            <Grid item>
+                                <Razorops>Razorops</Razorops>
+                                <RazoropsDesc>
+                                    {
+                                        ' is a complete container native CI/CD\nsolution handling all aspects of the software\nlifecycle from the moment a commit is created\nuntil it is deployed to production.'
+                                    }
+                                </RazoropsDesc>
+                            </Grid>
+                            <Grid item>
+                                <Sub>
+                                    {
+                                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.\nLorem Ipsum has been the industry's standard dummy text ever since the\n1500s, when an unknown printer took a galley of type and scrambled it to make\na type specimen book."
+                                    }
+                                </Sub>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </LeftContainer>
-                <RightContainer container item xs={12} sm={12} md={5} lg={5}>
-                    <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
-                        <img alt="" src={img} />
-                    </Grid>
-                </RightContainer>
+                <Grid item xs={12} sm={12} md={5} lg={5}>
+                    <RightContainer container>
+                        <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
+                            <img alt="" src={img} />
+                        </Grid>
+                    </RightContainer>
+                </Grid>
                 <Grid style={{ padding: '60px' }} container justifyContent={'center'}>
                     <img alt="" src={story} />
                 </Grid>
@@ -278,22 +282,24 @@ export default function Details() {
                     <Grid item xs={12} sm={6} md={6} lg={6}>
                         <CardContainer>
                             <Grid
-                                container
                                 item
                                 display={'flex'}
                                 justifyContent={'center'}
-                                flexDirection={'column'}
-                                spacing={3}>
-                                <Grid item>
-                                    <CardTitle>{'Our'}</CardTitle>
-                                    <CardTitle style={{ color: '#345eef' }}>{' Mission'}</CardTitle>
-                                </Grid>
-                                <Grid item>
-                                    <Sub>
-                                        {
-                                            "Our main focus is to increase developer productivity and makes\nsoftware deployment faster, easier and better. Lorem Ipsum has\nbeen the industry's standard dummy text ever since the 1500s,\nwhen an unknown printer took a galley of type and scrambled it\nto make a type specimen book."
-                                        }
-                                    </Sub>
+                                flexDirection={'column'}>
+                                <Grid container spacing={3}>
+                                    <Grid item>
+                                        <CardTitle>{'Our'}</CardTitle>
+                                        <CardTitle style={{ color: '#345eef' }}>
+                                            {' Mission'}
+                                        </CardTitle>
+                                    </Grid>
+                                    <Grid item>
+                                        <Sub>
+                                            {
+                                                "Our main focus is to increase developer productivity and makes\nsoftware deployment faster, easier and better. Lorem Ipsum has\nbeen the industry's standard dummy text ever since the 1500s,\nwhen an unknown printer took a galley of type and scrambled it\nto make a type specimen book."
+                                            }
+                                        </Sub>
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </CardContainer>
@@ -301,22 +307,24 @@ export default function Details() {
                     <Grid item xs={12} sm={6} md={6} lg={6}>
                         <CardContainer>
                             <Grid
-                                container
                                 item
                                 display={'flex'}
                                 justifyContent={'center'}
-                                flexDirection={'column'}
-                                spacing={3}>
-                                <Grid item>
-                                    <CardTitle>{'Our'}</CardTitle>
-                                    <CardTitle style={{ color: '#345eef' }}>{' Value'}</CardTitle>
-                                </Grid>
-                                <Grid item>
-                                    <Sub>
-                                        {
-                                            "Lorem Ipsum is simply dummy text of the printing and\ntypesetting industry. Lorem Ipsum has been the industry's\nstandard dummy text ever since the 1500s, when an unknown\nprinter took a galley of type and scrambled it to make a type\nspecimen book."
-                                        }
-                                    </Sub>
+                                flexDirection={'column'}>
+                                <Grid container spacing={3}>
+                                    <Grid item>
+                                        <CardTitle>{'Our'}</CardTitle>
+                                        <CardTitle style={{ color: '#345eef' }}>
+                                            {' Value'}
+                                        </CardTitle>
+                                    </Grid>
+                                    <Grid item>
+                                        <Sub>
+                                            {
+                                                "Lorem Ipsum is simply dummy text of the printing and\ntypesetting industry. Lorem Ipsum has been the industry's\nstandard dummy text ever since the 1500s, when an unknown\nprinter took a galley of type and scrambled it to make a type\nspecimen book."
+                                            }
+                                        </Sub>
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </CardContainer>

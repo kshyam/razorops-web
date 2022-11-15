@@ -290,50 +290,46 @@ const Support = () => {
                         <img alt="" src={img} />
                     </Grid>
                 </LeftContainer>
-                <RightContainer
-                    container
-                    item
-                    spacing={2}
-                    direction={'column'}
-                    xs={12}
-                    sm={10}
-                    md={5}
-                    lg={5}>
-                    <Grid item>
-                        <Heading>Better Support</Heading>
-                    </Grid>
-                    <Grid item>
-                        <Desc>
-                            {
-                                'Nowadays, the increasingly growing number of mobile and\ncomputing devices.'
-                            }
-                        </Desc>
-                    </Grid>
-                    <Grid container item spacing={5}>
-                        <SubGrid item xs={12} sm={4} md={4}>
-                            <Grid item>
-                                <Title>24/7</Title>
+                <RightContainer item xs={12} sm={10} md={5} lg={5}>
+                    <Grid container spacing={2} direction={'column'}>
+                        <Grid item>
+                            <Heading>Better Support</Heading>
+                        </Grid>
+                        <Grid item>
+                            <Desc>
+                                {
+                                    'Nowadays, the increasingly growing number of mobile and\ncomputing devices.'
+                                }
+                            </Desc>
+                        </Grid>
+                        <Grid item>
+                            <Grid container spacing={5}>
+                                <SubGrid item xs={12} sm={4} md={4}>
+                                    <Grid item>
+                                        <Title>24/7</Title>
+                                    </Grid>
+                                    <Grid item>
+                                        <Sub>The state art anti spoofing techniques</Sub>
+                                    </Grid>
+                                </SubGrid>
+                                <SubGrid item xs={12} sm={4} md={4}>
+                                    <Grid item>
+                                        <Title>24/7</Title>
+                                    </Grid>
+                                    <Grid item>
+                                        <Sub>The state art anti spoofing techniques</Sub>
+                                    </Grid>
+                                </SubGrid>
+                                <SubGrid item xs={12} sm={4} md={4}>
+                                    <Grid item>
+                                        <Title>24/7</Title>
+                                    </Grid>
+                                    <Grid item>
+                                        <Sub>The state art anti spoofing techniques</Sub>
+                                    </Grid>
+                                </SubGrid>
                             </Grid>
-                            <Grid item>
-                                <Sub>The state art anti spoofing techniques</Sub>
-                            </Grid>
-                        </SubGrid>
-                        <SubGrid item xs={12} sm={4} md={4}>
-                            <Grid item>
-                                <Title>24/7</Title>
-                            </Grid>
-                            <Grid item>
-                                <Sub>The state art anti spoofing techniques</Sub>
-                            </Grid>
-                        </SubGrid>
-                        <SubGrid item xs={12} sm={4} md={4}>
-                            <Grid item>
-                                <Title>24/7</Title>
-                            </Grid>
-                            <Grid item>
-                                <Sub>The state art anti spoofing techniques</Sub>
-                            </Grid>
-                        </SubGrid>
+                        </Grid>
                     </Grid>
                 </RightContainer>
             </TopSectionContainer>
@@ -343,21 +339,23 @@ const Support = () => {
                         <Grid key={i.id} item xs={3} sm={3} md={3} lg={6}>
                             <CardContainer>
                                 <CardImg alt="" src={i.img} />
-                                <Grid container item spacing={1}>
-                                    <Grid item display={'flex'} flexDirection={'column'}>
-                                        <CardText>{i.text}</CardText>
-                                        <Rating
-                                            name="read-only"
-                                            value={i.rating}
-                                            precision={0.5}
-                                            readOnly
-                                        />
-                                    </Grid>
-                                    <Grid item>
-                                        <CardSubText>{i.sub}</CardSubText>
-                                    </Grid>
-                                    <Grid item>
-                                        <CardDescText>{i.desc}</CardDescText>
+                                <Grid item>
+                                    <Grid container spacing={1}>
+                                        <Grid item display={'flex'} flexDirection={'column'}>
+                                            <CardText>{i.text}</CardText>
+                                            <Rating
+                                                name="read-only"
+                                                value={i.rating}
+                                                precision={0.5}
+                                                readOnly
+                                            />
+                                        </Grid>
+                                        <Grid item>
+                                            <CardSubText>{i.sub}</CardSubText>
+                                        </Grid>
+                                        <Grid item>
+                                            <CardDescText>{i.desc}</CardDescText>
+                                        </Grid>
                                     </Grid>
                                 </Grid>
                             </CardContainer>

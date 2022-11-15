@@ -84,7 +84,6 @@ const Slider = styled('div')`
     margin: auto;
     overflow: hidden;
     position: relative;
-    width: 960px;
 
     &::before,
     &::after {

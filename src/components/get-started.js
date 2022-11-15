@@ -9,31 +9,7 @@ import { Button } from '@mui/material';
 const BG = styled('div')`
     position: relative;
     overflow: hidden;
-    background: linear-gradient(
-        to top,
-        rgba(255, 255, 255, 0.8) -1.11%,
-        rgba(240, 238, 255, 0.8) 109.65%
-    );
-
-    @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 50px 0px 0px 0px;
-    }
-
-    @media (min-width: 600px) and (max-width: 899px) {
-        padding: 50px 0px 50px 0px;
-    }
-
-    @media (min-width: 1535px) {
-        padding: 50px 0px 0px 0px;
-    }
-
-    @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 50px 0px 0px 0px;
-    }
-
-    @media (max-width: 600px) {
-        padding: 20px 0px 0px 0px;
-    }
+    background: #deecff;
 `;
 
 const Title = styled('span')`
@@ -145,7 +121,7 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 0px 40px 0px 20px;
+        padding: 20px 40px 20px 20px;
     }
 
     @media (min-width: 1535px) {
@@ -157,7 +133,7 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 0px 0px 0px 0px;
+        padding: 50px 0px 0px 0px;
         flex-direction: column-reverse;
     }
 `;
@@ -205,33 +181,29 @@ const GetStarted = () => {
                         <img alt="" src={img} />
                     </Grid>
                 </LeftContainer>
-                <RightContainer
-                    container
-                    item
-                    spacing={4}
-                    direction={'column'}
-                    xs={10}
-                    sm={10}
-                    md={6}
-                    lg={6}>
-                    <TitleGrid item>
-                        <Title>{'25 Minutes onboarding\nand setup'}</Title>
-                    </TitleGrid>
-                    <SubGrid item>
-                        <Sub>{'We Have Fastest in the Market that\nsupports developers.'}</Sub>
-                    </SubGrid>
-                    <ButtonGrid container item spacing={2} display={'flex'} flexDirection={'row'}>
+                <RightContainer item xs={10} sm={10} md={6} lg={6}>
+                    <Grid container spacing={4} direction={'column'} justifyContent={'center'}>
+                        <TitleGrid item>
+                            <Title>{'25 Minutes onboarding\nand setup'}</Title>
+                        </TitleGrid>
+                        <SubGrid item>
+                            <Sub>{'We Have Fastest in the Market that\nsupports developers.'}</Sub>
+                        </SubGrid>
                         <Grid item>
-                            <GetStartedButton variant="contained">
-                                <ButtonText>Get Started</ButtonText>
-                            </GetStartedButton>
+                            <ButtonGrid container spacing={2} flexDirection={'row'}>
+                                <Grid item>
+                                    <GetStartedButton variant="contained">
+                                        <ButtonText>Get Started</ButtonText>
+                                    </GetStartedButton>
+                                </Grid>
+                                <Grid item>
+                                    <GetStartedButton variant="contained">
+                                        <ButtonText>Schedule a demo</ButtonText>
+                                    </GetStartedButton>
+                                </Grid>
+                            </ButtonGrid>
                         </Grid>
-                        <Grid item>
-                            <GetStartedButton variant="contained">
-                                <ButtonText>Schedule a demo</ButtonText>
-                            </GetStartedButton>
-                        </Grid>
-                    </ButtonGrid>
+                    </Grid>
                 </RightContainer>
             </TopSectionContainer>
         </BG>

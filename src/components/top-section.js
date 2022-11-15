@@ -77,11 +77,6 @@ const SubText = styled('span')`
     }
 `;
 
-const TextContainer = styled(Grid)`
-    display: flex;
-    flex-direction: column;
-`;
-
 const TopSectionContainer = styled(Grid)`
     display: flex;
     justify-content: space-between;
@@ -215,6 +210,7 @@ const ButtonGrid = styled(Grid)`
 
 const BottomContainer = styled(Grid)`
     display: flex;
+
     @media (max-width: 600px) {
         margin: 0px 0px 0px 10px;
         flex-direction: column;
@@ -224,40 +220,46 @@ const BottomContainer = styled(Grid)`
 const TopSection = () => {
     return (
         <Bg>
-            <TopSectionContainer spacing={4} container>
-                <TextContainer container item spacing={2}>
-                    <Grid item>
-                        <Cicd>{'CI/CD'}</Cicd>
-                    </Grid>
-                    <Grid item>
-                        <Heading>{'Let’s get your\ncode tested!'}</Heading>
-                    </Grid>
-                    <SubTextGrid item>
-                        <SubText>
-                            {
-                                'Nowadays,  the increasingly growing number of mobile\nand computing devices'
-                            }
-                        </SubText>
-                    </SubTextGrid>
-                </TextContainer>
-                <BottomContainer container item spacing={3}>
-                    <ButtonGrid container item spacing={2}>
+            <TopSectionContainer spacing={4} container flexDirection={'column'}>
+                <Grid item>
+                    <Grid container spacing={2} flexDirection={'column'}>
                         <Grid item>
-                            <SignUpButton variant="outlined">
-                                <SignUpText>Sign up for free trial</SignUpText>
-                            </SignUpButton>
+                            <Cicd>{'CI/CD'}</Cicd>
                         </Grid>
                         <Grid item>
-                            <DemoButton variant="contained">
-                                <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
-                                <Demo>Watch a demo</Demo>
-                            </DemoButton>
+                            <Heading>{'Let’s get your\ncode tested!'}</Heading>
                         </Grid>
-                    </ButtonGrid>
-                    <Grid item>
-                        <NavLink>
-                            <Explore>Explore Doc</Explore>
-                        </NavLink>
+                        <SubTextGrid item>
+                            <SubText>
+                                {
+                                    'Nowadays,  the increasingly growing number of mobile\nand computing devices'
+                                }
+                            </SubText>
+                        </SubTextGrid>
+                    </Grid>
+                </Grid>
+                <BottomContainer item>
+                    <Grid container spacing={3} flexDirection={'column'}>
+                        <Grid item>
+                            <ButtonGrid container spacing={2}>
+                                <Grid item>
+                                    <SignUpButton variant="outlined">
+                                        <SignUpText>Sign up for free trial</SignUpText>
+                                    </SignUpButton>
+                                </Grid>
+                                <Grid item>
+                                    <DemoButton variant="contained">
+                                        <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
+                                        <Demo>Watch a demo</Demo>
+                                    </DemoButton>
+                                </Grid>
+                            </ButtonGrid>
+                        </Grid>
+                        <Grid item>
+                            <NavLink>
+                                <Explore>Explore Doc</Explore>
+                            </NavLink>
+                        </Grid>
                     </Grid>
                 </BottomContainer>
             </TopSectionContainer>

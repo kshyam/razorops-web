@@ -371,36 +371,38 @@ export default function RazoropsPipeline() {
                         <Container
                             onMouseEnter={() => setShowButton(i.id)}
                             onMouseLeave={() => setShowButton(0)}
-                            container
-                            item
-                            spacing={2}>
-                            <Line3 />
-                            <IconGrid container item spacing={2}>
+                            item>
+                            <Grid container spacing={2}>
+                                <Line3 />
+                                <IconGrid item>
+                                    <Grid container spacing={2}>
+                                        <Grid item>
+                                            <CheckCircleIcon
+                                                fontSize={'large'}
+                                                sx={{
+                                                    position: 'relative',
+                                                    fill: i.iconColor,
+                                                    background: '#fff',
+                                                    fontSize: '40px'
+                                                }}
+                                            />
+                                        </Grid>
+                                        <Grid item>
+                                            <TitleText>{i.text}</TitleText>
+                                        </Grid>
+                                    </Grid>
+                                </IconGrid>
                                 <Grid item>
-                                    <CheckCircleIcon
-                                        fontSize={'large'}
-                                        sx={{
-                                            position: 'relative',
-                                            fill: i.iconColor,
-                                            background: '#fff',
-                                            fontSize: '40px'
-                                        }}
-                                    />
+                                    <SubText>{i.subText}</SubText>
                                 </Grid>
-                                <Grid item>
-                                    <TitleText>{i.text}</TitleText>
-                                </Grid>
-                            </IconGrid>
-                            <Grid item>
-                                <SubText>{i.subText}</SubText>
+                                {showButton === i.id && (
+                                    <GetStartedGrid item>
+                                        <GetStarted>
+                                            <ButtonText>Get Started</ButtonText>
+                                        </GetStarted>
+                                    </GetStartedGrid>
+                                )}
                             </Grid>
-                            {showButton === i.id && (
-                                <GetStartedGrid item>
-                                    <GetStarted>
-                                        <ButtonText>Get Started</ButtonText>
-                                    </GetStarted>
-                                </GetStartedGrid>
-                            )}
                         </Container>
                     </GridContainer>
                 ))}

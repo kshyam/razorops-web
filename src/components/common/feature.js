@@ -146,11 +146,6 @@ const Number = styled('span')`
     color: ${color4};
 `;
 
-const LeftContainer = styled(Grid)`
-    display: flex;
-    justify-content: center;
-`;
-
 const RightContainer = styled(Grid)`
     display: flex;
     justify-content: center;
@@ -160,32 +155,26 @@ const Feature = (props) => {
     const { content } = props;
     return (
         <Container direction={content?.direction} spacing={2} container>
-            <LeftContainer
-                container
-                item
-                spacing={2}
-                direction={'column'}
-                xs={12}
-                sm={12}
-                md={6}
-                lg={6}>
-                <Grid item>
-                    <Number>{content?.number}</Number>
-                    <Heading>{content?.title}</Heading>
+            <Grid item xs={12} sm={12} md={6} lg={6}>
+                <Grid container spacing={2} flexDirection={'column'} justifyContent={'center'}>
+                    <Grid item>
+                        <Number>{content?.number}</Number>
+                        <Heading>{content?.title}</Heading>
+                    </Grid>
+                    <SubContainer container item>
+                        <SubText>{content?.desc}</SubText>
+                    </SubContainer>
+                    <ContentGrid container item>
+                        {content &&
+                            content.features.map((i) => (
+                                <Grid item display={'flex'} flexDirection={'row'}>
+                                    <ArrowRightIcon sx={{ fill: color4, margin: '10px 0px' }} />
+                                    <Desc>{i}</Desc>
+                                </Grid>
+                            ))}
+                    </ContentGrid>
                 </Grid>
-                <SubContainer container item>
-                    <SubText>{content?.desc}</SubText>
-                </SubContainer>
-                <ContentGrid container item>
-                    {content &&
-                        content.features.map((i) => (
-                            <Grid item display={'flex'} flexDirection={'row'}>
-                                <ArrowRightIcon sx={{ fill: color4, margin: '10px 0px' }} />
-                                <Desc>{i}</Desc>
-                            </Grid>
-                        ))}
-                </ContentGrid>
-            </LeftContainer>
+            </Grid>
             <RightContainer container xs={12} sm={12} md={6} lg={6}>
                 <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
                     <img alt="" src={content?.img} />

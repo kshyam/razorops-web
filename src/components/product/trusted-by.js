@@ -94,23 +94,27 @@ const TrustedBy = () => {
     return (
         <div>
             <Grid container>
-                <LeftContainer container item xs={12} sm={12} md={6} lg={6}>
-                    <Grid item>
-                        <Title>
-                            Trusted by the growing engineering teams to build quality products
-                        </Title>
-                    </Grid>
-                    <Grid item>
-                        <Desc>{'Nowadays, the increasingly growing number of mobile '}</Desc>
+                <LeftContainer item xs={12} sm={12} md={6} lg={6}>
+                    <Grid container>
+                        <Grid item>
+                            <Title>
+                                Trusted by the growing engineering teams to build quality products
+                            </Title>
+                        </Grid>
+                        <Grid item>
+                            <Desc>{'Nowadays, the increasingly growing number of mobile '}</Desc>
+                        </Grid>
                     </Grid>
                 </LeftContainer>
 
-                <RightContainer container item xs={12} sm={12} md={6} lg={6}>
-                    {data.map((i) => (
-                        <ImageGrid item md={3} lg={3}>
-                            <Img alt="" src={i} />
-                        </ImageGrid>
-                    ))}
+                <RightContainer item xs={12} sm={12} md={6} lg={6}>
+                    <Grid container>
+                        {data.map((i) => (
+                            <ImageGrid item md={3} lg={3}>
+                                <Img alt="" src={i} />
+                            </ImageGrid>
+                        ))}
+                    </Grid>
                 </RightContainer>
             </Grid>
         </div>

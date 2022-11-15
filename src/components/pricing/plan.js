@@ -432,18 +432,20 @@ export default function Plan() {
                         <CardContainer>
                             <CardContent>
                                 <Grid container spacing={2} flexDirection={'column'}>
-                                    <Grid container item spacing={1} flexDirection={'column'}>
-                                        <Grid item>
-                                            <Type>{i.type}</Type>
-                                        </Grid>
-                                        <Grid item>
-                                            <Monthly>{i.monthlyPrice}</Monthly>
-                                        </Grid>
-                                        <Grid item>
-                                            <Yearly>{i?.builds || i?.yearlyPrice}</Yearly>
-                                        </Grid>
-                                        <Grid item>
-                                            <Text>{i.users}</Text>
+                                    <Grid item>
+                                        <Grid container spacing={2} flexDirection={'column'}>
+                                            <Grid item>
+                                                <Type>{i.type}</Type>
+                                            </Grid>
+                                            <Grid item>
+                                                <Monthly>{i.monthlyPrice}</Monthly>
+                                            </Grid>
+                                            <Grid item>
+                                                <Yearly>{i?.builds || i?.yearlyPrice}</Yearly>
+                                            </Grid>
+                                            <Grid item>
+                                                <Text>{i.users}</Text>
+                                            </Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item>
@@ -500,18 +502,20 @@ export default function Plan() {
                                     </Grid>
                                 </Grid>
                             </InfoGrid>
-                            <FeaturesGrid container item spacing={2} xs={12} sm={12} md={4} lg={4}>
-                                <List sx={{ width: '100%' }}>
-                                    {i.details.map((i) => (
-                                        <ListItem disableGutters>
-                                            <CircleOutlinedIcon
-                                                fontSize="small"
-                                                style={{ color: '#000000' }}
-                                            />
-                                            <Text style={{ paddingLeft: '10px' }}>{i}</Text>
-                                        </ListItem>
-                                    ))}
-                                </List>
+                            <FeaturesGrid item xs={12} sm={12} md={4} lg={4}>
+                                <Grid container spacing={2}>
+                                    <List sx={{ width: '100%' }}>
+                                        {i.details.map((i) => (
+                                            <ListItem disableGutters>
+                                                <CircleOutlinedIcon
+                                                    fontSize="small"
+                                                    style={{ color: '#000000' }}
+                                                />
+                                                <Text style={{ paddingLeft: '10px' }}>{i}</Text>
+                                            </ListItem>
+                                        ))}
+                                    </List>
+                                </Grid>
                             </FeaturesGrid>
                             <ButtonGrid item xs={12} sm={12} md={3} lg={3}>
                                 <TryItFree>

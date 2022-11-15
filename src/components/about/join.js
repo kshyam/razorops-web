@@ -59,19 +59,21 @@ const Join = () => {
     return (
         <div>
             <Grid container>
-                <LeftContainer container item spacing={3} xs={12} sm={12} md={6} lg={6}>
-                    <Grid item display={'flex'} justifyContent={'center'}>
-                        <Title>Join the Team!</Title>
-                    </Grid>
-                    <Grid item display={'flex'} justifyContent={'center'}>
-                        <Desc>
-                            {
-                                "We're always on the lookout for like-minded folks to join our fast-growing global team. Join us in taking software delivery into the future."
-                            }
-                        </Desc>
+                <LeftContainer item xs={12} sm={12} md={6} lg={6}>
+                    <Grid container spacing={3} justifyContent={'center'}>
+                        <Grid item display={'flex'} justifyContent={'center'}>
+                            <Title>Join the Team!</Title>
+                        </Grid>
+                        <Grid item display={'flex'} justifyContent={'center'}>
+                            <Desc>
+                                {
+                                    "We're always on the lookout for like-minded folks to join our fast-growing global team. Join us in taking software delivery into the future."
+                                }
+                            </Desc>
+                        </Grid>
                     </Grid>
                 </LeftContainer>
-                <RightContainer container item xs={12} sm={12} md={6} lg={6}>
+                <RightContainer item xs={12} sm={12} md={6} lg={6}>
                     <img alt="" src={join} />
                 </RightContainer>
             </Grid>

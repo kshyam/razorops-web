@@ -259,51 +259,59 @@ const TopSection = () => {
         <Bg>
             <TopSectionContainer container sm={12} xs={12} md={12} lg={12}>
                 <LeftContainer item xs={10} sm={12} md={7} lg={7}>
-                    <TextContainer container item spacing={2}>
-                        <Grid item>
-                            <Title>{'Get Razorops as Platform'}</Title>
-                        </Grid>
-                        <Grid item>
-                            <Sub>{'The Simplest Container\nNative CI/CD Platform'}</Sub>
-                        </Grid>
-                        <Grid item>
-                            <Desc>
-                                {
-                                    'Nowadays,  the increasingly growing number of mobile\nand computing devices'
-                                }
-                            </Desc>
+                    <TextContainer item>
+                        <Grid container spacing={2}>
+                            <Grid item>
+                                <Title>{'Get Razorops as Platform'}</Title>
+                            </Grid>
+                            <Grid item>
+                                <Sub>{'The Simplest Container\nNative CI/CD Platform'}</Sub>
+                            </Grid>
+                            <Grid item>
+                                <Desc>
+                                    {
+                                        'Nowadays,  the increasingly growing number of mobile\nand computing devices'
+                                    }
+                                </Desc>
+                            </Grid>
                         </Grid>
                     </TextContainer>
-                    <ButtonGrid container item spacing={2}>
-                        <Grid item>
-                            <SignUpButton variant="outlined">
-                                <SignUpText>Sign up for free trial</SignUpText>
-                            </SignUpButton>
-                        </Grid>
-                        <Grid item>
-                            <DemoButton variant="contained">
-                                <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
-                                <Demo>Watch a demo</Demo>
-                            </DemoButton>
+                    <ButtonGrid item>
+                        <Grid container spacing={2}>
+                            <Grid item>
+                                <SignUpButton variant="outlined">
+                                    <SignUpText>Sign up for free trial</SignUpText>
+                                </SignUpButton>
+                            </Grid>
+                            <Grid item>
+                                <DemoButton variant="contained">
+                                    <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
+                                    <Demo>Watch a demo</Demo>
+                                </DemoButton>
+                            </Grid>
                         </Grid>
                     </ButtonGrid>
                 </LeftContainer>
-                <RightContainer container item xs={12} sm={12} md={5} lg={5}>
-                    {data.map((i) => (
-                        <Grid key={i.id} item xs={12} sm={8} md={12} lg={12}>
-                            <CardContainer>
-                                <CardImg alt="" src={i.img} />
-                                <Grid container item spacing={1}>
-                                    <Grid item display={'flex'} flexDirection={'column'}>
-                                        <CardTitle>{i.text}</CardTitle>
-                                    </Grid>
+                <RightContainer item xs={12} sm={12} md={5} lg={5}>
+                    <Grid container>
+                        {data.map((i) => (
+                            <Grid key={i.id} item xs={12} sm={8} md={12} lg={12}>
+                                <CardContainer>
+                                    <CardImg alt="" src={i.img} />
                                     <Grid item>
-                                        <CardSub>{i.sub}</CardSub>
+                                        <Grid container spacing={1}>
+                                            <Grid item display={'flex'} flexDirection={'column'}>
+                                                <CardTitle>{i.text}</CardTitle>
+                                            </Grid>
+                                            <Grid item>
+                                                <CardSub>{i.sub}</CardSub>
+                                            </Grid>
+                                        </Grid>
                                     </Grid>
-                                </Grid>
-                            </CardContainer>
-                        </Grid>
-                    ))}
+                                </CardContainer>
+                            </Grid>
+                        ))}
+                    </Grid>
                 </RightContainer>
             </TopSectionContainer>
         </Bg>

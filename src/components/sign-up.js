@@ -92,12 +92,14 @@ const SignUp = () => {
     return (
         <BG>
             <Container container spacing={5}>
-                <Grid container item md={6} flexDirection={'column'} spacing={2}>
-                    <Grid item>
-                        <Text>{'Ready to get started?'}</Text>
-                    </Grid>
-                    <Grid item>
-                        <Sub>{'30 Days Free Trial'}</Sub>
+                <Grid item md={6}>
+                    <Grid container spacing={2} flexDirection={'column'}>
+                        <Grid item>
+                            <Text>{'Ready to get started?'}</Text>
+                        </Grid>
+                        <Grid item>
+                            <Sub>{'30 Days Free Trial'}</Sub>
+                        </Grid>
                     </Grid>
                 </Grid>
                 <ArrowGrid item md={3}>

@@ -26,23 +26,23 @@ const Bg = styled('div')`
     background: #ffffff;
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 70px 0px 70px 0px;
+        padding: 70px 0px 0px 0px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 70px 0px 70px 0px;
+        padding: 70px 0px 0px 0px;
     }
 
     @media (min-width: 1535px) {
-        padding: 100px 0px 100px 0px;
+        padding: 100px 0px 0px 0px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 70px 0px 70px 0px;
+        padding: 70px 0px 0px 0px;
     }
 
     @media (max-width: 600px) {
-        padding: 70px 0px 70px 0px;
+        padding: 70px 0px 0px 0px;
     }
 `;
 

@@ -236,18 +236,18 @@ export default function Features() {
                             <Grid item display={'flex'} justifyContent={'center'}>
                                 <CardImg alt="" src={i.img} />
                             </Grid>
-                            <Grid
-                                container
-                                item
-                                display={'flex'}
-                                justifyContent={'center'}
-                                flexDirection={'column'}
-                                spacing={3}>
-                                <Grid item display={'flex'} justifyContent={'center'}>
-                                    <CardTitle>{i.title}</CardTitle>
-                                </Grid>
-                                <Grid item>
-                                    <CardSub>{i.sub}</CardSub>
+                            <Grid item>
+                                <Grid
+                                    container
+                                    spacing={3}
+                                    flexDirection={'column'}
+                                    justifyContent={'center'}>
+                                    <Grid item display={'flex'} justifyContent={'center'}>
+                                        <CardTitle>{i.title}</CardTitle>
+                                    </Grid>
+                                    <Grid item>
+                                        <CardSub>{i.sub}</CardSub>
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </CardContainer>
