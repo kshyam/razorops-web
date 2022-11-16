@@ -56,7 +56,7 @@ const NavBarGrid = styled(Grid)`
     display: flex;
     padding: 0px 80px;
     align-items: center;
-    height: ${(props) => (props.showTopBar === true ? '110px' : '100px')};
+    height: 100px;
     @media (max-width: 1199px) {
         justify-content: center;
         align-items: center;
@@ -72,7 +72,7 @@ const Text = styled('span')`
     color: ${(props) => props.color};
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        font-size: 15px;
+        font-size: 17px;
         line-height: ${lineHeight27};
     }
 `;
@@ -218,7 +218,7 @@ export default function Navbar() {
                         <Grid item xs={12} sm={12} md={12} lg={12}>
                             {showTopBar ? <Topbar handleTopBar={handleTopBar} /> : false}
                         </Grid>
-                        <NavBarGrid showTopBar={showTopBar} item xs={12} sm={12} md={12} lg={12}>
+                        <NavBarGrid item xs={12} sm={12} md={12} lg={12}>
                             <MenuIconButton onClick={handleDrawerToggle} aria-label="menu">
                                 <MenuIcon />
                             </MenuIconButton>

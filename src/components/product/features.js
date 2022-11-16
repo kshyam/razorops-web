@@ -224,7 +224,7 @@ const data = [
 
 export default function Features() {
     return (
-        <BG>
+        <BG id="features">
             <Title>Razorops Features</Title>
             <SubText>
                 {'Nowadays, the increasingly growing number of mobile\nand computing devices'}

@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.0254 0.994141V5.99414H22.0254C24.2345 5.99414 26.0254 7.785 26.0254 9.99414V22.9941C26.0254 25.2033 24.2345 26.9941 22.0254 26.9941H17.0254V31.9941H23.0254C27.4437 31.9941 31.0254 28.4124 31.0254 23.9941V8.99414C31.0254 4.57586 27.4437 0.994141 23.0254 0.994141H17.0254Z" fill="#F9FAFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.12602 23.9941H0V7.99414C0 4.12815 3.13401 0.994145 7 0.994146L14.0252 0.994141L14.0252 5.99415L9 5.99415C6.79086 5.99415 5 7.78501 5 9.99415L5 22.9941C5 23.3394 5.04375 23.6745 5.12602 23.9941Z" fill="#F9FAFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.582031 26.9941C1.76881 29.926 4.64314 31.9941 8.00051 31.9941L14.0005 31.9941V26.9941H9.00051H0.582031Z" fill="#F9FAFE"/>
+<path d="M5 12.2441H8L9 11.2441" stroke="#F9FAFE" stroke-width="0.35"/>
+<path d="M5 13.7441H9L10 12.7441H14M5 15.2441H10M5 16.7441H13M5 18.2441H7L8 19.2441H10.5M5 20.2441H8L9 21.2441M5 22.2441H6" stroke="#F9FAFE" stroke-width="0.35"/>
+<circle r="0.375" transform="matrix(1 0 0 -1 10.3008 15.2441)" stroke="#F9FAFE" stroke-width="0.25"/>
+<circle r="0.375" transform="matrix(1 0 0 -1 6.30078 22.2441)" stroke="#F9FAFE" stroke-width="0.25"/>
+<circle r="0.575" transform="matrix(1 0 0 -1 13.5508 16.7441)" stroke="#F9FAFE" stroke-width="0.35"/>
+<circle r="0.575" transform="matrix(1 0 0 -1 14.5 12.7441)" stroke="#F9FAFE" stroke-width="0.35"/>
+<circle r="0.575" transform="matrix(1 0 0 -1 10.9004 19.2441)" stroke="#F9FAFE" stroke-width="0.35"/>
+<circle r="0.575" transform="matrix(1 0 0 -1 9.25 21.644)" stroke="#F9FAFE" stroke-width="0.35"/>
+<circle r="0.575" transform="matrix(1 0 0 -1 9.25 10.7441)" stroke="#F9FAFE" stroke-width="0.35"/>
+</svg>

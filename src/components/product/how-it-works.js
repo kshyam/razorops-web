@@ -56,7 +56,7 @@ const SubText = styled('div')`
 
 const HowItWorks = () => {
     return (
-        <BG>
+        <BG id="how-it-works">
             <Title>How it works</Title>
             <SubText>
                 {'Nowadays, the increasingly growing number of mobile\nand computing devices'}

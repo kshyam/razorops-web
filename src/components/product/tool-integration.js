@@ -149,7 +149,7 @@ const data = [
 
 export default function ToolIntegration() {
     return (
-        <BG>
+        <BG id="integrations">
             <Title>Tool Integration</Title>
             <SubText>
                 {

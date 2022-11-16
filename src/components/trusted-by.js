@@ -79,7 +79,6 @@ const Slider = styled('div')`
     display: flex;
     align-items: center;
     background: white;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
     height: 140px;
     margin: auto;
     overflow: hidden;
