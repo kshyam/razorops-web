@@ -11,11 +11,16 @@ import {
     color1,
     font3,
     font2,
-    lineHeight26
+    lineHeight26,
+    font10,
+    font6
 } from '../assets/globalStyles';
 
-import img from '../assets/images/about/sideImg-2.svg';
-import bottomImg from '../assets/images/about/bottomImg.svg';
+import bottomImg from '../assets/images/about/bottomImg-v1.2.svg';
+import razorops from '../assets/images/about/razorops.svg';
+import add from '../assets/images/about/add.svg';
+import digitalOcean from '../assets/images/about/digital-ocean.svg';
+
 import github from '../assets/images/about/github-black.svg';
 import gitlab from '../assets/images/about/gitlab.svg';
 import bitbucket from '../assets/images/about/bitbucket.svg';
@@ -43,7 +48,7 @@ const BG = styled('div')`
     }
 
     @media (max-width: 600px) {
-        padding: 40px 0px;
+        padding: 40px 20px;
     }
 `;
 
@@ -120,10 +125,6 @@ const SubText = styled('span')`
 const LeftContainer = styled(Grid)`
     display: flex;
     justify-content: flex-start;
-    padding: 80px 0px 0px 0px;
-    @media (max-width: 1199px) {
-        padding: 40px 0px 0px 0px;
-    }
 
     @media (max-width: 599px) {
         margin: 0px;
@@ -132,7 +133,7 @@ const LeftContainer = styled(Grid)`
 `;
 
 const RightContainer = styled(Grid)`
-    display: flex;
+    max-width: 583px !important;
 
     @media (max-width: 599px) {
         padding: 50px 0px 0px 0px;
@@ -152,6 +153,7 @@ const SubContainer = styled(Grid)`
 const TopSectionContainer = styled(Grid)`
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     @media (max-width: 899px) {
         justify-content: center;
@@ -206,6 +208,187 @@ const DemoButton = styled(Button)`
     }
 `;
 
+const TopGrid = styled(Grid)`
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0069ff;
+    border-radius: 30px 30px 0px 0px;
+`;
+
+const TopGridText = styled('span')`
+    ${font10};
+    font-size: 22px;
+    line-height: 44px;
+    text-align: center;
+    color: #deecff;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 20px;
+        line-height: 27px;
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+`;
+
+const BottomGrid = styled(Grid)`
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(222, 236, 255, 0.8);
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.1);
+    border-radius: 0px 0px 30px 30px;
+`;
+
+const PrettyConvincing = styled('span')`
+    ${font6};
+    font-size: 20px;
+    line-height: 20px;
+    color: #5b6987;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+`;
+
+const GetStarted = styled('span')`
+    ${font6};
+    font-size: 34px;
+    line-height: 34px;
+    color: #031b4e;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 24px;
+        line-height: 27px;
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+`;
+
+const ApplyButton = styled(Button)`
+    padding: 20px;
+    background: #0069ff;
+    border-radius: 14px;
+    text-transform: none;
+    &:hover {
+        background: #0069ff;
+    }
+`;
+
+const ApplyText = styled('span')`
+    ${font6};
+    font-size: 20px;
+    line-height: 20px;
+    color: #f9fafe;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+`;
+
+const BottomContainer = styled(Grid)`
+    margin-top: 100px;
+    background: #f9fafe;
+    border-radius: 40px;
+    overflow: hidden;
+`;
+
+const BottomContainerTitle = styled('span')`
+    ${font7};
+    font-size: 48px;
+    line-height: 63px;
+    color: #031b4e;
+
+    @media (min-width: 1535px) {
+        white-space: pre-wrap;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 32px;
+        line-height: 39px;
+        white-space: pre-wrap;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 27px;
+        line-height: 32px;
+        white-space: pre-wrap;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 30px;
+        line-height: 32px;
+        white-space: pre-wrap;
+    }
+
+    @media (max-width: 599px) {
+        white-space: pre-wrap;
+        font-size: 22px;
+        line-height: 29px;
+    }
+`;
+
+const BottomContainerDesc = styled('span')`
+    ${font1};
+    font-size: 18px;
+    line-height: 30px;
+    color: #5b6987;
+
+    @media (min-width: 1535px) {
+        white-space: pre-wrap;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 18px;
+        line-height: 29px;
+        white-space: pre-wrap;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 18px;
+        line-height: 27px;
+        white-space: pre-wrap;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 16px;
+        line-height: 27px;
+    }
+
+    @media (max-width: 599px) {
+        font-size: 14px;
+        line-height: 27px;
+    }
+`;
+
+const FreeTrialText = styled('span')`
+    ${font1};
+    font-size: 16px;
+    line-height: 20px;
+    color: #f9fafe;
+`;
+
 const About = () => {
     return (
         <BG>
@@ -237,27 +420,72 @@ const About = () => {
                     </SubContainer>
                 </LeftContainer>
 
-                <RightContainer item direction={'column'} xs={10} sm={10} md={6} lg={6}>
-                    <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
-                        <img alt="" src={img} />
-                    </Grid>
+                <RightContainer item direction={'column'} xs={10} sm={10} md={5} lg={5}>
+                    <TopGrid sx={{ marginTop: 0 }} container spacing={3}>
+                        <Grid item>
+                            <Grid
+                                container
+                                spacing={2}
+                                justifyContent={'center'}
+                                alignItems={'center'}>
+                                <Grid item>
+                                    <img alt="" src={razorops} />
+                                </Grid>
+                                <Grid item>
+                                    <img alt="" src={add} />
+                                </Grid>
+                                <Grid item>
+                                    <img alt="" src={digitalOcean} />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item display={'flex'} justifyContent={'center'}>
+                            <TopGridText>
+                                Try Razorops CI/CD and get $250 Credits over DigitalOcean Kubernetes
+                            </TopGridText>
+                        </Grid>
+                    </TopGrid>
+                    <BottomGrid sx={{ marginTop: 0 }} container spacing={3}>
+                        <Grid item>
+                            <PrettyConvincing>PRETTY CONVINCING, RIGHT?</PrettyConvincing>
+                        </Grid>
+                        <Grid item>
+                            <GetStarted>Ready to get started?</GetStarted>
+                        </Grid>
+                        <Grid item>
+                            <ApplyButton variant="outlined">
+                                <ApplyText>Apply Now</ApplyText>
+                            </ApplyButton>
+                        </Grid>
+                    </BottomGrid>
                 </RightContainer>
             </TopSectionContainer>
-            <Grid container display={'flex'} justifyContent={'center'}>
-                <Grid
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        flexDirection: 'column'
-                    }}
-                    item>
-                    <img alt="" src={bottomImg} />
-                    <DemoButton variant="outlined">
-                        <DemoText>Schedule a demo</DemoText>
-                    </DemoButton>
+            <BottomContainer container>
+                <Grid sx={{ padding: 5 }} item md={6}>
+                    <Grid container spacing={4} direction={'column'}>
+                        <Grid item>
+                            <BottomContainerTitle>
+                                {'The best flows on\nthe planet, at your\nfingertips.'}
+                            </BottomContainerTitle>
+                        </Grid>
+                        <Grid item>
+                            <BottomContainerDesc>
+                                {
+                                    'Nulla facilisi. Vestibulum non est nisl. Donec eget\nsodales nisl. Donec ut velit erat. '
+                                }
+                            </BottomContainerDesc>
+                        </Grid>
+                        <Grid item>
+                            <ApplyButton variant="contained">
+                                <FreeTrialText>Start 30 days free trial</FreeTrialText>
+                            </ApplyButton>
+                        </Grid>
+                    </Grid>
                 </Grid>
-            </Grid>
+                <Grid sx={{ paddingTop: 5 }} item md={6}>
+                    <img alt="" src={bottomImg} />
+                </Grid>
+            </BottomContainer>
         </BG>
     );
 };

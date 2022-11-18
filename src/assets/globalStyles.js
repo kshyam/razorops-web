@@ -40,8 +40,8 @@ const fontWeight600 = 600;
 const fontWeight700 = 700;
 const fontWeight400 = 400;
 const fontWeight500 = 500;
+const fontWeight800 = 800;
 const fontWeight900 = 900;
-
 
 // line height
 const lineHeight17 = '17px';
@@ -123,6 +123,13 @@ const font9 = css({
     fontSize: fontSize30
 });
 
+const font10 = css({
+    ...montserratFont,
+    fontWeight: fontWeight800,
+    fontStyle: 'normal',
+    fontSize: fontSize30
+});
+
 export {
     primary,
     bg1,
@@ -141,6 +148,7 @@ export {
     font7,
     font8,
     font9,
+    font10,
     fontWeight600,
     fontWeight700,
     fontWeight400,

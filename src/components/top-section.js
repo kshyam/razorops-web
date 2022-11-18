@@ -29,7 +29,6 @@ const Heading = styled('div')`
     font-size: 60px;
     line-height: 90px;
     color: ${color1};
-    text-align: center;
     white-space: pre-wrap;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -57,7 +56,6 @@ const SubText = styled('span')`
     font-size: ${fontSize20};
     line-height: ${lineHeight29};
     color: ${color2};
-    text-align: center;
     white-space: pre-wrap;
 
     @media (min-width: 900px) and (max-width: 1199px) {
@@ -80,8 +78,7 @@ const SubText = styled('span')`
 
 const Container = styled(Grid)`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 130px 80px;
