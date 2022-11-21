@@ -32,7 +32,7 @@ const BG = styled('div')`
     }
 
     @media (max-width: 600px) {
-        padding: 70px 0px 70px 0px;
+        padding: 70px 20px 70px 20px;
     }
 `;
 
@@ -222,7 +222,7 @@ const Line3 = styled('div')`
         display: flex;
         position: absolute;
         top: 20px;
-        left: 35px;
+        left: 20px;
         height: 150px;
         border-left: 1px dashed #345eef;
     }

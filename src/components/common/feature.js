@@ -29,7 +29,7 @@ const Container = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 0px;
+        padding: 0px 20px;
         justify-content: left;
     }
 `;

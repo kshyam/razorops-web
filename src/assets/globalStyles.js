@@ -12,6 +12,10 @@ const montserratMedium = {
     fontFamily: 'MontserratMedium'
 };
 
+const montserratSemiBold = {
+    fontFamily: 'MontserratSemiBold'
+};
+
 const primary = '#345EEF';
 
 const bg1 = '#ffffff';
@@ -126,8 +130,13 @@ const font9 = css({
 const font10 = css({
     ...montserratFont,
     fontWeight: fontWeight800,
-    fontStyle: 'normal',
-    fontSize: fontSize30
+    fontStyle: 'normal'
+});
+
+const font11 = css({
+    ...montserratSemiBold,
+    fontWeight: fontWeight800,
+    fontStyle: 'normal'
 });
 
 export {
@@ -149,6 +158,7 @@ export {
     font8,
     font9,
     font10,
+    font11,
     fontWeight600,
     fontWeight700,
     fontWeight400,

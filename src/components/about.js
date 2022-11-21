@@ -133,9 +133,7 @@ const LeftContainer = styled(Grid)`
 `;
 
 const RightContainer = styled(Grid)`
-    max-width: 583px !important;
-
-    @media (max-width: 599px) {
+    @media (max-width: 899px) {
         padding: 50px 0px 0px 0px;
     }
 `;
@@ -209,12 +207,13 @@ const DemoButton = styled(Button)`
 `;
 
 const TopGrid = styled(Grid)`
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 50px 20px;
     background: #0069ff;
     border-radius: 30px 30px 0px 0px;
+
+    @media (max-width: 599px) {
+        padding: 40px 30px;
+    }
 `;
 
 const TopGridText = styled('span')`
@@ -236,14 +235,14 @@ const TopGridText = styled('span')`
 `;
 
 const BottomGrid = styled(Grid)`
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    padding: 50px;
     background: rgba(222, 236, 255, 0.8);
     box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.1);
     border-radius: 0px 0px 30px 30px;
+
+    @media (max-width: 599px) {
+        padding: 20px;
+    }
 `;
 
 const PrettyConvincing = styled('span')`
@@ -251,7 +250,6 @@ const PrettyConvincing = styled('span')`
     font-size: 20px;
     line-height: 20px;
     color: #5b6987;
-
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 18px;
         line-height: 20px;
@@ -393,7 +391,7 @@ const About = () => {
     return (
         <BG>
             <TopSectionContainer container>
-                <LeftContainer item direction={'column'} xs={10} sm={10} md={6} lg={6}>
+                <LeftContainer item direction={'column'} xs={12} sm={12} md={6} lg={6}>
                     <Grid item>
                         <Razorops>Razorops</Razorops>
                         <Desc>
@@ -420,44 +418,52 @@ const About = () => {
                     </SubContainer>
                 </LeftContainer>
 
-                <RightContainer item direction={'column'} xs={10} sm={10} md={5} lg={5}>
-                    <TopGrid sx={{ marginTop: 0 }} container spacing={3}>
-                        <Grid item>
-                            <Grid
-                                container
-                                spacing={2}
-                                justifyContent={'center'}
-                                alignItems={'center'}>
+                <RightContainer item direction={'column'} xs={12} sm={12} md={5} lg={5}>
+                    <Grid container>
+                        <TopGrid item xs={12} sm={12} md={12} lg={12}>
+                            <Grid container spacing={3} justifyContent={'center'}>
                                 <Grid item>
-                                    <img alt="" src={razorops} />
+                                    <Grid
+                                        container
+                                        spacing={2}
+                                        justifyContent={'center'}
+                                        alignItems={'center'}>
+                                        <Grid item>
+                                            <img alt="" src={razorops} />
+                                        </Grid>
+                                        <Grid item>
+                                            <img alt="" src={add} />
+                                        </Grid>
+                                        <Grid item>
+                                            <img alt="" src={digitalOcean} />
+                                        </Grid>
+                                    </Grid>
                                 </Grid>
-                                <Grid item>
-                                    <img alt="" src={add} />
-                                </Grid>
-                                <Grid item>
-                                    <img alt="" src={digitalOcean} />
+                                <Grid item display={'flex'} justifyContent={'center'}>
+                                    <TopGridText>
+                                        {
+                                            ' Try Razorops CI/CD and get $250 Credits over DigitalOcean Kubernetes'
+                                        }
+                                    </TopGridText>
                                 </Grid>
                             </Grid>
-                        </Grid>
-                        <Grid item display={'flex'} justifyContent={'center'}>
-                            <TopGridText>
-                                Try Razorops CI/CD and get $250 Credits over DigitalOcean Kubernetes
-                            </TopGridText>
-                        </Grid>
-                    </TopGrid>
-                    <BottomGrid sx={{ marginTop: 0 }} container spacing={3}>
-                        <Grid item>
-                            <PrettyConvincing>PRETTY CONVINCING, RIGHT?</PrettyConvincing>
-                        </Grid>
-                        <Grid item>
-                            <GetStarted>Ready to get started?</GetStarted>
-                        </Grid>
-                        <Grid item>
-                            <ApplyButton variant="outlined">
-                                <ApplyText>Apply Now</ApplyText>
-                            </ApplyButton>
-                        </Grid>
-                    </BottomGrid>
+                        </TopGrid>
+                        <BottomGrid item xs={12} sm={12} md={12} lg={12}>
+                            <Grid container spacing={3} direction={'column'} alignItems={'center'}>
+                                <Grid item>
+                                    <PrettyConvincing>PRETTY CONVINCING, RIGHT?</PrettyConvincing>
+                                </Grid>
+                                <Grid item>
+                                    <GetStarted>Ready to get started?</GetStarted>
+                                </Grid>
+                                <Grid item>
+                                    <ApplyButton variant="outlined">
+                                        <ApplyText>Apply Now</ApplyText>
+                                    </ApplyButton>
+                                </Grid>
+                            </Grid>
+                        </BottomGrid>
+                    </Grid>
                 </RightContainer>
             </TopSectionContainer>
             <BottomContainer container>

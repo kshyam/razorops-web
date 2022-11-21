@@ -20,6 +20,16 @@ const Text = styled('span')`
     line-height: 16px;
     text-align: center;
     color: #ffffff;
+
+    @media (max-width: 600px) {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 12px;
+        line-height: 16px;
+    }
 `;
 
 const MenuIconButton = styled(IconButton)`

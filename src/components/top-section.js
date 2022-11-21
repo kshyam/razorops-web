@@ -9,7 +9,8 @@ import {
     font5,
     fontSize20,
     lineHeight20,
-    font6
+    font6,
+    font11
 } from '../assets/globalStyles';
 import banner from '../assets/images/bannerImg.png';
 import btnIcon from '../assets/images/btnIcon.svg';
@@ -46,8 +47,18 @@ const Heading = styled('div')`
     }
 
     @media (max-width: 600px) {
-        font-size: 30px;
-        line-height: 44px;
+        display: none;
+    }
+`;
+
+const HeadingMobileView = styled('span')`
+    display: none;
+    @media (max-width: 600px) {
+        display: flex;
+        ${font11};
+        font-size: 32px;
+        line-height: 48px;
+        white-space: pre-wrap;
     }
 `;
 
@@ -70,9 +81,20 @@ const SubText = styled('span')`
     }
 
     @media (max-width: 599px) {
-        font-size: 13px;
-        line-height: 20px;
-        white-space: inherit;
+        display: none;
+    }
+`;
+
+const SubTextMobileView = styled('span')`
+    display: none;
+
+    @media (max-width: 599px) {
+        display: flex;
+        ${font5};
+        color: ${color2};
+        font-size: 15px;
+        line-height: 23px;
+        white-space: pre-wrap;
     }
 `;
 
@@ -97,7 +119,7 @@ const Container = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 120px 40px 120px 40px;
+        padding: 120px 20px 120px 20px;
     }
 `;
 
@@ -109,8 +131,8 @@ const SignUpText = styled('span')`
     text-transform: none;
 
     @media (max-width: 600px) {
-        font-size: 12px;
-        line-height: 26px;
+        font-size: 14px;
+        line-height: 14px;
     }
 `;
 
@@ -124,7 +146,8 @@ const SignUpButton = styled(Button)`
     }
 
     @media (max-width: 600px) {
-        width: 220px;
+        padding: 15px 16px;
+        height: 40px;
     }
 `;
 
@@ -136,8 +159,8 @@ const Demo = styled('span')`
     text-transform: none;
 
     @media (max-width: 600px) {
-        font-size: 12px;
-        line-height: 26px;
+        font-size: 14px;
+        line-height: 14px;
     }
 `;
 
@@ -152,7 +175,16 @@ const DemoButton = styled(Button)`
     }
 
     @media (max-width: 600px) {
-        width: 220px;
+        padding: 15px 16px;
+        height: 40px;
+    }
+`;
+
+const DemoImg = styled('img')`
+    padding: 0px 12px;
+
+    @media (max-width: 600px) {
+        padding: 0px 8px;
     }
 `;
 
@@ -176,7 +208,7 @@ const ButtonGrid = styled(Grid)`
     padding: 30px 0px 0px 0px;
 
     @media (max-width: 600px) {
-        flex-direction: column;
+        padding: 10px 0px 0px 0px;
     }
 `;
 
@@ -186,6 +218,9 @@ const TopSection = () => {
             <Container spacing={3} container flexDirection={'column'}>
                 <Grid item>
                     <Heading>{'The Simplest Container\nNative CI/CD '}</Heading>
+                    <HeadingMobileView>
+                        {'The Simplest\nContainer Native\nCI/CD '}
+                    </HeadingMobileView>
                 </Grid>
                 <SubTextGrid item>
                     <SubText>
@@ -193,6 +228,11 @@ const TopSection = () => {
                             'Razorops is a container native continuous delivery platform to automate\nyour workflow from development to production in a few steps.'
                         }
                     </SubText>
+                    <SubTextMobileView>
+                        {
+                            'Razorops is a container native\ncontinuous delivery platform to\nautomate your workflow from\ndevelopment to production in a\nfew steps.'
+                        }
+                    </SubTextMobileView>
                 </SubTextGrid>
 
                 <Grid item>
@@ -206,7 +246,7 @@ const TopSection = () => {
                         </Grid>
                         <Grid item>
                             <DemoButton variant="contained">
-                                <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
+                                <DemoImg src={btnIcon} alt="" />
                                 <Demo>Watch a demo</Demo>
                             </DemoButton>
                         </Grid>
