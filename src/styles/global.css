@@ -13,11 +13,15 @@
 }
 
 @font-face {
+    font-family: 'MontserratSemiBold';
+    src: url('../assets/font/montserrat/Montserrat-SemiBold.otf') format('opentype');
+}
+
+@font-face {
     font-family: 'Poppins';
     src: url('../assets/font/Poppins/Poppins-Regular.ttf') format('truetype');
 }
 
 .MuiTabs-root .Mui-selected {
     background: rgba(52, 94, 239, 0.1);
-  
 }

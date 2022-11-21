@@ -9,7 +9,8 @@ import {
     font5,
     fontSize20,
     lineHeight20,
-    font6
+    font6,
+    font11
 } from '../assets/globalStyles';
 import banner from '../assets/images/bannerImg.png';
 import btnIcon from '../assets/images/btnIcon.svg';
@@ -47,8 +48,19 @@ const Heading = styled('div')`
     }
 
     @media (max-width: 600px) {
-        font-size: 30px;
-        line-height: 44px;
+        display: none;
+    }
+`;
+
+const HeadingMobileView = styled('span')`
+    display: none;
+    @media (max-width: 600px) {
+        display: flex;
+        ${font11};
+        font-size: 32px;
+        line-height: 48px;
+        white-space: pre-wrap;
+        text-align: center;
     }
 `;
 
@@ -72,9 +84,20 @@ const SubText = styled('span')`
     }
 
     @media (max-width: 599px) {
-        font-size: 13px;
-        line-height: 20px;
-        white-space: inherit;
+        display: none;
+    }
+`;
+
+const SubTextMobileView = styled('span')`
+    display: none;
+    @media (max-width: 599px) {
+        display: flex;
+        ${font5};
+        color: ${color2};
+        font-size: 15px;
+        line-height: 23px;
+        white-space: pre-wrap;
+        text-align: center;
     }
 `;
 
@@ -100,7 +123,7 @@ const Container = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 120px 40px 120px 40px;
+        padding: 120px 20px 120px 20px;
     }
 `;
 
@@ -124,10 +147,6 @@ const SignUpButton = styled(Button)`
 
     &:hover {
         background: ${color4};
-    }
-
-    @media (max-width: 600px) {
-        width: 220px;
     }
 `;
 
@@ -153,10 +172,6 @@ const DemoButton = styled(Button)`
     &:hover {
         background: transparent;
     }
-
-    @media (max-width: 600px) {
-        width: 220px;
-    }
 `;
 
 const NavLink = styled(Link)`
@@ -177,10 +192,6 @@ const ButtonGrid = styled(Grid)`
     display: flex;
     flex-direction: row;
     padding: 30px 0px 0px 0px;
-
-    @media (max-width: 600px) {
-        flex-direction: column;
-    }
 `;
 
 const TopSection = () => {
@@ -189,6 +200,9 @@ const TopSection = () => {
             <Container spacing={3} container flexDirection={'column'}>
                 <Grid item>
                     <Heading>{'The Simplest Container\nNative CI/CD '}</Heading>
+                    <HeadingMobileView>
+                        {'The Simplest\nContainer Native\nCI/CD '}
+                    </HeadingMobileView>
                 </Grid>
                 <SubTextGrid item>
                     <SubText>
@@ -196,6 +210,11 @@ const TopSection = () => {
                             'Razorops is a container native continuous delivery platform to automate\nyour workflow from development to production in a few steps.'
                         }
                     </SubText>
+                    <SubTextMobileView>
+                        {
+                            'Razorops is a container native\ncontinuous delivery platform to\nautomate your workflow from\ndevelopment to production in a\nfew steps.'
+                        }
+                    </SubTextMobileView>
                 </SubTextGrid>
 
                 <Grid item>

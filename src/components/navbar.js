@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, navigate } from 'gatsby';
 import { Button, CssBaseline, Grid, IconButton, Toolbar, AppBar } from '@mui/material';
-import logo from '../assets/images/logo.svg';
+import logo1 from '../assets/images/logo.svg';
+import logo2 from '../assets/images/razorops-logo.svg';
 import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -53,6 +54,7 @@ const ToolBar = styled(Toolbar)`
 `;
 
 const NavBarGrid = styled(Grid)`
+    position: relative;
     display: flex;
     padding: 0px 80px;
     align-items: center;
@@ -60,6 +62,13 @@ const NavBarGrid = styled(Grid)`
     @media (max-width: 1199px) {
         justify-content: center;
         align-items: center;
+    }
+
+    @media (max-width: 600px) {
+        padding: 0px 10px;
+        justify-content: flex-start;
+        align-items: center;
+        height: 80px;
     }
 `;
 
@@ -100,8 +109,14 @@ const LogoButtonGrid = styled(Grid)`
 const MenuIconButton = styled(IconButton)`
     position: absolute;
     left: 20px;
+
     @media (min-width: 1199px) {
         display: none;
+    }
+
+    @media (max-width: 600px) {
+        right: 10px;
+        left: auto;
     }
 `;
 
@@ -166,6 +181,21 @@ const DrawerItem = styled(Grid)`
     padding: 10px;
 `;
 
+const Logo1 = styled('img')`
+    @media (max-width: 600px) {
+        display: none;
+    }
+`;
+
+const Logo2 = styled('img')`
+    display: none;
+    @media (max-width: 600px) {
+        display: flex;
+        height: 30px;
+        width: 30px;
+    }
+`;
+
 export default function Navbar() {
     const [showDrawer, setShowDrawer] = useState(false);
     const [anchorElProduct, setAnchorElProduct] = useState(null);
@@ -220,14 +250,17 @@ export default function Navbar() {
                         </Grid>
                         <NavBarGrid item xs={12} sm={12} md={12} lg={12}>
                             <MenuIconButton onClick={handleDrawerToggle} aria-label="menu">
-                                <MenuIcon />
+                                <MenuIcon
+                                    style={{ color: '345EEF', height: '30px', width: '30px' }}
+                                />
                             </MenuIconButton>
                             <LogoButtonGrid item md={4}>
                                 <LogoButton
                                     onClick={() => navigate('/')}
                                     color="inherit"
                                     aria-label="menu">
-                                    <img src={logo} alt="" />
+                                    <Logo1 src={logo1} alt="" />
+                                    <Logo2 src={logo2} alt="" />
                                 </LogoButton>
                             </LogoButtonGrid>
                             <NavSection
