@@ -49,7 +49,7 @@ export default function PostPreview({ title, coverImage, date, excerpt, author, 
                 </DateText>
             </div>
             <div className="mb-3">
-                <Link to={`/posts/${slug}`} className="hover:underline">
+                <Link to={`/blogs/${slug}`} className="hover:underline">
                     <Title> {title}</Title>
                 </Link>
             </div>

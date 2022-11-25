@@ -162,10 +162,14 @@ export default function Footer() {
                             </Sub>
                         </Grid>
                         <Grid item>
-                            <SubscibeButton color="inherit" aria-label="menu">
-                                <img src={img} alt="" />
-                                <SubscribeText>Subscribe to our Newsletter</SubscribeText>
-                            </SubscibeButton>
+                            <NavLink
+                                to="https://www.linkedin.com/newsletters/container-native-devops-cicd-6920671272087552000/"
+                                target="_blank">
+                                <SubscibeButton color="inherit" aria-label="menu">
+                                    <img src={img} alt="" />
+                                    <SubscribeText>Subscribe to our Newsletter</SubscribeText>
+                                </SubscibeButton>
+                            </NavLink>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -256,7 +260,7 @@ export default function Footer() {
                             <Sub>Webinars</Sub>
                         </Grid>
                         <Grid item>
-                            <NavLink to="/posts">
+                            <NavLink to="/blogs">
                                 <Sub>Blog</Sub>
                             </NavLink>
                         </Grid>
@@ -285,13 +289,19 @@ export default function Footer() {
                             <Sub>FAQ</Sub>
                         </Grid>
                         <Grid item>
-                            <Sub>Terms of Service</Sub>
+                            <NavLink to="/terms-of-service">
+                                <Sub>Terms of Service</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Privacy policy</Sub>
+                            <NavLink to="/privacy-policy">
+                                <Sub>Privacy policy</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Security</Sub>
+                            <NavLink to="/security">
+                                <Sub>Security</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <Sub>Status Page</Sub>

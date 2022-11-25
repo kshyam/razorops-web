@@ -12,6 +12,13 @@ import egnify from '../../assets/images/product/trusted-by/egnify.svg';
 import railsroot from '../../assets/images/product/trusted-by/railsroot.svg';
 import trice from '../../assets/images/product/trusted-by/trice.svg';
 import yaxis from '../../assets/images/product/trusted-by/yaxis.svg';
+import civo from '../../assets/images/clients/civo.png';
+import nxtGen from '../../assets/images/clients/nxt-gen.png';
+import edtech from '../../assets/images/clients/edtech.png';
+import kubeify from '../../assets/images/clients/kubeify.png';
+import nimble from '../../assets/images/clients/nimble.png';
+import digitalOcean from '../../assets/images/clients/digitalocean.png';
+import azure from '../../assets/images/clients/azure.png';
 
 const Title = styled('span')`
     ${font3};
@@ -81,13 +88,13 @@ const data = [
     railsroot,
     trice,
     yaxis,
-    dossier,
-    railsroot,
-    egnify,
-    applozic,
-    auzmor,
-    pi,
-    dbmt
+    civo,
+    nxtGen,
+    kubeify,
+    nimble,
+    edtech,
+    digitalOcean,
+    azure
 ];
 
 const TrustedBy = () => {

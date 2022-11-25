@@ -126,10 +126,10 @@ const NoResultsGrid = styled(Grid)`
     }
 `;
 
-export default function Posts({
+export default function Blogs({
     data: {
         localSearchPages: { index, store },
-        allPosts
+        allBlogs
     }
 }) {
     const { search } = typeof window !== 'undefined' && window.location;
@@ -138,7 +138,7 @@ export default function Posts({
 
     const results = useFlexSearch(searchQuery, index, store);
 
-    const posts = searchQuery ? results : allPosts.nodes;
+    const posts = searchQuery ? results : allBlogs.nodes;
     const allPostsData = posts.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
     });
@@ -185,7 +185,7 @@ export const query = graphql`
             index
             store
         }
-        allPosts: allDatoCmsPost(sort: { fields: date, order: DESC }, limit: 20) {
+        allBlogs: allDatoCmsBlog(sort: { fields: date, order: DESC }, limit: 20) {
             nodes {
                 title
                 slug

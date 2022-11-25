@@ -5,9 +5,13 @@ import { font6, lineHeight29 } from '../assets/globalStyles';
 import dossier from '../assets/images/clients/1dossier.webp';
 import auzmor from '../assets/images/clients/auzmor.png';
 import azure from '../assets/images/clients/azure.png';
-import bitbucket from '../assets/images/clients/bitbucket.png';
+import edtech from '../assets/images/clients/edtech.png';
 import digitalocean from '../assets/images/clients/digitalocean.png';
 import trice from '../assets/images/clients/trice.png';
+import nimble from '../assets/images/clients/nimble.png';
+import civo from '../assets/images/clients/civo.png';
+import kubeify from '../assets/images/clients/kubeify.png';
+import nxtGen from '../assets/images/clients/nxt-gen.png';
 
 const BG = styled(Grid)`
     display: flex;
@@ -66,7 +70,7 @@ const ImageGrid = styled(Grid)`
 `;
 
 const Img = styled('img')`
-    height: 100px;
+    height: 80px;
     width: 150px;
     transition: transform 1s;
 
@@ -113,14 +117,14 @@ const Slider = styled('div')`
 const SlideTrack = styled('div')`
     animation: scroll 40s linear infinite;
     display: flex;
-    width: calc(200px * 12);
+    width: calc(200px * 20);
 
     @keyframes scroll {
         0% {
             transform: translateX(0);
         }
         100% {
-            transform: translateX(calc(-200px * 6));
+            transform: translateX(calc(-200px * 10));
         }
     }
 
@@ -133,15 +137,23 @@ const images = [
     { id: 1, img: dossier },
     { id: 2, img: auzmor },
     { id: 3, img: azure },
-    { id: 4, img: bitbucket },
+    { id: 4, img: edtech },
     { id: 5, img: digitalocean },
     { id: 6, img: trice },
-    { id: 7, img: dossier },
-    { id: 8, img: auzmor },
-    { id: 9, img: azure },
-    { id: 10, img: bitbucket },
-    { id: 11, img: digitalocean },
-    { id: 12, img: trice }
+    { id: 7, img: nimble },
+    { id: 8, img: civo },
+    { id: 9, img: kubeify },
+    { id: 10, img: nxtGen },
+    { id: 11, img: dossier },
+    { id: 12, img: auzmor },
+    { id: 13, img: azure },
+    { id: 14, img: edtech },
+    { id: 15, img: digitalocean },
+    { id: 16, img: trice },
+    { id: 17, img: nimble },
+    { id: 18, img: civo },
+    { id: 19, img: kubeify },
+    { id: 20, img: nxtGen }
 ];
 
 export default function TrustedBy() {

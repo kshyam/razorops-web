@@ -27,17 +27,17 @@ const MainContainer = styled('div')`
         padding: 40px 40px 40px 40px;
     }
 `;
-export default function Post({ data: { site, post, morePosts } }) {
+export default function Blog({ data: { site, blog, morePosts } }) {
     return (
         <Container>
             <MainContainer>
                 <PostHeader
-                    title={post.title}
-                    coverImage={post.coverImage}
-                    date={post.date}
-                    author={post.author}
+                    title={blog.title}
+                    coverImage={blog.coverImage}
+                    date={blog.date}
+                    author={blog.author}
                 />
-                <PostBody content={post.content} />
+                <PostBody content={blog.content} />
             </MainContainer>
             <Footer />
         </Container>
@@ -45,13 +45,13 @@ export default function Post({ data: { site, post, morePosts } }) {
 }
 
 export const query = graphql`
-    query PostBySlug($id: String) {
+    query BlogBySlug($id: String) {
         site: datoCmsSite {
             favicon: faviconMetaTags {
                 ...GatsbyDatoCmsFaviconMetaTags
             }
         }
-        post: datoCmsPost(id: { eq: $id }) {
+        blog: datoCmsBlog(id: { eq: $id }) {
             seo: seoMetaTags {
                 ...GatsbyDatoCmsSeoMetaTags
             }
@@ -83,7 +83,7 @@ export const query = graphql`
                 }
             }
         }
-        morePosts: allDatoCmsPost(
+        morePosts: allDatoCmsBlog(
             sort: { fields: date, order: DESC }
             limit: 2
             filter: { id: { ne: $id } }

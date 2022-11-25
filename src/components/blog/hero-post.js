@@ -68,7 +68,7 @@ export default function HeroPost({ title, coverImage, date, excerpt, author, slu
                         </DateText>
                     </div>
                     <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
-                        <Link to={`/posts/${slug}`} className="hover:underline">
+                        <Link to={`/blogs/${slug}`} className="hover:underline">
                             <Title>{title}</Title>
                         </Link>
                     </h3>

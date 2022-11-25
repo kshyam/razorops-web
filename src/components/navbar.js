@@ -196,12 +196,11 @@ const Logo2 = styled('img')`
     }
 `;
 
-export default function Navbar() {
+export default function Navbar({ showTopBar, setShowTopBar }) {
     const [showDrawer, setShowDrawer] = useState(false);
     const [anchorElProduct, setAnchorElProduct] = useState(null);
     const [anchorElResources, setAnchorElResources] = useState(null);
     const [anchorElCompany, setAnchorElCompany] = useState(null);
-    const [showTopBar, setShowTopBar] = useState(true);
 
     const openProduct = Boolean(anchorElProduct);
     const openResources = Boolean(anchorElResources);
@@ -212,7 +211,7 @@ export default function Navbar() {
     const isProductOpen =
         typeof window !== 'undefined' ? window.location.href.indexOf('product') !== -1 : false;
     const isBlogOpen =
-        typeof window !== 'undefined' ? window.location.href.indexOf('posts') !== -1 : false;
+        typeof window !== 'undefined' ? window.location.href.indexOf('blogs') !== -1 : false;
 
     const handleTopBar = () => {
         setShowTopBar(!showTopBar);
@@ -341,7 +340,7 @@ export default function Navbar() {
                                         <Text color={isPricingOpen === true ? '#ffffff' : color1}>
                                             Pricing
                                         </Text>
-                                        <ExpandMoreIcon
+                                        {/* <ExpandMoreIcon
                                             style={{ color: isPricingOpen ? 'white' : 'black' }}
                                             onMouseEnter={handleOpenResources}
                                         />
@@ -406,11 +405,13 @@ export default function Navbar() {
                                                 desc: 'Drag and drop actions & create\ndelivery pipelines like a devops\nexpert in a fully visualized user\ninterface.',
                                                 logos: [github, gitlab, aws, slack, bucket, aws]
                                             }}
-                                        />
+                                        /> */}
                                     </NavButton>
                                 </Grid>
                                 <Grid item>
-                                    <NavButton style={{ display: 'flex', alignItems: 'center' }}>
+                                    <NavButton
+                                        style={{ display: 'flex', alignItems: 'center' }}
+                                        onClick={() => navigate('https://docs.razorops.com/')}>
                                         <Text color={color1}>Documentation</Text>
                                     </NavButton>
                                 </Grid>
@@ -478,7 +479,7 @@ export default function Navbar() {
                                 <Grid item>
                                     <NavButton
                                         bg={isBlogOpen === true ? '#345eef' : '#ffffff'}
-                                        onClick={() => navigate('/posts')}>
+                                        onClick={() => navigate('/blogs')}>
                                         <Text color={isBlogOpen === true ? '#ffffff' : color1}>
                                             Blog
                                         </Text>
@@ -541,7 +542,7 @@ export default function Navbar() {
                                 </DemoButton>
                             </DrawerItem>
                             <DrawerItem item>
-                                <NavLink to="/posts">
+                                <NavLink to="/blogs">
                                     <Text>Blog</Text>
                                 </NavLink>
                             </DrawerItem>

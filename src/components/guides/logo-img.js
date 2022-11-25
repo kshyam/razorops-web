@@ -16,7 +16,7 @@ export default function LogoImage({ url, slug }) {
     return (
         <div className="-mx-5 sm:mx-0">
             {slug ? (
-                <Link to={`/posts/${slug}`} aria-label={title}>
+                <Link to={`/blogs/${slug}`} aria-label={title}>
                     {image}
                 </Link>
             ) : (

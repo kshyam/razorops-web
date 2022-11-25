@@ -20,7 +20,7 @@ module.exports = {
                 engine: 'flexsearch',
                 query: `
                 {
-                  allPosts: allDatoCmsPost(sort: {fields: date, order: DESC}, limit: 20) {
+                  allBlogs: allDatoCmsBlog(sort: {fields: date, order: DESC}, limit: 20) {
                       nodes {
                         title
                         slug
@@ -46,7 +46,7 @@ module.exports = {
                 index: ['title', 'author', 'content', 'excerpt', 'date', 'slug'],
                 store: ['title', 'author', 'content', 'excerpt', 'date', 'slug', 'coverImage'],
                 normalizer: ({ data }) =>
-                    data.allPosts.nodes.map((i) => ({
+                    data.allBlogs.nodes.map((i) => ({
                         title: i.title,
                         date: i.date,
                         slug: i.slug,
