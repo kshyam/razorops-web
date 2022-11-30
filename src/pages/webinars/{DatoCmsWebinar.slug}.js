@@ -1,10 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '../../components/container';
-import PostBody from '../../components/blog/post-body';
-import PostHeader from '../../components/blog/post-header';
+import PostBody from '../../components/common/post-body';
+import PostHeader from '../../components/common/post-header';
 import Footer from '../../components/footer';
 import styled from '@emotion/styled';
+import { HelmetDatoCms } from 'gatsby-source-datocms';
 
 const MainContainer = styled('div')`
     @media (min-width: 900px) and (max-width: 1199px) {
@@ -27,17 +28,18 @@ const MainContainer = styled('div')`
         padding: 40px 40px 40px 40px;
     }
 `;
-export default function Blog({ data: { site, blog, morePosts } }) {
+export default function Webinars({ data: { site, webinar, morePosts } }) {
     return (
         <Container>
+            <HelmetDatoCms seo={webinar.seo} favicon={site.favicon} />
             <MainContainer>
                 <PostHeader
-                    title={blog.title}
-                    coverImage={blog.coverImage}
-                    date={blog.date}
-                    author={blog.author}
+                    type={'webinars'}
+                    title={webinar.title}
+                    coverImage={webinar.coverImage}
+                    date={webinar.date}
                 />
-                <PostBody content={blog.content} />
+                <PostBody content={webinar.content} />
             </MainContainer>
             <Footer />
         </Container>
@@ -45,13 +47,13 @@ export default function Blog({ data: { site, blog, morePosts } }) {
 }
 
 export const query = graphql`
-    query BlogBySlug($id: String) {
+    query WebinarBySlug($id: String) {
         site: datoCmsSite {
             favicon: faviconMetaTags {
                 ...GatsbyDatoCmsFaviconMetaTags
             }
         }
-        blog: datoCmsBlog(id: { eq: $id }) {
+        webinar: datoCmsWebinar(id: { eq: $id }) {
             seo: seoMetaTags {
                 ...GatsbyDatoCmsSeoMetaTags
             }
@@ -71,19 +73,8 @@ export const query = graphql`
             coverImage {
                 gatsbyImageData(width: 1500)
             }
-            author {
-                name
-                picture {
-                    gatsbyImageData(
-                        layout: FIXED
-                        width: 48
-                        height: 48
-                        imgixParams: { sat: -100 }
-                    )
-                }
-            }
         }
-        morePosts: allDatoCmsBlog(
+        morePosts: allDatoCmsWebinar(
             sort: { fields: date, order: DESC }
             limit: 2
             filter: { id: { ne: $id } }
@@ -95,17 +86,6 @@ export const query = graphql`
                 date
                 coverImage {
                     small: gatsbyImageData(width: 760)
-                }
-                author {
-                    name
-                    picture {
-                        gatsbyImageData(
-                            layout: FIXED
-                            width: 48
-                            height: 48
-                            imgixParams: { sat: -100 }
-                        )
-                    }
                 }
             }
         }

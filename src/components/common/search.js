@@ -34,7 +34,7 @@ const TextField = styled(InputBase)`
     }
 `;
 
-const SearchBar = ({ searchQuery, setSearchQuery }) => (
+const SearchBar = ({ searchQuery, setSearchQuery, label }) => (
     <Paper
         component="form"
         sx={{
@@ -52,7 +52,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => (
             onInput={(e) => {
                 setSearchQuery(e.target.value);
             }}
-            placeholder="Search in Blog"
+            placeholder={label}
         />
         <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
             <SearchIcon />

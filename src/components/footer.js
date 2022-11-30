@@ -257,15 +257,19 @@ export default function Footer() {
                             <Sub>Case Studies</Sub>
                         </Grid>
                         <Grid item>
-                            <Sub>Webinars</Sub>
+                            <NavLink to="/webinars">
+                                <Sub>Webinars</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
-                            <NavLink to="/blogs">
+                            <NavLink to="/blog">
                                 <Sub>Blog</Sub>
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Newsletter</Sub>
+                            <NavLink to="/newsletter">
+                                <Sub>Newsletter</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <Sub>Write for us</Sub>

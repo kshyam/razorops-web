@@ -211,7 +211,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
     const isProductOpen =
         typeof window !== 'undefined' ? window.location.href.indexOf('product') !== -1 : false;
     const isBlogOpen =
-        typeof window !== 'undefined' ? window.location.href.indexOf('blogs') !== -1 : false;
+        typeof window !== 'undefined' ? window.location.href.indexOf('blog') !== -1 : false;
 
     const handleTopBar = () => {
         setShowTopBar(!showTopBar);
@@ -479,7 +479,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                 <Grid item>
                                     <NavButton
                                         bg={isBlogOpen === true ? '#345eef' : '#ffffff'}
-                                        onClick={() => navigate('/blogs')}>
+                                        onClick={() => navigate('/blog')}>
                                         <Text color={isBlogOpen === true ? '#ffffff' : color1}>
                                             Blog
                                         </Text>
@@ -542,7 +542,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                 </DemoButton>
                             </DrawerItem>
                             <DrawerItem item>
-                                <NavLink to="/blogs">
+                                <NavLink to="/blog">
                                     <Text>Blog</Text>
                                 </NavLink>
                             </DrawerItem>

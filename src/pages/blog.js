@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Container from '../components/container';
-import HeroPost from '../components/blog/hero-post';
-import MoreStories from '../components/blog/more-stories';
+import HeroPost from '../components/common/hero-post';
+import MoreStories from '../components/common/more-stories';
 import { graphql } from 'gatsby';
-import SearchBar from '../components/blog/search';
+import SearchBar from '../components/common/search';
 import { useFlexSearch } from 'react-use-flexsearch';
 import styled from '@emotion/styled';
 import bg from '../assets/images/backgroundPattern.png';
@@ -12,6 +12,7 @@ import { Grid } from '@mui/material';
 import Footer from '../components/footer';
 import GetStarted from '../components/get-started';
 import SignUp from '../components/sign-up';
+import { HelmetDatoCms } from 'gatsby-source-datocms';
 
 const MainContainer = styled('div')`
     margin: 50px 0px 0px 0px;
@@ -126,10 +127,12 @@ const NoResultsGrid = styled(Grid)`
     }
 `;
 
-export default function Blogs({
+export default function Blog({
     data: {
-        localSearchPages: { index, store },
-        allBlogs
+        localSearchBlog: { index, store },
+        allBlogs,
+        site,
+        blog
     }
 }) {
     const { search } = typeof window !== 'undefined' && window.location;
@@ -137,14 +140,13 @@ export default function Blogs({
     const [searchQuery, setSearchQuery] = useState(query || '');
 
     const results = useFlexSearch(searchQuery, index, store);
-
     const posts = searchQuery ? results : allBlogs.nodes;
     const allPostsData = posts.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
     });
-
     return (
         <Container>
+            <HelmetDatoCms seo={blog.seo} favicon={site.favicon} />
             <MainContainer>
                 <TextContainer>
                     <Grid item display={'flex'} flexDirection={'column'}>
@@ -152,11 +154,16 @@ export default function Blogs({
                         <Sub>{'Simplest Container Native CI/CD Platform'}</Sub>
                     </Grid>
                     <SearchGrid item>
-                        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+                        <SearchBar
+                            label={'Search in Blog'}
+                            searchQuery={searchQuery}
+                            setSearchQuery={setSearchQuery}
+                        />
                     </SearchGrid>
                 </TextContainer>
                 {allPostsData.length > 0 && (
                     <HeroPost
+                        type={'blog'}
                         title={allPostsData[0].title}
                         coverImage={allPostsData[0].coverImage}
                         date={allPostsData[0].date}
@@ -165,7 +172,9 @@ export default function Blogs({
                         excerpt={allPostsData[0].excerpt}
                     />
                 )}
-                {allPostsData.length > 1 && <MoreStories posts={allPostsData.slice(1)} />}
+                {allPostsData.length > 1 && (
+                    <MoreStories type={'blog'} posts={allPostsData.slice(1)} />
+                )}
                 {allPostsData.length === 0 && (
                     <NoResultsGrid container>
                         <Title>{'No results found'}</Title>
@@ -181,9 +190,19 @@ export default function Blogs({
 
 export const query = graphql`
     {
-        localSearchPages {
+        localSearchBlog {
             index
             store
+        }
+        site: datoCmsSite {
+            favicon: faviconMetaTags {
+                ...GatsbyDatoCmsFaviconMetaTags
+            }
+        }
+        blog: datoCmsBlog {
+            seo: seoMetaTags {
+                ...GatsbyDatoCmsSeoMetaTags
+            }
         }
         allBlogs: allDatoCmsBlog(sort: { fields: date, order: DESC }, limit: 20) {
             nodes {

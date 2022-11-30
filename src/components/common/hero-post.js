@@ -54,11 +54,11 @@ const DateText = styled('span')`
     color: #5b5b5b;
 `;
 
-export default function HeroPost({ title, coverImage, date, excerpt, author, slug }) {
+export default function HeroPost({ type, title, coverImage, date, excerpt, author, slug }) {
     return (
         <Grid container>
             <Grid item xs={12} sm={12} mg={6} lg={6}>
-                <CoverImage title={title} fluid={coverImage.large} slug={slug} />
+                <CoverImage type={type} title={title} fluid={coverImage.large} slug={slug} />
             </Grid>
             <TextGrid item xs={12} sm={12} mg={6} lg={6}>
                 <div>
@@ -68,7 +68,7 @@ export default function HeroPost({ title, coverImage, date, excerpt, author, slu
                         </DateText>
                     </div>
                     <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
-                        <Link to={`/blogs/${slug}`} className="hover:underline">
+                        <Link to={`/${type}/${slug}`} className="hover:underline">
                             <Title>{title}</Title>
                         </Link>
                     </h3>

@@ -37,11 +37,11 @@ const DateText = styled('span')`
     color: #5b5b5b;
 `;
 
-export default function PostPreview({ title, coverImage, date, excerpt, author, slug }) {
+export default function PostPreview({ type, title, coverImage, date, excerpt, author, slug }) {
     return (
         <div>
             <div className="mb-5">
-                <CoverImage slug={slug} title={title} fluid={coverImage.small} />
+                <CoverImage type={type} slug={slug} title={title} fluid={coverImage.small} />
             </div>
             <div className="mb-4">
                 <DateText>
@@ -49,7 +49,7 @@ export default function PostPreview({ title, coverImage, date, excerpt, author, 
                 </DateText>
             </div>
             <div className="mb-3">
-                <Link to={`/blogs/${slug}`} className="hover:underline">
+                <Link to={`/${type}/${slug}`} className="hover:underline">
                     <Title> {title}</Title>
                 </Link>
             </div>

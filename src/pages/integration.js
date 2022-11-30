@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react';
 import { Grid } from '@mui/material';
 import styled from '@emotion/styled';
 // import ToolIntegration from "../components/tool-integration";
-import Footer from "../components/footer";
-import SignUp from "../components/sign-up";
+import Footer from '../components/footer';
+import SignUp from '../components/sign-up';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import cn from 'classnames';
-
 
 import clientdossier from '../assets/images/clients/1dossier.png';
 import clientauzmor from '../assets/images/clients/auzmor.png';
@@ -26,7 +25,7 @@ import firebase from '../assets/images/integration-tools/firebase-logo.png';
 import googlecloud from '../assets/images/integration-tools/google-cloud.png';
 import docker from '../assets/images/integration-tools/docker-blue-logo.png';
 import kubernetes from '../assets/images/integration-tools/kubernetes.png';
-import harbor from '../assets/images/integration-tools/harbor-logo-razorops.png'
+import harbor from '../assets/images/integration-tools/harbor-logo-razorops.png';
 import jfrog from '../assets/images/integration-tools/jfrog-logo-razorops.png';
 import gke from '../assets/images/integration-tools/GKE-logo.png';
 import ibmk8s from '../assets/images/integration-tools/IBM-kubernetes-service-logo.png';
@@ -58,14 +57,10 @@ import {
 } from '../assets/globalStyles';
 
 import '../styles/integration.css';
-import HeroPost from '../components/blog/hero-post';
-import MoreStories from '../components/blog/more-stories';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import { graphql } from 'gatsby';
-import { Search } from "@mui/icons-material";
+import { Search } from '@mui/icons-material';
 import scrollTo from 'gatsby-plugin-smoothscroll';
-
-
 
 const BG = styled('div')`
     background: white;
@@ -117,9 +112,8 @@ const BG = styled('div')`
 
 //     @media (max-width: 600px) {
 //         padding: 70px 20px 70px 20px;
-//     }                   
+//     }
 // `;
-
 
 const MainContainer = styled(Grid)`
     padding: 0px 0px 0px 42px;
@@ -140,8 +134,6 @@ const MainContainer = styled(Grid)`
         margin-top: 0px;
     }
 `;
-
-
 
 const Title = styled('div')`
     ${font3};
@@ -169,9 +161,6 @@ const SubText = styled('div')`
     }
 `;
 
-
-
-
 // const Slider = styled('div')`
 //     height: auto;
 //     margin-top: 50px !important;
@@ -194,7 +183,7 @@ const SubText = styled('div')`
 //         left:0;
 //         top:0;
 //     }
-   
+
 //     &::after{
 //        right:0;
 //        top:0;
@@ -234,7 +223,6 @@ const SubText = styled('div')`
 //     width: 210px;
 //     margin-right: 10px;
 //     transition: transform 1s;
-    
 
 //     &:hover{
 //         transform: translateZ(20px);
@@ -248,7 +236,7 @@ const Content = styled('div')`
 const Text = styled('span')`
     padding: 0px 0px 0px 10px;
     ${font9};
-    
+
     font-weight: ${fontWeight900};
     line-height: 32px;
     text-align: center;
@@ -284,10 +272,10 @@ const BoxContainer = styled('div')`
     box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
     width: 327px;
-    
 
-    &:hover{
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    &:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
         transition: 0.4s;
     }
 
@@ -301,10 +289,9 @@ const BoxContainer = styled('div')`
     }
 `;
 
-
-const linkStyle ={
+const linkStyle = {
     textDecoration: 'none'
-}
+};
 
 const LeftImg = styled('img')`
     width: 50px;
@@ -325,9 +312,7 @@ const SubHeading = styled('h1')`
     margin-bottom: -30px;
 `;
 
-const BoxLink = styled('a')`
-
-`;
+const BoxLink = styled('a')``;
 
 const NavGrid = styled(Grid)`
     display: flex;
@@ -341,17 +326,16 @@ const NavItem = styled(Grid)`
 
 const LeftNavButton = styled('button')`
     background: #fff;
-    padding : 12px;
+    padding: 12px;
     width: 100%;
     border-radius: 12px;
-    
 
-    &:hover{
-        background:#345EEF;
-        color:#FFF;
+    &:hover {
+        background: #345eef;
+        color: #fff;
     }
-    &:hover ButtunText{
-        color:#FFF;
+    &:hover ButtunText {
+        color: #fff;
     }
 `;
 
@@ -361,36 +345,43 @@ const ButtonText = styled('span')`
     font-size: 24px;
     align: left;
 
-    &:hover{
+    &:hover {
         color: #fff;
     }
 `;
 
-
-
-
-
-
 const data1 = [
-    { id: 1, img: github, title: 'Github', link: 'https://docs.razorops.com/account/create-pipeline/#when-authenticated-with-github' },
-    { id: 2, img: bitbucket, title: 'Bitbucket', link: 'https://docs.razorops.com/account/create-pipeline/#when-authenticated-with-bitbucket' },
-    { id: 3, img: gitlab, title: 'Gitlab', link: 'https://docs.razorops.com/account/create-pipeline/#when-authenticated-with-gitlab' },
-    
-   
+    {
+        id: 1,
+        img: github,
+        title: 'Github',
+        link: 'https://docs.razorops.com/account/create-pipeline/#when-authenticated-with-github'
+    },
+    {
+        id: 2,
+        img: bitbucket,
+        title: 'Bitbucket',
+        link: 'https://docs.razorops.com/account/create-pipeline/#when-authenticated-with-bitbucket'
+    },
+    {
+        id: 3,
+        img: gitlab,
+        title: 'Gitlab',
+        link: 'https://docs.razorops.com/account/create-pipeline/#when-authenticated-with-gitlab'
+    }
 ];
 
 const data2 = [
     { id: 1, img: grunt, title: 'Grunt' },
     { id: 2, img: gulp, title: 'Gulp' },
     { id: 3, img: maven, title: 'Maven' },
-    { id: 4, img: gradle, title: 'Gradle' },
+    { id: 4, img: gradle, title: 'Gradle' }
 ];
 
 const data5 = [
     { id: 1, img: harbor, title: 'Harbor' },
     { id: 2, img: jfrog, title: 'JFrog' },
-    { id: 3, img: docker, title: 'Docker' },
-
+    { id: 3, img: docker, title: 'Docker' }
 ];
 
 const data6 = [
@@ -398,310 +389,322 @@ const data6 = [
     { id: 2, img: ibmk8s, title: 'IBM K8s' },
     { id: 3, img: aks, title: 'AKS' },
     { id: 4, img: eks, title: 'EKS' },
-    { id: 5, img: civo, title: 'CIVO' },
-    
-
+    { id: 5, img: civo, title: 'CIVO' }
 ];
-
 
 const data7 = [
     { id: 1, img: terraform, title: 'Terraform' },
     { id: 2, img: helm, title: 'Helm Chart' },
     { id: 3, img: sonarqube, title: 'Sonarqube' },
-    { id: 4, img: aquasecurity, title: 'Aqua Security' },
-    
+    { id: 4, img: aquasecurity, title: 'Aqua Security' }
 ];
 
-
-
-export default function Integration({data : {allguides, site, integrations}}){
+export default function Integration({ data: { allguides, site, integrations } }) {
     const heroPost = allguides.nodes[0];
     const heroPost2 = allguides.nodes;
     const morePosts = allguides.nodes.slice(1);
 
-    
-    
-    return(
+    return (
         <Container>
             <PageHeader />
-                   
-                
+
             <BG>
-                
                 {/* <Title>RazorOps Integration</Title>
                 <SubText>
                     {'Nowadays, the increasingly growing number of mobile\nand computing devices'}
                 </SubText> */}
-            <NavGrid container spacing={3}>
-                <Grid item sm={3} sx={{marginTop:"60px"}} style={{ paddingLeft: '86px',}} >
-                    <NavItem container spacing={3} >
-                        <Grid item >
-                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#scm')}>
-                                <ButtonText>{'SCM'}</ButtonText>
-                            </LeftNavButton>
-                        </Grid>
-                        <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#build-tools')}>
-                                <ButtonText>{'Build Tools'}</ButtonText>
-                            </LeftNavButton>
-                        </Grid>
-                        <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#unit-testing-tools')}>
-                                <ButtonText>{'Unit Testing Tools'}</ButtonText>
-                            </LeftNavButton>
-                        </Grid>
-                        <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#test-coverage-report-tools')}>
-                                <ButtonText>{'Test Coverage Report Tools'}</ButtonText>
-                            </LeftNavButton>
-                        </Grid>
-                        <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#container-registries')}>
-                                <ButtonText>{'Container Registries'}</ButtonText>
-                            </LeftNavButton>
-                        </Grid>
-                        <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#development-tools')}>
-                                <ButtonText>{'Development Tools- Kubernetes'}</ButtonText>
-                            </LeftNavButton>
-                        </Grid>
-                        <Grid item>
-                            <LeftNavButton style={{ textAlign:'left' }} onClick={() => scrollTo('#other-tools')}>
-                                <ButtonText>{'Other Tools'}</ButtonText>
-                            </LeftNavButton>
-                        </Grid>
-                    </NavItem>
-                </Grid>
-                <Grid item sm={9} style={{ paddingLeft: '86px',}}>
-                <SubHeading>{'SCM'}</SubHeading>    
-                <MainContainer container spacing={3}>
-                   
-                    {data1.map((i) => (
-                        <Grid
-                            key={i.id}
-                            item
-                            xs={6}
-                            sm={6}
-                            md={4}
-                            lg={3}
-                            display={'flex'}
-                            justifyContent={'center'} sx={{marginRight:'80px'}}>
-                            <BoxLink href={i.link} target="_blank">
-                                <BoxContainer>
-                                    <Content>
-                                            <LeftImg alt="" src={i.img} />
-                                            <Text>{i.title}</Text>
-                                    </Content>
-                                </BoxContainer>
-                            </BoxLink>
-                        </Grid>
-                    ))}
-                 </MainContainer>
+                <NavGrid container spacing={3}>
+                    <Grid item sm={3} sx={{ marginTop: '60px' }} style={{ paddingLeft: '86px' }}>
+                        <NavItem container spacing={3}>
+                            <Grid item>
+                                <LeftNavButton
+                                    style={{ textAlign: 'left' }}
+                                    onClick={() => scrollTo('#scm')}>
+                                    <ButtonText>{'SCM'}</ButtonText>
+                                </LeftNavButton>
+                            </Grid>
+                            <Grid item>
+                                <LeftNavButton
+                                    style={{ textAlign: 'left' }}
+                                    onClick={() => scrollTo('#build-tools')}>
+                                    <ButtonText>{'Build Tools'}</ButtonText>
+                                </LeftNavButton>
+                            </Grid>
+                            <Grid item>
+                                <LeftNavButton
+                                    style={{ textAlign: 'left' }}
+                                    onClick={() => scrollTo('#unit-testing-tools')}>
+                                    <ButtonText>{'Unit Testing Tools'}</ButtonText>
+                                </LeftNavButton>
+                            </Grid>
+                            <Grid item>
+                                <LeftNavButton
+                                    style={{ textAlign: 'left' }}
+                                    onClick={() => scrollTo('#test-coverage-report-tools')}>
+                                    <ButtonText>{'Test Coverage Report Tools'}</ButtonText>
+                                </LeftNavButton>
+                            </Grid>
+                            <Grid item>
+                                <LeftNavButton
+                                    style={{ textAlign: 'left' }}
+                                    onClick={() => scrollTo('#container-registries')}>
+                                    <ButtonText>{'Container Registries'}</ButtonText>
+                                </LeftNavButton>
+                            </Grid>
+                            <Grid item>
+                                <LeftNavButton
+                                    style={{ textAlign: 'left' }}
+                                    onClick={() => scrollTo('#development-tools')}>
+                                    <ButtonText>{'Development Tools- Kubernetes'}</ButtonText>
+                                </LeftNavButton>
+                            </Grid>
+                            <Grid item>
+                                <LeftNavButton
+                                    style={{ textAlign: 'left' }}
+                                    onClick={() => scrollTo('#other-tools')}>
+                                    <ButtonText>{'Other Tools'}</ButtonText>
+                                </LeftNavButton>
+                            </Grid>
+                        </NavItem>
+                    </Grid>
+                    <Grid item sm={9} style={{ paddingLeft: '86px' }}>
+                        <SubHeading>{'SCM'}</SubHeading>
+                        <MainContainer container spacing={3}>
+                            {data1.map((i) => (
+                                <Grid
+                                    key={i.id}
+                                    item
+                                    xs={6}
+                                    sm={6}
+                                    md={4}
+                                    lg={3}
+                                    display={'flex'}
+                                    justifyContent={'center'}
+                                    sx={{ marginRight: '80px' }}>
+                                    <BoxLink href={i.link} target="_blank">
+                                        <BoxContainer>
+                                            <Content>
+                                                <LeftImg alt="" src={i.img} />
+                                                <Text>{i.title}</Text>
+                                            </Content>
+                                        </BoxContainer>
+                                    </BoxLink>
+                                </Grid>
+                            ))}
+                        </MainContainer>
 
+                        <SubHeading id="build-tools">{'Build Tools'}</SubHeading>
+                        <MainContainer container spacing={3}>
+                            <HelmetDatoCms seo={integrations.seo} favicon={site.favicon} />
 
-                 <SubHeading id='build-tools'>{'Build Tools'}</SubHeading>      
-                 <MainContainer container spacing={3}>
-                 <HelmetDatoCms seo={integrations.seo} favicon={site.favicon} />
-
-                        { heroPost2.map(i => {
-                            if(i.category.name == "Build Tools"){
-                                return(
+                            {heroPost2.map((i) => {
+                                if (i.category.name == 'Build Tools') {
+                                    return (
                                         <Grid
-                                        key={i.id}
-                                        item
-                                        xs={6}
-                                        sm={6}
-                                        md={4}
-                                        lg={3}
-                                        display={'flex'}
-                                        justifyContent={'center'} sx={{marginRight:'80px'}}>
+                                            key={i.id}
+                                            item
+                                            xs={6}
+                                            sm={6}
+                                            md={4}
+                                            lg={3}
+                                            display={'flex'}
+                                            justifyContent={'center'}
+                                            sx={{ marginRight: '80px' }}>
                                             <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
-                                            <BoxContainer> 
-                                                <Content>
-                                                <GatsbyImage
-                                                        style={{ width: "50px", height: "50px" }}
-                                                        image={i.coverImage.small}
-                                                        alt={`Cover Image for ${i.title}`}
-                                                        // className={cn('shadow-small', {
-                                                        //     'hover:shadow-medium transition-shadow duration-200': i.slug
-                                                        // })}
-                                                    />
-                                                    <Text>{i.title}</Text>
-                                                </Content> 
-                                            </BoxContainer>
-                                            </Link> 
+                                                <BoxContainer>
+                                                    <Content>
+                                                        <GatsbyImage
+                                                            style={{
+                                                                width: '50px',
+                                                                height: '50px'
+                                                            }}
+                                                            image={i.coverImage.small}
+                                                            alt={`Cover Image for ${i.title}`}
+                                                            // className={cn('shadow-small', {
+                                                            //     'hover:shadow-medium transition-shadow duration-200': i.slug
+                                                            // })}
+                                                        />
+                                                        <Text>{i.title}</Text>
+                                                    </Content>
+                                                </BoxContainer>
+                                            </Link>
                                         </Grid>
-                                )}
-                         })}
+                                    );
+                                }
+                            })}
 
-                  
+                            {}
+                        </MainContainer>
 
-                    {
-
-                    }
-                 </MainContainer>
-
-                 <SubHeading id='unit-testing-tools'>{'Unit Testing Tools'}</SubHeading>      
-                 <MainContainer container spacing={3}>
-                    
-                    {data1.map((i) => (
-                        <Grid
-                        key={i.id}
-                        item
-                        xs={6}
-                        sm={6}
-                        md={4}
-                        lg={3}
-                        display={'flex'}
-                        justifyContent={'center'} sx={{marginRight:'80px'}}>
-                            <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
-                            <BoxContainer> 
-                                <Content>
-                                {/* <GatsbyImage
+                        <SubHeading id="unit-testing-tools">{'Unit Testing Tools'}</SubHeading>
+                        <MainContainer container spacing={3}>
+                            {data1.map((i) => (
+                                <Grid
+                                    key={i.id}
+                                    item
+                                    xs={6}
+                                    sm={6}
+                                    md={4}
+                                    lg={3}
+                                    display={'flex'}
+                                    justifyContent={'center'}
+                                    sx={{ marginRight: '80px' }}>
+                                    <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
+                                        <BoxContainer>
+                                            <Content>
+                                                {/* <GatsbyImage
                                         style={{ width: "50px", height: "50px" }}
                                         image={i.img}
                                         alt={`Cover Image for ${i.title}`}
                                         
                                     /> */}
-                                    <LeftImg alt="" src={i.img} />
-                                    <Text>{i.title}</Text>
-                                </Content> 
-                            </BoxContainer>
-                            </Link> 
-                        </Grid>
-                    ))}
-                 </MainContainer>
+                                                <LeftImg alt="" src={i.img} />
+                                                <Text>{i.title}</Text>
+                                            </Content>
+                                        </BoxContainer>
+                                    </Link>
+                                </Grid>
+                            ))}
+                        </MainContainer>
 
-                 <SubHeading id="test-coverage-report-tools">{'Test Coverage Report Tools'}</SubHeading>      
-                 <MainContainer container spacing={3}>
-                    
-                    {data1.map((i) => (
-                        <Grid
-                        key={i.id}
-                        item
-                        xs={6}
-                        sm={6}
-                        md={4}
-                        lg={3}
-                        display={'flex'}
-                        justifyContent={'center'} sx={{marginRight:'80px'}}>
-                            <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
-                            <BoxContainer> 
-                                <Content>
-                                {/* <GatsbyImage
+                        <SubHeading id="test-coverage-report-tools">
+                            {'Test Coverage Report Tools'}
+                        </SubHeading>
+                        <MainContainer container spacing={3}>
+                            {data1.map((i) => (
+                                <Grid
+                                    key={i.id}
+                                    item
+                                    xs={6}
+                                    sm={6}
+                                    md={4}
+                                    lg={3}
+                                    display={'flex'}
+                                    justifyContent={'center'}
+                                    sx={{ marginRight: '80px' }}>
+                                    <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
+                                        <BoxContainer>
+                                            <Content>
+                                                {/* <GatsbyImage
                                         style={{ width: "50px", height: "50px" }}
                                         image={i.img}
                                         alt={`Cover Image for ${i.title}`}
                                         
                                     /> */}
-                                    <LeftImg alt="" src={i.img} />
-                                    <Text>{i.title}</Text>
-                                </Content> 
-                            </BoxContainer>
-                            </Link> 
-                        </Grid>
-                    ))}
-                 </MainContainer>
+                                                <LeftImg alt="" src={i.img} />
+                                                <Text>{i.title}</Text>
+                                            </Content>
+                                        </BoxContainer>
+                                    </Link>
+                                </Grid>
+                            ))}
+                        </MainContainer>
 
-                 <SubHeading id='container-registries'>{'Container Registries'}</SubHeading>      
-                 <MainContainer container spacing={3}>
-                    
-                 { heroPost2.map(i => {
-                            if(i.category.name == "Container Registries"){
-                                return(
+                        <SubHeading id="container-registries">{'Container Registries'}</SubHeading>
+                        <MainContainer container spacing={3}>
+                            {heroPost2.map((i) => {
+                                if (i.category.name == 'Container Registries') {
+                                    return (
                                         <Grid
-                                        key={i.id}
-                                        item
-                                        xs={6}
-                                        sm={6}
-                                        md={4}
-                                        lg={3}
-                                        display={'flex'}
-                                        justifyContent={'center'} sx={{marginRight:'80px'}}>
+                                            key={i.id}
+                                            item
+                                            xs={6}
+                                            sm={6}
+                                            md={4}
+                                            lg={3}
+                                            display={'flex'}
+                                            justifyContent={'center'}
+                                            sx={{ marginRight: '80px' }}>
                                             <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
-                                            <BoxContainer> 
-                                                <Content>
-                                                <GatsbyImage
-                                                        style={{ width: "50px", height: "50px" }}
-                                                        image={i.coverImage.small}
-                                                        alt={`Cover Image for ${i.title}`}
-                                                        // className={cn('shadow-small', {
-                                                        //     'hover:shadow-medium transition-shadow duration-200': i.slug
-                                                        // })}
-                                                    />
-                                                    <Text>{i.title}</Text>
-                                                </Content> 
-                                            </BoxContainer>
-                                            </Link> 
+                                                <BoxContainer>
+                                                    <Content>
+                                                        <GatsbyImage
+                                                            style={{
+                                                                width: '50px',
+                                                                height: '50px'
+                                                            }}
+                                                            image={i.coverImage.small}
+                                                            alt={`Cover Image for ${i.title}`}
+                                                            // className={cn('shadow-small', {
+                                                            //     'hover:shadow-medium transition-shadow duration-200': i.slug
+                                                            // })}
+                                                        />
+                                                        <Text>{i.title}</Text>
+                                                    </Content>
+                                                </BoxContainer>
+                                            </Link>
                                         </Grid>
-                                )}
-                         })}
-                 </MainContainer>
+                                    );
+                                }
+                            })}
+                        </MainContainer>
 
-                 <SubHeading id='development-tools'>{'Development Tools- Kubernetes'}</SubHeading>      
-                 <MainContainer container spacing={3}>
-                    
-                    {data6.map((i) => (
-                        <Grid
-                        key={i.id}
-                        item
-                        xs={6}
-                        sm={6}
-                        md={4}
-                        lg={3}
-                        display={'flex'}
-                        justifyContent={'center'} sx={{marginRight:'80px'}}>
-                            <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
-                            <BoxContainer> 
-                                <Content>
-                                {/* <GatsbyImage
+                        <SubHeading id="development-tools">
+                            {'Development Tools- Kubernetes'}
+                        </SubHeading>
+                        <MainContainer container spacing={3}>
+                            {data6.map((i) => (
+                                <Grid
+                                    key={i.id}
+                                    item
+                                    xs={6}
+                                    sm={6}
+                                    md={4}
+                                    lg={3}
+                                    display={'flex'}
+                                    justifyContent={'center'}
+                                    sx={{ marginRight: '80px' }}>
+                                    <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
+                                        <BoxContainer>
+                                            <Content>
+                                                {/* <GatsbyImage
                                         style={{ width: "50px", height: "50px" }}
                                         image={i.img}
                                         alt={`Cover Image for ${i.title}`}
                                         
                                     /> */}
-                                    <LeftImg alt="" src={i.img} />
-                                    <Text>{i.title}</Text>
-                                </Content> 
-                            </BoxContainer>
-                            </Link> 
-                        </Grid>
-                    ))}
-                 </MainContainer>  
+                                                <LeftImg alt="" src={i.img} />
+                                                <Text>{i.title}</Text>
+                                            </Content>
+                                        </BoxContainer>
+                                    </Link>
+                                </Grid>
+                            ))}
+                        </MainContainer>
 
-                  <SubHeading id='other-tools'>{'Other Tools'}</SubHeading>      
-                 <MainContainer container spacing={3}>
-                    
-                    {data7.map((i) => (
-                        <Grid
-                        key={i.id}
-                        item
-                        xs={6}
-                        sm={6}
-                        md={4}
-                        lg={3}
-                        display={'flex'}
-                        justifyContent={'center'} sx={{marginRight:'80px'}}>
-                            <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
-                            <BoxContainer> 
-                                <Content>
-                                {/* <GatsbyImage
+                        <SubHeading id="other-tools">{'Other Tools'}</SubHeading>
+                        <MainContainer container spacing={3}>
+                            {data7.map((i) => (
+                                <Grid
+                                    key={i.id}
+                                    item
+                                    xs={6}
+                                    sm={6}
+                                    md={4}
+                                    lg={3}
+                                    display={'flex'}
+                                    justifyContent={'center'}
+                                    sx={{ marginRight: '80px' }}>
+                                    <Link to={`/how_to_guide/${i.slug}`} style={linkStyle}>
+                                        <BoxContainer>
+                                            <Content>
+                                                {/* <GatsbyImage
                                         style={{ width: "50px", height: "50px" }}
                                         image={i.img}
                                         alt={`Cover Image for ${i.title}`}
                                         
                                     /> */}
-                                    <LeftImg alt="" src={i.img} />
-                                    <Text>{i.title}</Text>
-                                </Content> 
-                            </BoxContainer>
-                            </Link> 
-                        </Grid>
-                    ))}
-                 </MainContainer>  
-                 </Grid>
-                  </NavGrid>      
-                 {/* <Container>
+                                                <LeftImg alt="" src={i.img} />
+                                                <Text>{i.title}</Text>
+                                            </Content>
+                                        </BoxContainer>
+                                    </Link>
+                                </Grid>
+                            ))}
+                        </MainContainer>
+                    </Grid>
+                </NavGrid>
+                {/* <Container>
             {heroPost && (
                 <HeroPost
                     title={heroPost.title}
@@ -714,7 +717,6 @@ export default function Integration({data : {allguides, site, integrations}}){
             )}
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container> */}
-                      
             </BG>
             {/* <ToolIntegration/> */}
             {/* <BlueBG>
@@ -733,47 +735,45 @@ export default function Integration({data : {allguides, site, integrations}}){
             <Footer />
         </Container>
     );
-};
-
-
+}
 
 export const query2 = graphql`
- {
-    site: datoCmsSite {
-        favicon: faviconMetaTags {
-            ...GatsbyDatoCmsFaviconMetaTags
-        }
-    }   
-    integrations: datoCmsIntegration {
-        seo: seoMetaTags {
-            ...GatsbyDatoCmsSeoMetaTags
-        }
-    } 
-    allguides: allDatoCmsHowToGuide(sort: { fields: date, order: DESC }, limit: 20) {
-        nodes {
-            title
-            slug
-            excerpt
-            date
-            coverImage {
-                large: gatsbyImageData(width: 1500)
-                small: gatsbyImageData(width: 760)
+    {
+        site: datoCmsSite {
+            favicon: faviconMetaTags {
+                ...GatsbyDatoCmsFaviconMetaTags
             }
-            category{
-                name
+        }
+        integrations: datoCmsIntegration {
+            seo: seoMetaTags {
+                ...GatsbyDatoCmsSeoMetaTags
             }
-            author {
-                name
-                picture {
-                    gatsbyImageData(
-                        layout: FIXED
-                        width: 48
-                        height: 48
-                        imgixParams: { sat: -100 }
-                    )
+        }
+        allguides: allDatoCmsHowToGuide(sort: { fields: date, order: DESC }, limit: 20) {
+            nodes {
+                title
+                slug
+                excerpt
+                date
+                coverImage {
+                    large: gatsbyImageData(width: 1500)
+                    small: gatsbyImageData(width: 760)
+                }
+                category {
+                    name
+                }
+                author {
+                    name
+                    picture {
+                        gatsbyImageData(
+                            layout: FIXED
+                            width: 48
+                            height: 48
+                            imgixParams: { sat: -100 }
+                        )
+                    }
                 }
             }
         }
     }
-  }
-`  
+`;

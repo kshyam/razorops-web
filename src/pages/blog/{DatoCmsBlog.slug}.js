@@ -1,45 +1,60 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '../../components/container';
-import MoreStories from '../../components/common/more-stories';
 import PostBody from '../../components/common/post-body';
 import PostHeader from '../../components/common/post-header';
-import SectionSeparator from '../../components/common/section-separator';
+import Footer from '../../components/footer';
+import styled from '@emotion/styled';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import cn from 'classnames';
-import PostTitle from '../../components/common/post-title';
 
-export default function Post({ data: { site, guide, moreguides } }) {
+const MainContainer = styled('div')`
+    @media (min-width: 900px) and (max-width: 1199px) {
+        padding: 80px 80px 80px 80px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        padding: 50px 50px 50px 50px;
+    }
+
+    @media (min-width: 1535px) {
+        padding: 100px 140px 100px 140px;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        padding: 100px 100px 100px 100px;
+    }
+
+    @media (max-width: 600px) {
+        padding: 40px 40px 40px 40px;
+    }
+`;
+export default function Blog({ data: { site, blog, morePosts } }) {
     return (
         <Container>
-            <HelmetDatoCms seo={guide.seo} favicon={site.favicon} />
-            <article className="mt-50">
-                <PostTitle>{`Integrate RazorOps with ${guide.title} `}</PostTitle>
-                <GatsbyImage
-                    style={{ width: '50px', height: '50px' }}
-                    image={guide.coverImage.small}
-                    alt={`Cover Image for ${guide.title}`}
-                    className={cn('shadow-small', {
-                        'hover:shadow-medium transition-shadow duration-200': guide.slug
-                    })}
+            <HelmetDatoCms seo={blog.seo} favicon={site.favicon} />
+            <MainContainer>
+                <PostHeader
+                    type={'blog'}
+                    title={blog.title}
+                    coverImage={blog.coverImage}
+                    date={blog.date}
+                    author={blog.author}
                 />
-                <PostBody content={guide.content} />
-            </article>
-            <SectionSeparator />
-            {moreguides.nodes.length > 0 && <MoreStories posts={moreguides.nodes} />}
+                <PostBody content={blog.content} />
+            </MainContainer>
+            <Footer />
         </Container>
     );
 }
 
 export const query = graphql`
-    query GuideBySlug($id: String) {
+    query BlogBySlug($id: String) {
         site: datoCmsSite {
             favicon: faviconMetaTags {
                 ...GatsbyDatoCmsFaviconMetaTags
             }
         }
-        guide: datoCmsHowToGuide(id: { eq: $id }) {
+        blog: datoCmsBlog(id: { eq: $id }) {
             seo: seoMetaTags {
                 ...GatsbyDatoCmsSeoMetaTags
             }
@@ -51,7 +66,7 @@ export const query = graphql`
                     __typename
                     id: originalId
                     image {
-                        gatsbyImageData(layout: FULL_WIDTH)
+                        gatsbyImageData(width: 700)
                     }
                 }
             }
@@ -71,7 +86,7 @@ export const query = graphql`
                 }
             }
         }
-        moreguides: allDatoCmsHowToGuide(
+        morePosts: allDatoCmsBlog(
             sort: { fields: date, order: DESC }
             limit: 2
             filter: { id: { ne: $id } }

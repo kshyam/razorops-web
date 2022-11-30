@@ -24,7 +24,7 @@ export default function Avatar({ name, picture }) {
         <div className="flex items-center">
             <GatsbyImage
                 style={{ borderRadius: '10px' }}
-                image={picture.gatsbyImageData}
+                image={picture?.gatsbyImageData}
                 className="w-12 h-12 rounded-full mr-4"
                 alt={`Photo of ${name}`}
             />
