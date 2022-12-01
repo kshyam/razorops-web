@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid } from '@mui/material';
 import styled from '@emotion/styled';
-import { font6, lineHeight29 } from '../assets/globalStyles';
+import { color1, font3, font6, lineHeight29 } from '../assets/globalStyles';
 import dossier from '../assets/images/clients/1dossier.webp';
 import auzmor from '../assets/images/clients/auzmor.png';
 import azure from '../assets/images/clients/azure.png';
@@ -54,6 +54,35 @@ const Title = styled('div')`
 
     @media (max-width: 600px) {
         padding: 0px;
+    }
+`;
+
+const Heading = styled('div')`
+    ${font3};
+    font-size: 60px;
+    line-height: 90px;
+    text-align: center;
+    color: ${color1};
+    white-space: pre-wrap;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 40px;
+        line-height: 54px;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 28px;
+        line-height: 30px;
     }
 `;
 
@@ -156,10 +185,10 @@ const images = [
     { id: 20, img: nxtGen }
 ];
 
-export default function TrustedBy() {
+export default function TrustedBy({ heading }) {
     return (
         <>
-            <Title>Trusted By</Title>
+            {heading ? <Heading>{heading}</Heading> : <Title>{'Trusted By'}</Title>}
             <BG>
                 <TopGrid container>
                     <Slider>

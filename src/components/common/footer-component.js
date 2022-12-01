@@ -1,10 +1,9 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import styled from '@emotion/styled';
-import { font6, font7, font1 } from '../assets/globalStyles';
-import bgPattern from '../assets/images/footer/backgroundPattern.svg';
-import Navbar from './navbar';
-import Footer from './footer';
+import { font6, font7, font1 } from '../../assets/globalStyles';
+import bgPattern from '../../assets/images/footer/backgroundPattern.svg';
+import Navbar from '../navbar';
 
 const BG = styled('div')`
     margin: ${(props) => (props.showTopBar === true ? '140px 0px 0px 0px' : '100px 0px 0px 0px')};
@@ -114,7 +113,14 @@ const ContentGrid = styled(Grid)`
     z-index: 1;
 `;
 
-export default function FooterSupport({ heading, img, text, textDesc, content }) {
+export default function FooterComponent({
+    heading,
+    img,
+    contentContainer,
+    text,
+    textDesc,
+    content
+}) {
     const [showTopBar, setShowTopBar] = React.useState(true);
 
     return (
@@ -129,34 +135,35 @@ export default function FooterSupport({ heading, img, text, textDesc, content })
                         <img alt="" src={img} />
                     </Grid>
                 </TopContainer>
-                <ContentContainer container>
-                    <img style={{ position: 'absolute', top: 0 }} src={bgPattern} alt="" />
-                    <Grid style={{ padding: '30px 0px' }} item>
-                        <Text>{text}</Text>
-                        <SubText
-                            dangerouslySetInnerHTML={{
-                                __html: textDesc
-                            }}
-                        />
-                    </Grid>
+                {contentContainer && (
+                    <ContentContainer container>
+                        <img style={{ position: 'absolute', top: 0 }} src={bgPattern} alt="" />
+                        <Grid style={{ padding: '30px 0px' }} item>
+                            <Text>{text}</Text>
+                            <SubText
+                                dangerouslySetInnerHTML={{
+                                    __html: textDesc
+                                }}
+                            />
+                        </Grid>
 
-                    {content?.map((i) => (
-                        <ContentGrid id={i.id} container spacing={2}>
-                            <Grid item>
-                                <Title>{i.title}</Title>
-                            </Grid>
-                            <Grid item>
-                                <SubText
-                                    dangerouslySetInnerHTML={{
-                                        __html: i.desc
-                                    }}
-                                />
-                            </Grid>
-                        </ContentGrid>
-                    ))}
-                </ContentContainer>
+                        {content?.map((i) => (
+                            <ContentGrid id={i.id} container spacing={2}>
+                                <Grid item>
+                                    <Title>{i.title}</Title>
+                                </Grid>
+                                <Grid item>
+                                    <SubText
+                                        dangerouslySetInnerHTML={{
+                                            __html: i.desc
+                                        }}
+                                    />
+                                </Grid>
+                            </ContentGrid>
+                        ))}
+                    </ContentContainer>
+                )}
             </BG>
-            <Footer />
         </>
     );
 }

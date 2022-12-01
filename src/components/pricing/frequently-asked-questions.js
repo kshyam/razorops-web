@@ -1,11 +1,10 @@
 import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { font1, font5 } from '../../assets/globalStyles';
-
+import { font1, font5, font6 } from '../../assets/globalStyles';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import styled from '@emotion/styled';
+import { IconButton } from '@mui/material';
 
 const MainContainer = styled('div')`
     @media (min-width: 900px) and (max-width: 1199px) {
@@ -35,6 +34,7 @@ const Title = styled('span')`
     line-height: 70px;
     color: #18204c;
     white-space: pre-wrap;
+    text-align: center;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 34px;
@@ -57,18 +57,48 @@ const Title = styled('span')`
     }
 `;
 
+const Desc = styled('span')`
+    padding: 20px;
+    ${font6};
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #5b6987;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 20px;
+        line-height: 27px;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 19px;
+        line-height: 27px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 16px;
+        line-height: 27px;
+    }
+
+    @media (max-width: 599px) {
+        font-size: 14px;
+        line-height: 27px;
+    }
+`;
+
 const TextContainer = styled('div')`
     padding: 20px 60px 40px 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 `;
 
-const TabLabel = styled('span')`
+const Label = styled('span')`
     ${font5};
     font-size: 30px;
     line-height: 40px;
-    color: #18204c;
+    color: #002c9b;
     text-align: left;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -98,7 +128,7 @@ const Sub = styled('span')`
     text-align: left;
     font-size: 18px;
     line-height: 28px;
-    color: #161614;
+    color: #5b6987;
     @media (min-width: 600px) and (max-width: 1199px) {
         padding: 10px 0px 0px 0px;
         font-size: 14px;
@@ -112,171 +142,98 @@ const Sub = styled('span')`
     }
 `;
 
-const FAQTab = styled(Tab)`
+const Container = styled(Box)`
     display: flex;
-    align-items: flex-start;
-    min-width: -webkit-fill-available;
-    padding: 30px;
-    text-transform: none;
-    border-left: 16px solid rgba(52, 94, 239, 0.2);
+    flex-direction: column;
 `;
 
-const BoxContainer = styled(Box)`
-    display: flex;
+const ContentContainer = styled(Box)`
+    padding: 30px;
+    margin: 15px;
+    width: ${(props) => (props.desc ? '1000px' : '-webkit-fill-available')};
+    background: #f9fafe;
+    border-radius: 14px;
 
-    @media (max-width: 1199px) {
-        display: block;
+    @media (min-width: 1535px) {
+        width: ${(props) => (props.desc ? '1200px' : '-webkit-fill-available')};
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        width: ${(props) => (props.desc ? '600px' : '-webkit-fill-available')};
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        width: ${(props) => (props.desc ? '500px' : '-webkit-fill-available')};
+    }
+
+    @media (max-width: 599px) {
+        width: ${(props) => (props.desc ? '400px' : '-webkit-fill-available')};
     }
 `;
 
-function TabPanel(props) {
-    const { children, value, index, ...other } = props;
+const content = [
+    {
+        id: 1,
+        title: 'Q. How do I get started?',
+        sub: 'Getting started with Razorops is easy, you can have a look quick look on <a style="text-decoration: underline;" href="https://docs.razorops.com/getting_started/"> Documents </a> and signup for razorops.<br><br>1. <a style="text-decoration: underline;" href="https://dashboard.razorops.com/users/sign_in"> Signup </a> Razorops, Create your first Pipeline project<br>2. Add .razorops.yaml to your source code root directory<br>3. Define your Pipeline <a style="text-decoration: underline;" href="https://docs.razorops.com/config/spec/"> (Click here to Learn) </a><br>4. Commit and push your source code<br>5. This new commit will trigger your pipeline<br>6. Still need help <a style="text-decoration: underline;" href="https://razorops.com/schedule-demo"> Schedule a Demo </a>'
+    },
+    {
+        id: 2,
+        title: 'Q. Which source code management services are supported?',
+        sub: 'Razorops supports major code-hosting services like GitHub, Bitbucket and Gitlab'
+    },
+    {
+        id: 3,
+        title: 'Q. How do you handle upgrading or canceling a subscription?',
+        sub: 'You can change or cancel your subscription at any time from your dashboard.'
+    },
+    {
+        id: 4,
+        title: 'Q. Do your have something custom plan?',
+        sub: 'Most of our customers find Razorops SAAS environment covers their usecases. if you need extra support, hosting preferences or features, our support team will help you.'
+    },
+    {
+        id: 5,
+        title: 'Q. I have more questions ?',
+        sub: 'Most of our customers find Razorops SAAS environment covers their usecases. if you need extra support, hosting preferences or features, our support team will help you.'
+    }
+];
 
-    return (
-        <div
-            style={{ width: '100%' }}
-            role="tabpanel"
-            hidden={value !== index}
-            id={`vertical-tabpanel-${index}`}
-            aria-labelledby={`vertical-tab-${index}`}
-            {...other}>
-            {value === index && (
-                <Box>
-                    <Typography>{children}</Typography>
-                </Box>
-            )}
-        </div>
-    );
-}
+export default function FrequentlyAskedQuestions({ desc }) {
+    const [value, setValue] = React.useState(1);
 
-function a11yProps(index) {
-    return {
-        id: `vertical-tab-${index}`,
-        'aria-controls': `vertical-tabpanel-${index}`
-    };
-}
-
-export default function FrequentlyAskedQuestions() {
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+    const handleChange = (id) => {
+        if (value === id) {
+            setValue(0);
+        } else {
+            setValue(id);
+        }
     };
 
     return (
         <MainContainer>
             <TextContainer>
                 <Title>{'Frequently Asked Questions'}</Title>
+                {desc && <Desc>{desc}</Desc>}
             </TextContainer>
-            <BoxContainer>
-                <Tabs
-                    sx={{ overflow: 'visible', width: '100%' }}
-                    orientation="vertical"
-                    variant="scrollable"
-                    value={value}
-                    onChange={handleChange}
-                    TabIndicatorProps={{
-                        style: { background: '#345EEF', width: '16px', left: '0px' }
-                    }}
-                    aria-label="Vertical tabs example">
-                    <FAQTab
-                        label={
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    paddingLeft: '20px'
-                                }}>
-                                <TabLabel>Q. How do I get started?</TabLabel>
-                                <Sub style={{ display: value === 0 ? 'flex' : 'none' }}>
-                                    Getting started with Razorops is easy, you can have a look quick
-                                    look on Documents and signup for razorops.
-                                    <br /> 1. Signup Razorops, Create your first Pipeline project 2.
-                                    Add .razorops.yaml to your source code root directory <br /> 3.
-                                    Define your Pipeline (Click here to Learn) <br /> 4. Commit and
-                                    push your source code <br /> 5.This new commit will trigger your
-                                    pipeline <br /> 6. Still need help Schedule a Demo
-                                </Sub>
-                            </Box>
-                        }
-                        {...a11yProps(0)}
-                    />
-                    <FAQTab
-                        label={
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    paddingLeft: '20px'
-                                }}>
-                                <TabLabel>
-                                    Q. Which source code management services are supported?
-                                </TabLabel>
-                                <Sub style={{ display: value === 1 ? 'flex' : 'none' }}>
-                                    Razorops supports major code-hosting services like GitHub,
-                                    Bitbucket and Gitlab
-                                </Sub>
-                            </Box>
-                        }
-                        {...a11yProps(1)}
-                    />
-                    <FAQTab
-                        label={
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    paddingLeft: '20px'
-                                }}>
-                                <TabLabel>
-                                    Q. How do you handle upgrading or canceling a subscription?
-                                </TabLabel>
-                                <Sub style={{ display: value === 2 ? 'flex' : 'none' }}>
-                                    You can change or cancel your subscription at any time from your
-                                    dashboard.
-                                </Sub>
-                            </Box>
-                        }
-                        {...a11yProps(2)}
-                    />
-                    <FAQTab
-                        label={
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    paddingLeft: '20px'
-                                }}>
-                                <TabLabel>Q. Do your have something custom plan?</TabLabel>
-                                <Sub style={{ display: value === 3 ? 'flex' : 'none' }}>
-                                    Most of our customers find Razorops SAAS environment covers
-                                    their usecases. if you need extra support, hosting preferences
-                                    or features, our support team will help you.
-                                </Sub>
-                            </Box>
-                        }
-                        {...a11yProps(3)}
-                    />
-                    <FAQTab
-                        label={
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    paddingLeft: '20px'
-                                }}>
-                                <TabLabel>Q. I have more questions ?</TabLabel>
-                                <Sub style={{ display: value === 4 ? 'flex' : 'none' }}>
-                                    Most of our customers find Razorops SAAS environment covers
-                                    their usecases. if you need extra support, hosting preferences
-                                    or features, our support team will help you.
-                                </Sub>
-                            </Box>
-                        }
-                        {...a11yProps(4)}
-                    />
-                </Tabs>
-            </BoxContainer>
+            <Container>
+                {content.map((i) => (
+                    <ContentContainer desc={desc} id={i.id}>
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <Label>{i.title}</Label>
+                            <IconButton onClick={() => handleChange(i.id)}>
+                                {value === i.id ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+                            </IconButton>
+                        </Box>
+                        <Sub
+                            style={{ display: value === i.id ? 'block' : 'none' }}
+                            dangerouslySetInnerHTML={{
+                                __html: i.sub
+                            }}
+                        />
+                    </ContentContainer>
+                ))}
+            </Container>
         </MainContainer>
     );
 }

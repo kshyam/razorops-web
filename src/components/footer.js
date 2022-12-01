@@ -290,7 +290,9 @@ export default function Footer() {
                             <Sub>Community</Sub>
                         </Grid>
                         <Grid item>
-                            <Sub>FAQ</Sub>
+                            <NavLink to="/faq">
+                                <Sub>FAQ</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <NavLink to="/terms-of-service">
