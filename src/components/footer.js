@@ -272,6 +272,11 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
+                            <NavLink to="/news-and-updates">
+                                <Sub>News and updates</Sub>
+                            </NavLink>
+                        </Grid>
+                        <Grid item>
                             <Sub>Write for us</Sub>
                         </Grid>
                     </Grid>

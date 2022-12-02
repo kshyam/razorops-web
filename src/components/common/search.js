@@ -38,10 +38,11 @@ const SearchBar = ({ searchQuery, setSearchQuery, label }) => (
     <Paper
         component="form"
         sx={{
-            p: '5px 20px',
-            border: '1px solid #BEBEBE',
+            p: '0px 20px',
+            border: '2px solid #BEBEBE',
             display: 'flex',
             alignItems: 'center',
+            borderRadius: '10px',
             width: 400
         }}>
         <TextField

@@ -6,7 +6,8 @@ import { graphql } from 'gatsby';
 import SearchBar from '../components/common/search';
 import { useFlexSearch } from 'react-use-flexsearch';
 import styled from '@emotion/styled';
-import bg from '../assets/images/backgroundPattern.png';
+import bgPattern from '../assets/images/backgroundPattern.png';
+import bg from '../assets/images/bg.png';
 import { font1, font5 } from '../assets/globalStyles';
 import { Grid } from '@mui/material';
 import Footer from '../components/footer';
@@ -15,13 +16,42 @@ import SignUp from '../components/sign-up';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 
 const MainContainer = styled('div')`
-    margin: 50px 0px 0px 0px;
+    margin: 100px 0px 0px 0px;
     background-image: url(${bg});
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 80px 80px 40px 80px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        padding: 70px 50px 20px 50px;
+    }
+
+    @media (min-width: 1535px) {
+        padding: 140px 140px 50px 140px;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        padding: 100px 100px 50px 100px;
+    }
+
+    @media (max-width: 600px) {
+        margin: 80px 0px 0px 0px;
+        padding: 60px 40px 20px 40px;
+    }
+`;
+
+const PostsContainer = styled('div')`
+    background-image: url(${bgPattern});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        padding: 60px 80px 40px 80px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
@@ -33,7 +63,7 @@ const MainContainer = styled('div')`
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 100px 100px 50px 100px;
+        padding: 60px 100px 50px 100px;
     }
 
     @media (max-width: 600px) {
@@ -45,7 +75,7 @@ const Title = styled('span')`
     ${font5};
     font-size: 60px;
     line-height: 90px;
-    color: #000000;
+    color: #ffffff;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 50px;
@@ -73,7 +103,7 @@ const Sub = styled('span')`
     ${font1};
     font-size: 18px;
     line-height: 29px;
-    color: #000000;
+    color: #ffffff;
     text-align: left;
 
     @media (min-width: 1535px) {
@@ -102,7 +132,7 @@ const TextContainer = styled('div')`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 0px 80px 0px;
+    padding: 0px 0px 40px 0px;
 
     @media (max-width: 1199px) {
         flex-direction: column;
@@ -172,15 +202,18 @@ export default function Blog({
                         excerpt={allPostsData[0].excerpt}
                     />
                 )}
-                {allPostsData.length > 1 && (
-                    <MoreStories type={'blog'} posts={allPostsData.slice(1)} />
-                )}
+
                 {allPostsData.length === 0 && (
                     <NoResultsGrid container>
                         <Title>{'No results found'}</Title>
                     </NoResultsGrid>
                 )}
             </MainContainer>
+            {allPostsData.length > 1 && (
+                <PostsContainer>
+                    <MoreStories type={'blog'} posts={allPostsData.slice(1)} />
+                </PostsContainer>
+            )}
             <GetStarted />
             <SignUp />
             <Footer />

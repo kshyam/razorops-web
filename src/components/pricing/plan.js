@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { font1, font5, font6, font7, fontSize20 } from '../../assets/globalStyles';
-import bg from '../../assets/images/pricing/backgroundPattern.png';
+import bgPattern from '../../assets/images/pricing/backgroundPattern.png';
+import img from '../../assets/images/pricing/pricing.svg';
+import bg from '../../assets/images/bg.png';
+
 import styled from '@emotion/styled';
 import { Button, Card, CardActions, CardContent, Grid, List, ListItem } from '@mui/material';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 
 const MainContainer = styled('div')`
-    margin: 50px 0px 0px 0px;
-    background-image: url(${bg});
+    background-image: url(${bgPattern});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -37,7 +39,7 @@ const Title = styled('span')`
     ${font5};
     font-size: 60px;
     line-height: 90px;
-    color: #000000;
+    color: #ffffff;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 50px;
@@ -94,7 +96,7 @@ const Sub = styled('span')`
     ${font1};
     font-size: 18px;
     line-height: 29px;
-    color: #000000;
+    color: #ffffff;
     text-align: left;
 
     @media (min-width: 1535px) {
@@ -121,15 +123,41 @@ const Sub = styled('span')`
 `;
 
 const TextContainer = styled('div')`
+    margin: 100px 0px 0px 0px;
+    background-image: url(${bg});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 0px 80px 0px;
 
     @media (max-width: 1199px) {
         flex-direction: column;
         justify-content: center;
         text-align: center;
+        padding: 0px 0px 40px 0px;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        padding: 80px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        padding: 50px;
+    }
+
+    @media (min-width: 1535px) {
+        padding: 140px;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        padding: 100px;
+    }
+
+    @media (max-width: 600px) {
+        margin: 80px 0px 0px 0px;
+        padding: 60px 40px 20px 40px;
     }
 `;
 
@@ -342,6 +370,19 @@ const Email = styled('span')`
     }
 `;
 
+const Img = styled('img')`
+    @media (max-width: 599px) {
+        width: 70px;
+        height: 70px;
+    }
+`;
+
+const ImageGrid = styled(Grid)`
+    @media (max-width: 1199px) {
+        padding: 20px;
+    }
+`;
+
 const plans = [
     {
         type: 'Basic',
@@ -416,7 +457,7 @@ const Enterprise = [
 
 export default function Plan() {
     return (
-        <MainContainer>
+        <>
             <TextContainer>
                 <Grid item display={'flex'} flexDirection={'column'}>
                     <Title>{'Choose your plan'}</Title>
@@ -424,31 +465,90 @@ export default function Plan() {
                         {'Start with Free Plan, Scale when you feel, No credit card\nrequired.'}
                     </Sub>
                 </Grid>
-                <Desc>{'(Get 2 months free when you choose to\nsign up for annual billing!)'}</Desc>
+                <ImageGrid item>
+                    <Img alt="" src={img} />
+                </ImageGrid>
             </TextContainer>
-            <PlansContainer container spacing={2}>
-                {plans.map((i) => (
-                    <Grid item md={4} sm={6} xs={12}>
-                        <CardContainer>
-                            <CardContent>
-                                <Grid container spacing={2} flexDirection={'column'}>
+            <MainContainer>
+                <PlansContainer container spacing={2}>
+                    {plans.map((i) => (
+                        <Grid item md={4} sm={6} xs={12}>
+                            <CardContainer>
+                                <CardContent>
+                                    <Grid container spacing={2} flexDirection={'column'}>
+                                        <Grid item>
+                                            <Grid container spacing={2} flexDirection={'column'}>
+                                                <Grid item>
+                                                    <Type>{i.type}</Type>
+                                                </Grid>
+                                                <Grid item>
+                                                    <Monthly>{i.monthlyPrice}</Monthly>
+                                                </Grid>
+                                                <Grid item>
+                                                    <Yearly>{i?.builds || i?.yearlyPrice}</Yearly>
+                                                </Grid>
+                                                <Grid item>
+                                                    <Text>{i.users}</Text>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid item>
+                                            <List sx={{ width: '100%' }}>
+                                                {i.details.map((i) => (
+                                                    <ListItem disableGutters>
+                                                        <CircleOutlinedIcon
+                                                            fontSize="small"
+                                                            style={{ color: '#000000' }}
+                                                        />
+                                                        {i === '30 Day money back guarantee' ? (
+                                                            <MoneyBack
+                                                                style={{ paddingLeft: '10px' }}>
+                                                                {i}
+                                                            </MoneyBack>
+                                                        ) : (
+                                                            <Text style={{ paddingLeft: '10px' }}>
+                                                                {i}
+                                                            </Text>
+                                                        )}{' '}
+                                                    </ListItem>
+                                                ))}
+                                            </List>
+                                        </Grid>
+                                    </Grid>
+                                </CardContent>
+                                <CardActions>
+                                    <TryItFree>
+                                        <ButtonText>{i.buttonText}</ButtonText>
+                                    </TryItFree>
+                                </CardActions>
+                            </CardContainer>
+                        </Grid>
+                    ))}
+                </PlansContainer>
+                <EnterpriseContainer>
+                    <Grid container justifyContent={'space-between'}>
+                        {Enterprise.map((i) => (
+                            <>
+                                <InfoGrid item xs={12} sm={12} md={4} lg={4}>
                                     <Grid item>
-                                        <Grid container spacing={2} flexDirection={'column'}>
-                                            <Grid item>
-                                                <Type>{i.type}</Type>
-                                            </Grid>
-                                            <Grid item>
-                                                <Monthly>{i.monthlyPrice}</Monthly>
-                                            </Grid>
-                                            <Grid item>
-                                                <Yearly>{i?.builds || i?.yearlyPrice}</Yearly>
-                                            </Grid>
-                                            <Grid item>
-                                                <Text>{i.users}</Text>
-                                            </Grid>
+                                        <Grid item>
+                                            <Type>{i.type}</Type>
+                                        </Grid>
+                                        <Grid item>
+                                            <Monthly>{i.desc}</Monthly>
                                         </Grid>
                                     </Grid>
                                     <Grid item>
+                                        <Grid item>
+                                            <Email>{'info@razorops.com'}</Email>
+                                        </Grid>
+                                        <Grid item>
+                                            <Text>{'Mail Us'}</Text>
+                                        </Grid>
+                                    </Grid>
+                                </InfoGrid>
+                                <FeaturesGrid item xs={12} sm={12} md={4} lg={4}>
+                                    <Grid container spacing={2}>
                                         <List sx={{ width: '100%' }}>
                                             {i.details.map((i) => (
                                                 <ListItem disableGutters>
@@ -456,76 +556,22 @@ export default function Plan() {
                                                         fontSize="small"
                                                         style={{ color: '#000000' }}
                                                     />
-                                                    {i === '30 Day money back guarantee' ? (
-                                                        <MoneyBack style={{ paddingLeft: '10px' }}>
-                                                            {i}
-                                                        </MoneyBack>
-                                                    ) : (
-                                                        <Text style={{ paddingLeft: '10px' }}>
-                                                            {i}
-                                                        </Text>
-                                                    )}{' '}
+                                                    <Text style={{ paddingLeft: '10px' }}>{i}</Text>
                                                 </ListItem>
                                             ))}
                                         </List>
                                     </Grid>
-                                </Grid>
-                            </CardContent>
-                            <CardActions>
-                                <TryItFree>
-                                    <ButtonText>{i.buttonText}</ButtonText>
-                                </TryItFree>
-                            </CardActions>
-                        </CardContainer>
+                                </FeaturesGrid>
+                                <ButtonGrid item xs={12} sm={12} md={3} lg={3}>
+                                    <TryItFree>
+                                        <ButtonText>Contact Us</ButtonText>
+                                    </TryItFree>
+                                </ButtonGrid>
+                            </>
+                        ))}
                     </Grid>
-                ))}
-            </PlansContainer>
-            <EnterpriseContainer>
-                <Grid container justifyContent={'space-between'}>
-                    {Enterprise.map((i) => (
-                        <>
-                            <InfoGrid item xs={12} sm={12} md={4} lg={4}>
-                                <Grid item>
-                                    <Grid item>
-                                        <Type>{i.type}</Type>
-                                    </Grid>
-                                    <Grid item>
-                                        <Monthly>{i.desc}</Monthly>
-                                    </Grid>
-                                </Grid>
-                                <Grid item>
-                                    <Grid item>
-                                        <Email>{'info@razorops.com'}</Email>
-                                    </Grid>
-                                    <Grid item>
-                                        <Text>{'Mail Us'}</Text>
-                                    </Grid>
-                                </Grid>
-                            </InfoGrid>
-                            <FeaturesGrid item xs={12} sm={12} md={4} lg={4}>
-                                <Grid container spacing={2}>
-                                    <List sx={{ width: '100%' }}>
-                                        {i.details.map((i) => (
-                                            <ListItem disableGutters>
-                                                <CircleOutlinedIcon
-                                                    fontSize="small"
-                                                    style={{ color: '#000000' }}
-                                                />
-                                                <Text style={{ paddingLeft: '10px' }}>{i}</Text>
-                                            </ListItem>
-                                        ))}
-                                    </List>
-                                </Grid>
-                            </FeaturesGrid>
-                            <ButtonGrid item xs={12} sm={12} md={3} lg={3}>
-                                <TryItFree>
-                                    <ButtonText>Contact Us</ButtonText>
-                                </TryItFree>
-                            </ButtonGrid>
-                        </>
-                    ))}
-                </Grid>
-            </EnterpriseContainer>
-        </MainContainer>
+                </EnterpriseContainer>
+            </MainContainer>
+        </>
     );
 }

@@ -16,12 +16,12 @@ const TextGrid = styled(Grid)`
 const Title = styled('span')`
     ${font7};
     font-size: 28px;
-    line-height: 32px;
-    color: #18204c;
+    line-height: 37px;
+    color: #ffffff;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 24px;
-        line-height: 27px;
+        line-height: 32px;
     }
 
     @media (max-width: 1199px) {
@@ -33,17 +33,17 @@ const Title = styled('span')`
 const Desc = styled('span')`
     ${font1};
     font-size: 18px;
-    line-height: 29px;
-    color: #5b5b5b;
+    line-height: 27px;
+    color: #ffffff;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 16px;
-        line-height: 27px;
+        line-height: 22px;
     }
 
     @media (max-width: 1199px) {
         font-size: 16px;
-        line-height: 27px;
+        line-height: 22px;
     }
 `;
 
@@ -51,30 +51,30 @@ const DateText = styled('span')`
     ${font8};
     font-size: 14px;
     line-height: 29px;
-    color: #5b5b5b;
+    color: #ffffff;
 `;
 
 export default function HeroPost({ type, title, coverImage, date, excerpt, author, slug }) {
     return (
         <Grid container>
-            <Grid item xs={12} sm={12} mg={6} lg={6}>
+            <Grid item display={'flex'} alignItems={'center'} xs={12} sm={12} mg={6} lg={6}>
                 <CoverImage type={type} title={title} fluid={coverImage.large} slug={slug} />
             </Grid>
             <TextGrid item xs={12} sm={12} mg={6} lg={6}>
                 <div>
-                    <div className="mb-4 md:mb-0 text-lg">
+                    <div className="mb-4 md:mb-0">
                         <DateText>
                             <Date dateString={date} />
                         </DateText>
                     </div>
-                    <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
+                    <h3 className="mb-4">
                         <Link to={`/${type}/${slug}`} className="hover:underline">
                             <Title>{title}</Title>
                         </Link>
                     </h3>
                 </div>
                 <div>
-                    <p className="text-lg leading-relaxed mb-4">
+                    <p className="mb-4">
                         <Desc>{excerpt}</Desc>
                     </p>
                     <Avatar name={author?.name} picture={author?.picture} />

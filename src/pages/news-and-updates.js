@@ -157,12 +157,12 @@ const NoResultsGrid = styled(Grid)`
     }
 `;
 
-export default function Newsletter({
+export default function NewsAndUpdates({
     data: {
-        localSearchNewsletter: { index, store },
-        allNewsletters,
+        localSearchNews: { index, store },
+        allNewsAndUpdates,
         site,
-        newsletter
+        newsAndUpdates
     }
 }) {
     const { search } = typeof window !== 'undefined' && window.location;
@@ -170,23 +170,22 @@ export default function Newsletter({
     const [searchQuery, setSearchQuery] = useState(query || '');
 
     const results = useFlexSearch(searchQuery, index, store);
-    const posts = searchQuery ? results : allNewsletters.nodes;
+    const posts = searchQuery ? results : allNewsAndUpdates.nodes;
     const allPostsData = posts.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
     });
-
     return (
         <Container>
-            <HelmetDatoCms seo={newsletter.seo} favicon={site.favicon} />
+            <HelmetDatoCms seo={newsAndUpdates.seo} favicon={site.favicon} />
             <MainContainer>
                 <TextContainer>
                     <Grid item display={'flex'} flexDirection={'column'}>
-                        <Title>{'Newsletter'}</Title>
+                        <Title>{'News and Updates'}</Title>
                         <Sub>{'Simplest Container Native CI/CD Platform'}</Sub>
                     </Grid>
                     <SearchGrid item>
                         <SearchBar
-                            label={'Search in Newsletter'}
+                            label={'Search in News and Updates'}
                             searchQuery={searchQuery}
                             setSearchQuery={setSearchQuery}
                         />
@@ -194,7 +193,7 @@ export default function Newsletter({
                 </TextContainer>
                 {allPostsData.length > 0 && (
                     <HeroPost
-                        type={'newsletter'}
+                        type={'news-and-updates'}
                         title={allPostsData[0].title}
                         coverImage={allPostsData[0].coverImage}
                         date={allPostsData[0].date}
@@ -211,7 +210,7 @@ export default function Newsletter({
             </MainContainer>
             {allPostsData.length > 1 && (
                 <PostsContainer>
-                    <MoreStories type={'newsletter'} posts={allPostsData.slice(1)} />
+                    <MoreStories type={'news-and-updates'} posts={allPostsData.slice(1)} />
                 </PostsContainer>
             )}
             <GetStarted />
@@ -223,7 +222,7 @@ export default function Newsletter({
 
 export const query = graphql`
     {
-        localSearchNewsletter {
+        localSearchNews {
             index
             store
         }
@@ -232,12 +231,12 @@ export const query = graphql`
                 ...GatsbyDatoCmsFaviconMetaTags
             }
         }
-        newsletter: datoCmsNewsletter {
+        newsAndUpdates: datoCmsNewsAndUpdate {
             seo: seoMetaTags {
                 ...GatsbyDatoCmsSeoMetaTags
             }
         }
-        allNewsletters: allDatoCmsNewsletter(sort: { fields: date, order: DESC }, limit: 20) {
+        allNewsAndUpdates: allDatoCmsNewsAndUpdate(sort: { fields: date, order: DESC }, limit: 20) {
             nodes {
                 title
                 slug

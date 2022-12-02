@@ -3,13 +3,17 @@ import Grid from '@mui/material/Grid';
 import styled from '@emotion/styled';
 import { font6, font7, font1 } from '../../assets/globalStyles';
 import bgPattern from '../../assets/images/footer/backgroundPattern.svg';
+import bg from '../../assets/images/bg.png';
 import Navbar from '../navbar';
 
 const BG = styled('div')`
     margin: ${(props) => (props.showTopBar === true ? '140px 0px 0px 0px' : '100px 0px 0px 0px')};
 `;
 const TopContainer = styled('div')`
-    background: #0069ff;
+    background-image: url(${bg});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: space-between;

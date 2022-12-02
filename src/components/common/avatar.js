@@ -7,7 +7,7 @@ const Name = styled('span')`
     ${font1};
     font-size: 18px;
     line-height: 29px;
-    color: #5b5b5b;
+    color: #ffffff;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 16px;
