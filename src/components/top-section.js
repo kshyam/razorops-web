@@ -18,7 +18,6 @@ import { Button } from '@mui/material';
 import { Link } from 'gatsby';
 
 const Bg = styled('div')`
-    margin-top: 110px;
     background-image: url(${banner});
     background-repeat: no-repeat;
     background-size: cover;

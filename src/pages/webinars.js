@@ -16,7 +16,6 @@ import SignUp from '../components/sign-up';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 
 const MainContainer = styled('div')`
-    margin: 100px 0px 0px 0px;
     background-image: url(${bg});
     background-repeat: no-repeat;
     background-size: cover;
@@ -39,7 +38,6 @@ const MainContainer = styled('div')`
     }
 
     @media (max-width: 600px) {
-        margin: 80px 0px 0px 0px;
         padding: 60px 40px 20px 40px;
     }
 `;

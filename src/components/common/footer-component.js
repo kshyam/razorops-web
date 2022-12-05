@@ -6,9 +6,6 @@ import bgPattern from '../../assets/images/footer/backgroundPattern.svg';
 import bg from '../../assets/images/bg.png';
 import Navbar from '../navbar';
 
-const BG = styled('div')`
-    margin: ${(props) => (props.showTopBar === true ? '140px 0px 0px 0px' : '100px 0px 0px 0px')};
-`;
 const TopContainer = styled('div')`
     background-image: url(${bg});
     background-repeat: no-repeat;
@@ -130,44 +127,42 @@ export default function FooterComponent({
     return (
         <>
             <Navbar showTopBar={showTopBar} setShowTopBar={setShowTopBar} />
-            <BG showTopBar={showTopBar}>
-                <TopContainer container>
-                    <Grid item>
-                        <Heading>{heading}</Heading>
+            <TopContainer container>
+                <Grid item>
+                    <Heading>{heading}</Heading>
+                </Grid>
+                <Grid item>
+                    <img alt="" src={img} />
+                </Grid>
+            </TopContainer>
+            {contentContainer && (
+                <ContentContainer container>
+                    <img style={{ position: 'absolute', top: 0 }} src={bgPattern} alt="" />
+                    <Grid style={{ padding: '30px 0px' }} item>
+                        <Text>{text}</Text>
+                        <SubText
+                            dangerouslySetInnerHTML={{
+                                __html: textDesc
+                            }}
+                        />
                     </Grid>
-                    <Grid item>
-                        <img alt="" src={img} />
-                    </Grid>
-                </TopContainer>
-                {contentContainer && (
-                    <ContentContainer container>
-                        <img style={{ position: 'absolute', top: 0 }} src={bgPattern} alt="" />
-                        <Grid style={{ padding: '30px 0px' }} item>
-                            <Text>{text}</Text>
-                            <SubText
-                                dangerouslySetInnerHTML={{
-                                    __html: textDesc
-                                }}
-                            />
-                        </Grid>
 
-                        {content?.map((i) => (
-                            <ContentGrid id={i.id} container spacing={2}>
-                                <Grid item>
-                                    <Title>{i.title}</Title>
-                                </Grid>
-                                <Grid item>
-                                    <SubText
-                                        dangerouslySetInnerHTML={{
-                                            __html: i.desc
-                                        }}
-                                    />
-                                </Grid>
-                            </ContentGrid>
-                        ))}
-                    </ContentContainer>
-                )}
-            </BG>
+                    {content?.map((i) => (
+                        <ContentGrid id={i.id} container spacing={2}>
+                            <Grid item>
+                                <Title>{i.title}</Title>
+                            </Grid>
+                            <Grid item>
+                                <SubText
+                                    dangerouslySetInnerHTML={{
+                                        __html: i.desc
+                                    }}
+                                />
+                            </Grid>
+                        </ContentGrid>
+                    ))}
+                </ContentContainer>
+            )}
         </>
     );
 }

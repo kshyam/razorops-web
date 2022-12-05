@@ -277,7 +277,9 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Write for us</Sub>
+                            <NavLink to="/write-for-us">
+                                <Sub>Write for us</Sub>
+                            </NavLink>
                         </Grid>
                     </Grid>
                 </GridSection>

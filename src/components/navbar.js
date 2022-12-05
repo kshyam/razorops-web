@@ -240,7 +240,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
     };
     return (
         <>
-            <NavBar position="fixed">
+            <NavBar position="sticky">
                 <CssBaseline />
                 <ToolBar disableGutters>
                     <Grid container>

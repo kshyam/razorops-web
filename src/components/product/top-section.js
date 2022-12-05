@@ -20,7 +20,6 @@ import btnIcon from '../../assets/images/btnIcon.svg';
 import { Button, Card } from '@mui/material';
 
 const Bg = styled('div')`
-    margin-top: 90px;
     background-image: url(${bg});
     background-repeat: no-repeat;
     background-size: cover;
