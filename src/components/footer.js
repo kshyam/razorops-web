@@ -204,7 +204,7 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <NavLink>
+                            <NavLink to="https://razorops.com/schedule-demo">
                                 <Sub>Schedule Demo</Sub>
                             </NavLink>
                         </Grid>
@@ -227,7 +227,9 @@ export default function Footer() {
                             <Sub>Customers</Sub>
                         </Grid>
                         <Grid item>
-                            <Sub>Open Source</Sub>
+                            <NavLink to="/open-source">
+                                <Sub>Open Source</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <Sub>Partners with us</Sub>

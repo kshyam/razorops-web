@@ -3,10 +3,10 @@ import { font1, font5, font6, font7, fontSize20 } from '../../assets/globalStyle
 import bgPattern from '../../assets/images/pricing/backgroundPattern.png';
 import img from '../../assets/images/pricing/pricing.svg';
 import bg from '../../assets/images/bg.png';
-
 import styled from '@emotion/styled';
 import { Button, Card, CardActions, CardContent, Grid, List, ListItem } from '@mui/material';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
+import { Link } from 'gatsby';
 
 const MainContainer = styled('div')`
     background-image: url(${bgPattern});
@@ -341,18 +341,22 @@ const CardContainer = styled(Card)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.2);
+    background: ${(props) =>
+        props.id === 3
+            ? 'linear-gradient(180deg, rgba(222, 236, 255, 0.5) -10.52%, rgba(22, 129, 254, 0.5) 204.31%)'
+            : 'rgba(255, 255, 255, 0.2)'};
     box-shadow: 2px 6px 20px -8px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     height: 100%;
     padding: 20px;
 
+    border: ${(props) => (props.id === 3 ? '2px solid #1681FE' : 'none')};
+
     &:hover {
-        background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.5) -10.52%,
-            rgba(140, 157, 218, 0.5) 204.31%
-        );
+        background: ${(props) =>
+            props.id === 3
+                ? 'linear-gradient(180deg, rgba(222, 236, 255, 0.5) -10.52%, rgba(22, 129, 254, 0.5) 204.31%)'
+                : ' linear-gradient(180deg,rgba(255, 255, 255, 0.5) -10.52%,rgba(140, 157, 218, 0.5) 204.31%)'};
     }
 `;
 
@@ -381,8 +385,13 @@ const ImageGrid = styled(Grid)`
     }
 `;
 
+const NavLink = styled(Link)`
+    text-decoration: none;
+`;
+
 const plans = [
     {
+        id: 1,
         type: 'Basic',
         monthlyPrice: 'Free',
         builds: '200 BUILDS/MONTH',
@@ -400,6 +409,7 @@ const plans = [
         buttonText: 'TRY IT FREE'
     },
     {
+        id: 2,
         type: 'Growth',
         monthlyPrice: '$49/MONTH',
         yearlyPrice: '$499/YEAR',
@@ -418,6 +428,7 @@ const plans = [
         buttonText: 'Get a demo'
     },
     {
+        id: 3,
         type: 'Pro',
         monthlyPrice: '$199/MONTH',
         yearlyPrice: '$1999/YEAR',
@@ -471,55 +482,65 @@ export default function Plan() {
                 <PlansContainer container spacing={2}>
                     {plans.map((i) => (
                         <Grid item md={4} sm={6} xs={12}>
-                            <CardContainer>
-                                <CardContent>
-                                    <Grid container spacing={2} flexDirection={'column'}>
-                                        <Grid item>
-                                            <Grid container spacing={2} flexDirection={'column'}>
-                                                <Grid item>
-                                                    <Type>{i.type}</Type>
-                                                </Grid>
-                                                <Grid item>
-                                                    <Monthly>{i.monthlyPrice}</Monthly>
-                                                </Grid>
-                                                <Grid item>
-                                                    <Yearly>{i?.builds || i?.yearlyPrice}</Yearly>
-                                                </Grid>
-                                                <Grid item>
-                                                    <Text>{i.users}</Text>
+                            <NavLink to="https://dashboard.razorops.com/users/sign_in">
+                                <CardContainer id={i.id}>
+                                    <CardContent>
+                                        <Grid container spacing={2} flexDirection={'column'}>
+                                            <Grid item>
+                                                <Grid
+                                                    container
+                                                    spacing={2}
+                                                    flexDirection={'column'}>
+                                                    <Grid item>
+                                                        <Type>{i.type}</Type>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <Monthly>{i.monthlyPrice}</Monthly>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <Yearly>
+                                                            {i?.builds || i?.yearlyPrice}
+                                                        </Yearly>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <Text>{i.users}</Text>
+                                                    </Grid>
                                                 </Grid>
                                             </Grid>
+                                            <Grid item>
+                                                <List sx={{ width: '100%' }}>
+                                                    {i.details.map((i) => (
+                                                        <ListItem disableGutters>
+                                                            <CircleOutlinedIcon
+                                                                style={{
+                                                                    color: '#000000',
+                                                                    fontSize: '12px'
+                                                                }}
+                                                            />
+                                                            {i === '30 Day money back guarantee' ? (
+                                                                <MoneyBack
+                                                                    style={{ paddingLeft: '10px' }}>
+                                                                    {i}
+                                                                </MoneyBack>
+                                                            ) : (
+                                                                <Text
+                                                                    style={{ paddingLeft: '10px' }}>
+                                                                    {i}
+                                                                </Text>
+                                                            )}{' '}
+                                                        </ListItem>
+                                                    ))}
+                                                </List>
+                                            </Grid>
                                         </Grid>
-                                        <Grid item>
-                                            <List sx={{ width: '100%' }}>
-                                                {i.details.map((i) => (
-                                                    <ListItem disableGutters>
-                                                        <CircleOutlinedIcon
-                                                            fontSize="small"
-                                                            style={{ color: '#000000' }}
-                                                        />
-                                                        {i === '30 Day money back guarantee' ? (
-                                                            <MoneyBack
-                                                                style={{ paddingLeft: '10px' }}>
-                                                                {i}
-                                                            </MoneyBack>
-                                                        ) : (
-                                                            <Text style={{ paddingLeft: '10px' }}>
-                                                                {i}
-                                                            </Text>
-                                                        )}{' '}
-                                                    </ListItem>
-                                                ))}
-                                            </List>
-                                        </Grid>
-                                    </Grid>
-                                </CardContent>
-                                <CardActions>
-                                    <TryItFree>
-                                        <ButtonText>{i.buttonText}</ButtonText>
-                                    </TryItFree>
-                                </CardActions>
-                            </CardContainer>
+                                    </CardContent>
+                                    <CardActions>
+                                        <TryItFree>
+                                            <ButtonText>{i.buttonText}</ButtonText>
+                                        </TryItFree>
+                                    </CardActions>
+                                </CardContainer>
+                            </NavLink>
                         </Grid>
                     ))}
                 </PlansContainer>
@@ -551,8 +572,10 @@ export default function Plan() {
                                             {i.details.map((i) => (
                                                 <ListItem disableGutters>
                                                     <CircleOutlinedIcon
-                                                        fontSize="small"
-                                                        style={{ color: '#000000' }}
+                                                        style={{
+                                                            color: '#000000',
+                                                            fontSize: '12px'
+                                                        }}
                                                     />
                                                     <Text style={{ paddingLeft: '10px' }}>{i}</Text>
                                                 </ListItem>

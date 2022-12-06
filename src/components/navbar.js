@@ -58,7 +58,7 @@ const NavBarGrid = styled(Grid)`
     display: flex;
     padding: 0px 80px;
     align-items: center;
-    height: 100px;
+    height: 90px;
     @media (max-width: 1199px) {
         justify-content: center;
         align-items: center;
@@ -182,6 +182,8 @@ const DrawerItem = styled(Grid)`
 `;
 
 const Logo1 = styled('img')`
+    width: 202px;
+    height: 33px;
     @media (max-width: 600px) {
         display: none;
     }
@@ -489,7 +491,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                             <NavSection item md={4}>
                                 <Grid container spacing={2} justifyContent={'flex-end'}>
                                     <Grid item>
-                                        <NavLink to="https://dashboard.razorops.com/users/sign_up">
+                                        <NavLink to="https://razorops.com/schedule-demo">
                                             <Text color={color1}>Talk to Sales</Text>
                                         </NavLink>
                                     </Grid>
@@ -537,9 +539,11 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                 </SignUpButton>
                             </DrawerItem>
                             <DrawerItem item>
-                                <DemoButton variant="contained">
-                                    <Demo>Schedule a demo</Demo>
-                                </DemoButton>
+                                <NavLink to="https://razorops.com/schedule-demo">
+                                    <DemoButton variant="contained">
+                                        <Demo>Schedule a demo</Demo>
+                                    </DemoButton>
+                                </NavLink>
                             </DrawerItem>
                             <DrawerItem item>
                                 <NavLink to="/blog">

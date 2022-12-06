@@ -20,6 +20,7 @@ import github from '../assets/images/about/github-black.svg';
 import gitlab from '../assets/images/about/gitlab.svg';
 import bitbucket from '../assets/images/about/bitbucket.svg';
 import { Button } from '@mui/material';
+import { Link } from 'gatsby';
 
 const BG = styled('div')`
     position: relative;
@@ -206,6 +207,10 @@ const DemoButton = styled(Button)`
     }
 `;
 
+const NavLink = styled(Link)`
+    text-decoration: none;
+`;
+
 const About = () => {
     return (
         <BG>
@@ -253,9 +258,11 @@ const About = () => {
                     }}
                     item>
                     <img alt="" src={bottomImg} />
-                    <DemoButton variant="outlined">
-                        <DemoText>Schedule a demo</DemoText>
-                    </DemoButton>
+                    <NavLink to="https://razorops.com/schedule-demo">
+                        <DemoButton variant="outlined">
+                            <DemoText>Schedule a demo</DemoText>
+                        </DemoButton>
+                    </NavLink>
                 </Grid>
             </Grid>
         </BG>

@@ -5,6 +5,7 @@ import { color1, font3, font6, color3, font7, color4 } from '../assets/globalSty
 
 import img from '../assets/images/get-started/img.svg';
 import { Button } from '@mui/material';
+import { Link } from 'gatsby';
 
 const BG = styled('div')`
     position: relative;
@@ -172,6 +173,10 @@ const ButtonText = styled('span')`
     color: #ffffff;
 `;
 
+const NavLink = styled(Link)`
+    text-decoration: none;
+`;
+
 const GetStarted = () => {
     return (
         <BG>
@@ -197,9 +202,11 @@ const GetStarted = () => {
                                     </GetStartedButton>
                                 </Grid>
                                 <Grid item>
-                                    <GetStartedButton variant="contained">
-                                        <ButtonText>Schedule a demo</ButtonText>
-                                    </GetStartedButton>
+                                    <NavLink to="https://razorops.com/schedule-demo">
+                                        <GetStartedButton variant="contained">
+                                            <ButtonText>Schedule a demo</ButtonText>
+                                        </GetStartedButton>
+                                    </NavLink>
                                 </Grid>
                             </ButtonGrid>
                         </Grid>
