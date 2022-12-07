@@ -14,13 +14,9 @@ import {
     lineHeight26
 } from '../assets/globalStyles';
 
-import img from '../assets/images/about/sideImg-2.svg';
-import bottomImg from '../assets/images/about/bottomImg.svg';
-import github from '../assets/images/about/github-black.svg';
-import gitlab from '../assets/images/about/gitlab.svg';
-import bitbucket from '../assets/images/about/bitbucket.svg';
 import { Button } from '@mui/material';
 import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const BG = styled('div')`
     position: relative;
@@ -230,13 +226,31 @@ const About = () => {
                         </Grid>
                         <ImgContainer item display={'flex'} flexDirection={'row'}>
                             <ImageGrid item>
-                                <Img src={github} alt=""></Img>
+                                <StaticImage
+                                    src="../assets/images/about/github.svg"
+                                    alt=""
+                                    width={40}
+                                    height={40}
+                                    placeholder="blurred"
+                                />
                             </ImageGrid>
                             <ImageGrid item>
-                                <Img src={gitlab} alt=""></Img>
+                                <StaticImage
+                                    src="../assets/images/about/gitlab.svg"
+                                    alt=""
+                                    width={40}
+                                    height={40}
+                                    placeholder="blurred"
+                                />
                             </ImageGrid>
                             <ImageGrid item>
-                                <Img src={bitbucket} alt=""></Img>
+                                <StaticImage
+                                    src="../assets/images/about/bitbucket.svg"
+                                    alt=""
+                                    width={40}
+                                    height={40}
+                                    placeholder="blurred"
+                                />
                             </ImageGrid>
                         </ImgContainer>
                     </SubContainer>
@@ -244,7 +258,11 @@ const About = () => {
 
                 <RightContainer item direction={'column'} xs={10} sm={10} md={6} lg={6}>
                     <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
-                        <img alt="" src={img} />
+                        <StaticImage
+                            src="../assets/images/about/sideImg-2.svg"
+                            alt=""
+                            placeholder="blurred"
+                        />
                     </Grid>
                 </RightContainer>
             </TopSectionContainer>
@@ -257,7 +275,11 @@ const About = () => {
                         flexDirection: 'column'
                     }}
                     item>
-                    <img alt="" src={bottomImg} />
+                    <StaticImage
+                        src="../assets/images/about/bottomImg.svg"
+                        alt=""
+                        placeholder="blurred"
+                    />
                     <NavLink to="https://razorops.com/schedule-demo">
                         <DemoButton variant="outlined">
                             <DemoText>Schedule a demo</DemoText>

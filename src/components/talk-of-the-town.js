@@ -282,13 +282,19 @@ const TalkOfTheTown = () => {
                                     <Role>{i.role}</Role>
                                 </Grid>
                                 <Grid item>
-                                    <img alt="" src={i.company} />
+                                    <img
+                                        alt=""
+                                        src={i.company}
+                                        loading="lazy"
+                                        width="100%"
+                                        height="auto"
+                                    />
                                 </Grid>
                             </DetailsGrid>
                         </LeftContainer>
 
                         <RightContainer item xs={10} sm={10} md={6} lg={6}>
-                            <Img alt="" src={i.img} />
+                            <Img alt="" src={i.img} loading="lazy" width="100%" height="auto" />
                             <ArrowBackButton onClick={() => slider?.current?.slickPrev()}>
                                 <ArrowBackIcon />
                             </ArrowBackButton>

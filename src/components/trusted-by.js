@@ -195,7 +195,7 @@ export default function TrustedBy({ heading }) {
                         <SlideTrack>
                             {images.map((i) => (
                                 <ImageGrid id={i.id} item>
-                                    <Img src={i.img} alt="" />
+                                    <Img src={i.img} alt="" loading="lazy" />
                                 </ImageGrid>
                             ))}
                         </SlideTrack>

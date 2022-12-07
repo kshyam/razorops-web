@@ -44,7 +44,7 @@ export default function Topbar({ handleTopBar }) {
             <Grid container justifyContent={'space-between'} alignItems={'center'}>
                 <Grid item />
                 <Grid item display={'flex'} alignItems={'center'}>
-                    <img style={{ height: '24px', width: '24px' }} aly="" src={img} />
+                    <img style={{ height: '24px', width: '24px' }} alt="" src={img} />
                     <Text>
                         <a
                             href="https://dashboard.razorops.com/users/sign_up"

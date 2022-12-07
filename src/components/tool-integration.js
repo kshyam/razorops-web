@@ -200,7 +200,7 @@ export default function ToolIntegration() {
                         justifyContent={'center'}>
                         <Container>
                             <Content>
-                                <LeftImg alt="" src={i.img} />
+                                <LeftImg alt="" src={i.img} loading="lazy" />
                                 <Text>{i.text}</Text>
                             </Content>
                         </Container>

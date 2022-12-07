@@ -6,6 +6,7 @@ import { color1, font3, font6, color3, font7, color4 } from '../assets/globalSty
 import img from '../assets/images/get-started/img.svg';
 import { Button } from '@mui/material';
 import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const BG = styled('div')`
     position: relative;
@@ -183,7 +184,11 @@ const GetStarted = () => {
             <TopSectionContainer container>
                 <LeftContainer item xs={12} sm={12} md={5} lg={5}>
                     <Grid justifyContent={'center'} item>
-                        <img alt="" src={img} />
+                        <StaticImage
+                            alt=""
+                            src={'../assets/images/get-started/img.svg'}
+                            placeholder="blurred"
+                        />
                     </Grid>
                 </LeftContainer>
                 <RightContainer item xs={10} sm={10} md={6} lg={6}>

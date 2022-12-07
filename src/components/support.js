@@ -1,12 +1,10 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import styled from '@emotion/styled';
-import img from '../assets/images/support/contactImg.svg';
 import img1 from '../assets/images/support/img1.svg';
 import img2 from '../assets/images/support/img2.svg';
 import img3 from '../assets/images/support/img3.svg';
 import img4 from '../assets/images/support/img4.svg';
-
 import {
     color1,
     color2,
@@ -18,6 +16,7 @@ import {
     lineHeight29
 } from '../assets/globalStyles';
 import { Card, Rating } from '@mui/material';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const BG = styled('div')`
     background: linear-gradient(
@@ -288,7 +287,11 @@ const Support = () => {
             <TopSectionContainer container>
                 <LeftContainer item xs={10} sm={10} md={6} lg={6}>
                     <Grid item>
-                        <img alt="" src={img} />
+                        <StaticImage
+                            alt=""
+                            src={'../assets/images/support/contactImg.svg'}
+                            placeholder="blurred"
+                        />
                     </Grid>
                 </LeftContainer>
                 <RightContainer item xs={12} sm={10} md={5} lg={5}>
@@ -339,7 +342,13 @@ const Support = () => {
                     {data.map((i) => (
                         <Grid key={i.id} item xs={3} sm={3} md={3} lg={6}>
                             <CardContainer>
-                                <CardImg alt="" src={i.img} />
+                                <CardImg
+                                    alt=""
+                                    src={i.img}
+                                    loading="lazy"
+                                    width="100%"
+                                    height="auto"
+                                />
                                 <Grid item>
                                     <Grid container spacing={1}>
                                         <Grid item display={'flex'} flexDirection={'column'}>

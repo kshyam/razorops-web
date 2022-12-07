@@ -177,7 +177,7 @@ const Feature = (props) => {
             </Grid>
             <RightContainer container xs={12} sm={12} md={6} lg={6}>
                 <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
-                    <img alt="" src={content?.img} />
+                    <img alt="" src={content?.img} loading="lazy" width="100%" height="auto" />
                 </Grid>
             </RightContainer>
         </Container>
