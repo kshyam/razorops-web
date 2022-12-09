@@ -54,7 +54,7 @@ const DateText = styled('span')`
     color: #ffffff;
 `;
 
-export default function HeroPost({ type, title, coverImage, date, excerpt, author, slug }) {
+export default function HeroPost({ type, title, coverImage, date, description, author, slug }) {
     return (
         <Grid container>
             <Grid item display={'flex'} alignItems={'center'} xs={12} sm={12} mg={6} lg={6}>
@@ -75,9 +75,9 @@ export default function HeroPost({ type, title, coverImage, date, excerpt, autho
                 </div>
                 <div>
                     <p className="mb-4">
-                        <Desc>{excerpt}</Desc>
+                        <Desc>{description}</Desc>
                     </p>
-                    <Avatar name={author?.name} picture={author?.picture} />
+                    <Avatar name={author?.name} role={author?.role} picture={author?.picture} />
                 </div>
             </TextGrid>
         </Grid>

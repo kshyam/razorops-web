@@ -1,9 +1,17 @@
 import React from 'react';
+import styled from '@emotion/styled';
+import { font7 } from '../../assets/globalStyles';
 
+const Heading = styled('h1')`
+    ${font7};
+    font-size: 28px;
+    line-height: 40px;
+    color: #002c9b;
+`;
 export default function PostTitle({ children }) {
     return (
-        <h1 className="mt-20 m-10 text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
-            {children}
-        </h1>
+        <div className="mt-10 m-10">
+            <Heading> {children}</Heading>
+        </div>
     );
 }

@@ -24,7 +24,7 @@ module.exports = {
                       nodes {
                         title
                         slug
-                        excerpt
+                        description
                         date
                         content {
                           value
@@ -35,6 +35,7 @@ module.exports = {
                         }
                         author {
                           name
+                          role
                           picture {
                             gatsbyImageData(layout: FIXED, width: 48, height: 48, imgixParams: {sat: -100})
                           }
@@ -43,8 +44,8 @@ module.exports = {
                     }
                   }`,
                 ref: 'slug',
-                index: ['title', 'author', 'content', 'excerpt', 'date', 'slug'],
-                store: ['title', 'author', 'content', 'excerpt', 'date', 'slug', 'coverImage'],
+                index: ['title', 'author', 'content', 'description', 'date', 'slug'],
+                store: ['title', 'author', 'content', 'description', 'date', 'slug', 'coverImage'],
                 normalizer: ({ data }) =>
                     data.allBlogs.nodes.map((i) => ({
                         title: i.title,
@@ -52,7 +53,7 @@ module.exports = {
                         slug: i.slug,
                         content: i.content,
                         coverImage: i.coverImage,
-                        excerpt: i.excerpt,
+                        description: i.description,
                         author: i.author
                     }))
             }
@@ -68,7 +69,7 @@ module.exports = {
                       nodes {
                           title
                           slug
-                          excerpt
+                          description
                           date
                           content {
                               value
@@ -79,6 +80,7 @@ module.exports = {
                           }
                           author {
                               name
+                              role
                               picture {
                                   gatsbyImageData(
                                       layout: FIXED
@@ -92,8 +94,8 @@ module.exports = {
                     }
                   }`,
                 ref: 'slug',
-                index: ['title', 'author', 'content', 'excerpt', 'date', 'slug'],
-                store: ['title', 'author', 'content', 'excerpt', 'date', 'slug', 'coverImage'],
+                index: ['title', 'author', 'content', 'description', 'date', 'slug'],
+                store: ['title', 'author', 'content', 'description', 'date', 'slug', 'coverImage'],
                 normalizer: ({ data }) =>
                     data.allNewsletters.nodes.map((i) => ({
                         title: i.title,
@@ -101,7 +103,7 @@ module.exports = {
                         slug: i.slug,
                         content: i.content,
                         coverImage: i.coverImage,
-                        excerpt: i.excerpt,
+                        description: i.description,
                         author: i.author
                     }))
             }
@@ -117,7 +119,7 @@ module.exports = {
                     nodes {
                         title
                         slug
-                        excerpt
+                        description
                         date
                         content {
                             value
@@ -130,8 +132,8 @@ module.exports = {
                     }
                   }`,
                 ref: 'slug',
-                index: ['title', 'content', 'excerpt', 'date', 'slug'],
-                store: ['title', 'content', 'excerpt', 'date', 'slug', 'coverImage'],
+                index: ['title', 'content', 'description', 'date', 'slug'],
+                store: ['title', 'content', 'description', 'date', 'slug', 'coverImage'],
                 normalizer: ({ data }) =>
                     data.allWebinars.nodes.map((i) => ({
                         title: i.title,
@@ -139,7 +141,7 @@ module.exports = {
                         slug: i.slug,
                         content: i.content,
                         coverImage: i.coverImage,
-                        excerpt: i.excerpt
+                        description: i.description
                     }))
             }
         },
@@ -154,7 +156,7 @@ module.exports = {
                         nodes {
                             title
                             slug
-                            excerpt
+                            description
                             date
                             content {
                                 value
@@ -165,6 +167,7 @@ module.exports = {
                             }
                             author {
                                 name
+                                role
                                 picture {
                                     gatsbyImageData(
                                         layout: FIXED
@@ -178,8 +181,8 @@ module.exports = {
                     }
                   }`,
                 ref: 'slug',
-                index: ['title', 'author', 'content', 'excerpt', 'date', 'slug'],
-                store: ['title', 'author', 'content', 'excerpt', 'date', 'slug', 'coverImage'],
+                index: ['title', 'author', 'content', 'description', 'date', 'slug'],
+                store: ['title', 'author', 'content', 'description', 'date', 'slug', 'coverImage'],
                 normalizer: ({ data }) =>
                     data.allNewsAndUpdates.nodes.map((i) => ({
                         title: i.title,
@@ -187,7 +190,7 @@ module.exports = {
                         slug: i.slug,
                         content: i.content,
                         coverImage: i.coverImage,
-                        excerpt: i.excerpt,
+                        description: i.description,
                         author: i.author
                     }))
             }

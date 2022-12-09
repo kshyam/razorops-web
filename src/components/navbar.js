@@ -252,7 +252,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                         <NavBarGrid item xs={12} sm={12} md={12} lg={12}>
                             <MenuIconButton onClick={handleDrawerToggle} aria-label="menu">
                                 <MenuIcon
-                                    style={{ color: '345EEF', height: '30px', width: '30px' }}
+                                    style={{ color: '#345EEF', height: '30px', width: '30px' }}
                                 />
                             </MenuIconButton>
                             <LogoButtonGrid item md={4}>

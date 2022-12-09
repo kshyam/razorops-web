@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import Container from '../components/container';
 import HeroPost from '../components/common/hero-post';
 import MoreStories from '../components/common/more-stories';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import SearchBar from '../components/common/search';
 import { useFlexSearch } from 'react-use-flexsearch';
 import styled from '@emotion/styled';
 import bgPattern from '../assets/images/backgroundPattern.png';
 import bg from '../assets/images/bg.png';
 import { font1, font5 } from '../assets/globalStyles';
-import { Grid } from '@mui/material';
+import { Grid, IconButton } from '@mui/material';
 import Footer from '../components/footer';
 import GetStarted from '../components/get-started';
 import SignUp from '../components/sign-up';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import HomeIcon from '@mui/icons-material/Home';
 
 const MainContainer = styled('div')`
     background-image: url(${bg});
@@ -22,23 +23,23 @@ const MainContainer = styled('div')`
     background-position: center;
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 80px 80px 40px 80px;
+        padding: 20px 80px 20px 80px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 70px 50px 20px 50px;
+        padding: 20px 50px 20px 50px;
     }
 
     @media (min-width: 1535px) {
-        padding: 140px 140px 50px 140px;
+        padding: 80px 140px 50px 140px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 100px 100px 50px 100px;
+        padding: 30px 100px 50px 100px;
     }
 
     @media (max-width: 600px) {
-        padding: 60px 40px 20px 40px;
+        padding: 20px 40px 20px 40px;
     }
 `;
 
@@ -130,13 +131,12 @@ const TextContainer = styled('div')`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 0px 80px 0px;
+    padding: 40px 0px 40px 0px;
 
     @media (max-width: 1199px) {
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        padding: 0px 0px 40px 0px;
     }
 `;
 
@@ -153,6 +153,18 @@ const NoResultsGrid = styled(Grid)`
     @media (max-width: 1199px) {
         padding: 0px 0px 40px 0px;
     }
+`;
+
+const Text = styled('span')`
+    ${font1};
+    font-size: 14px;
+    line-height: 27px;
+    color: #ffffff;
+    text-align: left;
+`;
+
+const NavLink = styled(Link)`
+    text-decoration: none;
 `;
 
 export default function NewsAndUpdates({
@@ -174,21 +186,37 @@ export default function NewsAndUpdates({
     });
     return (
         <Container>
-            <HelmetDatoCms seo={newsAndUpdates.seo} favicon={site.favicon} />
+            {/* <HelmetDatoCms seo={newsAndUpdates.seo} favicon={site.favicon} /> */}
             <MainContainer>
-                <TextContainer>
-                    <Grid item display={'flex'} flexDirection={'column'}>
-                        <Title>{'News and Updates'}</Title>
-                        <Sub>{'Simplest Container Native CI/CD Platform'}</Sub>
+                <Grid item>
+                    <Grid container alignItems={'center'}>
+                        <Grid item>
+                            <NavLink to="/">
+                                <IconButton>
+                                    <HomeIcon style={{ color: '#ffffff' }} />
+                                </IconButton>
+                            </NavLink>
+                        </Grid>
+                        <Grid item>
+                            <Text>/ News and updates</Text>
+                        </Grid>
                     </Grid>
-                    <SearchGrid item>
-                        <SearchBar
-                            label={'Search in News and Updates'}
-                            searchQuery={searchQuery}
-                            setSearchQuery={setSearchQuery}
-                        />
-                    </SearchGrid>
-                </TextContainer>
+                </Grid>
+                <Grid item>
+                    <TextContainer>
+                        <Grid item display={'flex'} flexDirection={'column'}>
+                            <Title>{'News and Updates'}</Title>
+                            <Sub>{'Simplest Container Native CI/CD Platform'}</Sub>
+                        </Grid>
+                        <SearchGrid item>
+                            <SearchBar
+                                label={'Search in News and Updates'}
+                                searchQuery={searchQuery}
+                                setSearchQuery={setSearchQuery}
+                            />
+                        </SearchGrid>
+                    </TextContainer>
+                </Grid>
                 {allPostsData.length > 0 && (
                     <HeroPost
                         type={'news-and-updates'}
@@ -197,7 +225,7 @@ export default function NewsAndUpdates({
                         date={allPostsData[0].date}
                         author={allPostsData[0].author}
                         slug={allPostsData[0].slug}
-                        excerpt={allPostsData[0].excerpt}
+                        description={allPostsData[0].description}
                     />
                 )}
                 {allPostsData.length === 0 && (
@@ -238,7 +266,7 @@ export const query = graphql`
             nodes {
                 title
                 slug
-                excerpt
+                description
                 date
                 content {
                     value
@@ -249,6 +277,7 @@ export const query = graphql`
                 }
                 author {
                     name
+                    role
                     picture {
                         gatsbyImageData(
                             layout: FIXED

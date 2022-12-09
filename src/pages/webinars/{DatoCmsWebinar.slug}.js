@@ -82,7 +82,7 @@ export const query = graphql`
             nodes {
                 title
                 slug
-                excerpt
+                description
                 date
                 coverImage {
                     small: gatsbyImageData(width: 760)

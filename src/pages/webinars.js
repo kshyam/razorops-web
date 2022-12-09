@@ -196,7 +196,7 @@ export default function Webinars({
                         coverImage={allPostsData[0].coverImage}
                         date={allPostsData[0].date}
                         slug={allPostsData[0].slug}
-                        excerpt={allPostsData[0].excerpt}
+                        description={allPostsData[0].description}
                     />
                 )}
                 {allPostsData.length === 0 && (
@@ -237,7 +237,7 @@ export const query = graphql`
             nodes {
                 title
                 slug
-                excerpt
+                description
                 date
                 content {
                     value
