@@ -119,7 +119,6 @@ module.exports = {
                     nodes {
                         title
                         slug
-                        description
                         date
                         content {
                             value
@@ -132,16 +131,15 @@ module.exports = {
                     }
                   }`,
                 ref: 'slug',
-                index: ['title', 'content', 'description', 'date', 'slug'],
-                store: ['title', 'content', 'description', 'date', 'slug', 'coverImage'],
+                index: ['title', 'content', 'date', 'slug'],
+                store: ['title', 'content', 'date', 'slug', 'coverImage'],
                 normalizer: ({ data }) =>
                     data.allWebinars.nodes.map((i) => ({
                         title: i.title,
                         date: i.date,
                         slug: i.slug,
                         content: i.content,
-                        coverImage: i.coverImage,
-                        description: i.description
+                        coverImage: i.coverImage
                     }))
             }
         },

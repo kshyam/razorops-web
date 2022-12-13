@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import Container from '../components/container';
-import HeroPost from '../components/common/hero-post';
-import MoreStories from '../components/common/more-stories';
+
 import { graphql } from 'gatsby';
 import SearchBar from '../components/common/search';
 import { useFlexSearch } from 'react-use-flexsearch';
 import styled from '@emotion/styled';
 import bgPattern from '../assets/images/backgroundPattern.png';
 import bg from '../assets/images/bg.png';
-import { font1, font5 } from '../assets/globalStyles';
+import { font1, font7 } from '../assets/globalStyles';
 import { Grid } from '@mui/material';
 import Footer from '../components/footer';
 import GetStarted from '../components/get-started';
 import SignUp from '../components/sign-up';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import Upcoming from '../components/webinars/upcoming';
+import OnDemand from '../components/webinars/on-demand';
 
 const MainContainer = styled('div')`
     background-image: url(${bg});
@@ -70,25 +71,10 @@ const PostsContainer = styled('div')`
 `;
 
 const Title = styled('span')`
-    ${font5};
-    font-size: 60px;
-    line-height: 90px;
-    color: #ffffff;
-
-    @media (min-width: 1200px) and (max-width: 1535px) {
-        font-size: 50px;
-        line-height: 77px;
-    }
-
-    @media (min-width: 900px) and (max-width: 1199px) {
-        font-size: 34px;
-        line-height: 39px;
-    }
-
-    @media (min-width: 600px) and (max-width: 899px) {
-        font-size: 29px;
-        line-height: 32px;
-    }
+    ${font7};
+    font-size: 28px;
+    line-height: 40px;
+    color: #f9fafe;
 
     @media (max-width: 599px) {
         font-size: 24px;
@@ -103,6 +89,7 @@ const Sub = styled('span')`
     line-height: 29px;
     color: #ffffff;
     text-align: left;
+    white-space: pre-wrap;
 
     @media (min-width: 1535px) {
         white-space: pre-wrap;
@@ -123,6 +110,7 @@ const Sub = styled('span')`
         padding: 10px 0px 0px 0px;
         font-size: 12px;
         line-height: 20px;
+        white-space: inherit;
     }
 `;
 
@@ -169,9 +157,10 @@ export default function Webinars({
 
     const results = useFlexSearch(searchQuery, index, store);
     const posts = searchQuery ? results : allWebinars.nodes;
-    const allPostsData = posts.sort(function (a, b) {
-        return new Date(b.date) - new Date(a.date);
-    });
+
+    const allPostsData = posts;
+    const onDemandWebinars = allPostsData.slice(1);
+
     return (
         <Container>
             <HelmetDatoCms seo={webinar.seo} favicon={site.favicon} />
@@ -179,7 +168,11 @@ export default function Webinars({
                 <TextContainer>
                     <Grid item display={'flex'} flexDirection={'column'}>
                         <Title>{'Webinars'}</Title>
-                        <Sub>{'Simplest Container Native CI/CD Platform'}</Sub>
+                        <Sub>
+                            {
+                                'Get the most out of RazorOps CI/CD with one of our free webinars. Whether you’re\nbrand new DevOps or an experienced developer, we have the perfect workshops for you.'
+                            }
+                        </Sub>
                     </Grid>
                     <SearchGrid item>
                         <SearchBar
@@ -189,25 +182,16 @@ export default function Webinars({
                         />
                     </SearchGrid>
                 </TextContainer>
-                {allPostsData.length > 0 && (
-                    <HeroPost
-                        type={'webinars'}
-                        title={allPostsData[0].title}
-                        coverImage={allPostsData[0].coverImage}
-                        date={allPostsData[0].date}
-                        slug={allPostsData[0].slug}
-                        description={allPostsData[0].description}
-                    />
-                )}
+                {allPostsData.length > 0 && <Upcoming webinars={allPostsData[0]} />}
                 {allPostsData.length === 0 && (
                     <NoResultsGrid container>
                         <Title>{'No results found'}</Title>
                     </NoResultsGrid>
                 )}
             </MainContainer>
-            {allPostsData.length > 1 && (
+            {onDemandWebinars.length > 0 && (
                 <PostsContainer>
-                    <MoreStories type={'webinars'} posts={allPostsData.slice(1)} />
+                    <OnDemand onDemandWebinars={onDemandWebinars} />
                 </PostsContainer>
             )}
             <GetStarted />
@@ -237,7 +221,6 @@ export const query = graphql`
             nodes {
                 title
                 slug
-                description
                 date
                 content {
                     value

@@ -18,14 +18,14 @@ const Text = styled('span')`
     font-size: 24px;
     line-height: 30px;
     text-align: center;
-    color: #031b4e;
+    color: ${(props) => (props.whiteTitle === true ? '#ffffff' : ' #031b4e')};
 `;
 
-const ShareButtons = ({ title, url }) => {
+const ShareButtons = ({ whiteTitle, title, url }) => {
     return (
         <Grid container spacing={3} direction={'column'} alignItems={'center'}>
             <Grid item>
-                <Text>Share with your friends</Text>
+                <Text whiteTitle={whiteTitle}>Share with your friends</Text>
             </Grid>
             <Grid item>
                 <Grid container spacing={3}>
