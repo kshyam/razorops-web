@@ -212,8 +212,6 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
         typeof window !== 'undefined' ? window.location.href.indexOf('pricing') !== -1 : false;
     const isProductOpen =
         typeof window !== 'undefined' ? window.location.href.indexOf('product') !== -1 : false;
-    const isBlogOpen =
-        typeof window !== 'undefined' ? window.location.href.indexOf('blog') !== -1 : false;
 
     const handleTopBar = () => {
         setShowTopBar(!showTopBar);
@@ -342,72 +340,6 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                         <Text color={isPricingOpen === true ? '#ffffff' : color1}>
                                             Pricing
                                         </Text>
-                                        {/* <ExpandMoreIcon
-                                            style={{ color: isPricingOpen ? 'white' : 'black' }}
-                                            onMouseEnter={handleOpenResources}
-                                        />
-                                        <Dropdown
-                                            open={openResources}
-                                            anchorEl={anchorElResources}
-                                            setAnchorEl={setAnchorElResources}
-                                            column1={{
-                                                heading: 'Overview',
-                                                sub: 'Resources Overview',
-                                                desc: 'Learn about Razorops - an industry-leading performance CI/CD tool'
-                                            }}
-                                            column2={{
-                                                heading: 'Documentation',
-                                                list: [
-                                                    {
-                                                        img: ios,
-                                                        text: 'Documents'
-                                                    },
-                                                    {
-                                                        img: kubernetes,
-                                                        text: 'Get Started'
-                                                    },
-                                                    {
-                                                        img: android,
-                                                        text: 'Case Studies'
-                                                    },
-                                                    {
-                                                        img: android,
-                                                        text: 'Write For Us'
-                                                    }
-                                                ]
-                                            }}
-                                            column3={{
-                                                heading: 'Media & Publications',
-                                                list: [
-                                                    {
-                                                        img: report,
-                                                        text: 'Webinars'
-                                                    },
-                                                    {
-                                                        img: monorepos,
-                                                        text: 'Newsletter'
-                                                    },
-                                                    {
-                                                        img: hosted,
-                                                        text: 'Blog'
-                                                    },
-                                                    {
-                                                        img: hosted,
-                                                        text: 'Videos'
-                                                    },
-                                                    {
-                                                        img: hosted,
-                                                        text: 'Community'
-                                                    }
-                                                ]
-                                            }}
-                                            column4={{
-                                                heading: 'Tools',
-                                                sub: 'Integrated Tools',
-                                                desc: 'Drag and drop actions & create\ndelivery pipelines like a devops\nexpert in a fully visualized user\ninterface.',
-                                                logos: [github, gitlab, aws, slack, bucket, aws]
-                                            }}
-                                        /> */}
                                     </NavButton>
                                 </Grid>
                                 <Grid item>
@@ -479,12 +411,83 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                     </NavButton>
                                 </Grid>
                                 <Grid item>
-                                    <NavButton
-                                        bg={isBlogOpen === true ? '#345eef' : '#ffffff'}
-                                        onClick={() => navigate('/blog')}>
-                                        <Text color={isBlogOpen === true ? '#ffffff' : color1}>
-                                            Blog
-                                        </Text>
+                                    <NavButton style={{ display: 'flex', alignItems: 'center' }}>
+                                        <Text color={color1}>Resources</Text>
+                                        <ExpandMoreIcon
+                                            style={{ color: 'black' }}
+                                            onMouseEnter={handleOpenResources}
+                                        />
+                                        <Dropdown
+                                            open={openResources}
+                                            anchorEl={anchorElResources}
+                                            setAnchorEl={setAnchorElResources}
+                                            column1={{
+                                                heading: 'Overview',
+                                                sub: 'Resources Overview',
+                                                desc: 'Learn about Razorops - an industry-leading performance CI/CD tool'
+                                            }}
+                                            column2={{
+                                                heading: 'Documentation',
+                                                list: [
+                                                    {
+                                                        img: ios,
+                                                        text: 'Documents'
+                                                    },
+                                                    {
+                                                        img: kubernetes,
+                                                        text: 'Get Started'
+                                                    },
+                                                    {
+                                                        img: android,
+                                                        text: 'Case Studies'
+                                                    },
+                                                    {
+                                                        img: android,
+                                                        text: 'Write For Us',
+                                                        url: '/write-for-us'
+                                                    }
+                                                ]
+                                            }}
+                                            column3={{
+                                                heading: 'Media & Publications',
+                                                list: [
+                                                    {
+                                                        img: report,
+                                                        text: 'Webinars',
+                                                        url: '/webinars'
+                                                    },
+                                                    {
+                                                        img: monorepos,
+                                                        text: 'Newsletter',
+                                                        url: '/newsletter'
+                                                    },
+                                                    {
+                                                        img: hosted,
+                                                        text: 'Blog',
+                                                        url: '/blog'
+                                                    },
+                                                    {
+                                                        img: report,
+                                                        text: 'News and Updates',
+                                                        url: '/news-and-updates'
+                                                    },
+                                                    {
+                                                        img: hosted,
+                                                        text: 'Videos'
+                                                    },
+                                                    {
+                                                        img: hosted,
+                                                        text: 'Community'
+                                                    }
+                                                ]
+                                            }}
+                                            column4={{
+                                                heading: 'Tools',
+                                                sub: 'Integrated Tools',
+                                                desc: 'Drag and drop actions & create\ndelivery pipelines like a devops\nexpert in a fully visualized user\ninterface.',
+                                                logos: [github, gitlab, aws, slack, bucket, aws]
+                                            }}
+                                        />
                                     </NavButton>
                                 </Grid>
                             </NavSection>

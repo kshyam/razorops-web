@@ -47,7 +47,6 @@ const PostsContainer = styled('div')`
     background-image: url(${bgPattern});
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
 
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 60px 80px 40px 80px;

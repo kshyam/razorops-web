@@ -3,14 +3,18 @@ import Avatar from './avatar';
 import Date from './date';
 import CoverImage from './cover-image';
 import { Link } from 'gatsby';
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import styled from '@emotion/styled';
-import { font1, font7, font8 } from '../../assets/globalStyles';
+import { font1, font7, font6 } from '../../assets/globalStyles';
 
 const TextGrid = styled(Grid)`
     padding: 20px 50px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 899px) {
+        padding: 20px 0px;
+    }
 `;
 
 const Title = styled('span')`
@@ -47,11 +51,32 @@ const Desc = styled('span')`
     }
 `;
 
-const DateText = styled('span')`
-    ${font8};
-    font-size: 14px;
-    line-height: 29px;
-    color: #ffffff;
+const ReadMoreButton = styled(Button)`
+    background: #f9fafe;
+    border-radius: 14px;
+    padding: 20px 30px;
+    text-transform: none;
+
+    &:hover {
+        background: #f9fafe;
+    }
+`;
+
+const ReadMoreText = styled('span')`
+    ${font6};
+    font-size: 20px;
+    line-height: 20px;
+    color: #0069ff;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 14px;
+        line-height: 20px;
+    }
 `;
 
 export default function HeroPost({ type, title, coverImage, date, description, author, slug }) {
@@ -61,24 +86,39 @@ export default function HeroPost({ type, title, coverImage, date, description, a
                 <CoverImage type={type} title={title} fluid={coverImage.large} slug={slug} />
             </Grid>
             <TextGrid item xs={12} sm={12} mg={6} lg={6}>
-                <div>
-                    <div className="mb-4 md:mb-0">
-                        <DateText>
-                            <Date dateString={date} />
-                        </DateText>
-                    </div>
-                    <h3 className="mb-4">
+                <Grid container spacing={2}>
+                    <Grid item>
+                        <Date whiteColor={true} dateString={date} />
+                    </Grid>
+                    <Grid item>
                         <Link to={`/${type}/${slug}`} className="hover:underline">
                             <Title>{title}</Title>
                         </Link>
-                    </h3>
-                </div>
-                <div>
-                    <p className="mb-4">
-                        <Desc>{description}</Desc>
-                    </p>
-                    <Avatar name={author?.name} role={author?.role} picture={author?.picture} />
-                </div>
+                    </Grid>
+                    {description && (
+                        <Grid item>
+                            <Desc>{description}</Desc>
+                        </Grid>
+                    )}
+                    {type === 'blog' ? (
+                        <Grid item>
+                            <Avatar
+                                whiteColor={true}
+                                name={author?.name}
+                                role={author?.role}
+                                picture={author?.picture}
+                            />
+                        </Grid>
+                    ) : (
+                        <Grid sx={{ margin: '20px 0px 0px 0px' }} item>
+                            <Link to={`/${type}/${slug}`}>
+                                <ReadMoreButton>
+                                    <ReadMoreText>Read More</ReadMoreText>
+                                </ReadMoreButton>
+                            </Link>
+                        </Grid>
+                    )}
+                </Grid>
             </TextGrid>
         </Grid>
     );

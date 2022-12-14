@@ -11,6 +11,7 @@ import {
     lineHeight20,
     lineHeight27
 } from '../../assets/globalStyles';
+import { Link } from 'gatsby';
 
 const GridContainer = styled(Grid)`
     display: flex;
@@ -31,6 +32,25 @@ const Text = styled('span')`
     font-size: ${fontSize18};
     line-height: ${lineHeight27};
     color: ${color1};
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 14px;
+        line-height: 27px;
+    }
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 12px;
+        line-height: 27px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 12px;
+        line-height: 27px;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 12px;
+        line-height: 27px;
+    }
 `;
 
 const SubText = styled('span')`
@@ -58,9 +78,13 @@ const Logos = styled('img')`
     height: 30px;
 `;
 
+const NavLink = styled(Link)`
+    text-decoration: none;
+`;
+
 function Container({ heading, sub, desc, list, logos }) {
     return (
-        <Grid spacing={2} md={logos ? 5 : 2} sm={2} xs={2} container direction={'column'}>
+        <Grid spacing={2} md={logos ? 5 : 2} sm={6} xs={6} container direction={'column'}>
             <Grid item>
                 <Title>{heading}</Title>
             </Grid>
@@ -73,9 +97,17 @@ function Container({ heading, sub, desc, list, logos }) {
 
             {list &&
                 list.map((i) => (
-                    <Grid item display={'flex'} flexDirection={'row'}>
-                        <IconImg src={i?.img} alt="" />
-                        <Text>{i?.text}</Text>
+                    <Grid item>
+                        <NavLink to={i.url}>
+                            <Grid container>
+                                <Grid item>
+                                    <IconImg src={i?.img} alt="" />
+                                </Grid>
+                                <Grid item>
+                                    <Text>{i?.text}</Text>
+                                </Grid>
+                            </Grid>
+                        </NavLink>
                     </Grid>
                 ))}
             <Grid md={6} item display={'flex'} flexDirection={'row'}>
@@ -122,11 +154,13 @@ export default function Dropdown({
             sx={{
                 pointerEvents: 'none'
             }}
+            anchorReference="none"
             PaperProps={{
                 onMouseLeave: handleClose,
                 style: {
-                    transform: 'translateY(30px)',
-                    width: '100%'
+                    left: '0px',
+                    top: '100px',
+                    minWidth: '-webkit-fill-available'
                 }
             }}
             elevation={1}

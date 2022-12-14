@@ -10,15 +10,10 @@ export default function PostHeader({ type, title, coverImage, date, author }) {
             <PostTitle>{title}</PostTitle>
             <div className="m-10">
                 <div>
-                    <Date details={true} dateString={date} />
+                    <Date dateString={date} />
                 </div>
                 <div className="mt-2 mb-2">
-                    <Avatar
-                        details={true}
-                        name={author?.name}
-                        role={author?.role}
-                        picture={author?.picture}
-                    />
+                    <Avatar name={author?.name} role={author?.role} picture={author?.picture} />
                 </div>
             </div>
             <div className="m-10">

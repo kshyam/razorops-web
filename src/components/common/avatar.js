@@ -7,7 +7,7 @@ const Name = styled('span')`
     ${font1};
     font-size: 18px;
     line-height: 29px;
-    color: ${(props) => (props.details ? '#000000' : '#ffffff')};
+    color: ${(props) => (props.whiteColor ? '#ffffff' : '#000000')};
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 16px;
@@ -24,10 +24,10 @@ const Role = styled('span')`
     ${font1};
     font-size: 14px;
     line-height: 27px;
-    color: ${(props) => (props.details ? color2 : '#ffffff')};
+    color: ${(props) => (props.whiteColor ? '#ffffff' : color2)};
     text-align: left;
 `;
-export default function Avatar({ details, name, role, picture }) {
+export default function Avatar({ whiteColor, name, role, picture }) {
     return (
         <div className="flex items-center">
             <GatsbyImage
@@ -37,8 +37,8 @@ export default function Avatar({ details, name, role, picture }) {
                 alt={`Photo of ${name}`}
             />
             <div className="flex flex-col">
-                <Name details={details}>{name}</Name>
-                <Role details={details}>{role}</Role>
+                <Name whiteColor={whiteColor}>{name}</Name>
+                <Role whiteColor={whiteColor}>{role}</Role>
             </div>
         </div>
     );

@@ -7,7 +7,7 @@ const Text = styled('span')`
     ${font1};
     font-size: 18px;
     line-height: 29px;
-    color: ${(props) => (props.details ? '#000000' : '#ffffff')};
+    color: ${(props) => (props.whiteColor ? '#ffffff' : '#5B6987')};
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 16px;
@@ -19,10 +19,10 @@ const Text = styled('span')`
         line-height: 27px;
     }
 `;
-export default function Date({ details, dateString }) {
+export default function Date({ whiteColor, dateString }) {
     const date = parseISO(dateString);
     return (
-        <Text details={details}>
+        <Text whiteColor={whiteColor}>
             <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>
         </Text>
     );

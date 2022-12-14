@@ -46,19 +46,12 @@ export default function Topbar({ handleTopBar }) {
                 <Grid item display={'flex'} alignItems={'center'}>
                     <img style={{ height: '24px', width: '24px' }} alt="" src={img} />
                     <Text>
-                        <a
-                            href="https://dashboard.razorops.com/users/sign_up"
-                            target="_blank"
-                            style={{ textDecoration: 'underline' }}>
-                            Sign Up{' '}
+                        <a href="https://dashboard.razorops.com/users/sign_up" target="_blank">
+                            <b>Sign Up </b>
                         </a>
                         <span>to test your code for</span>
-                        <a
-                            href="https://dashboard.razorops.com/users/sign_up"
-                            target="_blank"
-                            style={{ textDecoration: 'underline' }}>
-                            {' '}
-                            30 days free trial.
+                        <a href="https://dashboard.razorops.com/users/sign_up" target="_blank">
+                            <b> 30 days free trial.</b>
                         </a>
                     </Text>
                 </Grid>

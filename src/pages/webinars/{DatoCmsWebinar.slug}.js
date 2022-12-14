@@ -6,19 +6,19 @@ import styled from '@emotion/styled';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import bg from '../../assets/images/bg.png';
 import moment from 'moment';
-import { font1, font3, font6 } from '../../assets/globalStyles';
+import { font1, font3, font6, font7 } from '../../assets/globalStyles';
 import { CircularProgress, Grid } from '@mui/material';
 import CoverImage from '../../components/common/cover-image';
 import { StructuredText } from 'react-datocms';
 import HubspotForm from 'react-hubspot-form';
 import ShareButtons from '../../components/common/share-buttons';
 import bgPattern from '../../assets/images/backgroundPattern.png';
+import img from '../../assets/images/webinar.svg';
 
 const TopContainer = styled('div')`
-    background-image: url(${bg});
+    background-image: ${(props) => `url(${props.background})`};
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
 
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 80px 80px 80px 80px;
@@ -45,7 +45,6 @@ const BottomContainer = styled('div')`
     background-image: url(${bgPattern});
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 80px 80px 80px 80px;
     }
@@ -67,6 +66,23 @@ const BottomContainer = styled('div')`
     }
 `;
 
+const HeadingContainer = styled(Grid)`
+    background-image: url(${bg});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 120px;
+
+    @media (max-width: 1199px) {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+`;
+
 const BottomGrid = styled(Grid)`
     padding: 40px;
     background: #f9fafe;
@@ -79,8 +95,17 @@ const FormContainer = styled('div')`
     min-width: -webkit-fill-available;
     height: ${(props) => (props.form ? '800px' : '100%')};
     padding: 40px;
-    background: #ffffff;
     border-radius: 12px;
+    background: #f9fafe;
+    box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+`;
+
+const FormTitle = styled('h1')`
+    ${font3};
+    font-size: 28px;
+    color: #031b4e;
+    text-align: center;
 `;
 
 const CircularProgressDiv = styled('div')`
@@ -89,11 +114,43 @@ const CircularProgressDiv = styled('div')`
     left: 50%;
 `;
 
+const Heading = styled('h1')`
+    ${font7};
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 90px;
+    color: #f9fafe;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 60px;
+        line-height: 77px;
+    }
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 44px;
+        line-height: 53px;
+        padding: 20px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 40px;
+        line-height: 77px;
+        padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 32px;
+        line-height: 48px;
+        padding: 20px 0px;
+    }
+`;
+
 const Title = styled('h1')`
     ${font3};
     font-size: 48px;
     line-height: 56px;
-    color: #f9fafe;
+    color: ${(props) => (props.type === 'On-Demand' ? '#293241' : '#f9fafe')};
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 44px;
@@ -110,7 +167,7 @@ const Desc = styled('div')`
     ${font1};
     font-size: 16px;
     line-height: 34px;
-    color: #ffffff;
+    color: ${(props) => (props.type === 'On-Demand' ? '#293241' : '#f9fafe')};
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 16px;
         line-height: 22px;
@@ -127,14 +184,14 @@ const TakeAways = styled('div')`
     ${font6};
     font-size: 24px;
     line-height: 28px;
-    color: #f9fafe;
+    color: ${(props) => (props.type === 'On-Demand' ? '#293241' : '#f9fafe')};
 `;
 
 const DateText = styled('span')`
     ${font6};
     font-size: 24px;
     line-height: 36px;
-    color: #f9fafe;
+    color: ${(props) => (props.type === 'On-Demand' ? '#293241' : '#f9fafe')};
 `;
 
 const TopicContainer = styled('div')`
@@ -173,11 +230,20 @@ const BottomText = styled('span')`
 export default function Webinars({ data: { site, webinar, morePosts } }) {
     const [form, setForm] = React.useState(true);
     const url = typeof window !== 'undefined' ? window.location.href : '';
-
     return (
         <Container>
             <HelmetDatoCms seo={webinar.seo} favicon={site.favicon} />
-            <TopContainer>
+            {webinar.typeOfWebinar === 'On-Demand' && (
+                <HeadingContainer container>
+                    <Grid item>
+                        <Heading>{'Razorops CI/CD Webinar'}</Heading>
+                    </Grid>
+                    <Grid item>
+                        <img alt="" src={img} />
+                    </Grid>
+                </HeadingContainer>
+            )}
+            <TopContainer background={webinar.typeOfWebinar === 'On-Demand' ? bgPattern : bg}>
                 <Grid container>
                     <TextGrid item xs={12} sm={12} md={7} lg={7}>
                         <Grid container spacing={2} alignItems={'center'}>
@@ -187,19 +253,19 @@ export default function Webinars({ data: { site, webinar, morePosts } }) {
                                 </TopicContainer>
                             </Grid>
                             <Grid item>
-                                <Title>{webinar.title}</Title>
+                                <Title type={webinar.typeOfWebinar}>{webinar.title}</Title>
                             </Grid>
                             {webinar?.typeOfWebinar === 'Upcoming' && (
                                 <Grid item>
-                                    <DateText>
+                                    <DateText type={webinar.typeOfWebinar}>
                                         {moment(webinar.date).format('MMMM Do YYYY, h:mm A')}
                                     </DateText>
                                 </Grid>
                             )}
                             <Grid item>
-                                <TakeAways>Takeaways</TakeAways>
+                                <TakeAways type={webinar.typeOfWebinar}>Takeaways</TakeAways>
                                 <div className="prose prose-xl prose-blue">
-                                    <Desc>
+                                    <Desc type={webinar.typeOfWebinar}>
                                         <StructuredText
                                             data={webinar.content}
                                             renderBlock={({ record }) => {
@@ -221,9 +287,11 @@ export default function Webinars({ data: { site, webinar, morePosts } }) {
                                     </Desc>
                                 </div>
                             </Grid>
-                            <Grid style={{ margin: '20px 0px 0px 0px' }} item>
-                                <ShareButtons whiteTitle={true} title={webinar.title} url={url} />
-                            </Grid>
+                            {webinar?.typeOfWebinar === 'On-Demand' && (
+                                <Grid style={{ margin: '20px 0px 0px 0px' }} item>
+                                    <ShareButtons title={webinar.title} url={url} />
+                                </Grid>
+                            )}
                         </Grid>
                     </TextGrid>
                     <Grid item display={'flex'} alignItems={'center'} xs={12} sm={12} md={5} lg={5}>
@@ -233,6 +301,13 @@ export default function Webinars({ data: { site, webinar, morePosts } }) {
                                     <CircularProgress />
                                 </CircularProgressDiv>
                             )}
+                            <div className="mb-5">
+                                <FormTitle>
+                                    {webinar.typeOfWebinar === 'On-Demand'
+                                        ? 'Get Access to On-Demand Webinar'
+                                        : 'Register CI/CD Webinar'}
+                                </FormTitle>
+                            </div>
                             <HubspotForm
                                 region="na1"
                                 portalId="6775901"
@@ -289,6 +364,9 @@ export default function Webinars({ data: { site, webinar, morePosts } }) {
                             </Grid>
                         </Grid>
                     </BottomGrid>
+                    <div className="mt-20">
+                        <ShareButtons title={webinar.title} url={url} />
+                    </div>
                 </BottomContainer>
             )}
 
