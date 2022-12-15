@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
-import bgPattern from '../../assets/images/backgroundPattern.png';
 import { font1, font3, font6, font7 } from '../../assets/globalStyles';
 import { Button, Grid } from '@mui/material';
 import CoverImage from '../../components/common/cover-image';
@@ -14,6 +13,10 @@ const Title = styled('span')`
     font-size: 28px;
     line-height: 40px;
     color: #f9fafe;
+
+    &:hover {
+        color: #000000;
+    }
 
     @media (max-width: 599px) {
         font-size: 24px;
@@ -107,7 +110,7 @@ export default function Upcoming({ webinars }) {
                         </UpcomingContainer>
                     </Grid>
                     <Grid item>
-                        <Link to={`/webinars/${webinars.slug}`} className="hover:underline">
+                        <Link to={`/webinars/${webinars.slug}`}>
                             <Title>{webinars.title}</Title>
                         </Link>
                     </Grid>

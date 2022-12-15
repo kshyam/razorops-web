@@ -23,6 +23,10 @@ const Title = styled('span')`
     line-height: 37px;
     color: #ffffff;
 
+    &:hover {
+        color: #000000;
+    }
+
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 24px;
         line-height: 32px;
@@ -91,7 +95,7 @@ export default function HeroPost({ type, title, coverImage, date, description, a
                         <Date whiteColor={true} dateString={date} />
                     </Grid>
                     <Grid item>
-                        <Link to={`/${type}/${slug}`} className="hover:underline">
+                        <Link to={`/${type}/${slug}`}>
                             <Title>{title}</Title>
                         </Link>
                     </Grid>

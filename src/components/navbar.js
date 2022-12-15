@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, navigate } from 'gatsby';
-import { Button, CssBaseline, Grid, IconButton, Toolbar, AppBar } from '@mui/material';
+import { Button, CssBaseline, Grid, IconButton, Toolbar, AppBar, Collapse } from '@mui/material';
 import logo1 from '../assets/images/logo.svg';
 import logo2 from '../assets/images/razorops-logo.svg';
 import CloseIcon from '@mui/icons-material/Close';
@@ -12,6 +12,7 @@ import {
     color4,
     font2,
     fontSize18,
+    fontSize20,
     lineHeight26,
     lineHeight27
 } from '../assets/globalStyles';
@@ -29,6 +30,7 @@ import aws from '../assets/images/dropdown/aws.png';
 import bucket from '../assets/images/dropdown/bitbucket-blue-logo.png';
 import gitlab from '../assets/images/dropdown/gitlab.webp';
 import Topbar from './topbar';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 const NavBar = styled(AppBar)`
     background: #ffffff;
@@ -59,12 +61,16 @@ const NavBarGrid = styled(Grid)`
     padding: 0px 80px;
     align-items: center;
     height: 90px;
-    @media (max-width: 1199px) {
-        justify-content: center;
-        align-items: center;
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        padding: 0px 30px;
     }
 
-    @media (max-width: 600px) {
+    @media (min-width: 600px) and (max-width: 899px) {
+        padding: 0px 20px;
+    }
+
+    @media (max-width: 599px) {
         padding: 0px 10px;
         justify-content: flex-start;
         align-items: center;
@@ -73,27 +79,38 @@ const NavBarGrid = styled(Grid)`
 `;
 
 const Text = styled('span')`
-    padding: 5px;
     ${font2};
     font-size: ${fontSize18};
     line-height: ${lineHeight27};
     text-transform: none;
     color: ${(props) => props.color};
 
+    @media (min-width: 1535px) {
+        padding: 5px;
+    }
+
     @media (min-width: 1200px) and (max-width: 1535px) {
-        font-size: 17px;
+        font-size: 15px;
+        line-height: ${lineHeight27};
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 14px;
         line-height: ${lineHeight27};
     }
 `;
 
 const NavButton = styled(Button)`
-    background: ${(props) => props.bg};
+    background: ${(props) => (props.active === true ? '#345eef' : '#ffffff')};
     &:hover {
-        background: ${(props) => props.bg};
+        background: ${(props) => (props.active === true ? '#345eef' : '#f5f5f5')};
     }
 `;
 
 const LogoButton = styled(IconButton)`
+    @media (min-width: 1535px) {
+        padding-left: 50px;
+    }
     &:hover {
         background: none;
     }
@@ -108,37 +125,11 @@ const LogoButtonGrid = styled(Grid)`
 
 const MenuIconButton = styled(IconButton)`
     position: absolute;
-    left: 20px;
+    right: 20px;
 
     @media (min-width: 1199px) {
         display: none;
     }
-
-    @media (max-width: 600px) {
-        right: 10px;
-        left: auto;
-    }
-`;
-
-const SignUpText = styled('span')`
-    ${font2};
-    font-size: ${fontSize18};
-    line-height: ${lineHeight26};
-    color: ${color4};
-    text-transform: none;
-
-    @media (min-width: 1200px) and (max-width: 1535px) {
-        font-size: 15px;
-        line-height: ${lineHeight27};
-    }
-`;
-
-const SignUpButton = styled(Button)`
-    width: 143.08px;
-    height: 50px;
-    background: #ffffff;
-    border: 1px solid ${color4};
-    border-radius: 15px;
 `;
 
 const Demo = styled('span')`
@@ -158,7 +149,7 @@ const DemoButton = styled(Button)`
     width: 216.38px;
     height: 50px;
     background: ${color4};
-    border-radius: 15px;
+    border-radius: 8px;
 `;
 
 const NavSection = styled(Grid)`
@@ -179,6 +170,42 @@ const DrawerComponent = styled('div')`
 
 const DrawerItem = styled(Grid)`
     padding: 10px;
+`;
+
+const DrawerItemsContainer = styled(Grid)`
+    padding: 50px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 599px) {
+        align-items: flex-start;
+    }
+`;
+
+const ResourcesContainer = styled(Grid)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 599px) {
+        align-items: flex-start;
+    }
+`;
+
+const DrawerButton = styled(Button)`
+    background: transparent;
+    &:hover {
+        background: transparent;
+    }
+`;
+
+const DrawerText = styled('span')`
+    ${font2};
+    font-size: ${fontSize20};
+    line-height: ${lineHeight27};
+    text-transform: none;
+    color: #ffffff;
 `;
 
 const Logo1 = styled('img')`
@@ -203,6 +230,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
     const [anchorElProduct, setAnchorElProduct] = useState(null);
     const [anchorElResources, setAnchorElResources] = useState(null);
     const [anchorElCompany, setAnchorElCompany] = useState(null);
+    const [open, setOpen] = React.useState(true);
 
     const openProduct = Boolean(anchorElProduct);
     const openResources = Boolean(anchorElResources);
@@ -212,6 +240,10 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
         typeof window !== 'undefined' ? window.location.href.indexOf('pricing') !== -1 : false;
     const isProductOpen =
         typeof window !== 'undefined' ? window.location.href.indexOf('product') !== -1 : false;
+
+    const handleClick = () => {
+        setOpen(!open);
+    };
 
     const handleTopBar = () => {
         setShowTopBar(!showTopBar);
@@ -253,7 +285,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                     style={{ color: '#345EEF', height: '30px', width: '30px' }}
                                 />
                             </MenuIconButton>
-                            <LogoButtonGrid item md={4}>
+                            <LogoButtonGrid item md={2}>
                                 <LogoButton
                                     onClick={() => navigate('/')}
                                     color="inherit"
@@ -262,24 +294,22 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                     <Logo2 src={logo2} alt="" />
                                 </LogoButton>
                             </LogoButtonGrid>
-                            <NavSection
-                                item
-                                display={'flex'}
-                                alignItems={'center'}
-                                justifyContent={'center'}
-                                md={4}>
-                                <Grid item>
-                                    <NavButton
-                                        onClick={() => navigate('/product')}
-                                        bg={isProductOpen === true ? '#345eef' : '#ffffff'}
-                                        style={{ display: 'flex', alignItems: 'center' }}>
-                                        <Text color={isProductOpen === true ? '#ffffff' : color1}>
-                                            Product
-                                        </Text>
-                                        <ExpandMoreIcon
-                                            style={{ color: isProductOpen ? 'white' : 'black' }}
+                            <NavSection item md={8}>
+                                <Grid container spacing={1} justifyContent={'center'}>
+                                    <Grid item>
+                                        <NavButton
                                             onMouseEnter={handleOpenProduct}
-                                        />
+                                            onClick={() => navigate('/product')}
+                                            active={isProductOpen}
+                                            style={{ display: 'flex', alignItems: 'center' }}>
+                                            <Text
+                                                color={isProductOpen === true ? '#ffffff' : color1}>
+                                                Product
+                                            </Text>
+                                            <ExpandMoreIcon
+                                                style={{ color: isProductOpen ? 'white' : 'black' }}
+                                            />
+                                        </NavButton>
                                         <Dropdown
                                             open={openProduct}
                                             anchorEl={anchorElProduct}
@@ -330,32 +360,32 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                                 logos: [github, gitlab, aws, slack, bucket, aws]
                                             }}
                                         />
-                                    </NavButton>
-                                </Grid>
-                                <Grid item>
-                                    <NavButton
-                                        onClick={() => navigate('/pricing')}
-                                        bg={isPricingOpen === true ? '#345eef' : '#ffffff'}
-                                        style={{ display: 'flex', alignItems: 'center' }}>
-                                        <Text color={isPricingOpen === true ? '#ffffff' : color1}>
-                                            Pricing
-                                        </Text>
-                                    </NavButton>
-                                </Grid>
-                                <Grid item>
-                                    <NavButton
-                                        style={{ display: 'flex', alignItems: 'center' }}
-                                        onClick={() => navigate('https://docs.razorops.com/')}>
-                                        <Text color={color1}>Documentation</Text>
-                                    </NavButton>
-                                </Grid>
-                                <Grid item>
-                                    <NavButton style={{ display: 'flex', alignItems: 'center' }}>
-                                        <Text color={color1}>Company</Text>
-                                        <ExpandMoreIcon
-                                            style={{ color: 'black' }}
+                                    </Grid>
+                                    <Grid item>
+                                        <NavButton
+                                            onClick={() => navigate('/pricing')}
+                                            active={isPricingOpen}
+                                            style={{ display: 'flex', alignItems: 'center' }}>
+                                            <Text
+                                                color={isPricingOpen === true ? '#ffffff' : color1}>
+                                                Pricing
+                                            </Text>
+                                        </NavButton>
+                                    </Grid>
+                                    <Grid item>
+                                        <NavButton
+                                            style={{ display: 'flex', alignItems: 'center' }}
+                                            onClick={() => navigate('https://docs.razorops.com/')}>
+                                            <Text color={color1}>Documentation</Text>
+                                        </NavButton>
+                                    </Grid>
+                                    <Grid item>
+                                        <NavButton
                                             onMouseEnter={handleOpenCompany}
-                                        />
+                                            style={{ display: 'flex', alignItems: 'center' }}>
+                                            <Text color={color1}>Company</Text>
+                                            <ExpandMoreIcon style={{ color: 'black' }} />
+                                        </NavButton>
                                         <Dropdown
                                             open={openCompany}
                                             anchorEl={anchorElCompany}
@@ -408,15 +438,14 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                                 logos: [github, gitlab, aws, slack, bucket, aws]
                                             }}
                                         />
-                                    </NavButton>
-                                </Grid>
-                                <Grid item>
-                                    <NavButton style={{ display: 'flex', alignItems: 'center' }}>
-                                        <Text color={color1}>Resources</Text>
-                                        <ExpandMoreIcon
-                                            style={{ color: 'black' }}
+                                    </Grid>
+                                    <Grid item>
+                                        <NavButton
                                             onMouseEnter={handleOpenResources}
-                                        />
+                                            style={{ display: 'flex', alignItems: 'center' }}>
+                                            <Text color={color1}>Resources</Text>
+                                            <ExpandMoreIcon style={{ color: 'black' }} />
+                                        </NavButton>
                                         <Dropdown
                                             open={openResources}
                                             anchorEl={anchorElResources}
@@ -488,20 +517,30 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                                 logos: [github, gitlab, aws, slack, bucket, aws]
                                             }}
                                         />
-                                    </NavButton>
+                                    </Grid>
                                 </Grid>
                             </NavSection>
-                            <NavSection item md={4}>
-                                <Grid container spacing={2} justifyContent={'flex-end'}>
+                            <NavSection item md={2}>
+                                <Grid container spacing={1} justifyContent={'flex-start'}>
                                     <Grid item>
-                                        <NavLink to="https://razorops.com/schedule-demo">
+                                        <NavButton
+                                            style={{ display: 'flex', alignItems: 'center' }}
+                                            onClick={() =>
+                                                navigate('https://razorops.com/schedule-demo')
+                                            }>
                                             <Text color={color1}>Talk to Sales</Text>
-                                        </NavLink>
+                                        </NavButton>
                                     </Grid>
                                     <Grid item>
-                                        <NavLink to="https://dashboard.razorops.com/users/sign_in">
+                                        <NavButton
+                                            style={{ display: 'flex', alignItems: 'center' }}
+                                            onClick={() =>
+                                                navigate(
+                                                    'https://dashboard.razorops.com/users/sign_in'
+                                                )
+                                            }>
                                             <Text color={color1}>Login</Text>
-                                        </NavLink>
+                                        </NavButton>
                                     </Grid>
                                 </Grid>
                             </NavSection>
@@ -513,7 +552,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                 anchor={'left'}
                 open={showDrawer}
                 onClose={handleDrawerToggle}
-                PaperProps={{ sx: { width: '100%' } }}
+                PaperProps={{ sx: { width: '100%', backgroundColor: 'rgba(0, 0, 0, 0.9)' } }}
                 ModalProps={{
                     keepMounted: true
                 }}>
@@ -527,19 +566,66 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                 onClick={handleDrawerToggle}
                                 color="inherit"
                                 aria-label="menu">
-                                <CloseIcon />
+                                <CloseIcon
+                                    style={{ color: '#345EEF', height: '30px', width: '30px' }}
+                                />
                             </IconButton>
                         </Grid>
-                        <Grid container direction={'column'} alignItems={'center'}>
+                        <DrawerItemsContainer container>
                             <DrawerItem item>
-                                <NavLink>
-                                    <Text>Login</Text>
-                                </NavLink>
+                                <DrawerButton onClick={() => navigate('/product')}>
+                                    <DrawerText>Product</DrawerText>
+                                </DrawerButton>
                             </DrawerItem>
                             <DrawerItem item>
-                                <SignUpButton variant="outlined">
-                                    <SignUpText>Sign up</SignUpText>
-                                </SignUpButton>
+                                <DrawerButton onClick={() => navigate('/pricing')}>
+                                    <DrawerText>Pricing</DrawerText>
+                                </DrawerButton>
+                            </DrawerItem>
+                            <DrawerItem item>
+                                <DrawerButton
+                                    onClick={() =>
+                                        navigate('https://docs.razorops.com/getting_started/')
+                                    }>
+                                    <DrawerText>Docs</DrawerText>
+                                </DrawerButton>
+                            </DrawerItem>
+                            <DrawerItem item>
+                                <DrawerButton onClick={handleClick}>
+                                    <DrawerText>Resources</DrawerText>
+                                    {open ? (
+                                        <ExpandLess style={{ color: '#ffffff' }} />
+                                    ) : (
+                                        <ExpandMore style={{ color: '#ffffff' }} />
+                                    )}
+                                </DrawerButton>
+                            </DrawerItem>
+                            <DrawerItem item>
+                                <Collapse in={open} timeout="auto" unmountOnExit>
+                                    <ResourcesContainer container>
+                                        <DrawerItem item>
+                                            <DrawerButton onClick={() => navigate('/blog')}>
+                                                <DrawerText>Blog</DrawerText>
+                                            </DrawerButton>
+                                        </DrawerItem>
+                                        <DrawerItem item>
+                                            <DrawerButton onClick={() => navigate('/newsletter')}>
+                                                <DrawerText>Newsletter</DrawerText>
+                                            </DrawerButton>
+                                        </DrawerItem>
+                                        <DrawerItem item>
+                                            <DrawerButton
+                                                onClick={() => navigate('/news-and-updates')}>
+                                                <DrawerText>News and updates</DrawerText>
+                                            </DrawerButton>
+                                        </DrawerItem>
+                                        <DrawerItem item>
+                                            <DrawerButton onClick={() => navigate('/webinars')}>
+                                                <DrawerText>Webinars</DrawerText>
+                                            </DrawerButton>
+                                        </DrawerItem>
+                                    </ResourcesContainer>
+                                </Collapse>
                             </DrawerItem>
                             <DrawerItem item>
                                 <NavLink to="https://razorops.com/schedule-demo">
@@ -548,28 +634,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                     </DemoButton>
                                 </NavLink>
                             </DrawerItem>
-                            <DrawerItem item>
-                                <NavLink to="/blog">
-                                    <Text>Blog</Text>
-                                </NavLink>
-                            </DrawerItem>
-                            <DrawerItem item>
-                                <NavLink>
-                                    <Text>Use-cases</Text>
-                                </NavLink>
-                            </DrawerItem>
-                            <DrawerItem item>
-                                <NavLink>
-                                    <Text>Resources</Text>
-                                </NavLink>
-                            </DrawerItem>
-
-                            <DrawerItem item>
-                                <NavLink>
-                                    <Text>Customers</Text>
-                                </NavLink>
-                            </DrawerItem>
-                        </Grid>
+                        </DrawerItemsContainer>
                     </Grid>
                 </DrawerComponent>
             </Drawer>

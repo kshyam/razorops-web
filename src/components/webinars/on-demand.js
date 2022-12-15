@@ -17,6 +17,10 @@ const Title = styled('span')`
     line-height: 32px;
     color: #18204c;
 
+    &:hover {
+        color: #0069ff;
+    }
+
     @media (max-width: 1199px) {
         font-size: 20px;
         line-height: 27px;
@@ -78,7 +82,7 @@ export default function OnDemand({ onDemandWebinars }) {
                         <div className="m-4">
                             <DateText>{moment(i.date).format('MMMM Do YYYY, h:mm:ss A')}</DateText>
                             <div className="mt-2">
-                                <Link to={`/${'webinars'}/${i.slug}`} className="hover:underline">
+                                <Link to={`/${'webinars'}/${i.slug}`}>
                                     <Title> {i.title}</Title>
                                 </Link>
                             </div>

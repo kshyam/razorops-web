@@ -20,6 +20,10 @@ const Title = styled('span')`
     line-height: 32px;
     color: #18204c;
 
+    &:hover {
+        color: #0069ff;
+    }
+
     @media (max-width: 1199px) {
         font-size: 20px;
         line-height: 27px;
@@ -66,7 +70,7 @@ export default function PostPreview({ type, title, coverImage, date, description
                 <div className="m-4">
                     <Date dateString={date} />
                     <div className="mt-2">
-                        <Link to={`/${type}/${slug}`} className="hover:underline">
+                        <Link to={`/${type}/${slug}`}>
                             <Title> {title}</Title>
                         </Link>
                     </div>
