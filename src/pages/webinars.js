@@ -155,7 +155,7 @@ export default function Webinars({
     const [searchQuery, setSearchQuery] = useState(query || '');
 
     const results = useFlexSearch(searchQuery, index, store);
-    const posts = searchQuery ? results : allWebinars.nodes;
+    const posts = allWebinars.nodes;
 
     const allPostsData = posts;
     const onDemandWebinars = allPostsData.slice(1);
@@ -176,8 +176,10 @@ export default function Webinars({
                     <SearchGrid item>
                         <SearchBar
                             label={'Search in Webinars'}
+                            type={'webinars'}
                             searchQuery={searchQuery}
                             setSearchQuery={setSearchQuery}
+                            searchResults={searchQuery ? results : null}
                         />
                     </SearchGrid>
                 </TextContainer>

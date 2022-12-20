@@ -230,7 +230,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
     const [anchorElProduct, setAnchorElProduct] = useState(null);
     const [anchorElResources, setAnchorElResources] = useState(null);
     const [anchorElCompany, setAnchorElCompany] = useState(null);
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
 
     const openProduct = Boolean(anchorElProduct);
     const openResources = Boolean(anchorElResources);

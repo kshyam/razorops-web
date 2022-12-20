@@ -180,7 +180,7 @@ export default function Blog({
 
     const results = useFlexSearch(searchQuery, index, store);
 
-    const posts = searchQuery ? results : allBlogs.nodes;
+    const posts = allBlogs.nodes;
     const allPostsData = posts.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
     });
@@ -211,6 +211,8 @@ export default function Blog({
                         <SearchGrid item>
                             <SearchBar
                                 label={'Search in Blog'}
+                                type="blog"
+                                searchResults={searchQuery ? results : null}
                                 searchQuery={searchQuery}
                                 setSearchQuery={setSearchQuery}
                             />

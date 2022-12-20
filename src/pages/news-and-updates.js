@@ -179,7 +179,7 @@ export default function NewsAndUpdates({
     const [searchQuery, setSearchQuery] = useState(query || '');
 
     const results = useFlexSearch(searchQuery, index, store);
-    const posts = searchQuery ? results : allNewsAndUpdates.nodes;
+    const posts = allNewsAndUpdates.nodes;
     const allPostsData = posts.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
     });
@@ -210,8 +210,10 @@ export default function NewsAndUpdates({
                         <SearchGrid item>
                             <SearchBar
                                 label={'Search in News and Updates'}
+                                type={'news-and-updates'}
                                 searchQuery={searchQuery}
                                 setSearchQuery={setSearchQuery}
+                                searchResults={searchQuery ? results : null}
                             />
                         </SearchGrid>
                     </TextContainer>

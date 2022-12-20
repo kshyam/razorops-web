@@ -179,7 +179,7 @@ export default function Newsletter({
     const [searchQuery, setSearchQuery] = useState(query || '');
 
     const results = useFlexSearch(searchQuery, index, store);
-    const posts = searchQuery ? results : allNewsletters.nodes;
+    const posts = allNewsletters.nodes;
     const allPostsData = posts.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
     });
@@ -211,8 +211,10 @@ export default function Newsletter({
                         <SearchGrid item>
                             <SearchBar
                                 label={'Search in Newsletter'}
+                                type={'newsletter'}
                                 searchQuery={searchQuery}
                                 setSearchQuery={setSearchQuery}
+                                searchResults={searchQuery ? results : null}
                             />
                         </SearchGrid>
                     </TextContainer>
