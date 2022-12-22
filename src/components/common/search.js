@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef } from 'react';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import {
-    Button,
+    Autocomplete,
     InputBase,
-    List,
     ListItem,
     ListItemAvatar,
     ListItemText,
-    Paper
+    Paper,
+    Popper
 } from '@mui/material';
-import { font1, font6, font7 } from '../../assets/globalStyles';
+import { font1, font7 } from '../../assets/globalStyles';
 import styled from '@emotion/styled';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 
 const TextField = styled(InputBase)`
-    position: absolute;
-    right: 0%;
-    width: 400px;
-    padding: 20px;
+    background: #ffffff;
+    width: 384px;
+    height: 50px;
     ${font1};
+    padding: 0px 10px;
     font-size: 18px;
     line-height: 29px;
     color: #000000;
@@ -69,25 +69,10 @@ const Desc = styled('span')`
 const Item = styled(ListItem)`
     padding: 10px 20px;
     background: #ffffff;
-`;
-
-const LoadMore = styled(Button)`
-    background: #ffffff;
-    padding: 10px 0px;
-    text-transform: none;
-    min-width: -webkit-fill-available;
 
     &:hover {
-        background: #ffffff;
+        background: #f5f5f5;
     }
-`;
-
-const LoadMoreText = styled('span')`
-    ${font6};
-    font-size: 16px;
-    line-height: 29px;
-    text-align: center;
-    color: #0069ff;
 `;
 
 const NavLink = styled(Link)`
@@ -95,25 +80,20 @@ const NavLink = styled(Link)`
 `;
 
 const SearchContainer = styled(Paper)`
-    padding: 0px 20px;
     border: ${(props) => (props.detailsPage === true ? 'none' : '2px solid #bebebe')};
     display: flex;
     align-items: center;
-    border-radius: 10px;
-    width: ${(props) => (props.detailsPage === true ? '50px' : '400px')};
+    width: 400px;
     box-shadow: none;
     transition: all 0.5s;
     position: relative;
     overflow: hidden;
     height: 50px;
-    &:hover {
-        width: 400px;
-        border-bottom: ${(props) => (props.detailsPage === true ? '2px solid #bebebe' : 'none')};
-        border-radius: ${(props) => (props.detailsPage === true ? '0px' : '10px')};
-    }
+    border-bottom: ${(props) => (props.show === true ? '2px solid #bebebe' : 'none')};
+    border-radius: ${(props) => (props.show === true ? '0px' : '10px')};
 `;
 
-const SearchIconButton = styled(IconButton)`
+const Icon = styled(IconButton)`
     position: absolute;
     right: 0;
 `;
@@ -138,96 +118,118 @@ function getHighlightedText(text, highlight) {
 }
 
 const SearchBar = ({ detailsPage, searchQuery, setSearchQuery, label, type, searchResults }) => {
-    const [index, setIndex] = useState(5);
-    const initialResults = searchResults?.slice(0, index);
+    let textInput = useRef(null);
+    const [show, setShow] = useState(false);
+    const [focus, setFocus] = useState(false);
 
-    const loadMore = () => {
-        setIndex(index + 5);
+    const onFocus = () => {
+        setFocus(true);
     };
 
-    useEffect(() => {
-        setIndex(5);
-    }, [searchQuery]);
+    const onBlur = () => {
+        setFocus(false);
+        setShow(false);
+    };
 
     return (
         <>
-            <SearchContainer detailsPage={detailsPage} component="form">
-                <TextField
-                    fullWidth
-                    id="search-bar"
-                    className="text"
-                    value={searchQuery}
-                    onInput={(e) => {
+            <SearchContainer detailsPage={detailsPage} show={show}>
+                <Autocomplete
+                    id="free-solo-2-demo"
+                    freeSolo
+                    onInputChange={(e) => {
                         setSearchQuery(e.target.value);
                     }}
-                    placeholder={label}
-                />
-                <SearchIconButton type="button" sx={{ p: '10px' }} aria-label="search">
-                    <SearchIcon />
-                </SearchIconButton>
-            </SearchContainer>
-            {initialResults && (
-                <List
-                    sx={{
-                        position: 'absolute',
-                        zIndex: 1,
-                        width: '100%',
-                        maxWidth: 400,
-                        boxShadow: '0px 4px 100px rgba(0, 0, 0, 0.06)',
-                        bgcolor: '#ffffff',
-                        borderRadius: '10px'
-                    }}>
-                    {initialResults.map((i) => (
-                        <NavLink to={`/${type}/${i.slug}`}>
-                            <Item alignItems="flex-start">
-                                {i?.author && (
-                                    <ListItemAvatar>
-                                        <GatsbyImage
-                                            style={{ borderRadius: '10px' }}
-                                            image={i?.author?.picture?.gatsbyImageData}
-                                            className="w-12 h-12 rounded-full mr-4"
-                                            alt={''}
-                                        />
-                                    </ListItemAvatar>
-                                )}
-                                <ListItemText
-                                    primary={
-                                        <React.Fragment>
-                                            <Title>
-                                                {getHighlightedText(i.title, searchQuery)}
-                                            </Title>
-                                        </React.Fragment>
-                                    }
-                                    secondary={
-                                        <React.Fragment>
-                                            <Desc>
-                                                {getHighlightedText(i.description, searchQuery)}
-                                            </Desc>
-                                        </React.Fragment>
-                                    }
+                    getOptionLabel={(option) => JSON.stringify(option)}
+                    options={searchResults || []}
+                    PopperComponent={(props) => (
+                        <Popper {...props} style={{ width: '400px' }} placement="bottom-start" />
+                    )}
+                    renderOption={(props, option) => {
+                        return (
+                            <>
+                                <li style={{ padding: 0 }} {...props}>
+                                    <NavLink to={`/${type}/${option.slug}`}>
+                                        <Item alignItems="flex-start">
+                                            {option?.author && (
+                                                <ListItemAvatar>
+                                                    <GatsbyImage
+                                                        style={{ borderRadius: '10px' }}
+                                                        image={
+                                                            option?.author?.picture?.gatsbyImageData
+                                                        }
+                                                        className="w-12 h-12 rounded-full mr-4"
+                                                        alt={''}
+                                                    />
+                                                </ListItemAvatar>
+                                            )}
+                                            <ListItemText
+                                                primary={
+                                                    <React.Fragment>
+                                                        <Title>
+                                                            {getHighlightedText(
+                                                                option.title,
+                                                                searchQuery
+                                                            )}
+                                                        </Title>
+                                                    </React.Fragment>
+                                                }
+                                                secondary={
+                                                    <React.Fragment>
+                                                        <Desc>
+                                                            {getHighlightedText(
+                                                                option.description,
+                                                                searchQuery
+                                                            )}
+                                                        </Desc>
+                                                    </React.Fragment>
+                                                }
+                                            />
+                                        </Item>
+                                    </NavLink>
+                                </li>
+                            </>
+                        );
+                    }}
+                    renderInput={(params) => {
+                        return detailsPage ? (
+                            show && (
+                                <TextField
+                                    {...params.InputProps}
+                                    {...params}
+                                    placeholder={label}
+                                    inputRef={textInput}
+                                    onFocus={onFocus}
+                                    onBlur={onBlur}
                                 />
-                            </Item>
-                        </NavLink>
-                    ))}
-                    {searchResults.length !== initialResults.length && (
-                        <LoadMore onClick={loadMore}>
-                            <LoadMoreText>Load More</LoadMoreText>
-                        </LoadMore>
-                    )}
-                    {searchResults.length === 0 && (
-                        <Item>
-                            <ListItemText
-                                style={{ textAlign: 'center' }}
-                                primary={
-                                    <React.Fragment>
-                                        <Title>No results found</Title>
-                                    </React.Fragment>
-                                }
-                            />
-                        </Item>
-                    )}
-                </List>
-            )}
+                            )
+                        ) : (
+                            <TextField {...params.InputProps} {...params} placeholder={label} />
+                        );
+                    }}
+                />
+                {detailsPage ? (
+                    <Icon
+                        onClick={() => {
+                            setShow(!show);
+                            setTimeout(() => {
+                                textInput.current.focus();
+                            }, 100);
+                        }}
+                        disabled={focus}
+                        type="button"
+                        sx={{ p: '10px', m: '0px 0px 0px 40px' }}
+                        aria-label="search">
+                        <SearchIcon />
+                    </Icon>
+                ) : (
+                    !searchQuery && (
+                        <Icon type="button" sx={{ p: '10px' }} aria-label="search">
+                            <SearchIcon />
+                        </Icon>
+                    )
+                )}
+            </SearchContainer>
         </>
     );
 };

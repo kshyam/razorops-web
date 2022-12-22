@@ -184,6 +184,7 @@ export default function Blog({
     const allPostsData = posts.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
     });
+
     return (
         <Container>
             {/* <HelmetDatoCms seo={blog.seo} favicon={site.favicon} /> */}

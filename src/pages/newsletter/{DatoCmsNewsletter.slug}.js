@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import Container from '../../components/container';
 import PostBody from '../../components/common/post-body';
@@ -10,6 +10,8 @@ import { Grid, IconButton } from '@mui/material';
 import { color2, font1 } from '../../assets/globalStyles';
 import HomeIcon from '@mui/icons-material/Home';
 import ShareButtons from '../../components/common/share-buttons';
+import SearchBar from '../../components/common/search';
+import { useFlexSearch } from 'react-use-flexsearch';
 
 const MainContainer = styled('div')`
     @media (min-width: 900px) and (max-width: 1199px) {
@@ -44,25 +46,50 @@ const Text = styled('span')`
 const NavLink = styled(Link)`
     text-decoration: none;
 `;
-export default function Newsletter({ data: { site, newsletter, morePosts } }) {
+export default function Newsletter({
+    data: {
+        localSearchNewsletter: { index, store },
+        site,
+        newsletter,
+        morePosts
+    }
+}) {
+    const { search } = typeof window !== 'undefined' && window.location;
+    const query = new URLSearchParams(search).get('s');
+    const [searchQuery, setSearchQuery] = useState(query || '');
+    const results = useFlexSearch(searchQuery, index, store);
     const url = typeof window !== 'undefined' ? window.location.href : '';
     return (
         <Container>
             <HelmetDatoCms seo={newsletter.seo} favicon={site.favicon} />
             <MainContainer>
-                <Grid container alignItems={'center'}>
+                <Grid container justifyContent={'space-between'}>
                     <Grid item>
-                        <NavLink to="/">
-                            <IconButton>
-                                <HomeIcon style={{ color: '#000000' }} />
-                            </IconButton>
-                        </NavLink>
+                        <Grid container alignItems={'center'}>
+                            <Grid item>
+                                <NavLink to="/">
+                                    <IconButton>
+                                        <HomeIcon style={{ color: '#000000' }} />
+                                    </IconButton>
+                                </NavLink>
+                            </Grid>
+                            <Grid item>
+                                <NavLink to="/newsletter">
+                                    <Text> / Newsletter / </Text>
+                                </NavLink>
+                                <Text style={{ color: color2 }}>{newsletter.title}</Text>
+                            </Grid>
+                        </Grid>
                     </Grid>
                     <Grid item>
-                        <NavLink to="/newsletter">
-                            <Text> / Newsletter / </Text>
-                        </NavLink>
-                        <Text style={{ color: color2 }}>{newsletter.title}</Text>
+                        <SearchBar
+                            detailsPage={true}
+                            label={'Search in Newsletter'}
+                            type="newsletter"
+                            searchResults={searchQuery ? results : null}
+                            searchQuery={searchQuery}
+                            setSearchQuery={setSearchQuery}
+                        />
                     </Grid>
                 </Grid>
                 <PostHeader
@@ -84,6 +111,10 @@ export default function Newsletter({ data: { site, newsletter, morePosts } }) {
 
 export const query = graphql`
     query NewsletterBySlug($id: String) {
+        localSearchNewsletter {
+            index
+            store
+        }
         site: datoCmsSite {
             favicon: faviconMetaTags {
                 ...GatsbyDatoCmsFaviconMetaTags

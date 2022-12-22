@@ -356,7 +356,7 @@ const CardContainer = styled(Card)`
         background: ${(props) =>
             props.id === 3
                 ? 'linear-gradient(180deg, rgba(222, 236, 255, 0.5) -10.52%, rgba(22, 129, 254, 0.5) 204.31%)'
-                : ' linear-gradient(180deg,rgba(255, 255, 255, 0.5) -10.52%,rgba(140, 157, 218, 0.5) 204.31%)'};
+                : 'linear-gradient(180deg,rgba(255, 255, 255, 0.5) -10.52%,rgba(140, 157, 218, 0.5) 204.31%)'};
     }
 `;
 
