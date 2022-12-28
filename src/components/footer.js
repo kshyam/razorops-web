@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Grid, IconButton } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import {
     font1,
     font6,
@@ -31,7 +31,6 @@ const Bg = styled('div')`
 
 const TopGrid = styled(Grid)`
     display: flex;
-    justify-content: space-between;
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 70px 80px 70px 80px;
     }
@@ -41,11 +40,13 @@ const TopGrid = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 100px 200px;
+        padding: 120px 180px;
+        justify-content: space-between;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         padding: 70px 100px 70px 100px;
+        justify-content: space-between;
     }
 
     @media (max-width: 600px) {
@@ -64,7 +65,7 @@ const BottomSection = styled('div')`
     }
 
     @media (min-width: 1535px) {
-        padding: 30px 200px;
+        padding: 30px 180px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -113,35 +114,40 @@ const Divider = styled('div')`
 `;
 
 const SubscribeText = styled('span')`
-    padding: 10px;
+    padding: 0px 10px;
     ${font1};
     font-size: ${fontSize16};
     line-height: ${lineHeight27};
-    color: #011337;
+    color: #1681fe;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         padding: 5px;
-        font-size: 14px;
+        font-size: 13px;
         line-height: 27px;
     }
 
-    @media (max-width: 1199px) {
-        font-size: 14px;
-        line-height: 19px;
+    @media (min-width: 900px) and (max-width: 1199px) {
+        padding: 5px;
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    @media (max-width: 899px) {
+        padding: 5px;
+        font-size: 12px;
+        line-height: 22px;
     }
 `;
 
-const SubscibeButton = styled(IconButton)`
-    padding: 10px;
-    background: #f9fafe;
+const SubscribeButton = styled(Button)`
+    padding: 5px;
+    background: transparent;
     border-radius: 8px;
-
-    @media (max-width: 1199px) {
-        margin: 0px 0px 20px 0px;
-    }
+    border-color: #1681fe;
+    text-transform: none;
 
     &:hover {
-        background: #f9fafe;
+        background: transparent;
     }
 `;
 
@@ -149,7 +155,7 @@ export default function Footer() {
     return (
         <Bg>
             <TopGrid container spacing={2}>
-                <Grid md={12} lg={3} sm={12} xs={12} item>
+                {/* <Grid md={12} lg={3} sm={12} xs={12} item>
                     <Grid container spacing={3} direction={'column'}>
                         <Grid item>
                             <img alt="" src={razorops} />
@@ -165,14 +171,14 @@ export default function Footer() {
                             <NavLink
                                 to="https://www.linkedin.com/newsletters/container-native-devops-cicd-6920671272087552000/"
                                 target="_blank">
-                                <SubscibeButton color="inherit" aria-label="menu">
+                                <SubscribeButton color="inherit" aria-label="menu">
                                     <img src={img} alt="" />
                                     <SubscribeText>Subscribe to our Newsletter</SubscribeText>
-                                </SubscibeButton>
+                                </SubscribeButton>
                             </NavLink>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Grid> */}
                 <GridSection md={4} lg={2} sm={4} xs={6} item>
                     <Grid container spacing={2} direction={'column'}>
                         <Grid item>
@@ -288,6 +294,22 @@ export default function Footer() {
                 <GridSection md={4} lg={2} sm={4} xs={6} item>
                     <Grid container spacing={2} direction={'column'}>
                         <Grid item>
+                            <Title>Compare</Title>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Razorops vs Jenkins</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Razorops vs GitLab CI</Sub>
+                        </Grid>
+                        <Grid item>
+                            <Sub>Razorops vs CircleCI</Sub>
+                        </Grid>
+                    </Grid>
+                </GridSection>
+                <GridSection md={4} lg={3} sm={4} xs={6} item>
+                    <Grid container spacing={2} direction={'column'}>
+                        <Grid item>
                             <Title>Support</Title>
                         </Grid>
                         <Grid item>
@@ -320,6 +342,19 @@ export default function Footer() {
                         </Grid>
                         <Grid item>
                             <Sub>Status Page</Sub>
+                        </Grid>
+                        <Grid style={{ margin: '30px 0px' }} item>
+                            <NavLink
+                                to="https://www.linkedin.com/newsletters/container-native-devops-cicd-6920671272087552000/"
+                                target="_blank">
+                                <SubscribeButton
+                                    color="inherit"
+                                    variant="outlined"
+                                    aria-label="menu">
+                                    <img src={img} alt="" />
+                                    <SubscribeText>Subscribe our Newsletter</SubscribeText>
+                                </SubscribeButton>
+                            </NavLink>
                         </Grid>
                     </Grid>
                 </GridSection>
