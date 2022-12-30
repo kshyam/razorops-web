@@ -230,7 +230,9 @@ export default function Footer() {
                             <Sub>Contact Us</Sub>
                         </Grid>
                         <Grid item>
-                            <Sub>Customers</Sub>
+                            <NavLink to="/customers">
+                                <Sub>Customers</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <NavLink to="/open-source">
@@ -323,6 +325,11 @@ export default function Footer() {
                         <Grid item>
                             <NavLink to="/faq">
                                 <Sub>FAQ</Sub>
+                            </NavLink>
+                        </Grid>
+                        <Grid item>
+                            <NavLink to="/support-plans">
+                                <Sub>Support Plans</Sub>
                             </NavLink>
                         </Grid>
                         <Grid item>

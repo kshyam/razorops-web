@@ -1,12 +1,12 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import styled from '@emotion/styled';
-import { font6, font7, font1 } from '../../assets/globalStyles';
+import { font6, font1, font3 } from '../../assets/globalStyles';
 import bgPattern from '../../assets/images/footer/backgroundPattern.svg';
 import bg from '../../assets/images/bg.png';
 import Navbar from '../navbar';
 
-const TopContainer = styled('div')`
+const TopContainer = styled(Grid)`
     background-image: url(${bg});
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,22 +23,25 @@ const TopContainer = styled('div')`
     }
 `;
 const Heading = styled('div')`
-    ${font7};
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
+    ${font3};
     font-size: 72px;
     line-height: 90px;
     color: #f9fafe;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        font-size: 60px;
-        line-height: 77px;
-    }
-    @media (min-width: 900px) and (max-width: 1199px) {
         font-size: 44px;
         line-height: 53px;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 34px;
+        line-height: 53px;
         padding: 20px;
+    }
+
+    @media (min-width: 1535px) {
+        font-size: 48px;
+        line-height: 56px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
@@ -128,10 +131,10 @@ export default function FooterComponent({
         <>
             <Navbar showTopBar={showTopBar} setShowTopBar={setShowTopBar} />
             <TopContainer container>
-                <Grid item>
+                <Grid item md={5}>
                     <Heading>{heading}</Heading>
                 </Grid>
-                <Grid item>
+                <Grid item display={'flex'} justifyContent={'flex-end'}>
                     <img alt="" src={img} />
                 </Grid>
             </TopContainer>

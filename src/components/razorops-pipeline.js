@@ -56,9 +56,24 @@ const Title = styled('div')`
     text-align: center;
     color: ${color1};
 
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        font-size: 40px;
+        line-height: 54px;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
     @media (max-width: 600px) {
-        font-size: 22px;
-        line-height: 27px;
+        font-size: 28px;
+        line-height: 30px;
     }
 `;
 

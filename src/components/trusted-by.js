@@ -75,6 +75,11 @@ const Heading = styled('div')`
         line-height: 40px;
     }
 
+    @media (min-width: 1535px) {
+        font-size: 38px;
+        line-height: 48px;
+    }
+
     @media (min-width: 600px) and (max-width: 899px) {
         font-size: 28px;
         line-height: 32px;
