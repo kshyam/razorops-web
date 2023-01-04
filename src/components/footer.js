@@ -227,7 +227,9 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Contact Us</Sub>
+                            <NavLink to="/contact">
+                                <Sub>Contact Us</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <NavLink to="/customers">

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import Grid from '@mui/material/Grid';
-import { FormControl, OutlinedInput } from "@mui/material";
+import { FormControl, OutlinedInput } from '@mui/material';
 import styled from '@emotion/styled';
 import {
     font2,
@@ -14,7 +14,7 @@ import {
     font7,
     font1
 } from '../assets/globalStyles';
-import bg from '../assets/images/intro-bg.png'
+import bg from '../assets/images/intro-bg.png';
 import { grey } from '@mui/material/colors';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 
@@ -25,11 +25,9 @@ const BG = styled('div')`
     background-size: cover;
     background-position: center;
     position: relative;
-   overflow: hidden;
+    overflow: hidden;
 
-  
-   
- border-radius:0 0 80% 80%/0 0 80% 80%;
+    border-radius: 0 0 80% 80%/0 0 80% 80%;
 `;
 
 const TopSectionContainer = styled(Grid)`
@@ -50,7 +48,7 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (min-width: 1535px) {
-        padding: 90px 200px 
+        padding: 90px 200px;
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -88,8 +86,6 @@ const TextContainer = styled(Grid)`
     justify-content: center;
     flex-direction: column;
 `;
-
-
 
 const Sub = styled('div')`
     ${font3};
@@ -150,16 +146,13 @@ const Desc = styled('span')`
 `;
 
 const greycolor = {
-    background: '#fff',
-    
-
+    background: '#fff'
 };
 
 const HeaderButton = styled('button')`
-    
-    background: #18204C;
+    background: #18204c;
     margin: 6px;
-    padding: 2px ;
+    padding: 2px;
     border-radius: 6px;
     width: 130px;
 
@@ -179,17 +172,13 @@ const HeaderButton = styled('button')`
     @media (min-width: 600px) and (max-width: 899px) {
         width: 80px;
     }
-
- 
-    
 `;
 
 const ButtonText = styled('span')`
-   
     ${font2};
     font-size: ${fontSize15};
     line-height: ${lineHeight29};
-    color: #C4C4C4;
+    color: #c4c4c4;
     white-space: pre-wrap;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
@@ -212,14 +201,12 @@ const ButtonText = styled('span')`
     }
 `;
 
-
-const PageHeader = () =>{
-    return(
+const PageHeader = () => {
+    return (
         <BG>
             <TopSectionContainer container sm={12} xs={12} md={12} lg={12}>
                 <LeftContainer item xs={10} sm={12} md={7} lg={7}>
                     <TextContainer container item spacing={2}>
-                        
                         <Grid item>
                             <Sub>{'Integration'}</Sub>
                         </Grid>
@@ -231,43 +218,41 @@ const PageHeader = () =>{
                             </Desc>
                         </Grid>
                     </TextContainer>
-                    
                 </LeftContainer>
                 <RightContainer container item xs={12} sm={12} md={5} lg={5}>
                     <TextContainer container item spacing={2}>
                         <Grid item>
-                            <FormControl sx={{ width: '100%'}}>
-                                <OutlinedInput sx={{ color: 'grey' , background:'white', fontSize:'18px', fontFamily:{font2}, borderRadius:'12px',   }} placeholder="Enter what you are searching for...." >
-                                <SearchSharpIcon />
+                            <FormControl sx={{ width: '100%' }}>
+                                <OutlinedInput
+                                    sx={{
+                                        color: 'grey',
+                                        background: 'white',
+                                        fontSize: '18px',
+                                        fontFamily: { font2 },
+                                        borderRadius: '12px'
+                                    }}
+                                    placeholder="Enter what you are searching for....">
+                                    <SearchSharpIcon />
                                 </OutlinedInput>
                             </FormControl>
                         </Grid>
                         <Grid item>
-                            <Desc>
-                                {'May we suggest'}
-                            </Desc>
+                            <Desc>{'May we suggest'}</Desc>
                             <HeaderButton>
-                                <ButtonText>
-                                    {'Build Tool'}
-                                </ButtonText>    
-                                
+                                <ButtonText>{'Build Tool'}</ButtonText>
                             </HeaderButton>
                             <HeaderButton>
-                                <ButtonText>
-                                    {'SCM'}
-                                </ButtonText>  
+                                <ButtonText>{'SCM'}</ButtonText>
                             </HeaderButton>
                             <HeaderButton>
-                                <ButtonText>
-                                    {'Testing'}
-                                </ButtonText>  
+                                <ButtonText>{'Testing'}</ButtonText>
                             </HeaderButton>
                         </Grid>
-                    </TextContainer>    
+                    </TextContainer>
                 </RightContainer>
             </TopSectionContainer>
         </BG>
-    )
-}
+    );
+};
 
 export default PageHeader;

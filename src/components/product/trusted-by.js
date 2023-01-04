@@ -117,7 +117,7 @@ const TrustedBy = () => {
                 <RightContainer item xs={12} sm={12} md={6} lg={6}>
                     <Grid container>
                         {data.map((i) => (
-                            <ImageGrid item md={3} lg={3}>
+                            <ImageGrid key={i} item md={3} lg={3}>
                                 <Img alt="" src={i} />
                             </ImageGrid>
                         ))}

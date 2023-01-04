@@ -354,7 +354,7 @@ export default function Customers() {
                                     <Grid item>
                                         <Grid container spacing={3}>
                                             {customerData.slice(1, 4).map((i) => (
-                                                <Grid id={i.id} item md={4}>
+                                                <Grid key={i.id} item md={4}>
                                                     <Card>
                                                         <Grid container spacing={3}>
                                                             <Grid item>

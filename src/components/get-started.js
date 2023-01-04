@@ -200,7 +200,7 @@ const GetStarted = () => {
                             <Sub>{'We Have Fastest in the Market that\nsupports developers.'}</Sub>
                         </SubGrid>
                         <Grid item>
-                            <ButtonGrid container spacing={2} flexDirection={'row'}>
+                            <ButtonGrid container spacing={2} direction={'row'}>
                                 <Grid item>
                                     <GetStartedButton variant="contained">
                                         <ButtonText>Get Started</ButtonText>

@@ -246,7 +246,7 @@ export default function Details() {
                     }
                 </Desc>
             </TextContainer>
-            <Container container sm={12} xs={12} md={12} lg={12}>
+            <Container container>
                 <LeftContainer item xs={10} sm={12} md={6} lg={6}>
                     <Grid item>
                         <Grid container spacing={2}>

@@ -167,7 +167,7 @@ const Feature = (props) => {
                     <ContentGrid container item>
                         {content &&
                             content.features.map((i) => (
-                                <Grid item display={'flex'} flexDirection={'row'}>
+                                <Grid key={i} item display={'flex'} flexDirection={'row'}>
                                     <ArrowRightIcon sx={{ fill: color4, margin: '10px 0px' }} />
                                     <Desc>{i}</Desc>
                                 </Grid>
@@ -175,10 +175,8 @@ const Feature = (props) => {
                     </ContentGrid>
                 </Grid>
             </Grid>
-            <RightContainer container xs={12} sm={12} md={6} lg={6}>
-                <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
-                    <img alt="" src={content?.img} loading="lazy" width="100%" height="auto" />
-                </Grid>
+            <RightContainer item xs={12} sm={12} md={6} lg={6}>
+                <img alt="" src={content?.img} loading="lazy" width="100%" height="auto" />
             </RightContainer>
         </Container>
     );

@@ -451,6 +451,7 @@ const plans = [
 
 const Enterprise = [
     {
+        id: 1,
         type: 'Enterprise',
         desc: 'Start POC',
         details: [
@@ -481,16 +482,13 @@ export default function Plan() {
             <MainContainer>
                 <PlansContainer container spacing={2}>
                     {plans.map((i) => (
-                        <Grid item md={4} sm={6} xs={12}>
+                        <Grid key={i.id} item md={4} sm={6} xs={12}>
                             <NavLink to="https://dashboard.razorops.com/users/sign_in">
-                                <CardContainer id={i.id}>
+                                <CardContainer>
                                     <CardContent>
-                                        <Grid container spacing={2} flexDirection={'column'}>
+                                        <Grid container spacing={2} direction={'column'}>
                                             <Grid item>
-                                                <Grid
-                                                    container
-                                                    spacing={2}
-                                                    flexDirection={'column'}>
+                                                <Grid container spacing={2} direction={'column'}>
                                                     <Grid item>
                                                         <Type>{i.type}</Type>
                                                     </Grid>
@@ -510,7 +508,7 @@ export default function Plan() {
                                             <Grid item>
                                                 <List sx={{ width: '100%' }}>
                                                     {i.details.map((i) => (
-                                                        <ListItem disableGutters>
+                                                        <ListItem key={i} disableGutters>
                                                             <CircleOutlinedIcon
                                                                 style={{
                                                                     color: '#000000',
@@ -545,52 +543,50 @@ export default function Plan() {
                     ))}
                 </PlansContainer>
                 <EnterpriseContainer>
-                    <Grid container justifyContent={'space-between'}>
-                        {Enterprise.map((i) => (
-                            <>
-                                <InfoGrid item xs={12} sm={12} md={4} lg={4}>
+                    {Enterprise.map((i) => (
+                        <Grid key={i.id} container justifyContent={'space-between'}>
+                            <InfoGrid item xs={12} sm={12} md={4} lg={4}>
+                                <Grid item>
                                     <Grid item>
-                                        <Grid item>
-                                            <Type>{i.type}</Type>
-                                        </Grid>
-                                        <Grid item>
-                                            <Monthly>{i.desc}</Monthly>
-                                        </Grid>
+                                        <Type>{i.type}</Type>
                                     </Grid>
                                     <Grid item>
-                                        <Grid item>
-                                            <Email>{'info@razorops.com'}</Email>
-                                        </Grid>
-                                        <Grid item>
-                                            <Text>{'Mail Us'}</Text>
-                                        </Grid>
+                                        <Monthly>{i.desc}</Monthly>
                                     </Grid>
-                                </InfoGrid>
-                                <FeaturesGrid item xs={12} sm={12} md={4} lg={4}>
-                                    <Grid container spacing={2}>
-                                        <List sx={{ width: '100%' }}>
-                                            {i.details.map((i) => (
-                                                <ListItem disableGutters>
-                                                    <CircleOutlinedIcon
-                                                        style={{
-                                                            color: '#000000',
-                                                            fontSize: '12px'
-                                                        }}
-                                                    />
-                                                    <Text style={{ paddingLeft: '10px' }}>{i}</Text>
-                                                </ListItem>
-                                            ))}
-                                        </List>
+                                </Grid>
+                                <Grid item>
+                                    <Grid item>
+                                        <Email>{'info@razorops.com'}</Email>
                                     </Grid>
-                                </FeaturesGrid>
-                                <ButtonGrid item xs={12} sm={12} md={3} lg={3}>
-                                    <TryItFree>
-                                        <ButtonText>Contact Us</ButtonText>
-                                    </TryItFree>
-                                </ButtonGrid>
-                            </>
-                        ))}
-                    </Grid>
+                                    <Grid item>
+                                        <Text>{'Mail Us'}</Text>
+                                    </Grid>
+                                </Grid>
+                            </InfoGrid>
+                            <FeaturesGrid item xs={12} sm={12} md={4} lg={4}>
+                                <Grid container spacing={2}>
+                                    <List sx={{ width: '100%' }}>
+                                        {i.details.map((i) => (
+                                            <ListItem key={i} disableGutters>
+                                                <CircleOutlinedIcon
+                                                    style={{
+                                                        color: '#000000',
+                                                        fontSize: '12px'
+                                                    }}
+                                                />
+                                                <Text style={{ paddingLeft: '10px' }}>{i}</Text>
+                                            </ListItem>
+                                        ))}
+                                    </List>
+                                </Grid>
+                            </FeaturesGrid>
+                            <ButtonGrid item xs={12} sm={12} md={3} lg={3}>
+                                <TryItFree>
+                                    <ButtonText>Contact Us</ButtonText>
+                                </TryItFree>
+                            </ButtonGrid>
+                        </Grid>
+                    ))}
                 </EnterpriseContainer>
             </MainContainer>
         </>

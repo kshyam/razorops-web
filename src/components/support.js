@@ -252,6 +252,7 @@ const SubGrid = styled(Grid)`
 
 const data = [
     {
+        id: 1,
         img: img1,
         text: '5/5',
         rating: 5,
@@ -259,6 +260,7 @@ const data = [
         desc: '-Martin Momumi, Cheif Devops'
     },
     {
+        id: 2,
         img: img2,
         text: '4.5/5',
         rating: 4.5,
@@ -266,6 +268,7 @@ const data = [
         desc: '-Martin Momumi, Cheif Devops'
     },
     {
+        id: 3,
         img: img3,
         text: '4/5',
         rating: 4,
@@ -273,6 +276,7 @@ const data = [
         desc: '-Martin Momumi, Cheif Devops'
     },
     {
+        id: 4,
         img: img4,
         text: '4/5',
         rating: 4,

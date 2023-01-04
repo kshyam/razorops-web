@@ -211,52 +211,56 @@ const About = () => {
     return (
         <BG>
             <TopSectionContainer container>
-                <LeftContainer item direction={'column'} xs={10} sm={10} md={6} lg={6}>
-                    <Grid item>
-                        <Razorops>Razorops</Razorops>
-                        <Desc>
-                            {
-                                ' is a blazing Fast CI/CD\nPlatform with powerful tools to\nbuild, test & automate the code\ndeployment.'
-                            }
-                        </Desc>
-                    </Grid>
-                    <SubContainer spacing={2} container style={{ marginTop: '20px' }}>
+                <LeftContainer item xs={10} sm={10} md={6} lg={6}>
+                    <Grid container direction={'column'}>
                         <Grid item>
-                            <SubText>{'Sign up with an account'}</SubText>
+                            <Razorops>Razorops</Razorops>
+                            <Desc>
+                                {
+                                    ' is a blazing Fast CI/CD\nPlatform with powerful tools to\nbuild, test & automate the code\ndeployment.'
+                                }
+                            </Desc>
                         </Grid>
-                        <ImgContainer item display={'flex'} flexDirection={'row'}>
-                            <ImageGrid item>
-                                <StaticImage
-                                    src="../assets/images/about/github.svg"
-                                    alt=""
-                                    width={40}
-                                    height={40}
-                                    placeholder="blurred"
-                                />
-                            </ImageGrid>
-                            <ImageGrid item>
-                                <StaticImage
-                                    src="../assets/images/about/gitlab.svg"
-                                    alt=""
-                                    width={40}
-                                    height={40}
-                                    placeholder="blurred"
-                                />
-                            </ImageGrid>
-                            <ImageGrid item>
-                                <StaticImage
-                                    src="../assets/images/about/bitbucket.svg"
-                                    alt=""
-                                    width={40}
-                                    height={40}
-                                    placeholder="blurred"
-                                />
-                            </ImageGrid>
-                        </ImgContainer>
-                    </SubContainer>
+                        <Grid item>
+                            <SubContainer spacing={2} container style={{ marginTop: '20px' }}>
+                                <Grid item>
+                                    <SubText>{'Sign up with an account'}</SubText>
+                                </Grid>
+                                <ImgContainer item display={'flex'} flexDirection={'row'}>
+                                    <ImageGrid item>
+                                        <StaticImage
+                                            src="../assets/images/about/github.svg"
+                                            alt=""
+                                            width={40}
+                                            height={40}
+                                            placeholder="blurred"
+                                        />
+                                    </ImageGrid>
+                                    <ImageGrid item>
+                                        <StaticImage
+                                            src="../assets/images/about/gitlab.svg"
+                                            alt=""
+                                            width={40}
+                                            height={40}
+                                            placeholder="blurred"
+                                        />
+                                    </ImageGrid>
+                                    <ImageGrid item>
+                                        <StaticImage
+                                            src="../assets/images/about/bitbucket.svg"
+                                            alt=""
+                                            width={40}
+                                            height={40}
+                                            placeholder="blurred"
+                                        />
+                                    </ImageGrid>
+                                </ImgContainer>
+                            </SubContainer>
+                        </Grid>
+                    </Grid>
                 </LeftContainer>
 
-                <RightContainer item direction={'column'} xs={10} sm={10} md={6} lg={6}>
+                <RightContainer item xs={10} sm={10} md={6} lg={6}>
                     <Grid style={{ display: 'flex', justifyContent: 'center' }} item>
                         <StaticImage
                             src="../assets/images/about/sideImg-2.svg"

@@ -93,7 +93,7 @@ const SignUp = () => {
         <BG>
             <Container container spacing={5}>
                 <Grid item md={6}>
-                    <Grid container spacing={2} flexDirection={'column'}>
+                    <Grid container spacing={2} direction={'column'}>
                         <Grid item>
                             <Text>{'Ready to get started?'}</Text>
                         </Grid>

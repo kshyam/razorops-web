@@ -85,48 +85,56 @@ const CardContainer = styled(Card)`
 
 const team = [
     {
+        id: 1,
         img: shyam,
         name: 'Shyam Mohan',
         desc: 'CEO',
         url: 'https://www.linkedin.com/in/shyam-mohan-k/'
     },
     {
+        id: 2,
         img: dinesh,
         name: 'Dinesh Yadav',
         desc: 'Co-Founder',
         url: 'https://www.linkedin.com/in/dineshsinghyadav/'
     },
     {
+        id: 3,
         img: vinay,
         name: 'Vinay Kumar',
         desc: 'Solutions Engineer',
         url: 'https://www.linkedin.com/in/vinay-kumar-iiith/'
     },
     {
+        id: 4,
         img: deepak,
         name: 'Deepak Vig',
         desc: 'Solutions Engineer',
         url: 'https://www.linkedin.com/in/deepakvig/'
     },
     {
+        id: 5,
         img: shyam,
         name: 'Shyam Mohan',
         desc: 'CEO',
         url: 'https://www.linkedin.com/in/shyam-mohan-k/'
     },
     {
+        id: 6,
         img: dinesh,
         name: 'Dinesh Yadav',
         desc: 'Co-Founder',
         url: 'https://www.linkedin.com/in/dineshsinghyadav/'
     },
     {
+        id: 7,
         img: vinay,
         name: 'Vinay Kumar',
         desc: 'Solutions Engineer',
         url: 'https://www.linkedin.com/in/vinay-kumar-iiith/'
     },
     {
+        id: 8,
         img: deepak,
         name: 'Deepak Vig',
         desc: 'Solutions Engineer',
@@ -145,7 +153,7 @@ export default function Team() {
             </Grid>
             <Grid style={{ padding: '40px 0px 0px 0px' }} container spacing={3}>
                 {team.map((i) => (
-                    <Grid item xs={6} sm={6} md={4} lg={3}>
+                    <Grid key={i.id} item xs={6} sm={6} md={4} lg={3}>
                         <CardContainer>
                             <CardMedia component="img" height="140" image={i.img} alt="" />
                             <CardContent>

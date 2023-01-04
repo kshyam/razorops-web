@@ -151,7 +151,7 @@ export default function FooterComponent({
                     </Grid>
 
                     {content?.map((i) => (
-                        <ContentGrid id={i.id} container spacing={2}>
+                        <ContentGrid key={i.id} container spacing={2}>
                             <Grid item>
                                 <Title>{i.title}</Title>
                             </Grid>

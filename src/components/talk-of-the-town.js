@@ -255,6 +255,7 @@ const Img = styled('img')`
 
 const data = [
     {
+        id: 1,
         name: 'Rakesh Arora',
         role: 'Product Manager',
         desc: 'Razorops is a blazing Fast CI CD Platform with powerful tools to build, test & automate the deployment. I loved the product.',
@@ -262,6 +263,7 @@ const data = [
         company: yesBank
     },
     {
+        id: 2,
         name: 'Rakesh Arora',
         role: 'Product Manager',
         desc: 'Razorops is a blazing Fast CI CD Platform with powerful tools to build, test & automate the deployment. I loved the product.',
@@ -285,27 +287,29 @@ const TalkOfTheTown = () => {
             <Sub>{'Nowadays,  the increasingly growing number of mobile '}</Sub>
             <Slider ref={slider} {...settings}>
                 {data?.map((i) => (
-                    <TopSectionContainer container>
-                        <LeftContainer item direction={'column'} xs={10} sm={10} md={6} lg={6}>
-                            <Grid item>
-                                <Desc style={{ fontSize: '60px', textAlign: 'left' }}>“</Desc>
-                                <Desc>{i.desc}</Desc>
-                            </Grid>
-                            <DetailsGrid item>
-                                <Grid item display={'flex'} flexDirection={'column'}>
-                                    <Name>{i.name}</Name>
-                                    <Role>{i.role}</Role>
-                                </Grid>
+                    <TopSectionContainer key={i.id} container>
+                        <LeftContainer item xs={10} sm={10} md={6} lg={6}>
+                            <Grid container direction={'column'}>
                                 <Grid item>
-                                    <img
-                                        alt=""
-                                        src={i.company}
-                                        loading="lazy"
-                                        width="100%"
-                                        height="auto"
-                                    />
+                                    <Desc style={{ fontSize: '60px', textAlign: 'left' }}>“</Desc>
+                                    <Desc>{i.desc}</Desc>
                                 </Grid>
-                            </DetailsGrid>
+                                <DetailsGrid item>
+                                    <Grid item display={'flex'} flexDirection={'column'}>
+                                        <Name>{i.name}</Name>
+                                        <Role>{i.role}</Role>
+                                    </Grid>
+                                    <Grid item>
+                                        <img
+                                            alt=""
+                                            src={i.company}
+                                            loading="lazy"
+                                            width="100%"
+                                            height="auto"
+                                        />
+                                    </Grid>
+                                </DetailsGrid>
+                            </Grid>
                         </LeftContainer>
 
                         <RightContainer item xs={10} sm={10} md={6} lg={6}>

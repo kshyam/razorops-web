@@ -218,7 +218,7 @@ export default function FrequentlyAskedQuestions({ desc }) {
             </TextContainer>
             <Container>
                 {content.map((i) => (
-                    <ContentContainer desc={desc} id={i.id}>
+                    <ContentContainer desc={desc} key={i.id}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                             <Label>{i.title}</Label>
                             <IconButton onClick={() => handleChange(i.id)}>

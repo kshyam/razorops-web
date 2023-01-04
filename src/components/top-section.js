@@ -196,7 +196,7 @@ const ButtonGrid = styled(Grid)`
 const TopSection = () => {
     return (
         <Bg>
-            <Container spacing={3} container flexDirection={'column'}>
+            <Container spacing={3} container direction={'column'}>
                 <Grid item>
                     <Heading>{'The Simplest Container\nNative CI/CD '}</Heading>
                     <HeadingMobileView>

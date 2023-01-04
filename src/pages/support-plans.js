@@ -74,18 +74,18 @@ const CardContainer = styled(Card)`
 
 const TopSection = styled(Grid)`
     padding: 30px;
-    background: ${(props) => props.bgColor};
+    background: ${(props) => props.bg};
 `;
 
 const SignUpButton = styled(Button)`
     padding: 20px;
-    background: ${(props) => props.bgColor};
+    background: ${(props) => props.bg};
     border-radius: 12px;
     text-transform: none;
     width: -webkit-fill-available;
 
     &:hover {
-        background: ${(props) => props.bgColor};
+        background: ${(props) => props.bg};
     }
 `;
 
@@ -186,15 +186,15 @@ export default function SupportPlans() {
                     <Grid item>
                         <Grid container justifyContent={'center'} spacing={3}>
                             {plans.map((i) => (
-                                <Grid item md={5} lg={4} sm={10} xs={12}>
+                                <Grid key={i.id} item md={5} lg={4} sm={10} xs={12}>
                                     <NavLink to="https://dashboard.razorops.com/users/sign_in">
                                         <CardContainer>
                                             <TopSection
-                                                bgColor={i.color}
+                                                bg={i.color}
                                                 container
                                                 spacing={2}
                                                 alignItems={'center'}
-                                                flexDirection={'column'}>
+                                                direction={'column'}>
                                                 <Grid item>
                                                     <Title>{i.type}</Title>
                                                 </Grid>
@@ -237,7 +237,7 @@ export default function SupportPlans() {
                                                     justifyContent: 'center',
                                                     padding: '20px'
                                                 }}>
-                                                <SignUpButton bgColor={i.color}>
+                                                <SignUpButton bg={i.color}>
                                                     <SignUpText>{i.buttonText}</SignUpText>
                                                 </SignUpButton>
                                             </CardActions>
