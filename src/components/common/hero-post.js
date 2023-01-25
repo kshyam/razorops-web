@@ -22,6 +22,7 @@ const Title = styled('span')`
     font-size: 28px;
     line-height: 37px;
     color: #ffffff;
+    text-transform: capitalize;
 
     &:hover {
         color: #000000;
@@ -86,11 +87,17 @@ const ReadMoreText = styled('span')`
 export default function HeroPost({ type, title, coverImage, date, description, author, slug }) {
     return (
         <Grid container>
-            <Grid item display={'flex'} alignItems={'center'} xs={12} sm={12} mg={6} lg={6}>
-                <CoverImage type={type} title={title} fluid={coverImage.large} slug={slug} />
+            <Grid item display={'flex'} alignItems={'center'} xs={12} sm={12} md={6} lg={6}>
+                <CoverImage
+                    type={type}
+                    imageType={'large'}
+                    title={title}
+                    fluid={coverImage.large}
+                    slug={slug}
+                />
             </Grid>
             <TextGrid item xs={12} sm={12} mg={6} lg={6}>
-                <Grid container spacing={2}>
+                <Grid container direction={'column'} spacing={2}>
                     <Grid item>
                         <Date whiteColor={true} dateString={date} />
                     </Grid>

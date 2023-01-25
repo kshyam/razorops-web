@@ -66,7 +66,13 @@ export default function PostPreview({ type, title, coverImage, date, description
     return (
         <Container>
             <div>
-                <CoverImage type={type} slug={slug} title={title} fluid={coverImage.small} />
+                <CoverImage
+                    type={type}
+                    imageType={'small'}
+                    slug={slug}
+                    title={title}
+                    fluid={coverImage.small}
+                />
                 <div className="m-4">
                     <Date dateString={date} />
                     <div className="mt-2">

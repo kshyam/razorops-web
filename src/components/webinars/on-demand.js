@@ -74,6 +74,7 @@ export default function OnDemand({ onDemandWebinars }) {
                         <div>
                             <CoverImage
                                 type={'webinars'}
+                                imageType={'small'}
                                 slug={i.slug}
                                 title={i.title}
                                 fluid={i.coverImage.small}

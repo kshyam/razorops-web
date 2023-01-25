@@ -134,9 +134,11 @@ export default function FooterComponent({
                 <Grid item md={5}>
                     <Heading>{heading}</Heading>
                 </Grid>
-                <Grid item display={'flex'} justifyContent={'flex-end'}>
-                    <img alt="" src={img} />
-                </Grid>
+                {img && (
+                    <Grid item display={'flex'} justifyContent={'flex-end'}>
+                        <img alt="" src={img} />
+                    </Grid>
+                )}
             </TopContainer>
             {contentContainer && (
                 <ContentContainer container>

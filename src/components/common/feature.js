@@ -147,6 +147,7 @@ const Number = styled('span')`
 `;
 
 const RightContainer = styled(Grid)`
+    position: relative;
     display: flex;
     justify-content: center;
 `;
@@ -176,6 +177,9 @@ const Feature = (props) => {
                 </Grid>
             </Grid>
             <RightContainer item xs={12} sm={12} md={6} lg={6}>
+                {content.number === '01' && (
+                    <Number style={{ position: 'absolute', top: '48%' }}>04:00</Number>
+                )}
                 <img alt="" src={content?.img} loading="lazy" width="100%" height="auto" />
             </RightContainer>
         </Container>

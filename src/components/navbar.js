@@ -311,6 +311,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                             />
                                         </NavButton>
                                         <Dropdown
+                                            showTopBar={showTopBar}
                                             open={openProduct}
                                             anchorEl={anchorElProduct}
                                             setAnchorEl={setAnchorElProduct}
@@ -387,6 +388,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                             <ExpandMoreIcon style={{ color: 'black' }} />
                                         </NavButton>
                                         <Dropdown
+                                            showTopBar={showTopBar}
                                             open={openCompany}
                                             anchorEl={anchorElCompany}
                                             setAnchorEl={setAnchorElCompany}
@@ -447,6 +449,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                             <ExpandMoreIcon style={{ color: 'black' }} />
                                         </NavButton>
                                         <Dropdown
+                                            showTopBar={showTopBar}
                                             open={openResources}
                                             anchorEl={anchorElResources}
                                             setAnchorEl={setAnchorElResources}
@@ -525,22 +528,17 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                     <Grid item>
                                         <NavButton
                                             style={{ display: 'flex', alignItems: 'center' }}
-                                            onClick={() =>
-                                                navigate('https://razorops.com/schedule-demo')
-                                            }>
+                                            onClick={() => navigate('/schedule-demo')}>
                                             <Text color={color1}>Talk to Sales</Text>
                                         </NavButton>
                                     </Grid>
                                     <Grid item>
-                                        <NavButton
-                                            style={{ display: 'flex', alignItems: 'center' }}
-                                            onClick={() =>
-                                                navigate(
-                                                    'https://dashboard.razorops.com/users/sign_in'
-                                                )
-                                            }>
-                                            <Text color={color1}>Login</Text>
-                                        </NavButton>
+                                        <NavLink to="https://dashboard.razorops.com/users/sign_in">
+                                            <NavButton
+                                                style={{ display: 'flex', alignItems: 'center' }}>
+                                                <Text color={color1}>Login</Text>
+                                            </NavButton>
+                                        </NavLink>
                                     </Grid>
                                 </Grid>
                             </NavSection>
@@ -628,7 +626,7 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                 </Collapse>
                             </DrawerItem>
                             <DrawerItem item>
-                                <NavLink to="https://razorops.com/schedule-demo">
+                                <NavLink to="/schedule-demo">
                                     <DemoButton variant="contained">
                                         <Demo>Schedule a demo</Demo>
                                     </DemoButton>

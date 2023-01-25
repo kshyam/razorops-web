@@ -202,12 +202,14 @@ const GetStarted = () => {
                         <Grid item>
                             <ButtonGrid container spacing={2} direction={'row'}>
                                 <Grid item>
-                                    <GetStartedButton variant="contained">
-                                        <ButtonText>Get Started</ButtonText>
-                                    </GetStartedButton>
+                                    <NavLink to="https://docs.razorops.com/getting_started/">
+                                        <GetStartedButton variant="contained">
+                                            <ButtonText>Get Started</ButtonText>
+                                        </GetStartedButton>
+                                    </NavLink>
                                 </Grid>
                                 <Grid item>
-                                    <NavLink to="https://razorops.com/schedule-demo">
+                                    <NavLink to="/schedule-demo">
                                         <GetStartedButton variant="contained">
                                             <ButtonText>Schedule a demo</ButtonText>
                                         </GetStartedButton>

@@ -3,11 +3,18 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import cn from 'classnames';
 import { Link } from 'gatsby';
 
-export default function CoverImage({ type, title, fluid, slug }) {
+export default function CoverImage({ type, imageType, title, fluid, slug }) {
+    const img = fluid;
+    const imgData = imageType === 'large' ? { ...img, height: 780 } : img;
+
     const image = (
         <GatsbyImage
-            style={{ display: 'block', borderRadius: '20px' }}
-            image={fluid}
+            style={{
+                display: 'block',
+                borderRadius: '20px'
+            }}
+            objectFit="fill"
+            image={imgData}
             alt={`Cover Image for ${title}`}
             className={cn('shadow-small', {
                 'hover:shadow-medium transition-shadow duration-200': slug

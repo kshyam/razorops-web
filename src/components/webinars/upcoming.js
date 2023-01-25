@@ -97,6 +97,7 @@ export default function Upcoming({ webinars }) {
             <Grid item display={'flex'} alignItems={'center'} xs={12} sm={12} mg={6} lg={6}>
                 <CoverImage
                     type={'webinars'}
+                    imageType={'large'}
                     title={webinars.title}
                     fluid={webinars.coverImage.large}
                     slug={webinars.slug}

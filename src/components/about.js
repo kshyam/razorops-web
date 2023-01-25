@@ -228,31 +228,37 @@ const About = () => {
                                 </Grid>
                                 <ImgContainer item display={'flex'} flexDirection={'row'}>
                                     <ImageGrid item>
-                                        <StaticImage
-                                            src="../assets/images/about/github.svg"
-                                            alt=""
-                                            width={40}
-                                            height={40}
-                                            placeholder="blurred"
-                                        />
+                                        <NavLink to="https://dashboard.razorops.com/users/sign_up">
+                                            <StaticImage
+                                                src="../assets/images/about/github.svg"
+                                                alt=""
+                                                width={40}
+                                                height={40}
+                                                placeholder="blurred"
+                                            />
+                                        </NavLink>
                                     </ImageGrid>
                                     <ImageGrid item>
-                                        <StaticImage
-                                            src="../assets/images/about/gitlab.svg"
-                                            alt=""
-                                            width={40}
-                                            height={40}
-                                            placeholder="blurred"
-                                        />
+                                        <NavLink to="https://dashboard.razorops.com/users/sign_up">
+                                            <StaticImage
+                                                src="../assets/images/about/gitlab.svg"
+                                                alt=""
+                                                width={40}
+                                                height={40}
+                                                placeholder="blurred"
+                                            />
+                                        </NavLink>
                                     </ImageGrid>
                                     <ImageGrid item>
-                                        <StaticImage
-                                            src="../assets/images/about/bitbucket.svg"
-                                            alt=""
-                                            width={40}
-                                            height={40}
-                                            placeholder="blurred"
-                                        />
+                                        <NavLink to="https://dashboard.razorops.com/users/sign_up">
+                                            <StaticImage
+                                                src="../assets/images/about/bitbucket.svg"
+                                                alt=""
+                                                width={40}
+                                                height={40}
+                                                placeholder="blurred"
+                                            />
+                                        </NavLink>
                                     </ImageGrid>
                                 </ImgContainer>
                             </SubContainer>
@@ -279,12 +285,12 @@ const About = () => {
                         flexDirection: 'column'
                     }}
                     item>
-                    <StaticImage
+                    {/* <StaticImage
                         src="../assets/images/about/bottomImg.svg"
                         alt=""
                         placeholder="blurred"
-                    />
-                    <NavLink to="https://razorops.com/schedule-demo">
+                    /> */}
+                    <NavLink to="/schedule-demo">
                         <DemoButton variant="outlined">
                             <DemoText>Schedule a demo</DemoText>
                         </DemoButton>

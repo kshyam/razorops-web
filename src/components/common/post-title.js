@@ -7,6 +7,7 @@ const Heading = styled('h1')`
     font-size: 28px;
     line-height: 40px;
     color: #002c9b;
+    text-transform: capitalize;
 `;
 export default function PostTitle({ children }) {
     return (

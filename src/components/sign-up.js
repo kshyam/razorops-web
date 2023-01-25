@@ -5,6 +5,7 @@ import { font7, fontSize18, lineHeight26 } from '../assets/globalStyles';
 
 import arrow from '../assets/images/sign-up/arrow.svg';
 import { Button } from '@mui/material';
+import { Link } from 'gatsby';
 
 const BG = styled('div')`
     position: relative;
@@ -88,6 +89,10 @@ const ArrowGrid = styled(Grid)`
         display: none;
     }
 `;
+
+const NavLink = styled(Link)`
+    text-decoration: none;
+`;
 const SignUp = () => {
     return (
         <BG>
@@ -106,9 +111,11 @@ const SignUp = () => {
                     <img src={arrow} alt="" />
                 </ArrowGrid>
                 <Grid item md={3}>
-                    <SignUpButton>
-                        <SignUpText>Sign up with Github</SignUpText>
-                    </SignUpButton>
+                    <NavLink to="https://dashboard.razorops.com/users/sign_up">
+                        <SignUpButton>
+                            <SignUpText>Sign up with Github</SignUpText>
+                        </SignUpButton>
+                    </NavLink>
                 </Grid>
             </Container>
         </BG>

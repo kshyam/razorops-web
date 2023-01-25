@@ -41,6 +41,7 @@ const Text = styled('span')`
     line-height: 27px;
     color: #002c9b;
     text-align: left;
+    text-transform: capitalize;
 `;
 
 const NavLink = styled(Link)`

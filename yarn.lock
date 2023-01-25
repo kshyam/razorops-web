@@ -5905,10 +5905,10 @@ gatsby-sharp@^0.18.0:
     "@types/sharp" "^0.30.5"
     sharp "^0.30.7"
 
-gatsby-source-datocms@^4.0.4:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/gatsby-source-datocms/-/gatsby-source-datocms-4.0.5.tgz#6d2600f4c17349de9e5f8b38d5c174676e358d7d"
-  integrity sha512-yY9u5fqma5nVM3yaAxPHt0fgLPL+C6G2r2VM2SUqv98J3Q6y3+JiHQSrIstjzS22zzHpBuPWuIDL1laXFcj7/w==
+gatsby-source-datocms@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-source-datocms/-/gatsby-source-datocms-5.0.4.tgz#740f054e47b687f07d0a5cf77f9df6000bfcbe21"
+  integrity sha512-L9mvoCPPmEbiDEvBZ3DeLZueASsGKpNtc12xq6Zf7i5g6/PNOGN9JK6MjkJS50WTAccdlxlZBxxedGtJNSN13g==
   dependencies:
     core-js "^3.2.1"
     datocms-client "^3.5.16"
@@ -9082,6 +9082,11 @@ rc@1.2.8, rc@^1.2.7, rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-calendly@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/react-calendly/-/react-calendly-4.1.1.tgz#25ac2ff3e062e4c6a0aefb83b851bebf66a94a1c"
+  integrity sha512-NEVYY3BXvDb11jmEh7ttMzXRKHSZA2POxNI64wh9sqXgcwvWzy/pfDGOxfM3UCgCvH1iXyPmdy+qntHDEprh4w==
 
 react-datocms@^4.0.3:
   version "4.0.3"

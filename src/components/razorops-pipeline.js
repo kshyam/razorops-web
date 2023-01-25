@@ -9,6 +9,7 @@ import line from '../assets/images/line.png';
 import verticalLine from '../assets/images/vertical-line.png';
 
 import { color1, font3, font6, fontSize18 } from '../assets/globalStyles';
+import { Link } from 'gatsby';
 
 const BG = styled('div')`
     position: relative;
@@ -175,6 +176,7 @@ const TitleText = styled('span')`
     line-height: 29px;
     color: ${color1};
     margin: 20px 0px 0px 0px;
+    background: #ffffff;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 18px;
@@ -286,6 +288,10 @@ const IconGrid = styled(Grid)`
     }
 `;
 
+const NavLink = styled(Link)`
+    text-decoration: none;
+`;
+
 const GridContainer = styled(Grid)`
     height: 400px;
 
@@ -389,8 +395,8 @@ export default function RazoropsPipeline() {
                             item>
                             <Grid container spacing={2}>
                                 <Line3 />
-                                <IconGrid item>
-                                    <Grid container spacing={2}>
+                                <Grid item>
+                                    <IconGrid container spacing={2}>
                                         <Grid item>
                                             <CheckCircleIcon
                                                 fontSize={'large'}
@@ -405,16 +411,18 @@ export default function RazoropsPipeline() {
                                         <Grid item>
                                             <TitleText>{i.text}</TitleText>
                                         </Grid>
-                                    </Grid>
-                                </IconGrid>
+                                    </IconGrid>
+                                </Grid>
                                 <Grid item>
                                     <SubText>{i.subText}</SubText>
                                 </Grid>
                                 {showButton === i.id && (
                                     <GetStartedGrid item>
-                                        <GetStarted>
-                                            <ButtonText>Get Started</ButtonText>
-                                        </GetStarted>
+                                        <NavLink to="https://docs.razorops.com/getting_started/">
+                                            <GetStarted>
+                                                <ButtonText>Get Started</ButtonText>
+                                            </GetStarted>
+                                        </NavLink>
                                     </GetStartedGrid>
                                 )}
                             </Grid>

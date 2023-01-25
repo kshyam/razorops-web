@@ -18,7 +18,12 @@ export default function PostHeader({ type, title, coverImage, date, author }) {
             </div>
             <div className="m-10">
                 <div className="mb-8 md:mb-16 -mx-5 sm:mx-0">
-                    <CoverImage type={type} title={title} fluid={coverImage?.gatsbyImageData} />
+                    <CoverImage
+                        type={type}
+                        imageType={'large'}
+                        title={title}
+                        fluid={coverImage?.gatsbyImageData}
+                    />
                 </div>
             </div>
         </div>

@@ -16,6 +16,8 @@ import banner from '../assets/images/bannerImg.png';
 import btnIcon from '../assets/images/btnIcon.svg';
 import { Button } from '@mui/material';
 import { Link } from 'gatsby';
+import Video from './common/video';
+import demoVideo from '../assets/videos/WHAT-IS-CICD-PIPELINE-CONTAINER-NATIVE-CICD-RAZOROPS-BEST-CICD-TOOL.mp4';
 
 const Bg = styled('div')`
     background-image: url(${banner});
@@ -194,8 +196,13 @@ const ButtonGrid = styled(Grid)`
 `;
 
 const TopSection = () => {
+    const [open, setOpen] = React.useState(false);
+    const handleClose = () => {
+        setOpen(!open);
+    };
     return (
         <Bg>
+            <Video src={demoVideo} open={open} handleClose={handleClose} />
             <Container spacing={3} container direction={'column'}>
                 <Grid item>
                     <Heading>{'The Simplest Container\nNative CI/CD '}</Heading>
@@ -226,7 +233,7 @@ const TopSection = () => {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <DemoButton variant="contained">
+                            <DemoButton variant="contained" onClick={() => setOpen(true)}>
                                 <img style={{ padding: '0px 12px' }} src={btnIcon} alt="" />
                                 <Demo>Watch a demo</Demo>
                             </DemoButton>

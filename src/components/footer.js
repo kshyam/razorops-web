@@ -210,7 +210,7 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <NavLink to="https://razorops.com/schedule-demo">
+                            <NavLink to="/schedule-demo">
                                 <Sub>Schedule Demo</Sub>
                             </NavLink>
                         </Grid>
@@ -242,13 +242,19 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Partners with us</Sub>
+                            <NavLink to="/partners">
+                                <Sub>Partners with us</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Refer and Earn</Sub>
+                            <NavLink to="/referral">
+                                <Sub>Refer and Earn</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>We are Hiring!</Sub>
+                            <NavLink to="/jobs">
+                                <Sub>We are Hiring!</Sub>
+                            </NavLink>
                         </Grid>
                     </Grid>
                 </GridSection>
@@ -266,7 +272,9 @@ export default function Footer() {
                             <Sub>Migrate From Jenkins To RazorOps</Sub>
                         </Grid>
                         <Grid item>
-                            <Sub>Case Studies</Sub>
+                            <NavLink to="/customers">
+                                <Sub>Case Studies</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <NavLink to="/webinars">
@@ -322,7 +330,9 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Community</Sub>
+                            <NavLink to="/community">
+                                <Sub>Community</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <NavLink to="/faq">
@@ -350,7 +360,9 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Status Page</Sub>
+                            <NavLink to="https://razorops.statuspage.io/">
+                                <Sub>Status Page</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid style={{ margin: '30px 0px' }} item>
                             <NavLink

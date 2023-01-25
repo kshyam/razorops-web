@@ -134,6 +134,7 @@ function Container({ heading, sub, desc, list, logos }) {
 }
 
 export default function Dropdown({
+    showTopBar,
     open,
     anchorEl,
     setAnchorEl,
@@ -159,8 +160,9 @@ export default function Dropdown({
                 onMouseLeave: handleClose,
                 style: {
                     left: '0px',
-                    top: '100px',
-                    minWidth: '-webkit-fill-available'
+                    top: showTopBar ? '130px' : '90px',
+                    minWidth: '-webkit-fill-available',
+                    borderRadius: '0px'
                 }
             }}
             elevation={1}
