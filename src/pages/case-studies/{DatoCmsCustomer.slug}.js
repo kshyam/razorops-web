@@ -317,29 +317,7 @@ export default function Customer({ data: { customer } }) {
                                 </Grid>
                                 <Grid item>
                                     <div className="prose prose-xl prose-blue">
-                                        <Quote>
-                                            <StructuredText
-                                                data={customer.clientInfo.quote}
-                                                renderBlock={({ record }) => {
-                                                    if (record.__typename === 'DatoCmsImageBlock') {
-                                                        return (
-                                                            <GatsbyImage
-                                                                style={{ display: 'block' }}
-                                                                image={record.image.gatsbyImageData}
-                                                            />
-                                                        );
-                                                    }
-                                                    return (
-                                                        <>
-                                                            <p>Don't know how to render a block!</p>
-                                                            <pre>
-                                                                {JSON.stringify(record, null, 2)}
-                                                            </pre>
-                                                        </>
-                                                    );
-                                                }}
-                                            />
-                                        </Quote>
+                                        <Quote>"{customer.clientInfo.quote}"</Quote>
                                     </div>
                                 </Grid>
                                 <Grid item>
@@ -403,9 +381,7 @@ export const query = graphql`
             clientInfo {
                 name
                 role
-                quote {
-                    value
-                }
+                quote
                 picture {
                     gatsbyImageData(
                         layout: FIXED

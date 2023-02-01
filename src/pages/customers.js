@@ -329,7 +329,7 @@ export default function Customers({ data: { allCustomers } }) {
                                     <Grid item md={6}>
                                         <Grid container spacing={3}>
                                             <Grid item>
-                                                <Title>{egnify[0].title}</Title>
+                                                <Title>{egnify[0].clientInfo.quote}</Title>
                                             </Grid>
                                             <Grid item>
                                                 <Sub>{egnify[0].description}</Sub>
@@ -400,6 +400,11 @@ export const query = graphql`
                 }
                 coverImage {
                     url
+                }
+                clientInfo {
+                    name
+                    role
+                    quote
                 }
             }
         }
