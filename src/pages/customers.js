@@ -200,7 +200,7 @@ const ExploreText = styled('span')`
 `;
 
 const Img = styled('img')`
-    height: 80px;
+    height: 100px;
     width: 150px;
 `;
 
