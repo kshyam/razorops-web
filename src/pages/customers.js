@@ -1,10 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import customers from '../assets/images/footer/customers/customers.svg';
 import img from '../assets/images/footer/customers/customerImg.webp';
-import egnify from '../assets/images/footer/customers/egnify.webp';
-import applozic from '../assets/images/product/trusted-by/applozic.svg';
-import edtech from '../assets/images/clients/edtech.png';
-import nimble from '../assets/images/clients/nimble.png';
 import FooterComponent from '../components/common/footer-component';
 import Footer from '../components/footer';
 import bgPattern from '../assets/images/footer/backgroundPattern.svg';
@@ -13,6 +9,7 @@ import { Button, Grid } from '@mui/material';
 import { font1, font3, font6, font7 } from '../assets/globalStyles';
 import TrustedBy from '../components/trusted-by';
 import TalkOfTheTown from '../components/talk-of-the-town';
+import { graphql, Link } from 'gatsby';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -137,6 +134,12 @@ const Sub = styled('span')`
     font-size: 18px;
     line-height: 29px;
     color: #5b5b5b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
 `;
 
 const Text = styled('span')`
@@ -218,34 +221,15 @@ const ReadText = styled('span')`
     color: #0069ff;
 `;
 
-const customerData = [
-    {
-        id: 1,
-        img: egnify,
-        title: 'We are very happy with Razorops CI/CD pipeline automation, we can now focus on our goal without worrying about trivial matters',
-        desc: 'Egnify is an Edu-tech company that aims to make education simpler and accessible to all. Egnify provides an online platform to learners and educators accessible from ...'
-    },
-    {
-        id: 2,
-        img: applozic,
-        title: 'Applozic uses Razorops to focus on fast delivery without any compromises',
-        desc: 'Applozic is a Real-Time Chat and Messaging API for Developers which makes communication easy from both the web...'
-    },
-    {
-        id: 3,
-        img: edtech,
-        title: 'CI/CD Case Study for EdTech Startup',
-        desc: 'EdTech Startup is an Enterprise Platform for Managing Education. It is building an Enterprise Platform for Institutions to adapt to the changing...'
-    },
-    {
-        id: 4,
-        img: nimble,
-        title: 'Razorops is the easiest CI/CD tool to set up',
-        desc: 'Nimble Buying is a cognitive B2B e-commerce platform with expertise in providing end-to-end sourcing and supply...'
-    }
-];
+export default function Customers({ data: { allCustomers } }) {
+    const caseStudiesRef = useRef();
+    const customerData = allCustomers.nodes.filter((i) => i.slug !== 'egnify');
+    const egnify = allCustomers.nodes.filter((i) => i.slug === 'egnify');
 
-export default function Customers() {
+    function handleClick() {
+        caseStudiesRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+
     return (
         <>
             <FooterComponent heading="Customers" img={customers} contentContainer={false} />
@@ -266,7 +250,7 @@ export default function Customers() {
                                 <CustomersText>
                                     {"1,500+\ncustomers.\nYou're in\nleading\ncompany."}
                                 </CustomersText>
-                                <ExploreButton>
+                                <ExploreButton onClick={handleClick}>
                                     <ExploreText>Explore Case Studies</ExploreText>
                                 </ExploreButton>
                             </Grid>
@@ -330,53 +314,61 @@ export default function Customers() {
                                 </Heading>
                             </Grid>
                             <Grid item>
-                                <Grid container spacing={5} alignItems={'center'}>
+                                <Grid
+                                    ref={caseStudiesRef}
+                                    container
+                                    spacing={5}
+                                    alignItems={'center'}>
                                     <Grid item md={6}>
                                         <CustomerImg
                                             alt=""
-                                            src={customerData[0].img}
+                                            src={egnify[0].coverImage.url}
                                             loading="lazy"
                                         />
                                     </Grid>
                                     <Grid item md={6}>
                                         <Grid container spacing={3}>
                                             <Grid item>
-                                                <Title>{customerData[0].title}</Title>
+                                                <Title>{egnify[0].title}</Title>
                                             </Grid>
                                             <Grid item>
-                                                <Sub>{customerData[0].desc}</Sub>
+                                                <Sub>{egnify[0].description}</Sub>
                                             </Grid>
                                             <Grid item>
-                                                <ReadText>Read case study</ReadText>
+                                                <Link to={`/case-studies/egnify`}>
+                                                    <ReadText>Read case study</ReadText>
+                                                </Link>
                                             </Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item>
                                         <Grid container spacing={3}>
-                                            {customerData.slice(1, 4).map((i) => (
-                                                <Grid key={i.id} item md={4}>
-                                                    <Card>
-                                                        <Grid container spacing={3}>
-                                                            <Grid item>
-                                                                <Img
-                                                                    src={i.img}
-                                                                    alt=""
-                                                                    loading="lazy"
-                                                                />
+                                            {customerData.map((i) => (
+                                                <Grid key={i.title} item md={4}>
+                                                    <Link to={`/case-studies/${i.slug}`}>
+                                                        <Card>
+                                                            <Grid container spacing={3}>
+                                                                <Grid item>
+                                                                    <Img
+                                                                        src={i.logo.url}
+                                                                        alt=""
+                                                                        loading="lazy"
+                                                                    />
+                                                                </Grid>
+                                                                <Grid item>
+                                                                    <Title>{i.title}</Title>
+                                                                </Grid>
+                                                                <Grid item>
+                                                                    <Sub>{i.description}</Sub>
+                                                                </Grid>
+                                                                <Grid item>
+                                                                    <ReadText>
+                                                                        Read full case study
+                                                                    </ReadText>
+                                                                </Grid>
                                                             </Grid>
-                                                            <Grid item>
-                                                                <Title>{i.title}</Title>
-                                                            </Grid>
-                                                            <Grid item>
-                                                                <Sub>{i.desc}</Sub>
-                                                            </Grid>
-                                                            <Grid item>
-                                                                <ReadText>
-                                                                    Read full case study
-                                                                </ReadText>
-                                                            </Grid>
-                                                        </Grid>
-                                                    </Card>
+                                                        </Card>
+                                                    </Link>
                                                 </Grid>
                                             ))}
                                         </Grid>
@@ -395,3 +387,21 @@ export default function Customers() {
         </>
     );
 }
+
+export const query = graphql`
+    {
+        allCustomers: allDatoCmsCustomer {
+            nodes {
+                title
+                slug
+                description
+                logo {
+                    url
+                }
+                coverImage {
+                    url
+                }
+            }
+        }
+    }
+`;
