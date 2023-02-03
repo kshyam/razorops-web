@@ -119,24 +119,6 @@ const SubscribeText = styled('span')`
     font-size: ${fontSize16};
     line-height: ${lineHeight27};
     color: #1681fe;
-
-    @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 5px;
-        font-size: 13px;
-        line-height: 27px;
-    }
-
-    @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 5px;
-        font-size: 13px;
-        line-height: 22px;
-    }
-
-    @media (max-width: 899px) {
-        padding: 5px;
-        font-size: 12px;
-        line-height: 22px;
-    }
 `;
 
 const SubscribeButton = styled(Button)`
@@ -360,11 +342,11 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <NavLink to="https://razorops.statuspage.io/">
+                            <NavLink to="https://razorops.statuspage.io/" target="_blank">
                                 <Sub>Status Page</Sub>
                             </NavLink>
                         </Grid>
-                        <Grid style={{ margin: '30px 0px' }} item>
+                        <Grid style={{ margin: '20px 0px' }} item>
                             <NavLink
                                 to="https://www.linkedin.com/newsletters/container-native-devops-cicd-6920671272087552000/"
                                 target="_blank">
@@ -373,7 +355,7 @@ export default function Footer() {
                                     variant="outlined"
                                     aria-label="menu">
                                     <img src={img} alt="" />
-                                    <SubscribeText>Subscribe our Newsletter</SubscribeText>
+                                    <SubscribeText>Subscribe</SubscribeText>
                                 </SubscribeButton>
                             </NavLink>
                         </Grid>

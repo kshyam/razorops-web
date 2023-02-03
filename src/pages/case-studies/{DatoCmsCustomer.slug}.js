@@ -18,7 +18,7 @@ const ContentContainer = styled(Grid)`
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 50px 50px 50px 50px;
+        padding: 80px 50px 80px 50px;
     }
 
     @media (min-width: 1535px) {
@@ -30,7 +30,7 @@ const ContentContainer = styled(Grid)`
     }
 
     @media (max-width: 600px) {
-        padding: 40px 40px 40px 40px;
+        padding: 60px 40px 60px 40px;
     }
 `;
 
@@ -167,22 +167,28 @@ const Quote = styled('span')`
     }
 `;
 
-const TechStackGrid = styled(Grid)`
+const TechStackGrid1 = styled(Grid)`
     display: flex;
     flex-direction: column;
 
     @media (max-width: 899px) {
-        padding: 100px 50px;
+        display: none;
+    }
+`;
+
+const TechStackGrid2 = styled(Grid)`
+    display: none;
+
+    @media (max-width: 899px) {
+        padding: 40px 0px 0px 0px;
+        display: flex;
+        flex-direction: row;
     }
 `;
 
 const GridItem = styled(Grid)`
     display: flex;
     align-items: center;
-
-    @media (max-width: 899px) {
-        justify-content: center;
-    }
 `;
 
 export default function Customer({ data: { customer } }) {
@@ -295,6 +301,27 @@ export default function Customer({ data: { customer } }) {
                                             allowfullscreen></iframe>
                                     </Grid>
                                 )}
+                                <Grid item>
+                                    <TechStackGrid2 container spacing={3}>
+                                        <GridItem xs={12} sm={12} item>
+                                            <Title style={{ color: color1, textAlign: 'left' }}>
+                                                Tech Stack
+                                            </Title>
+                                        </GridItem>
+                                        {customer.techStack.map((i) => (
+                                            <GridItem xs={6} sm={6} item>
+                                                <img
+                                                    style={{ width: '64px', height: '64px' }}
+                                                    src={i.picture.url}
+                                                    alt={''}
+                                                />
+                                                <Name style={{ padding: '0px 20px' }}>
+                                                    {i.name}
+                                                </Name>
+                                            </GridItem>
+                                        ))}
+                                    </TechStackGrid2>
+                                </Grid>
                             </Grid>
                         </Grid>
                         <Grid item>
@@ -335,7 +362,7 @@ export default function Customer({ data: { customer } }) {
                     </Grid>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3}>
-                    <TechStackGrid container spacing={3}>
+                    <TechStackGrid1 container spacing={3}>
                         <GridItem item>
                             <Title style={{ color: color1, textAlign: 'left' }}>Tech Stack</Title>
                         </GridItem>
@@ -349,7 +376,7 @@ export default function Customer({ data: { customer } }) {
                                 <Name style={{ padding: '0px 20px' }}>{i.name}</Name>
                             </GridItem>
                         ))}
-                    </TechStackGrid>
+                    </TechStackGrid1>
                 </Grid>
             </ContentContainer>
             <Footer />
