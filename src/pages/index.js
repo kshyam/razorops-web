@@ -24,7 +24,7 @@ export default function Index() {
             <RazoropsPipeline />
             <Support />
             <TalkOfTheTown />
-            <GetStarted />
+            <GetStarted bg={'#deecff'} />
             <SignUp />
             <Footer />
         </Container>

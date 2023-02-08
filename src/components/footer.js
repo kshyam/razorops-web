@@ -251,7 +251,9 @@ export default function Footer() {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <Sub>Migrate From Jenkins To RazorOps</Sub>
+                            <NavLink to="/jenkins-alternative">
+                                <Sub>Migrate From Jenkins To RazorOps</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <NavLink to="/customers">
@@ -291,7 +293,9 @@ export default function Footer() {
                             <Title>Compare</Title>
                         </Grid>
                         <Grid item>
-                            <Sub>Razorops vs Jenkins</Sub>
+                            <NavLink to="/jenkins-alternative">
+                                <Sub>Razorops vs Jenkins</Sub>
+                            </NavLink>
                         </Grid>
                         <Grid item>
                             <Sub>Razorops vs GitLab CI</Sub>
