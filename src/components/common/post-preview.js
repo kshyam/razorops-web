@@ -35,6 +35,12 @@ const Desc = styled('span')`
     font-size: 15px;
     line-height: 24px;
     color: #5b5b5b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
 
     @media (max-width: 1199px) {
         font-size: 14px;

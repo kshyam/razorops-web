@@ -17,6 +17,8 @@ import Upcoming from '../components/webinars/upcoming';
 import OnDemand from '../components/webinars/on-demand';
 
 const MainContainer = styled('div')`
+    position: relative;
+    overflow: hidden;
     background-image: url(${bg});
     background-repeat: no-repeat;
     background-size: cover;
@@ -88,7 +90,6 @@ const Sub = styled('span')`
     line-height: 29px;
     color: #ffffff;
     text-align: left;
-    white-space: pre-wrap;
 
     @media (min-width: 1535px) {
         white-space: pre-wrap;
@@ -97,12 +98,15 @@ const Sub = styled('span')`
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 16px;
         line-height: 27px;
+        white-space inherit: 
     }
 
     @media (min-width: 600px) and (max-width: 1199px) {
         padding: 10px 0px 0px 0px;
         font-size: 14px;
         line-height: 22px;
+        white-space inherit: 
+
     }
 
     @media (max-width: 599px) {
@@ -113,10 +117,9 @@ const Sub = styled('span')`
     }
 `;
 
-const TextContainer = styled('div')`
+const TextContainer = styled(Grid)`
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0px 0px 80px 0px;
 
     @media (max-width: 1199px) {
@@ -128,6 +131,8 @@ const TextContainer = styled('div')`
 `;
 
 const SearchGrid = styled(Grid)`
+    display: flex;
+    justify-content: flex-end;
     @media (max-width: 1199px) {
         padding: 20px;
     }
@@ -164,8 +169,8 @@ export default function Webinars({
         <Container>
             <HelmetDatoCms seo={webinar.seo} favicon={site.favicon} />
             <MainContainer>
-                <TextContainer>
-                    <Grid item display={'flex'} flexDirection={'column'}>
+                <TextContainer container>
+                    <Grid item xs={12} md={6} display={'flex'} flexDirection={'column'}>
                         <Title>{'Webinars'}</Title>
                         <Sub>
                             {
@@ -173,7 +178,7 @@ export default function Webinars({
                             }
                         </Sub>
                     </Grid>
-                    <SearchGrid item>
+                    <SearchGrid item xs={12} md={6}>
                         <SearchBar
                             label={'Search in Webinars'}
                             type={'webinars'}

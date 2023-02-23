@@ -3,19 +3,28 @@ import Avatar from './avatar';
 import Date from './date';
 import CoverImage from './cover-image';
 import PostTitle from './post-title';
+import styled from '@emotion/styled';
+
+const Div = styled('div')`
+    margin: 2.5rem;
+
+    @media (max-width: 1199px) {
+        margin: 2.5rem 0;
+    }
+`;
 
 export default function PostHeader({ type, title, coverImage, date, author }) {
     return (
         <div className="max-w-4xl mx-auto">
             <PostTitle>{title}</PostTitle>
-            <div className="m-10">
+            <Div>
                 <div>
                     <Date dateString={date} />
                 </div>
                 <div className="mt-2 mb-2">
                     <Avatar name={author?.name} role={author?.role} picture={author?.picture} />
                 </div>
-            </div>
+            </Div>
             <div className="m-10">
                 <div className="mb-8 md:mb-16 -mx-5 sm:mx-0">
                     <CoverImage

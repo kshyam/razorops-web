@@ -17,6 +17,8 @@ import { HelmetDatoCms } from 'gatsby-source-datocms';
 import HomeIcon from '@mui/icons-material/Home';
 
 const MainContainer = styled('div')`
+    position: relative;
+    overflow: hidden;
     background-image: url(${bg});
     background-repeat: no-repeat;
     background-size: cover;
@@ -126,10 +128,9 @@ const Sub = styled('span')`
     }
 `;
 
-const TextContainer = styled('div')`
+const TextContainer = styled(Grid)`
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 40px 0px 40px 0px;
 
     @media (max-width: 1199px) {
@@ -140,6 +141,9 @@ const TextContainer = styled('div')`
 `;
 
 const SearchGrid = styled(Grid)`
+    display: flex;
+    justify-content: flex-end;
+
     @media (max-width: 1199px) {
         padding: 20px;
     }
@@ -187,37 +191,34 @@ export default function NewsAndUpdates({
         <Container>
             {/* <HelmetDatoCms seo={newsAndUpdates.seo} favicon={site.favicon} /> */}
             <MainContainer>
-                <Grid item>
-                    <Grid container alignItems={'center'}>
-                        <Grid item>
-                            <NavLink to="/">
-                                <IconButton>
-                                    <HomeIcon style={{ color: '#ffffff' }} />
-                                </IconButton>
-                            </NavLink>
-                        </Grid>
-                        <Grid item>
-                            <Text>/ News and updates</Text>
-                        </Grid>
+                <Grid container alignItems={'center'}>
+                    <Grid item>
+                        <NavLink to="/">
+                            <IconButton>
+                                <HomeIcon style={{ color: '#ffffff' }} />
+                            </IconButton>
+                        </NavLink>
+                    </Grid>
+                    <Grid item>
+                        <Text>/ News and updates</Text>
                     </Grid>
                 </Grid>
-                <Grid item>
-                    <TextContainer>
-                        <Grid item display={'flex'} flexDirection={'column'}>
-                            <Title>{'News and Updates'}</Title>
-                            <Sub>{'Simplest Container Native CI/CD Platform'}</Sub>
-                        </Grid>
-                        <SearchGrid item>
-                            <SearchBar
-                                label={'Search in News and Updates'}
-                                type={'news-and-updates'}
-                                searchQuery={searchQuery}
-                                setSearchQuery={setSearchQuery}
-                                searchResults={searchQuery ? results : null}
-                            />
-                        </SearchGrid>
-                    </TextContainer>
-                </Grid>
+
+                <TextContainer container>
+                    <Grid xs={12} md={6} item display={'flex'} flexDirection={'column'}>
+                        <Title>{'News and Updates'}</Title>
+                        <Sub>{'Simplest Container Native CI/CD Platform'}</Sub>
+                    </Grid>
+                    <SearchGrid xs={12} md={6} item>
+                        <SearchBar
+                            label={'Search in News and Updates'}
+                            type={'news-and-updates'}
+                            searchQuery={searchQuery}
+                            setSearchQuery={setSearchQuery}
+                            searchResults={searchQuery ? results : null}
+                        />
+                    </SearchGrid>
+                </TextContainer>
                 {allPostsData.length > 0 && (
                     <HeroPost
                         type={'news-and-updates'}

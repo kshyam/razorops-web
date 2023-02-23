@@ -9,10 +9,18 @@ const Heading = styled('h1')`
     color: #002c9b;
     text-transform: capitalize;
 `;
+
+const Div = styled('div')`
+    margin: 2.5rem;
+
+    @media (max-width: 599px) {
+        margin: 0;
+    }
+`;
 export default function PostTitle({ children }) {
     return (
-        <div className="mt-10 m-10">
+        <Div className="mt-10">
             <Heading> {children}</Heading>
-        </div>
+        </Div>
     );
 }

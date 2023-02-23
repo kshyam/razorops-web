@@ -211,6 +211,10 @@ const TextGrid = styled(Grid)`
     padding: 40px 50px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 599px) {
+        padding: 20px 0px;
+    }
 `;
 
 const BottomTitle = styled('h1')`
@@ -225,6 +229,22 @@ const BottomText = styled('span')`
     font-size: 16px;
     line-height: 30px;
     color: #293241;
+`;
+
+const TextContainer = styled(Grid)`
+    margin: 0px 20px;
+    @media (max-width: 599px) {
+        margin: 0px;
+    }
+`;
+
+const ImgGrid = styled(Grid)`
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 599px) {
+        display: none;
+    }
 `;
 
 export default function Webinars({ data: { site, webinar, morePosts } }) {
@@ -323,16 +343,16 @@ export default function Webinars({ data: { site, webinar, morePosts } }) {
             {webinar?.typeOfWebinar === 'Upcoming' && (
                 <BottomContainer>
                     <BottomGrid container>
-                        <Grid item display={'flex'} alignItems={'center'} md={6} lg={6}>
+                        <ImgGrid item md={6} lg={6}>
                             <CoverImage
                                 type={'webinars'}
                                 title={webinar.title}
                                 fluid={webinar.coverImage?.gatsbyImageData}
                                 slug={webinar.slug}
                             />
-                        </Grid>
-                        <Grid item md={6} lg={6}>
-                            <Grid style={{ margin: '0px 20px' }} container spacing={3}>
+                        </ImgGrid>
+                        <Grid item xs={12} md={6} lg={6}>
+                            <TextContainer container spacing={3}>
                                 <Grid item>
                                     <BottomTitle>Who should attend this webinar</BottomTitle>
                                 </Grid>
@@ -361,7 +381,7 @@ export default function Webinars({ data: { site, webinar, morePosts } }) {
                                         </li>
                                     </ul>
                                 </Grid>
-                            </Grid>
+                            </TextContainer>
                         </Grid>
                     </BottomGrid>
                     <div className="mt-20">

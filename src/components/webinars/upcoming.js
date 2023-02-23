@@ -51,6 +51,10 @@ const TextGrid = styled(Grid)`
     padding: 20px 50px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 599px) {
+        padding: 20px 0px;
+    }
 `;
 
 const UpcomingContainer = styled('div')`

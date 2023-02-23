@@ -499,6 +499,11 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                                         url: '/blog'
                                                     },
                                                     {
+                                                        img: monorepos,
+                                                        text: 'Ebooks',
+                                                        url: '/ebooks'
+                                                    },
+                                                    {
                                                         img: report,
                                                         text: 'News and Updates',
                                                         url: '/news-and-updates'
@@ -609,6 +614,11 @@ export default function Navbar({ showTopBar, setShowTopBar }) {
                                         <DrawerItem item>
                                             <DrawerButton onClick={() => navigate('/newsletter')}>
                                                 <DrawerText>Newsletter</DrawerText>
+                                            </DrawerButton>
+                                        </DrawerItem>
+                                        <DrawerItem item>
+                                            <DrawerButton onClick={() => navigate('/ebooks')}>
+                                                <DrawerText>Ebooks</DrawerText>
                                             </DrawerButton>
                                         </DrawerItem>
                                         <DrawerItem item>

@@ -194,6 +194,43 @@ module.exports = {
             }
         },
         {
+            resolve: 'gatsby-plugin-local-search',
+            options: {
+                name: 'ebooks',
+                engine: 'flexsearch',
+                query: `
+                {
+                  allEbooks: allDatoCmsEbook(sort: {fields: date, order: DESC}, limit: 20) {
+                      nodes {
+                        title
+                        slug
+                        description
+                        date
+                        content {
+                          value
+                        }
+                        coverImage {
+                          large: gatsbyImageData(width: 1500)
+                          small: gatsbyImageData(width: 760)
+                        }
+                      }
+                    }
+                  }`,
+                ref: 'slug',
+                index: ['title', 'content', 'description', 'date', 'slug'],
+                store: ['title', 'content', 'description', 'date', 'slug', 'coverImage'],
+                normalizer: ({ data }) =>
+                    data.allEbooks.nodes.map((i) => ({
+                        title: i.title,
+                        date: i.date,
+                        slug: i.slug,
+                        content: i.content,
+                        coverImage: i.coverImage,
+                        description: i.description
+                    }))
+            }
+        },
+        {
             resolve: 'gatsby-plugin-manifest',
             options: {
                 icon: 'src/assets/images/razorops.png'

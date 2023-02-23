@@ -170,12 +170,12 @@ const Text = styled('span')`
     text-align: left;
 `;
 
-export default function Blog({
+export default function Ebooks({
     data: {
-        localSearchBlog: { index, store },
-        allBlogs,
+        localSearchEbooks: { index, store },
+        allEbooks,
         site,
-        blog
+        ebook
     }
 }) {
     const { search } = typeof window !== 'undefined' && window.location;
@@ -184,14 +184,14 @@ export default function Blog({
 
     const results = useFlexSearch(searchQuery, index, store);
 
-    const posts = allBlogs.nodes;
+    const posts = allEbooks.nodes;
     const allPostsData = posts.sort(function (a, b) {
         return new Date(b.date) - new Date(a.date);
     });
 
     return (
         <Container>
-            {/* <HelmetDatoCms seo={blog.seo} favicon={site.favicon} /> */}
+            <HelmetDatoCms seo={ebook.seo} favicon={site.favicon} />
             <MainContainer>
                 <Grid container alignItems={'center'}>
                     <Grid item>
@@ -202,18 +202,18 @@ export default function Blog({
                         </NavLink>
                     </Grid>
                     <Grid item>
-                        <Text>/ Blog</Text>
+                        <Text>/ Ebooks</Text>
                     </Grid>
                 </Grid>
                 <TextContainer container>
-                    <Grid item xs={12} md={6} display={'flex'} flexDirection={'column'}>
-                        <Title>{'Blog'}</Title>
+                    <Grid xs={12} md={6} item display={'flex'} flexDirection={'column'}>
+                        <Title>{'Ebooks'}</Title>
                         <Sub>{'Simplest Container Native CI/CD Platform'}</Sub>
                     </Grid>
-                    <SearchGrid item xs={12} md={6}>
+                    <SearchGrid xs={12} md={6} item>
                         <SearchBar
-                            label={'Search in Blog'}
-                            type="blog"
+                            label={'Search in Ebooks'}
+                            type="ebooks"
                             searchResults={searchQuery ? results : null}
                             searchQuery={searchQuery}
                             setSearchQuery={setSearchQuery}
@@ -222,11 +222,10 @@ export default function Blog({
                 </TextContainer>
                 {allPostsData.length > 0 && (
                     <HeroPost
-                        type={'blog'}
+                        type={'ebooks'}
                         title={allPostsData[0].title}
                         coverImage={allPostsData[0].coverImage}
                         date={allPostsData[0].date}
-                        author={allPostsData[0].author}
                         slug={allPostsData[0].slug}
                         description={allPostsData[0].description}
                     />
@@ -240,7 +239,7 @@ export default function Blog({
             </MainContainer>
             {allPostsData.length > 1 && (
                 <PostsContainer>
-                    <MoreStories type={'blog'} posts={allPostsData.slice(1)} />
+                    <MoreStories type={'ebooks'} posts={allPostsData.slice(1)} />
                 </PostsContainer>
             )}
             <GetStarted />
@@ -252,7 +251,7 @@ export default function Blog({
 
 export const query = graphql`
     {
-        localSearchBlog {
+        localSearchEbooks {
             index
             store
         }
@@ -261,12 +260,12 @@ export const query = graphql`
                 ...GatsbyDatoCmsFaviconMetaTags
             }
         }
-        blog: datoCmsBlog {
+        ebook: datoCmsEbook {
             seo: seoMetaTags {
                 ...GatsbyDatoCmsSeoMetaTags
             }
         }
-        allBlogs: allDatoCmsBlog(sort: { fields: date, order: DESC }, limit: 20) {
+        allEbooks: allDatoCmsEbook(sort: { fields: date, order: DESC }, limit: 20) {
             nodes {
                 title
                 slug
@@ -278,18 +277,6 @@ export const query = graphql`
                 coverImage {
                     large: gatsbyImageData(width: 1500)
                     small: gatsbyImageData(width: 760)
-                }
-                author {
-                    name
-                    role
-                    picture {
-                        gatsbyImageData(
-                            layout: FIXED
-                            width: 48
-                            height: 48
-                            imgixParams: { sat: -100 }
-                        )
-                    }
                 }
             }
         }

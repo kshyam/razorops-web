@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 export default function CoverImage({ type, imageType, title, fluid, slug }) {
     const img = fluid;
-    const imgData = imageType === 'large' ? { ...img, height: 780 } : img;
+    const imgData = imageType === 'large' ? { ...img, height: 780 } : { ...img, height: 440 };
 
     const image = (
         <GatsbyImage
