@@ -114,6 +114,10 @@ const TextGrid = styled(Grid)`
     padding: 40px 50px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 599px) {
+        padding: 40px 0px;
+    }
 `;
 
 const SubmitButton = styled(Button)`

@@ -101,8 +101,9 @@ const LeftContainer = styled(Grid)`
 const RightContainer = styled(Grid)`
     display: flex;
     justify-content: center;
+
     @media (max-width: 899px) {
-        margin: 10px;
+        margin: 50px 10px 10px 10px;
         text-align: left;
     }
 `;
@@ -117,11 +118,12 @@ const TopSectionContainer = styled(Grid)`
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        padding: 20px 40px 20px 20px;
+        padding: 0px 40px 0px 20px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        padding: 40px 40px 40px 20px;
+        padding: 40px 40px 0px 20px;
+        flex-direction: column-reverse;
     }
 
     @media (min-width: 1535px) {
@@ -190,7 +192,15 @@ const GetStarted = ({ bg }) => {
                     </Grid>
                 </LeftContainer>
                 <RightContainer item xs={10} sm={10} md={6} lg={6}>
-                    <Grid container spacing={4} direction={'column'} justifyContent={'center'}>
+                    <Grid
+                        container
+                        spacing={{
+                            xs: 2,
+                            sm: 2,
+                            lg: 4
+                        }}
+                        direction={'column'}
+                        justifyContent={'center'}>
                         <TitleGrid item>
                             <Title>{'Complete Onboarding &\nSetup in just 25 minutes.'}</Title>
                         </TitleGrid>

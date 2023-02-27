@@ -82,10 +82,38 @@ const TalkToUsButton = styled(Button)`
     }
 `;
 
+const ImgContainer = styled(Grid)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 599px) {
+        flex-direction: column;
+    }
+`;
+
 const Img = styled('img')`
     @media (max-width: 1199px) {
         width: 120px;
         height: 150px;
+    }
+
+    @media (max-width: 599px) {
+        width: 120px;
+        height: 100px;
+    }
+`;
+
+const Arrow = styled('img')`
+    @media (max-width: 1199px) {
+        width: 120px;
+        height: 150px;
+    }
+
+    @media (max-width: 599px) {
+        transform: rotate(90deg);
+        width: 120px;
+        height: 100px;
     }
 `;
 
@@ -119,21 +147,17 @@ const MigrateFromJenkins = () => {
                         justifyContent={'center'}
                         alignItems={'center'}>
                         <Grid item>
-                            <Grid
-                                container
-                                spacing={3}
-                                justifyContent={'center'}
-                                alignItems={'center'}>
+                            <ImgContainer container spacing={3}>
                                 <Grid item>
                                     <Img src={jenkins} alt="" />
                                 </Grid>
                                 <Grid item>
-                                    <Img src={arrow} alt="" />
+                                    <Arrow src={arrow} alt="" />
                                 </Grid>
                                 <Grid item>
                                     <Img src={razorops} alt="" />
                                 </Grid>
-                            </Grid>
+                            </ImgContainer>
                         </Grid>
                         <Grid item>
                             <NavLink to="/contact">

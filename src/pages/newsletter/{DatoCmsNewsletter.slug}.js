@@ -14,6 +14,8 @@ import SearchBar from '../../components/common/search';
 import { useFlexSearch } from 'react-use-flexsearch';
 
 const MainContainer = styled('div')`
+    position: relative;
+    overflow: hidden;
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 20px 80px 80px 80px;
     }
@@ -47,6 +49,15 @@ const Text = styled('span')`
 const NavLink = styled(Link)`
     text-decoration: none;
 `;
+
+const SearchGrid = styled(Grid)`
+    display: flex;
+    justify-content: flex-end;
+
+    @media (max-width: 1199px) {
+        padding: 20px;
+    }
+`;
 export default function Newsletter({
     data: {
         localSearchNewsletter: { index, store },
@@ -65,7 +76,7 @@ export default function Newsletter({
             <HelmetDatoCms seo={newsletter.seo} favicon={site.favicon} />
             <MainContainer>
                 <Grid container justifyContent={'space-between'}>
-                    <Grid item>
+                    <Grid item xs={12} md={8}>
                         <Grid container alignItems={'center'}>
                             <Grid item>
                                 <NavLink to="/">
@@ -82,7 +93,7 @@ export default function Newsletter({
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item>
+                    <SearchGrid item xs={12} md={4}>
                         <SearchBar
                             detailsPage={true}
                             label={'Search in Newsletter'}
@@ -91,7 +102,7 @@ export default function Newsletter({
                             searchQuery={searchQuery}
                             setSearchQuery={setSearchQuery}
                         />
-                    </Grid>
+                    </SearchGrid>
                 </Grid>
                 <PostHeader
                     type={'newsletter'}

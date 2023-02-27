@@ -96,7 +96,7 @@ const SubText = styled('div')`
     ${font1};
     font-size: ${fontSize20};
     line-height: 28px;
-    color: #9c9494;
+    color: #5b6987;
 
     @media (min-width: 1200px) and (max-width: 1535px) {
         font-size: 18px;
@@ -148,7 +148,7 @@ const Text = styled('span')`
 `;
 
 const Container = styled(Grid)`
-    padding: 32px;
+    padding: 50px;
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -166,7 +166,7 @@ const Container = styled(Grid)`
     }
 
     @media (max-width: 599px) {
-        padding: 0px;
+        padding: 30px;
     }
 `;
 
@@ -194,7 +194,7 @@ const TitleText = styled('span')`
     }
 
     @media (max-width: 599px) {
-        font-size: 20px;
+        font-size: 16px;
         line-height: 30px;
         margin: 0px 0px 0px 10px;
     }
@@ -202,8 +202,8 @@ const TitleText = styled('span')`
 
 const Line1 = styled('img')`
     position: absolute;
-    top: 130px;
-    left: 100px;
+    top: 80px;
+    left: 70px;
     width: 80%;
     height: 1px;
 
@@ -218,8 +218,8 @@ const Line1 = styled('img')`
 
 const Line2 = styled('img')`
     position: absolute;
-    top: 530px;
-    left: 100px;
+    top: 480px;
+    left: 70px;
     width: 80%;
     height: 1px;
 
@@ -238,9 +238,9 @@ const Line3 = styled('div')`
     @media (max-width: 599px) {
         display: flex;
         position: absolute;
-        top: 20px;
-        left: 20px;
-        height: 150px;
+        top: 30px;
+        left: 52px;
+        height: 200px;
         border-left: 1px dashed #345eef;
     }
 `;
@@ -249,7 +249,7 @@ const Path = styled('img')`
     position: absolute;
     height: 400px;
     right: -110px;
-    top: 130px;
+    top: 80px;
     @media (max-width: 899px) {
         display: none;
     }
@@ -262,7 +262,7 @@ const GetStartedGrid = styled(Grid)`
 `;
 
 const GetStarted = styled(Button)`
-    padding: 10px;
+    padding: 10px 40px;
     background: #345eef;
     border-radius: 15px;
     text-transform: capitalize;
@@ -297,7 +297,6 @@ const GridContainer = styled(Grid)`
 
     @media (max-width: 599px) {
         height: 100%;
-        padding: 20px 0px 0px 70px !important;
     }
 `;
 
@@ -306,32 +305,28 @@ const GetStartedButton = styled(Button)`
 
     @media (max-width: 599px) {
         display: flex;
-        width: 320px;
+        width: 100%;
         height: 50px;
         padding: 10px;
         margin: 30px 0px 0px 0px;
-        background: #345eef;
+        background: #0069ff;
         border-radius: 15px;
         text-transform: capitalize;
 
         &:hover {
-            background: #345eef;
+            background: #0069ff;
         }
     }
+`;
 
-    @media (max-width: 399px) {
-        display: flex;
-        width: 250px;
-        height: 50px;
-        padding: 10px;
-        margin: 30px 0px 0px 0px;
-        background: #345eef;
-        border-radius: 15px;
-        text-transform: capitalize;
+const Icon = styled(CheckCircleIcon)`
+    position: relative;
+    fill: ${(props) => props.iconColor};
+    background: #ffffff;
+    font-size: 60px;
 
-        &:hover {
-            background: #345eef;
-        }
+    @media (max-width: 599px) {
+        font-size: 43px;
     }
 `;
 
@@ -382,31 +377,33 @@ export default function RazoropsPipeline() {
             <Sub>
                 {'Nowadays, the increasingly growing number of mobile\nand computing devices'}
             </Sub>
-            <MainContainer container spacing={10}>
+            <MainContainer container>
                 <Line1 src={line} />
                 <Line2 src={line} />
                 <Path src={path} />
 
                 {data.map((i) => (
-                    <GridContainer key={i.id} item xs={10} sm={6} md={4} lg={4}>
+                    <GridContainer key={i.id} item xs={12} sm={6} md={4} lg={4}>
                         <Container
                             onMouseEnter={() => setShowButton(i.id)}
                             onMouseLeave={() => setShowButton(0)}
                             item>
-                            <Grid container spacing={2}>
+                            <Grid
+                                container
+                                spacing={{
+                                    xs: 2,
+                                    md: 3
+                                }}>
                                 <Line3 />
                                 <Grid item>
-                                    <IconGrid container spacing={2}>
+                                    <IconGrid
+                                        container
+                                        spacing={{
+                                            xs: 2,
+                                            md: 5
+                                        }}>
                                         <Grid item>
-                                            <CheckCircleIcon
-                                                fontSize={'large'}
-                                                sx={{
-                                                    position: 'relative',
-                                                    fill: i.iconColor,
-                                                    background: '#fff',
-                                                    fontSize: '40px'
-                                                }}
-                                            />
+                                            <Icon iconColor={i.iconColor} fontSize={'large'} />
                                         </Grid>
                                         <Grid item>
                                             <TitleText>{i.text}</TitleText>

@@ -3,6 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { StructuredText } from 'react-datocms';
 import styled from '@emotion/styled';
 import { font1 } from '../../assets/globalStyles';
+import { Grid } from '@mui/material';
 
 const Text = styled('span')`
     ${font1};
@@ -10,32 +11,41 @@ const Text = styled('span')`
     line-height: 28px;
     color: #191e27;
 `;
+
+const GridContainer = styled(Grid)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 export default function PostBody({ content }) {
     return (
-        <div className="flex justify-center m-10 max-w-4xl mx-auto">
-            <div className="prose prose-xl prose-blue">
-                <Text>
-                    <StructuredText
-                        data={content}
-                        renderBlock={({ record }) => {
-                            if (record.__typename === 'DatoCmsImageBlock') {
+        <GridContainer container>
+            <Grid item xs={12} md={6}>
+                <div className="prose prose-xl prose-blue break-words mx-auto">
+                    <Text>
+                        <StructuredText
+                            data={content}
+                            renderBlock={({ record }) => {
+                                if (record.__typename === 'DatoCmsImageBlock') {
+                                    return (
+                                        <GatsbyImage
+                                            style={{ display: 'block' }}
+                                            image={record.image.gatsbyImageData}
+                                        />
+                                    );
+                                }
                                 return (
-                                    <GatsbyImage
-                                        style={{ display: 'block' }}
-                                        image={record.image.gatsbyImageData}
-                                    />
+                                    <>
+                                        <p>Don't know how to render a block!</p>
+                                        <pre>{JSON.stringify(record, null, 2)}</pre>
+                                    </>
                                 );
-                            }
-                            return (
-                                <>
-                                    <p>Don't know how to render a block!</p>
-                                    <pre>{JSON.stringify(record, null, 2)}</pre>
-                                </>
-                            );
-                        }}
-                    />
-                </Text>
-            </div>
-        </div>
+                            }}
+                        />
+                    </Text>
+                </div>
+            </Grid>
+        </GridContainer>
     );
 }
