@@ -23,7 +23,7 @@ export default function Index() {
             <ToolIntegration />
             <RazoropsPipeline />
             <Support />
-            <TalkOfTheTown />
+            <TalkOfTheTown isHomeScreen={true} />
             <GetStarted bg={'#deecff'} />
             <SignUp />
             <Footer />

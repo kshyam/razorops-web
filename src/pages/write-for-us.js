@@ -1,16 +1,15 @@
 import React from 'react';
 import writeForUs from '../assets/images/footer/write-for-us.svg';
-import img from '../assets/images/footer/support-plans/support.svg';
 import FooterComponent from '../components/common/footer-component';
 import Footer from '../components/footer';
 import bgPattern from '../assets/images/footer/backgroundPattern.svg';
 import img1 from '../assets/images/footer/write-for-us/img1.svg';
 import img2 from '../assets/images/footer/write-for-us/img2.svg';
 import styled from '@emotion/styled';
-import { Button, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import { font6, font7 } from '../assets/globalStyles';
 import { WriteForUsContent } from '../components/common/constants';
-import { Link } from 'gatsby';
+import GetStarted from '../components/common/get-started';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -41,50 +40,6 @@ const GridContainer = styled(Grid)`
     }
 `;
 
-const GetStarted = styled('div')`
-    padding: 40px;
-    background: linear-gradient(180deg, #0069ff 0%, #002c9b 100%);
-    border-radius: 28px;
-`;
-
-const GetStartedTitle = styled('span')`
-    ${font6};
-    font-size: 28px;
-    line-height: 28px;
-    color: #f9fafe;
-`;
-
-const GetStartedSub = styled('span')`
-    ${font6};
-    font-size: 16px;
-    line-height: 28px;
-    color: #f9fafe;
-`;
-
-const ContactUsButton = styled(Button)`
-    background: #f9fafe;
-    border-radius: 14px;
-    padding: 20px;
-    text-transform: none;
-    width: -webkit-fill-available;
-
-    &:hover {
-        background: #f9fafe;
-    }
-`;
-
-const ContactUsText = styled('span')`
-    ${font6};
-    font-size: 20px;
-    line-height: 20px;
-    color: #0069ff;
-`;
-
-const Img = styled('img')`
-    width: 100px;
-    height: 100px;
-`;
-
 const Title = styled('span')`
     ${font7};
     font-size: 38px;
@@ -97,10 +52,6 @@ const Sub = styled('span')`
     font-size: 16px;
     line-height: 32px;
     color: #293241;
-`;
-
-const NavLink = styled(Link)`
-    text-decoration: none;
 `;
 
 export default function WriteForUs() {
@@ -206,34 +157,7 @@ export default function WriteForUs() {
                         </GridContainer>
                     </Grid>
                     <Grid item>
-                        <GetStarted>
-                            <Grid container spacing={5} alignItems={'center'}>
-                                <Grid item md={2} xl={1} display={'flex'} justifyContent={'center'}>
-                                    <Img alt="" src={img} />
-                                </Grid>
-                                <Grid item md={7} xl={8}>
-                                    <Grid container spacing={2}>
-                                        <Grid item>
-                                            <GetStartedTitle>Let's Get Started</GetStartedTitle>
-                                        </Grid>
-                                        <Grid item>
-                                            <GetStartedSub>
-                                                {
-                                                    'Razorops is a complete container native CI/CD solution handling all aspects of the software lifecycle from the moment a commit is created until it is deployed to production.'
-                                                }
-                                            </GetStartedSub>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                                <Grid item md={3} xl={3}>
-                                    <NavLink to="/contact">
-                                        <ContactUsButton>
-                                            <ContactUsText>Contact us</ContactUsText>
-                                        </ContactUsButton>
-                                    </NavLink>
-                                </Grid>
-                            </Grid>
-                        </GetStarted>
+                        <GetStarted />
                     </Grid>
                     <Grid item>
                         <GridContainer container spacing={5} justifyContent={'center'}>

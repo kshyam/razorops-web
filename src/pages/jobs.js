@@ -7,7 +7,7 @@ export default function Jobs() {
     return (
         <>
             <FooterComponent heading="Jobs" contentContainer={false} />
-            <TalkOfTheTown />
+            <TalkOfTheTown isHomeScreen={false} />
             <Footer />
         </>
     );

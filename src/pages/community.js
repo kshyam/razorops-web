@@ -213,7 +213,7 @@ export default function Community() {
                     </Grid>
                 </Grid>
             </ContentContainer>
-            <TalkOfTheTown />
+            <TalkOfTheTown isHomeScreen={false} />
             <Footer />
         </>
     );

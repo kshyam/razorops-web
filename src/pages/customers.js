@@ -382,7 +382,7 @@ export default function Customers({ data: { allCustomers } }) {
             <TrustedBy
                 heading={'Leading companies believe in Razorops to\nship quality code faster'}
             />
-            <TalkOfTheTown />
+            <TalkOfTheTown isHomeScreen={false} />
             <Footer />
         </>
     );

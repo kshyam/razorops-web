@@ -36,7 +36,6 @@ const Heading = styled('div')`
     @media (min-width: 900px) and (max-width: 1199px) {
         font-size: 34px;
         line-height: 53px;
-        padding: 20px;
     }
 
     @media (min-width: 1535px) {
@@ -47,13 +46,23 @@ const Heading = styled('div')`
     @media (min-width: 600px) and (max-width: 899px) {
         font-size: 40px;
         line-height: 77px;
-        padding: 20px;
     }
 
     @media (max-width: 600px) {
         font-size: 32px;
         line-height: 48px;
-        padding: 20px 0px;
+    }
+`;
+
+const Sub = styled('span')`
+    ${font6};
+    font-size: 24px;
+    line-height: 28px;
+    color: #f9fafe;
+
+    @media (max-width: 600px) {
+        font-size: 18px;
+        line-height: 35px;
     }
 `;
 
@@ -117,8 +126,18 @@ const ContentGrid = styled(Grid)`
     z-index: 1;
 `;
 
+const TextGrid = styled(Grid)`
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 1199px) {
+        justify-content: center;
+    }
+`;
+
 export default function FooterComponent({
     heading,
+    sub,
     img,
     contentContainer,
     text,
@@ -130,9 +149,18 @@ export default function FooterComponent({
     return (
         <>
             <Navbar showTopBar={showTopBar} setShowTopBar={setShowTopBar} />
-            <TopContainer container>
+            <TopContainer container spacing={3}>
                 <Grid item md={5}>
-                    <Heading>{heading}</Heading>
+                    <TextGrid container spacing={2}>
+                        <Grid item>
+                            <Heading>{heading}</Heading>
+                        </Grid>
+                        {sub && (
+                            <Grid item>
+                                <Sub>{sub}</Sub>
+                            </Grid>
+                        )}
+                    </TextGrid>
                 </Grid>
                 {img && (
                     <Grid item display={'flex'} justifyContent={'flex-end'}>

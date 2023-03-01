@@ -46,6 +46,19 @@ const Bg = styled('div')`
     }
 `;
 
+const Heading = styled('h1')`
+    ${font3};
+    font-size: 38px;
+    line-height: 48px;
+    text-align: center;
+    color: #031b4e;
+
+    @media (max-width: 600px) {
+        font-size: 28px;
+        line-height: 30px;
+    }
+`;
+
 const Title = styled('div')`
     ${font3};
     font-size: 60px;
@@ -272,7 +285,7 @@ const data = [
     }
 ];
 
-const TalkOfTheTown = () => {
+const TalkOfTheTown = ({ isHomeScreen }) => {
     const slider = React.useRef(null);
 
     const settings = {
@@ -283,7 +296,7 @@ const TalkOfTheTown = () => {
     };
     return (
         <Bg>
-            <Title>Talk of the town</Title>
+            {isHomeScreen ? <Title>Talk of the town</Title> : <Heading>Talk of the town</Heading>}
             <Sub>{'Nowadays,  the increasingly growing number of mobile '}</Sub>
             <Slider ref={slider} {...settings}>
                 {data?.map((i) => (
