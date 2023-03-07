@@ -11,6 +11,7 @@ import styled from '@emotion/styled';
 import { Button, Grid } from '@mui/material';
 import { font1, font6, font7 } from '../assets/globalStyles';
 import { Link } from 'gatsby';
+import GetStarted from '../components/get-started';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -164,14 +165,14 @@ export default function OpenSource() {
                     <Grid item md={12} display={'flex'} justifyContent={'center'}>
                         <Sub>
                             {
-                                'We too ❤️ the open source community.You can build\nyour public or private projects for Free.'
+                                'We too ❤️ the open source community. You can build\nyour public or private projects for Free.'
                             }
                         </Sub>
                     </Grid>
                     <Grid item md={12}>
                         <Grid container spacing={2} justifyContent={'center'}>
                             <Grid item>
-                                <NavLink to="https://razorops.com/schedule-demo">
+                                <NavLink to="/schedule-demo">
                                     <ScheduleButton>
                                         <ScheduleText>Schedule a demo</ScheduleText>
                                     </ScheduleButton>
@@ -258,7 +259,7 @@ export default function OpenSource() {
                     </Grid>
                 </Grid>
             </ContentContainer>
-
+            <GetStarted />
             <Footer />
         </>
     );

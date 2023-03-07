@@ -6,20 +6,21 @@ import TalkOfTheTown from '../components/talk-of-the-town';
 import bgPattern from '../assets/images/footer/backgroundPattern.svg';
 import communityLogo from '../assets/images/footer/community/community.svg';
 
-import facebook from '../assets/images/footer/community/facebook.svg';
-import telegram from '../assets/images/footer/community/telegram.svg';
-import linkedin from '../assets/images/footer/community/linkedin.svg';
-import instagram from '../assets/images/footer/community/instagram.svg';
-import twitter from '../assets/images/footer/community/twitter.svg';
-import github from '../assets/images/footer/community/github.svg';
-import youtube from '../assets/images/footer/community/youtube.svg';
-import discord from '../assets/images/footer/community/discord.svg';
-import whatsapp from '../assets/images/footer/community/whatsapp.svg';
+import facebook from '../assets/images/footer/community/facebook.png';
+import telegram from '../assets/images/footer/community/telegram.png';
+import linkedin from '../assets/images/footer/community/linkedin.png';
+import instagram from '../assets/images/footer/community/instagram.png';
+import twitter from '../assets/images/footer/community/twitter.png';
+import github from '../assets/images/footer/community/github.png';
+import youtube from '../assets/images/footer/community/youtube.png';
+import discord from '../assets/images/footer/community/discord.png';
+import whatsapp from '../assets/images/footer/community/whatsapp.png';
 import quora from '../assets/images/footer/community/quora.png';
-import reddit from '../assets/images/footer/community/reddit.png';
+
 import styled from '@emotion/styled';
 import { Grid } from '@mui/material';
 import { Link } from 'gatsby';
+import GetStarted from '../components/get-started';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -128,7 +129,11 @@ const Card = styled('div')`
     }
 
     &:hover #name {
-        color: #f9fafe;
+        color: #ffffff;
+    }
+
+    &:hover #image {
+        filter: brightness(0) invert(1);
     }
 `;
 
@@ -162,8 +167,7 @@ const data = [
         name: 'Whatsapp',
         link: 'https://chat.whatsapp.com/GHqlbyWGn778P88UwOovaQ'
     },
-    { id: 11, img: quora, name: 'Quora', link: 'https://razorops.quora.com/' },
-    { id: 12, img: reddit, name: 'Reddit', link: 'https://www.reddit.com/user/razoropscicd/' }
+    { id: 11, img: quora, name: 'Quora', link: 'https://razorops.quora.com/' }
 ];
 export default function Community() {
     return (
@@ -186,7 +190,7 @@ export default function Community() {
                             Join in our favourite communication channels :
                         </Desc>
                     </Grid>
-                    <Grid item md={10}>
+                    <Grid style={{ marginTop: '30px' }} item md={10}>
                         <Grid container spacing={5}>
                             {data.map((i) => (
                                 <Grid key={i.id} item xs={6} sm={6} md={4}>
@@ -199,7 +203,7 @@ export default function Community() {
                                                 justifyContent={'center'}
                                                 alignItems={'center'}>
                                                 <Grid item>
-                                                    <Image alt="" src={i.img} />
+                                                    <Image id="image" src={i.img} alt="" />
                                                 </Grid>
                                                 <Grid item>
                                                     <Name id="name">{i.name}</Name>
@@ -214,6 +218,7 @@ export default function Community() {
                 </Grid>
             </ContentContainer>
             <TalkOfTheTown isHomeScreen={false} />
+            <GetStarted />
             <Footer />
         </>
     );

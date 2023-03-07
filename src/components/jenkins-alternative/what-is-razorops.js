@@ -34,6 +34,16 @@ const Desc = styled('span')`
     }
 `;
 
+const Img = styled('img')`
+    width: 1000px;
+    height: 600px;
+
+    @media (max-width: 899px) {
+        width: 600px;
+        height: 300px;
+    }
+`;
+
 export default function WhatIsRazorops() {
     const [open, setOpen] = React.useState(false);
     const handleClose = () => {
@@ -58,8 +68,10 @@ export default function WhatIsRazorops() {
                         }
                     </Desc>
                 </Grid>
+                <Grid item>
+                    <Img src={img} alt="" onClick={() => setOpen(true)} />
+                </Grid>
             </Grid>
-            <img src={img} alt="" onClick={() => setOpen(true)} />
         </MainContainer>
     );
 }

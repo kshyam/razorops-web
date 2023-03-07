@@ -7,6 +7,7 @@ import styled from '@emotion/styled';
 import TalkOfTheTown from '../components/talk-of-the-town';
 import TrustedBy from '../components/trusted-by';
 import FrequentlyAskedQuestions from '../components/common/frequently-asked-questions';
+import GetStarted from '../components/get-started';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -83,6 +84,7 @@ export default function FAQ() {
                 heading={'Trusted by the growing engineering teams to\nbuild quality products'}
             />
             <TalkOfTheTown isHomeScreen={false} />
+            <GetStarted />
             <Footer />
         </>
     );

@@ -8,6 +8,7 @@ import { color1, color2, font1, font2, font3, font5 } from '../../assets/globalS
 import bg from '../../assets/images/bg.png';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { StructuredText } from 'react-datocms';
+import GetStarted from '../../components/get-started';
 
 const ContentContainer = styled(Grid)`
     display: flex;
@@ -379,6 +380,7 @@ export default function Customer({ data: { customer } }) {
                     </TechStackGrid1>
                 </Grid>
             </ContentContainer>
+            <GetStarted />
             <Footer />
         </Container>
     );

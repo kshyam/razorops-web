@@ -24,7 +24,7 @@ export default function Index() {
             <RazoropsPipeline />
             <Support />
             <TalkOfTheTown isHomeScreen={true} />
-            <GetStarted bg={'#deecff'} />
+            <GetStarted />
             <SignUp />
             <Footer />
         </Container>

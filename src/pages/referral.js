@@ -14,6 +14,7 @@ import FrequentlyAskedQuestions from '../components/common/frequently-asked-ques
 import TrustedBy from '../components/trusted-by';
 import { Link } from 'gatsby';
 import TalkOfTheTown from '../components/talk-of-the-town';
+import GetStarted from '../components/get-started';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -47,7 +48,7 @@ const ContentContainer = styled('div')`
 const TopContainer = styled(Grid)`
     display: flex;
     justify-content: center;
-    padding: 50px 0px 0px 0px;
+    padding: 60px 0px 40px 0px;
 
     @media (max-width: 600px) {
         padding: 20px 0px 0px 0px;
@@ -75,8 +76,13 @@ const Sub = styled('span')`
 const Points = styled('span')`
     ${font1};
     font-size: 16px;
-    line-height: 50px;
+    line-height: 25px;
     color: #5b6987;
+
+    @media (max-width: 1199px) {
+        font-size: 14px;
+        line-height: 24px;
+    }
 `;
 
 const Heading = styled('h1')`
@@ -113,6 +119,11 @@ const CardTitle = styled('span')`
     font-size: 20px;
     line-height: 20px;
     color: #002c9b;
+
+    @media (max-width: 1199px) {
+        font-size: 18px;
+        line-height: 27px;
+    }
 `;
 
 const CardSub = styled('span')`
@@ -120,6 +131,11 @@ const CardSub = styled('span')`
     font-size: 16px;
     line-height: 24px;
     color: #5b6987;
+
+    @media (max-width: 1199px) {
+        font-size: 15px;
+        line-height: 22px;
+    }
 `;
 
 const Img = styled('img')`
@@ -187,7 +203,7 @@ export default function Referral() {
                 <Grid style={{ zIndex: 1 }} container spacing={10} justifyContent={'center'}>
                     <Grid item>
                         <TopContainer container spacing={3}>
-                            <Grid item md={6}>
+                            <Grid item md={12} lg={6}>
                                 <Grid container spacing={3} direction={'column'}>
                                     <Grid item>
                                         <Title>{'Refer, Earn & Repeat Program'}</Title>
@@ -211,7 +227,8 @@ export default function Referral() {
                                                     <ul>
                                                         <li
                                                             style={{
-                                                                listStyleType: 'disc'
+                                                                listStyleType: 'disc',
+                                                                padding: '5px 0px'
                                                             }}>
                                                             <Points>
                                                                 Earn a 10% referral commission on
@@ -221,7 +238,8 @@ export default function Referral() {
                                                         </li>
                                                         <li
                                                             style={{
-                                                                listStyleType: 'disc'
+                                                                listStyleType: 'disc',
+                                                                padding: '5px 0px'
                                                             }}>
                                                             <Points>
                                                                 Each New Subscriber joining through
@@ -232,7 +250,8 @@ export default function Referral() {
                                                         </li>
                                                         <li
                                                             style={{
-                                                                listStyleType: 'disc'
+                                                                listStyleType: 'disc',
+                                                                padding: '5px 0px'
                                                             }}>
                                                             <Points>
                                                                 Referral commission & Referral bonus
@@ -247,17 +266,13 @@ export default function Referral() {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item md={5}>
-                                <Grid container justifyContent={'center'}>
-                                    <Grid item>
-                                        <img src={referralImg} alt="" />
-                                    </Grid>
-                                </Grid>
+                            <Grid item md={8} lg={5}>
+                                <img src={referralImg} alt="" />
                             </Grid>
                         </TopContainer>
                     </Grid>
                     <Grid item>
-                        <Grid container spacing={3} justifyContent={'center'}>
+                        <Grid container spacing={8} justifyContent={'center'}>
                             <Grid item>
                                 <Grid
                                     container
@@ -282,12 +297,12 @@ export default function Referral() {
                                 <Grid container justifyContent={'center'} spacing={2}>
                                     <Grid item xs={10} sm={8} md={4}>
                                         <CardContainer>
-                                            <Grid container alignItems={'center'}>
-                                                <Grid item md={3}>
+                                            <Grid container spacing={3} alignItems={'center'}>
+                                                <Grid item md={12} lg={3}>
                                                     <Img src={share} alt="" />
                                                 </Grid>
-                                                <Grid item md={9}>
-                                                    <Grid container spacing={2}>
+                                                <Grid item md={12} lg={9}>
+                                                    <Grid container spacing={1}>
                                                         <Grid item>
                                                             <CardTitle>
                                                                 Share Referral Link
@@ -307,12 +322,12 @@ export default function Referral() {
                                     </Grid>
                                     <Grid item xs={10} sm={8} md={4}>
                                         <CardContainer>
-                                            <Grid container alignItems={'center'}>
-                                                <Grid item md={3}>
+                                            <Grid container spacing={3} alignItems={'center'}>
+                                                <Grid item md={12} lg={3}>
                                                     <Img src={signup} alt="" />
                                                 </Grid>
-                                                <Grid item md={9}>
-                                                    <Grid container spacing={2}>
+                                                <Grid item md={12} lg={9}>
+                                                    <Grid container spacing={1}>
                                                         <Grid item>
                                                             <CardTitle>New Signs Up</CardTitle>
                                                         </Grid>
@@ -330,12 +345,12 @@ export default function Referral() {
                                     </Grid>
                                     <Grid item xs={10} sm={8} md={4}>
                                         <CardContainer>
-                                            <Grid container alignItems={'center'}>
-                                                <Grid item md={3}>
+                                            <Grid container spacing={3} alignItems={'center'}>
+                                                <Grid item md={12} lg={3}>
                                                     <Img src={earn} alt="" />
                                                 </Grid>
-                                                <Grid item md={9}>
-                                                    <Grid container spacing={2}>
+                                                <Grid item md={12} lg={9}>
+                                                    <Grid container spacing={1}>
                                                         <Grid item>
                                                             <CardTitle>Earn</CardTitle>
                                                         </Grid>
@@ -353,13 +368,13 @@ export default function Referral() {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item>
-                                <NavLink to="https://dashboard.razorops.com/users/sign_up">
-                                    <GetStartedButton>
-                                        <GetStartedText>Get Started</GetStartedText>
-                                    </GetStartedButton>
-                                </NavLink>
-                            </Grid>
+                            <NavLink
+                                style={{ paddingTop: '30px' }}
+                                to="https://dashboard.razorops.com/users/sign_up">
+                                <GetStartedButton>
+                                    <GetStartedText>Get Started</GetStartedText>
+                                </GetStartedButton>
+                            </NavLink>
                         </Grid>
                     </Grid>
                     <Grid item md={10}>
@@ -371,6 +386,7 @@ export default function Referral() {
                 heading={'Trusted by the growing engineering teams to\nbuild quality products'}
             />
             <TalkOfTheTown isHomeScreen={false} />
+            <GetStarted />
             <Footer />
         </>
     );

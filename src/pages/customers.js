@@ -10,6 +10,7 @@ import { font1, font3, font6, font7 } from '../assets/globalStyles';
 import TrustedBy from '../components/trusted-by';
 import TalkOfTheTown from '../components/talk-of-the-town';
 import { graphql, Link } from 'gatsby';
+import GetStarted from '../components/get-started';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -344,7 +345,7 @@ export default function Customers({ data: { allCustomers } }) {
                                     <Grid item>
                                         <Grid container spacing={3}>
                                             {customerData.map((i) => (
-                                                <Grid key={i.title} item md={4}>
+                                                <Grid key={i.title} item md={6} lg={4}>
                                                     <Link to={`/case-studies/${i.slug}`}>
                                                         <Card>
                                                             <Grid container spacing={3}>
@@ -383,6 +384,7 @@ export default function Customers({ data: { allCustomers } }) {
                 heading={'Leading companies believe in Razorops to\nship quality code faster'}
             />
             <TalkOfTheTown isHomeScreen={false} />
+            <GetStarted />
             <Footer />
         </>
     );

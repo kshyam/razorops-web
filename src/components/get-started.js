@@ -11,7 +11,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 const BG = styled('div')`
     position: relative;
     overflow: hidden;
-    background: ${(props) => props.bg};
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #deecff;
 `;
 
 const Title = styled('span')`
@@ -178,9 +178,9 @@ const NavLink = styled(Link)`
     text-decoration: none;
 `;
 
-const GetStarted = ({ bg }) => {
+const GetStarted = () => {
     return (
-        <BG bg={bg}>
+        <BG>
             <TopSectionContainer container>
                 <LeftContainer item xs={12} sm={12} md={5} lg={5}>
                     <Grid justifyContent={'center'} item>

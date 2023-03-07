@@ -154,9 +154,16 @@ export default function FrequentlyAskedQuestions({ content, desc }) {
             <Container>
                 {content.map((i) => (
                     <ContentContainer desc={desc} key={i.id}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center'
+                            }}>
                             <Label>{i.title}</Label>
-                            <IconButton onClick={() => handleChange(i.id)}>
+                            <IconButton
+                                style={{ height: '50px', width: '50px' }}
+                                onClick={() => handleChange(i.id)}>
                                 {value === i.id ? <ExpandMoreIcon /> : <ExpandLessIcon />}
                             </IconButton>
                         </Box>

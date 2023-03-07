@@ -115,26 +115,38 @@ const Img = styled('img')`
 const plans = [
     {
         id: 1,
-        type: 'Standard',
-        desc: 'Great for obtaining a fast response to urgent\nissues',
-        monthlyPrice: '$100/month',
-        slo: '2 hours',
+        type: 'Free',
+        desc: 'Great for small applications. Included in all plans.',
+        monthlyPrice: '$0/month',
+        responseTimes: '< 24 hours',
         supportChannels: 'Email',
-        supportAgents: 'Dedicated Agents',
+        supportAgents: 'Customer support staff providing general guidance.',
         technicalResources: 'none',
-        buttonText: 'Sign Up for Standard Support',
+        buttonText: 'Sign Up',
         color: '#1681fe'
     },
     {
         id: 2,
+        type: 'Standard',
+        desc: 'Great for obtaining a fast response to urgent\nissues',
+        monthlyPrice: '$100/month',
+        responseTimes: '< 2 hours',
+        supportChannels: 'Email',
+        supportAgents: 'Dedicated Agents',
+        technicalResources: 'none',
+        buttonText: 'Sign Up',
+        color: '#1681fe'
+    },
+    {
+        id: 3,
         type: 'Premium',
         desc: 'Great for getting near real-time help for scaling\nbusinesses.',
         monthlyPrice: '$1000/month',
-        slo: '30 minutes',
+        responseTimes: '30 minutes',
         supportChannels: 'Email + Hangouts',
         supportAgents: 'Dedicated Agents',
         technicalResources: 'Customer Success Manager + Technical Account Manager',
-        buttonText: 'Sign Up for Premium Support',
+        buttonText: 'Sign Up',
         color: '#0069FF'
     }
 ];
@@ -186,7 +198,7 @@ export default function SupportPlans() {
                     <Grid item>
                         <Grid container justifyContent={'center'} spacing={3}>
                             {plans.map((i) => (
-                                <Grid key={i.id} item md={5} lg={4} sm={10} xs={12}>
+                                <Grid key={i.id} item md={4} lg={4} sm={10} xs={12}>
                                     <NavLink to="https://dashboard.razorops.com/users/sign_in">
                                         <CardContainer>
                                             <TopSection
@@ -214,8 +226,8 @@ export default function SupportPlans() {
                                                         <Price>{i.monthlyPrice}</Price>
                                                     </ItemGrid>
                                                     <ItemGrid item>
-                                                        <Sub>SLO</Sub>
-                                                        <Desc>{i.slo}</Desc>
+                                                        <Sub>Response Times</Sub>
+                                                        <Desc>{i.responseTimes}</Desc>
                                                     </ItemGrid>
                                                     <ItemGrid item>
                                                         <Sub>Support Channels</Sub>

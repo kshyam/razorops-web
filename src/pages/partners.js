@@ -9,12 +9,11 @@ import presales from '../assets/images/footer/partners/presales.svg';
 import commission from '../assets/images/footer/partners/commission.svg';
 import styled from '@emotion/styled';
 import { font1, font3, font6 } from '../assets/globalStyles';
-import { Button, Grid, List, ListItem, CircularProgress } from '@mui/material';
-import GetStarted from '../components/common/get-started';
+import { Button, Grid, List, CircularProgress } from '@mui/material';
 import FrequentlyAskedQuestions from '../components/common/frequently-asked-questions';
-import TrustedBy from '../components/trusted-by';
 import HubspotForm from 'react-hubspot-form';
 import { Link } from 'gatsby';
+import PartnersComponent from '../components/common/partners-component';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -48,10 +47,10 @@ const ContentContainer = styled('div')`
 const TopContainer = styled(Grid)`
     display: flex;
     justify-content: center;
-    padding: 50px 0px 0px 0px;
+    padding: 60px 0px 30px 0px;
 
     @media (max-width: 600px) {
-        padding: 20px 0px 0px 0px;
+        padding: 20px 0px 20px 0px;
     }
 `;
 const Title = styled('h1')`
@@ -76,8 +75,13 @@ const Sub = styled('span')`
 const Points = styled('span')`
     ${font1};
     font-size: 16px;
-    line-height: 50px;
+    line-height: 29px;
     color: #5b6987;
+
+    @media (max-width: 1199px) {
+        font-size: 14px;
+        line-height: 24px;
+    }
 `;
 
 const Heading = styled('h1')`
@@ -114,6 +118,11 @@ const CardTitle = styled('span')`
     font-size: 20px;
     line-height: 20px;
     color: #002c9b;
+
+    @media (max-width: 1199px) {
+        font-size: 18px;
+        line-height: 27px;
+    }
 `;
 
 const CardSub = styled('span')`
@@ -121,6 +130,11 @@ const CardSub = styled('span')`
     font-size: 16px;
     line-height: 24px;
     color: #5b6987;
+
+    @media (max-width: 1199px) {
+        font-size: 15px;
+        line-height: 22px;
+    }
 `;
 
 const Img = styled('img')`
@@ -129,7 +143,7 @@ const Img = styled('img')`
 `;
 
 const MeetingButton = styled(Button)`
-    margin: 40px;
+    margin: 10px;
     padding: 15px 80px;
     background: #0069ff;
     border-radius: 14px;
@@ -163,7 +177,7 @@ const BottomSectionGrid = styled(Grid)`
     }
 
     @media (min-width: 1200px) and (max-width: 1535px) {
-        padding: 50px;
+        padding: 80px;
     }
 
     @media (max-width: 600px) {
@@ -207,6 +221,12 @@ const CircularProgressDiv = styled('div')`
     position: absolute;
     top: 40%;
     left: 45%;
+`;
+
+const FaqGrid = styled(Grid)`
+    @media (min-width: 1535px) {
+        margin: 50px 0px;
+    }
 `;
 
 const NavLink = styled(Link)`
@@ -257,7 +277,7 @@ export default function Partners() {
                 <Grid style={{ zIndex: 1 }} container spacing={10} justifyContent={'center'}>
                     <Grid item>
                         <TopContainer container spacing={3}>
-                            <Grid item md={6}>
+                            <Grid item md={12} lg={6}>
                                 <Grid container spacing={3} direction={'column'}>
                                     <Grid item>
                                         <Title>
@@ -287,13 +307,15 @@ export default function Partners() {
                                                     <ul>
                                                         <li
                                                             style={{
-                                                                listStyleType: 'disc'
+                                                                listStyleType: 'disc',
+                                                                padding: '5px 0px'
                                                             }}>
                                                             <Points>Schedule a Meeting</Points>
                                                         </li>
                                                         <li
                                                             style={{
-                                                                listStyleType: 'disc'
+                                                                listStyleType: 'disc',
+                                                                padding: '5px 0px'
                                                             }}>
                                                             <Points>
                                                                 Discuss the details and benefits of
@@ -302,7 +324,8 @@ export default function Partners() {
                                                         </li>
                                                         <li
                                                             style={{
-                                                                listStyleType: 'disc'
+                                                                listStyleType: 'disc',
+                                                                padding: '5px 0px'
                                                             }}>
                                                             <Points>
                                                                 Signup for the program & avail all
@@ -317,7 +340,7 @@ export default function Partners() {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item md={5}>
+                            <Grid item md={8} lg={5}>
                                 <Grid container justifyContent={'center'}>
                                     <Grid item>
                                         <img src={partnerImg} alt="" />
@@ -334,7 +357,7 @@ export default function Partners() {
                         </TopContainer>
                     </Grid>
                     <Grid item>
-                        <Grid container spacing={5} justifyContent={'center'}>
+                        <Grid container spacing={8} justifyContent={'center'}>
                             <Grid item>
                                 <Grid
                                     container
@@ -357,11 +380,11 @@ export default function Partners() {
                                 <Grid container justifyContent={'center'} spacing={2}>
                                     <Grid item xs={10} sm={8} md={4}>
                                         <CardContainer>
-                                            <Grid container alignItems={'center'}>
-                                                <Grid item md={3}>
+                                            <Grid container spacing={3} alignItems={'center'}>
+                                                <Grid item md={12} lg={3}>
                                                     <Img src={marketingBenefits} alt="" />
                                                 </Grid>
-                                                <Grid item md={9}>
+                                                <Grid item md={12} lg={9}>
                                                     <Grid container spacing={2}>
                                                         <Grid item>
                                                             <CardTitle>
@@ -382,11 +405,11 @@ export default function Partners() {
                                     </Grid>
                                     <Grid item xs={10} sm={8} md={4}>
                                         <CardContainer>
-                                            <Grid container alignItems={'center'}>
-                                                <Grid item md={3}>
+                                            <Grid container spacing={3} alignItems={'center'}>
+                                                <Grid item md={12} lg={3}>
                                                     <Img src={presales} alt="" />
                                                 </Grid>
-                                                <Grid item md={9}>
+                                                <Grid item md={12} lg={9}>
                                                     <Grid container spacing={2}>
                                                         <Grid item>
                                                             <CardTitle>
@@ -407,11 +430,11 @@ export default function Partners() {
                                     </Grid>
                                     <Grid item xs={10} sm={8} md={4}>
                                         <CardContainer>
-                                            <Grid container alignItems={'center'}>
-                                                <Grid item md={3}>
+                                            <Grid container spacing={3} alignItems={'center'}>
+                                                <Grid item md={12} lg={3}>
                                                     <Img src={commission} alt="" />
                                                 </Grid>
-                                                <Grid item md={9}>
+                                                <Grid item md={12} lg={9}>
                                                     <Grid container spacing={2}>
                                                         <Grid item>
                                                             <CardTitle>
@@ -434,16 +457,10 @@ export default function Partners() {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item>
-                        <GetStarted />
-                    </Grid>
-                    <Grid item md={10}>
-                        <FrequentlyAskedQuestions content={content} />
-                    </Grid>
                 </Grid>
             </ContentContainer>
-            <TrustedBy heading={'Check out some of our partners'} />
-            <BottomSectionGrid container>
+            <PartnersComponent heading={'Check out some of our partners'} />
+            <BottomSectionGrid container spacing={3}>
                 <Grid item xs={10} md={4}>
                     <Grid container spacing={8}>
                         <Grid item>
@@ -508,6 +525,9 @@ export default function Partners() {
                         />
                     </FormContainer>
                 </FormGrid>
+                <FaqGrid item md={10}>
+                    <FrequentlyAskedQuestions content={content} />
+                </FaqGrid>
             </BottomSectionGrid>
             <Footer />
         </>

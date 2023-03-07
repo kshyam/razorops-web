@@ -86,9 +86,7 @@ export default function JenkinsAlternative() {
                 <TableComponent heading="Compare RazorOps vs. Jenkins" data={data} img={jenkins} />
             </MainContainer>
             <MigrateFromJenkins />
-            <GetStarted
-                bg={'linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), #DEECFF'}
-            />
+            <GetStarted />
             <Footer />
         </Container>
     );
