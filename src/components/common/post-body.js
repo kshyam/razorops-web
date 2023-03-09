@@ -12,40 +12,32 @@ const Text = styled('span')`
     color: #191e27;
 `;
 
-const GridContainer = styled(Grid)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
 export default function PostBody({ content }) {
     return (
-        <GridContainer container>
-            <Grid item xs={12} md={6}>
-                <div className="prose prose-xl prose-blue break-words mx-auto">
-                    <Text>
-                        <StructuredText
-                            data={content}
-                            renderBlock={({ record }) => {
-                                if (record.__typename === 'DatoCmsImageBlock') {
-                                    return (
-                                        <GatsbyImage
-                                            style={{ display: 'block' }}
-                                            image={record.image.gatsbyImageData}
-                                        />
-                                    );
-                                }
+        <div className="mt-10 max-w-4xl mx-auto">
+            <div className="prose max-w-none prose-blue break-words mx-auto">
+                <Text>
+                    <StructuredText
+                        data={content}
+                        renderBlock={({ record }) => {
+                            if (record.__typename === 'DatoCmsImageBlock') {
                                 return (
-                                    <>
-                                        <p>Don't know how to render a block!</p>
-                                        <pre>{JSON.stringify(record, null, 2)}</pre>
-                                    </>
+                                    <GatsbyImage
+                                        style={{ display: 'block' }}
+                                        image={record.image.gatsbyImageData}
+                                    />
                                 );
-                            }}
-                        />
-                    </Text>
-                </div>
-            </Grid>
-        </GridContainer>
+                            }
+                            return (
+                                <>
+                                    <p>Don't know how to render a block!</p>
+                                    <pre>{JSON.stringify(record, null, 2)}</pre>
+                                </>
+                            );
+                        }}
+                    />
+                </Text>
+            </div>
+        </div>
     );
 }

@@ -1,5 +1,34 @@
 import * as React from 'react';
+import styled from '@emotion/styled';
 import FrequentlyAskedQuestions from '../common/frequently-asked-questions';
+import { Grid } from '@mui/material';
+
+const Container = styled(Grid)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        padding: 0px 50px 50px 50px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        padding: 0px 50px 50px 50px;
+    }
+
+    @media (min-width: 1535px) {
+        padding: 0px 180px 100px 180px;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        padding: 0px 50px 50px 50px;
+    }
+
+    @media (max-width: 600px) {
+        padding: 0px 20px 50px 20px;
+    }
+`;
 
 const content = [
     {
@@ -30,5 +59,11 @@ const content = [
 ];
 
 export default function FrequentlyAsked() {
-    return <FrequentlyAskedQuestions content={content} />;
+    return (
+        <Container container>
+            <Grid item>
+                <FrequentlyAskedQuestions content={content} />
+            </Grid>
+        </Container>
+    );
 }

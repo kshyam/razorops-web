@@ -113,24 +113,28 @@ const Container = styled(Box)`
 const ContentContainer = styled(Box)`
     padding: 30px;
     margin: 15px;
-    width: ${(props) => (props.desc ? '1000px' : '-webkit-fill-available')};
+    width: 1000px;
     background: #f9fafe;
     border-radius: 14px;
 
     @media (min-width: 1535px) {
-        width: ${(props) => (props.desc ? '1200px' : '-webkit-fill-available')};
+        width: 1200px;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1535px) {
+        width: 800px;
     }
 
     @media (min-width: 900px) and (max-width: 1199px) {
-        width: ${(props) => (props.desc ? '600px' : '-webkit-fill-available')};
+        width: 600px;
     }
 
     @media (min-width: 600px) and (max-width: 899px) {
-        width: ${(props) => (props.desc ? '500px' : '-webkit-fill-available')};
+        width: 500px;
     }
 
     @media (max-width: 599px) {
-        width: ${(props) => (props.desc ? 'auto' : '-webkit-fill-available')};
+        width: auto;
     }
 `;
 
@@ -153,7 +157,7 @@ export default function FrequentlyAskedQuestions({ content, desc }) {
             </TextContainer>
             <Container>
                 {content.map((i) => (
-                    <ContentContainer desc={desc} key={i.id}>
+                    <ContentContainer key={i.id}>
                         <Box
                             sx={{
                                 display: 'flex',

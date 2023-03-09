@@ -320,9 +320,11 @@ export default function TopSection() {
                 </TextGrid>
                 <Grid item display={'flex'} alignItems={'center'} xs={12} sm={12} md={5} lg={5}>
                     <FormContainer>
-                        <div className="mb-10">
-                            <FormTitle>Request a call back</FormTitle>
-                        </div>
+                        {!success && (
+                            <div className="mb-10">
+                                <FormTitle>Request a call back</FormTitle>
+                            </div>
+                        )}
                         {success ? (
                             <Grid
                                 style={{ padding: '40px' }}

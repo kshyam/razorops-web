@@ -17,7 +17,7 @@ export default function Index() {
     return (
         <Container>
             <TopSection />
-            <TrustedBy />
+            <TrustedBy title={'Trusted By'} textColor={'#5b5b5b'} />
             <About />
             <FeaturesContainer />
             <ToolIntegration />

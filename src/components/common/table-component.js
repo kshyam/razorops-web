@@ -7,12 +7,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import styled from '@emotion/styled';
-import { font1, font6, font7 } from '../../assets/globalStyles';
+import { font1, font3, font6 } from '../../assets/globalStyles';
 import razorops from '../../assets/images/jenkins-alternative/razorops.svg';
 import { Grid } from '@mui/material';
 
 const Heading = styled('h1')`
-    ${font7};
+    ${font3};
     font-size: 38px;
     line-height: 48px;
     text-align: center;

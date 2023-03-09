@@ -11,7 +11,7 @@ const Heading = styled('h1')`
 `;
 
 const Div = styled('div')`
-    margin: 2.5rem;
+    margin: 2.5rem 0;
 
     @media (max-width: 599px) {
         margin: 0;

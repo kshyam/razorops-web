@@ -82,7 +82,12 @@ export default function JenkinsAlternative() {
         <Container>
             <TopSection />
             <MainContainer>
-                <WhatIsRazorops />
+                <WhatIsRazorops
+                    title="What is RazorOps?"
+                    desc={
+                        'Razorops is the simplest container-native CI/CD platform that offers complete automation of your\nsoftware development cycle from development to production.'
+                    }
+                />
                 <TableComponent heading="Compare RazorOps vs. Jenkins" data={data} img={jenkins} />
             </MainContainer>
             <MigrateFromJenkins />

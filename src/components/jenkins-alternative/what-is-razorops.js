@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from '@mui/material';
 import img from '../../assets/images/jenkins-alternative/img.svg';
 import styled from '@emotion/styled';
-import { font1, font7 } from '../../assets/globalStyles';
+import { font1, font3 } from '../../assets/globalStyles';
 import Video from '../common/video';
 import demoVideo from '../../assets/videos/WHAT-IS-CICD-PIPELINE-CONTAINER-NATIVE-CICD-RAZOROPS-BEST-CICD-TOOL.mp4';
 
@@ -11,10 +11,14 @@ const MainContainer = styled('div')`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 599px) {
+        padding: 20px 30px;
+    }
 `;
 
 const Title = styled('h1')`
-    ${font7};
+    ${font3};
     font-size: 38px;
     line-height: 48px;
     text-align: center;
@@ -44,7 +48,7 @@ const Img = styled('img')`
     }
 `;
 
-export default function WhatIsRazorops() {
+export default function WhatIsRazorops({ title, desc }) {
     const [open, setOpen] = React.useState(false);
     const handleClose = () => {
         setOpen(!open);
@@ -59,14 +63,10 @@ export default function WhatIsRazorops() {
                 justifyContent={'center'}
                 alignItems={'center'}>
                 <Grid item>
-                    <Title>What is RazorOps?</Title>
+                    <Title>{title}</Title>
                 </Grid>
                 <Grid item>
-                    <Desc>
-                        {
-                            'Razorops is the simplest container-native CI/CD platform that offers complete automation of your\nsoftware development cycle from development to production.'
-                        }
-                    </Desc>
+                    <Desc>{desc}</Desc>
                 </Grid>
                 <Grid item>
                     <Img src={img} alt="" onClick={() => setOpen(true)} />

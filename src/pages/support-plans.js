@@ -199,7 +199,7 @@ export default function SupportPlans() {
                         <Grid container justifyContent={'center'} spacing={3}>
                             {plans.map((i) => (
                                 <Grid key={i.id} item md={4} lg={4} sm={10} xs={12}>
-                                    <NavLink to="https://dashboard.razorops.com/users/sign_in">
+                                    <NavLink to="https://dashboard.razorops.com/users/sign_up">
                                         <CardContainer>
                                             <TopSection
                                                 bg={i.color}

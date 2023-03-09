@@ -50,10 +50,10 @@ const Title = styled('div')`
     font-size: 22px;
     line-height: ${lineHeight29};
     text-align: center;
-    color: #5b5b5b;
+    color: ${(props) => props.textColor};
 
     @media (max-width: 600px) {
-        padding: 0px;
+        padding: 20px 0px 0px 0px;
     }
 `;
 
@@ -172,10 +172,10 @@ const images = [
     { id: 20, img: nxtGen }
 ];
 
-export default function TrustedBy({ heading }) {
+export default function TrustedBy({ heading, title, textColor }) {
     return (
         <>
-            {heading ? <Heading>{heading}</Heading> : <Title>{'Trusted By'}</Title>}
+            {heading ? <Heading>{heading}</Heading> : <Title textColor={textColor}>{title}</Title>}
             <BG>
                 <TopGrid container>
                     <Slider>
