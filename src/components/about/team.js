@@ -1,20 +1,19 @@
 import * as React from 'react';
-import { font5, font6, font8 } from '../../assets/globalStyles';
+import { font6, font8 } from '../../assets/globalStyles';
 import styled from '@emotion/styled';
-import { Card, CardContent, CardMedia, Grid } from '@mui/material';
-import linkedin from '../../assets/images/about-page/team/linkedin.svg';
+import { Card, Grid } from '@mui/material';
+import linkedin from '../../assets/images/about-page/team/linkedin.png';
 import shyam from '../../assets/images/about-page/team/shyam.jpeg';
 import dinesh from '../../assets/images/about-page/team/dinesh.jpeg';
 import vinay from '../../assets/images/about-page/team/vinay.jpeg';
 import deepak from '../../assets/images/about-page/team/deepak.jpeg';
+import mike from '../../assets/images/about-page/team/mike.jpeg';
+import sangam from '../../assets/images/about-page/team/sangam.jpeg';
+import ranbir from '../../assets/images/about-page/team/ranbir.jpeg';
+import marc from '../../assets/images/about-page/team/marc.jpeg';
 
 const MainContainer = styled('div')`
-    margin: 50px 0px 0px 0px;
-    background: linear-gradient(
-        to top,
-        rgba(255, 255, 255, 0.8) -1.11%,
-        rgba(240, 238, 255, 0.8) 109.65%
-    );
+    background: #ffffff;
 
     @media (min-width: 900px) and (max-width: 1199px) {
         padding: 40px 80px 100px 80px;
@@ -38,10 +37,12 @@ const MainContainer = styled('div')`
 `;
 
 const Title = styled('span')`
-    ${font5};
-    font-size: 48px;
-    line-height: 40px;
-    color: #18204c;
+    ${font6};
+    font-size: 61px;
+    line-height: 77px;
+    letter-spacing: -2.56px;
+    color: #1a1a1a;
+    text-align: center;
 
     @media (min-width: 900px) and (max-width: 1199px) {
         font-size: 34px;
@@ -61,26 +62,66 @@ const Title = styled('span')`
 
 const Name = styled('span')`
     ${font6};
-    font-size: 18px;
-    line-height: 29px;
-    color: #000000;
+    font-size: 22px;
+    line-height: 32px;
+    color: #1a1a1a;
 
     @media (max-width: 899px) {
-        font-size: 15px;
-        line-height: 22px;
+        font-size: 20px;
+        line-height: 25px;
     }
 `;
 
 const Desc = styled('span')`
-    ${font8};
+    ${font6};
     font-size: 12px;
-    line-height: 20px;
-    color: #000000;
+    line-height: 16px;
+    letter-spacing: 0.96px;
+    text-transform: uppercase;
+    color: #b2b2b2;
+`;
+
+const Sub = styled('span')`
+    ${font8};
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.14px;
+    color: #1a1a1a;
+`;
+
+const MeetTheTeam = styled('span')`
+    ${font6};
+    font-size: 13px;
+    line-height: 21px;
+    letter-spacing: 1.12px;
+    text-transform: uppercase;
+    color: #0069ff;
+    text-align: center;
+`;
+
+const GridContainer = styled(Grid)`
+    padding: 100px 0px 0px 0px;
+
+    @media (min-width: 1535px) {
+        padding: 100px 100px 0px 100px;
+    }
 `;
 
 const CardContainer = styled(Card)`
+    padding: 20px;
     box-shadow: 0px 4px 20px -6px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+`;
+
+const Img = styled('img')`
+    width: 200px;
+    height: 223.12px;
+    border-radius: 20px;
+`;
+
+const Logo = styled('img')`
+    width: 30px;
+    height: 30px;
 `;
 
 const team = [
@@ -88,14 +129,16 @@ const team = [
         id: 1,
         img: shyam,
         name: 'Shyam Mohan',
-        desc: 'CEO',
+        desc: 'Founder & CEO',
+        sub: 'UPTU Lucknow',
         url: 'https://www.linkedin.com/in/shyam-mohan-k/'
     },
     {
         id: 2,
         img: dinesh,
         name: 'Dinesh Yadav',
-        desc: 'Co-Founder',
+        desc: 'Founder & CTO',
+        sub: 'IIIT Hyderabad',
         url: 'https://www.linkedin.com/in/dineshsinghyadav/'
     },
     {
@@ -103,6 +146,7 @@ const team = [
         img: vinay,
         name: 'Vinay Kumar',
         desc: 'Solutions Engineer',
+        sub: 'IIIT Hyderabad',
         url: 'https://www.linkedin.com/in/vinay-kumar-iiith/'
     },
     {
@@ -110,69 +154,103 @@ const team = [
         img: deepak,
         name: 'Deepak Vig',
         desc: 'Solutions Engineer',
+        sub: 'IIIT Hyderabad',
         url: 'https://www.linkedin.com/in/deepakvig/'
     },
     {
         id: 5,
-        img: shyam,
-        name: 'Shyam Mohan',
-        desc: 'CEO',
-        url: 'https://www.linkedin.com/in/shyam-mohan-k/'
+        img: mike,
+        name: 'Mike Raghavan',
+        desc: 'Dev Sales',
+        sub: 'IIT-Madras, UC Berkeley Alumni',
+        url: 'https://www.linkedin.com/in/mike-raghavan-2223b7188/'
     },
     {
         id: 6,
-        img: dinesh,
-        name: 'Dinesh Yadav',
-        desc: 'Co-Founder',
-        url: 'https://www.linkedin.com/in/dineshsinghyadav/'
+        img: sangam,
+        name: 'Sangam Biradar',
+        desc: 'Devops Evangelist',
+        url: 'https://www.linkedin.com/in/sangambiradar/'
     },
     {
         id: 7,
-        img: vinay,
-        name: 'Vinay Kumar',
-        desc: 'Solutions Engineer',
-        url: 'https://www.linkedin.com/in/vinay-kumar-iiith/'
+        img: ranbir,
+        name: 'Ranbir Singh',
+        desc: 'Engineering',
+        url: 'https://www.linkedin.com/in/ranbir-singh-ab0a3011a/'
     },
     {
         id: 8,
-        img: deepak,
-        name: 'Deepak Vig',
-        desc: 'Solutions Engineer',
-        url: 'https://www.linkedin.com/in/deepakvig/'
+        img: marc,
+        name: 'Marc Tenggrik',
+        desc: 'Senior Sales Engineer',
+        url: 'https://www.linkedin.com/in/marc-tenggrik-gabil-201196178/'
     }
 ];
 
 export default function Team() {
     return (
         <MainContainer>
-            <Grid style={{ padding: '20px' }} container justifyContent={'center'}>
+            <Grid
+                container
+                spacing={2}
+                direction={'column'}
+                alignItems={'center'}
+                justifyContent={'center'}>
                 <Grid item>
-                    <Title>{'Our Executive'}</Title>
-                    <Title style={{ color: '#345EEF' }}>{' Team'}</Title>
+                    <MeetTheTeam>Meet the Team</MeetTheTeam>
+                </Grid>
+                <Grid item>
+                    <Title>{'Razorops Team'}</Title>
                 </Grid>
             </Grid>
-            <Grid style={{ padding: '40px 0px 0px 0px' }} container spacing={3}>
+            <GridContainer container spacing={4}>
                 {team.map((i) => (
-                    <Grid key={i.id} item xs={6} sm={6} md={4} lg={3}>
+                    <Grid key={i.id} item xs={6} sm={4} md={6} lg={4}>
                         <CardContainer>
-                            <CardMedia component="img" height="140" image={i.img} alt="" />
-                            <CardContent>
-                                <Grid container justifyContent={'space-between'}>
-                                    <Grid item display={'flex'} flexDirection={'column'}>
-                                        <Name>{i.name}</Name>
-                                        <Desc>{i.desc}</Desc>
-                                    </Grid>
-                                    <Grid item display={'flex'} alignItems={'center'}>
-                                        <a href={i.url} target="_blank">
-                                            <img src={linkedin} alt="" />
-                                        </a>
+                            <Grid container spacing={{ sm: 2, xs: 2, lg: 3 }}>
+                                <Grid item xs={12} sm={12} md={6} lg={6}>
+                                    <Img alt="" src={i.img} />
+                                </Grid>
+                                <Grid item display={'flex'} xs={12} sm={12} md={6} lg={6}>
+                                    <Grid container>
+                                        <Grid
+                                            item
+                                            display={'flex'}
+                                            alignItems={'center'}
+                                            xs={12}
+                                            sm={12}
+                                            md={12}>
+                                            <Grid container spacing={1} direction={'column'}>
+                                                <Grid item>
+                                                    <Desc>{i.desc}</Desc>
+                                                </Grid>
+                                                <Grid item>
+                                                    <Name>{i.name}</Name>
+                                                </Grid>
+                                                <Grid item>
+                                                    <Sub>{i.sub}</Sub>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                        <Grid
+                                            item
+                                            display={'flex'}
+                                            alignItems={'flex-end'}
+                                            xs={12}
+                                            sm={12}
+                                            md={12}>
+                                            <a href={i.url} target="_blank">
+                                                <Logo src={linkedin} alt="" />
+                                            </a>
+                                        </Grid>
                                     </Grid>
                                 </Grid>
-                            </CardContent>
+                            </Grid>
                         </CardContainer>
                     </Grid>
                 ))}
-            </Grid>
+            </GridContainer>
         </MainContainer>
     );
 }

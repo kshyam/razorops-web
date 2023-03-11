@@ -130,30 +130,26 @@ export default function PartnersComponent({ heading }) {
                     </Grid>
                 </Grid>
                 <Grid item>
-                    <Grid container spacing={5} justifyContent={'center'}>
-                        <Grid item>
-                            <Grid container spacing={3}>
-                                {data.map((i) => (
-                                    <Grid key={i.id} item md={6} lg={4}>
-                                        <Link to={i.url}>
-                                            <Card>
-                                                <Grid container direction={'column'} spacing={3}>
-                                                    <Grid item>
-                                                        <Img src={i.img} alt="" loading="lazy" />
-                                                    </Grid>
-                                                    <Grid item>
-                                                        <Title>{i.title}</Title>
-                                                    </Grid>
-                                                    <Grid item>
-                                                        <Sub>{i.desc}</Sub>
-                                                    </Grid>
-                                                </Grid>
-                                            </Card>
-                                        </Link>
-                                    </Grid>
-                                ))}
+                    <Grid container spacing={3}>
+                        {data.map((i) => (
+                            <Grid key={i.id} item md={6} lg={4}>
+                                <Link to={i.url}>
+                                    <Card>
+                                        <Grid container direction={'column'} spacing={3}>
+                                            <Grid item>
+                                                <Img src={i.img} alt="" loading="lazy" />
+                                            </Grid>
+                                            <Grid item>
+                                                <Title>{i.title}</Title>
+                                            </Grid>
+                                            <Grid item>
+                                                <Sub>{i.desc}</Sub>
+                                            </Grid>
+                                        </Grid>
+                                    </Card>
+                                </Link>
                             </Grid>
-                        </Grid>
+                        ))}
                     </Grid>
                 </Grid>
             </Grid>
