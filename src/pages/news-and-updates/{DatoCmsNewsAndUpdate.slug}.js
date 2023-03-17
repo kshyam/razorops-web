@@ -145,7 +145,7 @@ export const query = graphql`
                     __typename
                     id: originalId
                     image {
-                        gatsbyImageData(width: 700)
+                        gatsbyImageData(width: 750)
                     }
                 }
             }

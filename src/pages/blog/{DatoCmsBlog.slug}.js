@@ -145,7 +145,7 @@ export const query = graphql`
                     __typename
                     id: originalId
                     image {
-                        gatsbyImageData(width: 700)
+                        gatsbyImageData(width: 750)
                     }
                 }
             }
@@ -163,32 +163,6 @@ export const query = graphql`
                         height: 48
                         imgixParams: { sat: -100 }
                     )
-                }
-            }
-        }
-        morePosts: allDatoCmsBlog(
-            sort: { fields: date, order: DESC }
-            limit: 2
-            filter: { id: { ne: $id } }
-        ) {
-            nodes {
-                title
-                slug
-                description
-                date
-                coverImage {
-                    small: gatsbyImageData(width: 760)
-                }
-                author {
-                    name
-                    picture {
-                        gatsbyImageData(
-                            layout: FIXED
-                            width: 48
-                            height: 48
-                            imgixParams: { sat: -100 }
-                        )
-                    }
                 }
             }
         }

@@ -42,7 +42,7 @@ const Img = styled('img')`
     width: 1000px;
     height: 600px;
 
-    @media (max-width: 899px) {
+    @media (max-width: 599px) {
         width: 600px;
         height: 300px;
     }
@@ -62,12 +62,16 @@ export default function WhatIsRazorops({ title, desc }) {
                 direction={'column'}
                 justifyContent={'center'}
                 alignItems={'center'}>
-                <Grid item>
-                    <Title>{title}</Title>
-                </Grid>
-                <Grid item>
-                    <Desc>{desc}</Desc>
-                </Grid>
+                {title && (
+                    <Grid item>
+                        <Title>{title}</Title>
+                    </Grid>
+                )}
+                {desc && (
+                    <Grid item>
+                        <Desc>{desc}</Desc>
+                    </Grid>
+                )}
                 <Grid item>
                     <Img src={img} alt="" onClick={() => setOpen(true)} />
                 </Grid>

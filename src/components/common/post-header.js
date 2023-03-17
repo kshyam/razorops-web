@@ -15,7 +15,7 @@ const Div = styled('div')`
 
 export default function PostHeader({ type, title, coverImage, date, author }) {
     return (
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
             <PostTitle>{title}</PostTitle>
             <Div>
                 <div>

@@ -14,7 +14,7 @@ const Text = styled('span')`
 
 export default function PostBody({ content }) {
     return (
-        <div className="mt-10 max-w-4xl mx-auto">
+        <div className="mt-10 max-w-3xl mx-auto">
             <div className="prose max-w-none prose-blue break-words mx-auto">
                 <Text>
                     <StructuredText
@@ -24,6 +24,8 @@ export default function PostBody({ content }) {
                                 return (
                                     <GatsbyImage
                                         style={{ display: 'block' }}
+                                        objectFit="contain"
+                                        imgStyle={{ width: '100%', height: 'auto' }}
                                         image={record.image.gatsbyImageData}
                                     />
                                 );

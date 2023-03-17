@@ -346,6 +346,7 @@ export default function Webinars({ data: { site, webinar, morePosts } }) {
                         <ImgGrid item md={6} lg={6}>
                             <CoverImage
                                 type={'webinars'}
+                                imageType={'large'}
                                 title={webinar.title}
                                 fluid={webinar.coverImage?.gatsbyImageData}
                                 slug={webinar.slug}
@@ -415,27 +416,13 @@ export const query = graphql`
                     __typename
                     id: originalId
                     image {
-                        gatsbyImageData(width: 700)
+                        gatsbyImageData(width: 750)
                     }
                 }
             }
             date
             coverImage {
                 gatsbyImageData(width: 1500)
-            }
-        }
-        morePosts: allDatoCmsWebinar(
-            sort: { fields: date, order: DESC }
-            limit: 2
-            filter: { id: { ne: $id } }
-        ) {
-            nodes {
-                title
-                slug
-                date
-                coverImage {
-                    small: gatsbyImageData(width: 760)
-                }
             }
         }
     }
