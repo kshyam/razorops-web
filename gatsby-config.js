@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
+    pathPrefix: "/razorops-web",
     siteMetadata: {
         title: 'Gatsby Blog Demo'
     },
