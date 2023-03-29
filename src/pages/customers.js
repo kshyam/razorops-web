@@ -11,6 +11,7 @@ import TrustedBy from '../components/trusted-by';
 import TalkOfTheTown from '../components/talk-of-the-town';
 import { graphql, Link } from 'gatsby';
 import GetStarted from '../components/get-started';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -221,6 +222,19 @@ const ReadText = styled('span')`
     line-height: 29px;
     color: #0069ff;
 `;
+
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Customers',
+                description:
+                    'See how the world use Razorops to automate their overall development cycle for building remarkable product.'
+            }}
+        />
+    );
+};
 
 export default function Customers({ data: { allCustomers } }) {
     const caseStudiesRef = useRef();

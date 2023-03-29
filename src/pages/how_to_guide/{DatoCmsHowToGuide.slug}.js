@@ -5,7 +5,6 @@ import MoreStories from '../../components/common/more-stories';
 import PostBody from '../../components/common/post-body';
 import PostHeader from '../../components/common/post-header';
 import SectionSeparator from '../../components/common/section-separator';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import cn from 'classnames';
 import PostTitle from '../../components/common/post-title';
@@ -13,7 +12,6 @@ import PostTitle from '../../components/common/post-title';
 export default function Post({ data: { site, guide, moreguides } }) {
     return (
         <Container>
-            <HelmetDatoCms seo={guide.seo} favicon={site.favicon} />
             <article className="mt-50">
                 <PostTitle>{`Integrate RazorOps with ${guide.title} `}</PostTitle>
                 <GatsbyImage
@@ -34,11 +32,6 @@ export default function Post({ data: { site, guide, moreguides } }) {
 
 export const query = graphql`
     query GuideBySlug($id: String) {
-        site: datoCmsSite {
-            favicon: faviconMetaTags {
-                ...GatsbyDatoCmsFaviconMetaTags
-            }
-        }
         guide: datoCmsHowToGuide(id: { eq: $id }) {
             seo: seoMetaTags {
                 ...GatsbyDatoCmsSeoMetaTags
@@ -72,7 +65,7 @@ export const query = graphql`
             }
         }
         moreguides: allDatoCmsHowToGuide(
-            sort: { fields: date, order: DESC }
+            sort: { date: DESC }
             limit: 2
             filter: { id: { ne: $id } }
         ) {

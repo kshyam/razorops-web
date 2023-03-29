@@ -1,7 +1,6 @@
 import React from 'react';
 import TopSection from '../components/top-section';
 import Container from '../components/container';
-import { graphql } from 'gatsby';
 import TrustedBy from '../components/trusted-by';
 import About from '../components/about';
 import FeaturesContainer from '../components/features-container';

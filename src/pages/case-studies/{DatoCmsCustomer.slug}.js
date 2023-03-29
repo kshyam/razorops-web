@@ -9,6 +9,7 @@ import bg from '../../assets/images/bg.png';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { StructuredText } from 'react-datocms';
 import GetStarted from '../../components/get-started';
+import PageHead from '../../components/common/page-head';
 
 const ContentContainer = styled(Grid)`
     display: flex;
@@ -191,6 +192,18 @@ const GridItem = styled(Grid)`
     display: flex;
     align-items: center;
 `;
+
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: data.customer.title,
+                description: data.customer.description
+            }}
+        />
+    );
+};
 
 export default function Customer({ data: { customer } }) {
     return (

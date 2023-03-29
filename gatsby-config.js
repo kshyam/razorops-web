@@ -2,7 +2,8 @@ require('dotenv').config();
 
 module.exports = {
     siteMetadata: {
-        title: 'Gatsby Blog Demo'
+        siteUrl: 'https://dev.razorops.com',
+        siteName: 'Razorops'
     },
     plugins: [
         'gatsby-plugin-postcss',
@@ -20,7 +21,7 @@ module.exports = {
                 engine: 'flexsearch',
                 query: `
                 {
-                  allBlogs: allDatoCmsBlog(sort: {fields: date, order: DESC}, limit: 20) {
+                  allBlogs: allDatoCmsBlog(sort: {date: DESC}, limit: 20) {
                       nodes {
                         title
                         slug
@@ -29,30 +30,22 @@ module.exports = {
                         content {
                           value
                         }
-                        coverImage {
-                          large: gatsbyImageData(width: 1500)
-                          small: gatsbyImageData(width: 760)
-                        }
                         author {
                           name
                           role
-                          picture {
-                            gatsbyImageData(layout: FIXED, width: 48, height: 48, imgixParams: {sat: -100})
-                          }
                         }
                       }
                     }
                   }`,
                 ref: 'slug',
                 index: ['title', 'author', 'content', 'description', 'date', 'slug'],
-                store: ['title', 'author', 'content', 'description', 'date', 'slug', 'coverImage'],
+                store: ['title', 'author', 'content', 'description', 'date', 'slug'],
                 normalizer: ({ data }) =>
                     data.allBlogs.nodes.map((i) => ({
                         title: i.title,
                         date: i.date,
                         slug: i.slug,
                         content: i.content,
-                        coverImage: i.coverImage,
                         description: i.description,
                         author: i.author
                     }))
@@ -65,7 +58,7 @@ module.exports = {
                 engine: 'flexsearch',
                 query: `
                 {
-                    allNewsletters: allDatoCmsNewsletter(sort: { fields: date, order: DESC }, limit: 20) {
+                    allNewsletters: allDatoCmsNewsletter(sort: {date: DESC}, limit: 20) {
                       nodes {
                           title
                           slug
@@ -74,35 +67,22 @@ module.exports = {
                           content {
                               value
                           }
-                          coverImage {
-                              large: gatsbyImageData(width: 1500)
-                              small: gatsbyImageData(width: 760)
-                          }
                           author {
                               name
                               role
-                              picture {
-                                  gatsbyImageData(
-                                      layout: FIXED
-                                      width: 48
-                                      height: 48
-                                      imgixParams: { sat: -100 }
-                                  )
-                              }
                           }
                        }
                     }
                   }`,
                 ref: 'slug',
                 index: ['title', 'author', 'content', 'description', 'date', 'slug'],
-                store: ['title', 'author', 'content', 'description', 'date', 'slug', 'coverImage'],
+                store: ['title', 'author', 'content', 'description', 'date', 'slug'],
                 normalizer: ({ data }) =>
                     data.allNewsletters.nodes.map((i) => ({
                         title: i.title,
                         date: i.date,
                         slug: i.slug,
                         content: i.content,
-                        coverImage: i.coverImage,
                         description: i.description,
                         author: i.author
                     }))
@@ -115,7 +95,7 @@ module.exports = {
                 engine: 'flexsearch',
                 query: `
                 {
-                    allWebinars: allDatoCmsWebinar(sort: { fields: date, order: DESC }, limit: 20) {
+                    allWebinars: allDatoCmsWebinar(sort: {date: DESC}, limit: 20) {
                     nodes {
                         title
                         slug
@@ -123,23 +103,18 @@ module.exports = {
                         content {
                             value
                         }
-                        coverImage {
-                            large: gatsbyImageData(width: 1500)
-                            small: gatsbyImageData(width: 760)
-                        }
                       }
                     }
                   }`,
                 ref: 'slug',
                 index: ['title', 'content', 'date', 'slug'],
-                store: ['title', 'content', 'date', 'slug', 'coverImage'],
+                store: ['title', 'content', 'date', 'slug'],
                 normalizer: ({ data }) =>
                     data.allWebinars.nodes.map((i) => ({
                         title: i.title,
                         date: i.date,
                         slug: i.slug,
-                        content: i.content,
-                        coverImage: i.coverImage
+                        content: i.content
                     }))
             }
         },
@@ -150,7 +125,7 @@ module.exports = {
                 engine: 'flexsearch',
                 query: `
                 {
-                    allNewsAndUpdates: allDatoCmsNewsAndUpdate(sort: { fields: date, order: DESC }, limit: 20) {
+                    allNewsAndUpdates: allDatoCmsNewsAndUpdate(sort: {date: DESC}, limit: 20) {
                         nodes {
                             title
                             slug
@@ -159,35 +134,22 @@ module.exports = {
                             content {
                                 value
                             }
-                            coverImage {
-                                large: gatsbyImageData(width: 1500)
-                                small: gatsbyImageData(width: 760)
-                            }
                             author {
                                 name
                                 role
-                                picture {
-                                    gatsbyImageData(
-                                        layout: FIXED
-                                        width: 48
-                                        height: 48
-                                        imgixParams: { sat: -100 }
-                                    )
-                                }
                             }
                         }
                     }
                   }`,
                 ref: 'slug',
                 index: ['title', 'author', 'content', 'description', 'date', 'slug'],
-                store: ['title', 'author', 'content', 'description', 'date', 'slug', 'coverImage'],
+                store: ['title', 'author', 'content', 'description', 'date', 'slug'],
                 normalizer: ({ data }) =>
                     data.allNewsAndUpdates.nodes.map((i) => ({
                         title: i.title,
                         date: i.date,
                         slug: i.slug,
                         content: i.content,
-                        coverImage: i.coverImage,
                         description: i.description,
                         author: i.author
                     }))
@@ -200,7 +162,7 @@ module.exports = {
                 engine: 'flexsearch',
                 query: `
                 {
-                  allEbooks: allDatoCmsEbook(sort: {fields: date, order: DESC}, limit: 20) {
+                  allEbooks: allDatoCmsEbook(sort: {date: DESC}, limit: 20) {
                       nodes {
                         title
                         slug
@@ -209,23 +171,18 @@ module.exports = {
                         content {
                           value
                         }
-                        coverImage {
-                          large: gatsbyImageData(width: 1500)
-                          small: gatsbyImageData(width: 760)
-                        }
                       }
                     }
                   }`,
                 ref: 'slug',
                 index: ['title', 'content', 'description', 'date', 'slug'],
-                store: ['title', 'content', 'description', 'date', 'slug', 'coverImage'],
+                store: ['title', 'content', 'description', 'date', 'slug'],
                 normalizer: ({ data }) =>
                     data.allEbooks.nodes.map((i) => ({
                         title: i.title,
                         date: i.date,
                         slug: i.slug,
                         content: i.content,
-                        coverImage: i.coverImage,
                         description: i.description
                     }))
             }
@@ -237,7 +194,6 @@ module.exports = {
             }
         },
         'gatsby-plugin-sharp',
-        'gatsby-plugin-react-helmet',
         'gatsby-plugin-image',
         'gatsby-transformer-sharp'
     ]

@@ -5,13 +5,13 @@ import PostBody from '../../components/common/post-body';
 import PostHeader from '../../components/common/post-header';
 import Footer from '../../components/footer';
 import styled from '@emotion/styled';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
 import { Grid, IconButton } from '@mui/material';
 import { color2, font1 } from '../../assets/globalStyles';
 import HomeIcon from '@mui/icons-material/Home';
 import ShareButtons from '../../components/common/share-buttons';
 import SearchBar from '../../components/common/search';
 import { useFlexSearch } from 'react-use-flexsearch';
+import PageHead from '../../components/common/page-head';
 
 const MainContainer = styled('div')`
     position: relative;
@@ -58,12 +58,24 @@ const SearchGrid = styled(Grid)`
         padding: 20px;
     }
 `;
+
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: data.newsAndUpdates.title,
+                description: data.newsAndUpdates.description,
+                image: data.newsAndUpdates.coverImage.gatsbyImageData.images.fallback.src,
+                creator: data.newsAndUpdates.author.name
+            }}
+        />
+    );
+};
 export default function NewsAndUpdates({
     data: {
         localSearchNews: { index, store },
-        site,
-        newsAndUpdates,
-        morePosts
+        newsAndUpdates
     }
 }) {
     const { search } = typeof window !== 'undefined' && window.location;
@@ -74,7 +86,6 @@ export default function NewsAndUpdates({
 
     return (
         <Container>
-            <HelmetDatoCms seo={newsAndUpdates.seo} favicon={site.favicon} />
             <MainContainer>
                 <Grid container>
                     <Grid item xs={12} md={8}>
@@ -128,16 +139,9 @@ export const query = graphql`
             index
             store
         }
-        site: datoCmsSite {
-            favicon: faviconMetaTags {
-                ...GatsbyDatoCmsFaviconMetaTags
-            }
-        }
         newsAndUpdates: datoCmsNewsAndUpdate(id: { eq: $id }) {
-            seo: seoMetaTags {
-                ...GatsbyDatoCmsSeoMetaTags
-            }
             title
+            description
             slug
             content {
                 value

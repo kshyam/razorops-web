@@ -12,9 +12,9 @@ import { Grid } from '@mui/material';
 import Footer from '../components/footer';
 import GetStarted from '../components/get-started';
 import SignUp from '../components/sign-up';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
 import Upcoming from '../components/webinars/upcoming';
 import OnDemand from '../components/webinars/on-demand';
+import PageHead from '../components/common/page-head';
 
 const MainContainer = styled('div')`
     position: relative;
@@ -147,12 +147,23 @@ const NoResultsGrid = styled(Grid)`
     }
 `;
 
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Webinars',
+                description:
+                    'Get the most out of RazorOps CI/CD with one of our free webinars. Whether you’re brand new DevOps or an experienced developer, we have the perfect workshops for you.'
+            }}
+        />
+    );
+};
+
 export default function Webinars({
     data: {
         localSearchWebinar: { index, store },
-        allWebinars,
-        site,
-        webinar
+        allWebinars
     }
 }) {
     const { search } = typeof window !== 'undefined' && window.location;
@@ -167,7 +178,6 @@ export default function Webinars({
 
     return (
         <Container>
-            <HelmetDatoCms seo={webinar.seo} favicon={site.favicon} />
             <MainContainer>
                 <TextContainer container>
                     <Grid item xs={12} md={6} display={'flex'} flexDirection={'column'}>
@@ -213,17 +223,7 @@ export const query = graphql`
             index
             store
         }
-        site: datoCmsSite {
-            favicon: faviconMetaTags {
-                ...GatsbyDatoCmsFaviconMetaTags
-            }
-        }
-        webinar: datoCmsWebinar {
-            seo: seoMetaTags {
-                ...GatsbyDatoCmsSeoMetaTags
-            }
-        }
-        allWebinars: allDatoCmsWebinar(sort: { fields: date, order: DESC }, limit: 20) {
+        allWebinars: allDatoCmsWebinar(sort: { date: DESC }, limit: 20) {
             nodes {
                 title
                 slug

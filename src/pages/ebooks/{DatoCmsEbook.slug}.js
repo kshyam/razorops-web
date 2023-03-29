@@ -3,11 +3,11 @@ import { graphql } from 'gatsby';
 import Container from '../../components/container';
 import Footer from '../../components/footer';
 import styled from '@emotion/styled';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
 import bg from '../../assets/images/bg.png';
 import { font1, font3 } from '../../assets/globalStyles';
 import { Grid } from '@mui/material';
 import { StructuredText } from 'react-datocms';
+import PageHead from '../../components/common/page-head';
 
 const TopContainer = styled('div')`
     background-image: url(${bg});
@@ -112,10 +112,22 @@ const Form = styled('iframe')`
     }
 `;
 
-export default function Ebooks({ data: { site, ebook } }) {
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: data.ebook.title,
+                description: data.ebook.description,
+                image: data.ebook.coverImage.gatsbyImageData.images.fallback.src
+            }}
+        />
+    );
+};
+
+export default function Ebooks({ data: { ebook } }) {
     return (
         <Container>
-            <HelmetDatoCms seo={ebook.seo} favicon={site.favicon} />
             <TopContainer>
                 <Grid container>
                     <TextGrid item xs={12} sm={12} md={6} lg={7}>
@@ -167,16 +179,9 @@ export default function Ebooks({ data: { site, ebook } }) {
 
 export const query = graphql`
     query EbookBySlug($id: String) {
-        site: datoCmsSite {
-            favicon: faviconMetaTags {
-                ...GatsbyDatoCmsFaviconMetaTags
-            }
-        }
         ebook: datoCmsEbook(id: { eq: $id }) {
-            seo: seoMetaTags {
-                ...GatsbyDatoCmsSeoMetaTags
-            }
             title
+            description
             slug
             content {
                 value

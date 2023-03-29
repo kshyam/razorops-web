@@ -13,8 +13,8 @@ import { Grid, IconButton } from '@mui/material';
 import Footer from '../components/footer';
 import GetStarted from '../components/get-started';
 import SignUp from '../components/sign-up';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
 import HomeIcon from '@mui/icons-material/Home';
+import PageHead from '../components/common/page-head';
 
 const MainContainer = styled('div')`
     position: relative;
@@ -170,12 +170,23 @@ const NavLink = styled(Link)`
     text-decoration: none;
 `;
 
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Newsletters',
+                description:
+                    'Learn how to achieve continuous delivery to Kubernetes with Helm, Istio, Selenium testings, security testing, performance testing, and more.'
+            }}
+        />
+    );
+};
+
 export default function Newsletter({
     data: {
         localSearchNewsletter: { index, store },
-        allNewsletters,
-        site,
-        newsletter
+        allNewsletters
     }
 }) {
     const { search } = typeof window !== 'undefined' && window.location;
@@ -190,7 +201,6 @@ export default function Newsletter({
 
     return (
         <Container>
-            {/* <HelmetDatoCms seo={newsletter.seo} favicon={site.favicon} /> */}
             <MainContainer>
                 <Grid container alignItems={'center'}>
                     <Grid item>
@@ -254,17 +264,7 @@ export const query = graphql`
             index
             store
         }
-        site: datoCmsSite {
-            favicon: faviconMetaTags {
-                ...GatsbyDatoCmsFaviconMetaTags
-            }
-        }
-        newsletter: datoCmsNewsletter {
-            seo: seoMetaTags {
-                ...GatsbyDatoCmsSeoMetaTags
-            }
-        }
-        allNewsletters: allDatoCmsNewsletter(sort: { fields: date, order: DESC }, limit: 20) {
+        allNewsletters: allDatoCmsNewsletter(sort: { date: DESC }, limit: 20) {
             nodes {
                 title
                 slug

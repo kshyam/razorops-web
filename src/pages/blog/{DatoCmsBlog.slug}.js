@@ -5,13 +5,13 @@ import PostBody from '../../components/common/post-body';
 import PostHeader from '../../components/common/post-header';
 import Footer from '../../components/footer';
 import styled from '@emotion/styled';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
 import HomeIcon from '@mui/icons-material/Home';
 import { Grid, IconButton } from '@mui/material';
 import { color2, font1 } from '../../assets/globalStyles';
 import ShareButtons from '../../components/common/share-buttons';
 import SearchBar from '../../components/common/search';
 import { useFlexSearch } from 'react-use-flexsearch';
+import PageHead from '../../components/common/page-head';
 
 const MainContainer = styled('div')`
     position: relative;
@@ -59,6 +59,20 @@ const SearchGrid = styled(Grid)`
     }
 `;
 
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: data.blog.title,
+                description: data.blog.description,
+                image: data?.blog?.coverImage?.gatsbyImageData?.images?.fallback?.src,
+                creator: data.blog.author.name
+            }}
+        />
+    );
+};
+
 export default function Blog({
     data: {
         localSearchBlog: { index, store },
@@ -74,7 +88,6 @@ export default function Blog({
     const url = typeof window !== 'undefined' ? window.location.href : '';
     return (
         <Container>
-            <HelmetDatoCms seo={blog.seo} favicon={site.favicon} />
             <MainContainer>
                 <Grid container>
                     <Grid xs={12} md={8} item>
@@ -128,16 +141,9 @@ export const query = graphql`
             index
             store
         }
-        site: datoCmsSite {
-            favicon: faviconMetaTags {
-                ...GatsbyDatoCmsFaviconMetaTags
-            }
-        }
         blog: datoCmsBlog(id: { eq: $id }) {
-            seo: seoMetaTags {
-                ...GatsbyDatoCmsSeoMetaTags
-            }
             title
+            description
             slug
             content {
                 value

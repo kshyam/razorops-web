@@ -13,8 +13,8 @@ import { Grid, IconButton } from '@mui/material';
 import Footer from '../components/footer';
 import GetStarted from '../components/get-started';
 import SignUp from '../components/sign-up';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
 import HomeIcon from '@mui/icons-material/Home';
+import PageHead from '../components/common/page-head';
 
 const MainContainer = styled('div')`
     position: relative;
@@ -170,12 +170,23 @@ const Text = styled('span')`
     text-align: left;
 `;
 
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Blogs',
+                description:
+                    'Learn how to achieve continuous delivery to Kubernetes with Helm, Istio, Selenium testings, security testing, performance testing, and more.'
+            }}
+        />
+    );
+};
+
 export default function Blog({
     data: {
         localSearchBlog: { index, store },
-        allBlogs,
-        site,
-        blog
+        allBlogs
     }
 }) {
     const { search } = typeof window !== 'undefined' && window.location;
@@ -191,7 +202,6 @@ export default function Blog({
 
     return (
         <Container>
-            {/* <HelmetDatoCms seo={blog.seo} favicon={site.favicon} /> */}
             <MainContainer>
                 <Grid container alignItems={'center'}>
                     <Grid item>
@@ -256,17 +266,7 @@ export const query = graphql`
             index
             store
         }
-        site: datoCmsSite {
-            favicon: faviconMetaTags {
-                ...GatsbyDatoCmsFaviconMetaTags
-            }
-        }
-        blog: datoCmsBlog {
-            seo: seoMetaTags {
-                ...GatsbyDatoCmsSeoMetaTags
-            }
-        }
-        allBlogs: allDatoCmsBlog(sort: { fields: date, order: DESC }, limit: 20) {
+        allBlogs: allDatoCmsBlog(sort: { date: DESC }, limit: 20) {
             nodes {
                 title
                 slug

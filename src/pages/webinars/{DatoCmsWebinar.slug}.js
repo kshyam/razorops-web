@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Container from '../../components/container';
 import Footer from '../../components/footer';
 import styled from '@emotion/styled';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
 import bg from '../../assets/images/bg.png';
 import moment from 'moment';
 import { font1, font3, font6, font7 } from '../../assets/globalStyles';
@@ -14,6 +13,7 @@ import HubspotForm from 'react-hubspot-form';
 import ShareButtons from '../../components/common/share-buttons';
 import bgPattern from '../../assets/images/backgroundPattern.png';
 import img from '../../assets/images/webinar.svg';
+import PageHead from '../../components/common/page-head';
 
 const TopContainer = styled('div')`
     background-image: ${(props) => `url(${props.background})`};
@@ -247,12 +247,25 @@ const ImgGrid = styled(Grid)`
     }
 `;
 
-export default function Webinars({ data: { site, webinar, morePosts } }) {
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: data.webinar.title,
+                description:
+                    'Get the most out of RazorOps CI/CD with one of our free webinars. Whether you’re brand new DevOps or an experienced developer, we have the perfect workshops for you.',
+                image: data.webinar.coverImage.gatsbyImageData.images.fallback.src
+            }}
+        />
+    );
+};
+
+export default function Webinars({ data: { webinar } }) {
     const [form, setForm] = React.useState(true);
     const url = typeof window !== 'undefined' ? window.location.href : '';
     return (
         <Container>
-            <HelmetDatoCms seo={webinar.seo} favicon={site.favicon} />
             {webinar.typeOfWebinar === 'On-Demand' && (
                 <HeadingContainer container>
                     <Grid item>
@@ -398,15 +411,7 @@ export default function Webinars({ data: { site, webinar, morePosts } }) {
 
 export const query = graphql`
     query WebinarBySlug($id: String) {
-        site: datoCmsSite {
-            favicon: faviconMetaTags {
-                ...GatsbyDatoCmsFaviconMetaTags
-            }
-        }
         webinar: datoCmsWebinar(id: { eq: $id }) {
-            seo: seoMetaTags {
-                ...GatsbyDatoCmsSeoMetaTags
-            }
             title
             slug
             typeOfWebinar

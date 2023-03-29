@@ -57,7 +57,7 @@ import {
 } from '../assets/globalStyles';
 
 import '../styles/integration.css';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
+// import { HelmetDatoCms } from 'gatsby-source-datocms';
 import { graphql } from 'gatsby';
 import { Search } from '@mui/icons-material';
 import scrollTo from 'gatsby-plugin-smoothscroll';
@@ -495,7 +495,7 @@ export default function Integration({ data: { allguides, site, integrations } })
 
                         <SubHeading id="build-tools">{'Build Tools'}</SubHeading>
                         <MainContainer container spacing={3}>
-                            <HelmetDatoCms seo={integrations.seo} favicon={site.favicon} />
+                            {/* <HelmetDatoCms seo={integrations.seo} favicon={site.favicon} /> */}
 
                             {heroPost2.map((i) => {
                                 if (i.category.name == 'Build Tools') {
@@ -749,7 +749,7 @@ export const query2 = graphql`
                 ...GatsbyDatoCmsSeoMetaTags
             }
         }
-        allguides: allDatoCmsHowToGuide(sort: { fields: date, order: DESC }, limit: 20) {
+        allguides: allDatoCmsHowToGuide(sort: { date: DESC }, limit: 20) {
             nodes {
                 title
                 slug
