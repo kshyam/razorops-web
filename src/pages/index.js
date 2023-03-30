@@ -11,6 +11,20 @@ import TalkOfTheTown from '../components/talk-of-the-town';
 import GetStarted from '../components/get-started';
 import SignUp from '../components/sign-up';
 import Footer from '../components/footer';
+import PageHead from '../components/common/page-head';
+
+export const Head = ({ data, ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Container Native Continuous Integration & Deployment',
+                description:
+                    'Razorops is a container native continuous integration and delivery platform to automate testing and deployment across the environments in few steps.'
+            }}
+        />
+    );
+};
 
 export default function Index() {
     return (

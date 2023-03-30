@@ -8,6 +8,7 @@ import styled from '@emotion/styled';
 import jenkins from '../assets/images/jenkins-alternative/jenkins.svg';
 import GetStarted from '../components/get-started';
 import MigrateFromJenkins from '../components/jenkins-alternative/migrate-from-jenkins';
+import PageHead from '../components/common/page-head';
 
 const MainContainer = styled('div')`
     position: relative;
@@ -76,6 +77,19 @@ const data = [
 function createData(title, company1Features, company2Features) {
     return { title, company1Features, company2Features };
 }
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Best Jenkins Alternative CI/CD Tool for Developers',
+                description:
+                    'Razorops is the simplest CI/CD platform for all teams. Best Jenkins Alternative CI/CD Tool for Developers. Simplest & Faster Deployments. Try for Free. Signup Now.'
+            }}
+        />
+    );
+};
 
 export default function JenkinsAlternative() {
     return (

@@ -223,14 +223,14 @@ const ReadText = styled('span')`
     color: #0069ff;
 `;
 
-export const Head = ({ data, ...props }) => {
+export const Head = ({ ...props }) => {
     return (
         <PageHead
             {...props}
             meta={{
-                title: 'Razorops Customers',
+                title: 'Razorops Customer Stories CI/CD Case studies',
                 description:
-                    'See how the world use Razorops to automate their overall development cycle for building remarkable product.'
+                    'Explore the Razorops Customer Stories.Have a look how razorops helps the clients to automate software development lifecycle. Check complete CI/CD Case Studies.'
             }}
         />
     );

@@ -170,7 +170,7 @@ const Text = styled('span')`
     text-align: left;
 `;
 
-export const Head = ({ data, ...props }) => {
+export const Head = ({ ...props }) => {
     return (
         <PageHead
             {...props}

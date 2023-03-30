@@ -170,12 +170,12 @@ const Text = styled('span')`
     text-align: left;
 `;
 
-export const Head = ({ data, ...props }) => {
+export const Head = ({ ...props }) => {
     return (
         <PageHead
             {...props}
             meta={{
-                title: 'Razorops Blogs',
+                title: 'Razorops Blog',
                 description:
                     'Learn how to achieve continuous delivery to Kubernetes with Helm, Istio, Selenium testings, security testing, performance testing, and more.'
             }}

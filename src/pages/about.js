@@ -10,6 +10,7 @@ import about from '../assets/images/about-page/about.svg';
 import FooterComponent from '../components/common/footer-component';
 import Process from '../components/about/process';
 import Images from '../components/about/images';
+import PageHead from '../components/common/page-head';
 const ContentContainer = styled('div')`
     position: relative;
     overflow: hidden;
@@ -26,6 +27,19 @@ const ContentContainer = styled('div')`
         padding: 50px 20px;
     }
 `;
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops About',
+                description:
+                    'Razorops is a complete container native CI/CD solution. In a similar manner to Docker, Razorops comes with dedicated support for Kubernetes deployments.'
+            }}
+        />
+    );
+};
 
 export default function About() {
     return (

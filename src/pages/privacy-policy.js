@@ -3,6 +3,19 @@ import privacyPolicy from '../assets/images/footer/privacy-policy.svg';
 import FooterComponent from '../components/common/footer-component';
 import { FooterSupportSection } from '../components/common/constants';
 import Footer from '../components/footer';
+import PageHead from '../components/common/page-head';
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Privacy Policy',
+                description: 'Continuous integration and delivery simplified for Containers'
+            }}
+        />
+    );
+};
 
 export default function PrivacyPolicy() {
     return (

@@ -8,6 +8,7 @@ import TalkOfTheTown from '../components/talk-of-the-town';
 import TrustedBy from '../components/trusted-by';
 import FrequentlyAskedQuestions from '../components/common/frequently-asked-questions';
 import GetStarted from '../components/get-started';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -65,6 +66,20 @@ const content = [
         sub: 'Most of our customers find Razorops SAAS environment covers their usecases. if you need extra support, hosting preferences or features, our support team will help you.'
     }
 ];
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Frequently Asked Questions - FAQ',
+                description:
+                    'Frequently Asked Questions at Razorops like How do I get started? faq etc.'
+            }}
+        />
+    );
+};
+
 export default function FAQ() {
     return (
         <>

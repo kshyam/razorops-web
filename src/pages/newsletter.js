@@ -170,14 +170,14 @@ const NavLink = styled(Link)`
     text-decoration: none;
 `;
 
-export const Head = ({ data, ...props }) => {
+export const Head = ({ ...props }) => {
     return (
         <PageHead
             {...props}
             meta={{
-                title: 'Razorops Newsletters',
+                title: 'Container Native DevOps & CICD Newsletter RazorOps | Razorops',
                 description:
-                    'Learn how to achieve continuous delivery to Kubernetes with Helm, Istio, Selenium testings, security testing, performance testing, and more.'
+                    'Get all the latest container-native & DevOps news in one place every week. Subscribe RazorOps weekly CI/CD newsletter today and stay up-to-date.'
             }}
         />
     );

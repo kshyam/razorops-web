@@ -12,6 +12,7 @@ import { Button, Grid } from '@mui/material';
 import { font1, font6, font7 } from '../assets/globalStyles';
 import { Link } from 'gatsby';
 import GetStarted from '../components/get-started';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -148,6 +149,19 @@ const ProjectGrid = styled(Grid)`
 const NavLink = styled(Link)`
     text-decoration: none;
 `;
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Open Source',
+                description:
+                    'Razorops is a complete container native CI/CD solution. In a similar manner to Docker, Razorops comes with dedicated support for Kubernetes deployments.'
+            }}
+        />
+    );
+};
 
 export default function OpenSource() {
     return (

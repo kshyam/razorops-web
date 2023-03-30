@@ -10,6 +10,20 @@ import TalkOfTheTown from '../components/talk-of-the-town';
 import GetStarted from '../components/get-started';
 import SignUp from '../components/sign-up';
 import TrustedBy from '../components/product/trusted-by';
+import PageHead from '../components/common/page-head';
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Simplest Container Native CI/CD Platform',
+                description:
+                    'Manage your entire pipeline visually or put inside your codebase. No scripts, delays and downtime.'
+            }}
+        />
+    );
+};
 
 export default function Product() {
     return (

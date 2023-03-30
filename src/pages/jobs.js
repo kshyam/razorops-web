@@ -12,6 +12,7 @@ import img1 from '../assets/images/footer/careers/img1.png';
 import img2 from '../assets/images/footer/careers/img2.png';
 import img3 from '../assets/images/footer/careers/img3.png';
 import WhatIsRazorops from '../components/jenkins-alternative/what-is-razorops';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -173,6 +174,20 @@ const openPositions = [
         desc: 'We need a strong battletested Golang developer with experience developing in the Kubernetes operator SDK, runtime controller'
     }
 ];
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Careers',
+                description:
+                    'Come and join razorops team of Kubernetes System engineer to help us build great developer tools on Cloud Native DevOps platform.'
+            }}
+        />
+    );
+};
+
 export default function Jobs() {
     const openPositionsRef = useRef();
 

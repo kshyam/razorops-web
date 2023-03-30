@@ -147,14 +147,14 @@ const NoResultsGrid = styled(Grid)`
     }
 `;
 
-export const Head = ({ data, ...props }) => {
+export const Head = ({ ...props }) => {
     return (
         <PageHead
             {...props}
             meta={{
-                title: 'Razorops Webinars',
+                title: 'Webinars Razorops',
                 description:
-                    'Get the most out of RazorOps CI/CD with one of our free webinars. Whether you’re brand new DevOps or an experienced developer, we have the perfect workshops for you.'
+                    'Join the razorops webinars. Get the most out of Razorops CI/CD with one of our free webinars.'
             }}
         />
     );

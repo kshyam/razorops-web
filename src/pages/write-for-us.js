@@ -10,6 +10,7 @@ import { Grid } from '@mui/material';
 import { font6, font7 } from '../assets/globalStyles';
 import { WriteForUsContent } from '../components/common/constants';
 import GetStarted from '../components/common/get-started';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -53,6 +54,19 @@ const Sub = styled('span')`
     line-height: 32px;
     color: #293241;
 `;
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Write for US Razorops - CI/CD Platform',
+                description:
+                    'We are always looking for new authors to share the expertise in the Devops,CI/CD, Kubernetes, Docker, SDLC. Share your titles with Razorops. Also check out complete guidelines to publish an article in Razorops Blog.'
+            }}
+        />
+    );
+};
 
 export default function WriteForUs() {
     return (

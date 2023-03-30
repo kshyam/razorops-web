@@ -11,6 +11,7 @@ import { font2, font3, font6 } from '../assets/globalStyles';
 import HubspotForm from 'react-hubspot-form';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -173,6 +174,19 @@ const data = [
         ]
     }
 ];
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops, inc United States Canada Bengaluru Hyderabad',
+                description:
+                    'Razorops, inc United States Canada Bengaluru Hyderabad - Get in touch with us for continuous integration and continuous deployment on various cloud platform.'
+            }}
+        />
+    );
+};
 
 export default function Contact() {
     const [form, setForm] = React.useState(true);

@@ -14,6 +14,7 @@ import FrequentlyAskedQuestions from '../components/common/frequently-asked-ques
 import HubspotForm from 'react-hubspot-form';
 import { Link } from 'gatsby';
 import PartnersComponent from '../components/common/partners-component';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -260,6 +261,19 @@ const content = [
         sub: 'As the title suggests Razorops Referral Program is for individuals to earn commissions whereas the Razorops Partners Program is for companies to join and earn commissions.'
     }
 ];
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Partners Program',
+                description:
+                    'Join in Razorops Partners Program - check the Exclusive Partner Benefits & you can help your Clients to Automate their CI/CD Pipeline by Integrating the Razorops CI/CD Platform in their Workflow.'
+            }}
+        />
+    );
+};
 
 export default function Partners() {
     const [form, setForm] = React.useState(true);

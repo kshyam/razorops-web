@@ -8,6 +8,7 @@ import styled from '@emotion/styled';
 import { Button, Card, CardActions, CardContent, Grid } from '@mui/material';
 import { font2, font3, font6 } from '../assets/globalStyles';
 import { Link } from 'gatsby';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -150,6 +151,18 @@ const plans = [
         color: '#0069FF'
     }
 ];
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Support Plans',
+                description: 'Start with Free Plan, Scale when you feel, No credit card required.'
+            }}
+        />
+    );
+};
 
 export default function SupportPlans() {
     return (

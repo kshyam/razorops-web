@@ -21,6 +21,7 @@ import styled from '@emotion/styled';
 import { Grid } from '@mui/material';
 import { Link } from 'gatsby';
 import GetStarted from '../components/get-started';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -169,6 +170,20 @@ const data = [
     },
     { id: 11, img: quora, name: 'Quora', link: 'https://razorops.quora.com/' }
 ];
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Best CI/CD Tool Razorops - Community',
+                description:
+                    'Razorops is a Saas based CI/CD tool. It is also platform independent. Build your apps for any platform. Start Building.'
+            }}
+        />
+    );
+};
+
 export default function Community() {
     return (
         <>

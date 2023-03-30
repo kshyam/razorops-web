@@ -15,6 +15,7 @@ import TrustedBy from '../components/trusted-by';
 import { Link } from 'gatsby';
 import TalkOfTheTown from '../components/talk-of-the-town';
 import GetStarted from '../components/get-started';
+import PageHead from '../components/common/page-head';
 
 const ContentContainer = styled('div')`
     position: relative;
@@ -188,6 +189,19 @@ const content = [
         sub: 'Anyone and Everyone can join the Razorops Referral Program and earn referral commissions on new subscribers.'
     }
 ];
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Refer Razorops to Your Friends & Colleagues',
+                description:
+                    'Lets help your friends & colleagues to automate their continuous integration & continuous delivery or deployments easily by integrating the Razorpops - check how the referral programs & benefits.'
+            }}
+        />
+    );
+};
 
 export default function Referral() {
     return (

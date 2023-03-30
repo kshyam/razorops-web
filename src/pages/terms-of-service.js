@@ -2,7 +2,20 @@ import React from 'react';
 import termsOfService from '../assets/images/footer/terms-of-service.svg';
 import { FooterSupportSection } from '../components/common/constants';
 import FooterComponent from '../components/common/footer-component';
+import PageHead from '../components/common/page-head';
 import Footer from '../components/footer';
+
+export const Head = ({ ...props }) => {
+    return (
+        <PageHead
+            {...props}
+            meta={{
+                title: 'Razorops Terms of Service',
+                description: 'Razorops Terms of Service'
+            }}
+        />
+    );
+};
 
 export default function TermsOfService() {
     return (
